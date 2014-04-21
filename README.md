@@ -2,816 +2,764 @@
 
 This is a project to strip the FMOD Studio API out of the .chm file and into md files. Currently very messy. FMOD can be downloaded/purchased at http://www.fmod.org/ and the .chm file can be found in API_INSTALL_DIRECTORY/docs.
 
-FSBank API
-==========
-[Functions][]
-[Callbacks][]
-[Structures][]
-[Defines][]
-[Enumerations][]
+#FSBank API
+* [Functions][]
+* [Callbacks][]
+* [Structures][]
+* [Defines][]
+* [Enumerations][]
 
+#Studio API
+* [C++ interfaces][6]
+* [Functions][7]
+* [Structures][8]
+* [Defines][9]
+* [Enumerations][10]
 
-Studio API
-==========
+#Low Level API
 
-[C++ interfaces][6]\
- [Functions][7]\
- [Structures][8]\
- [Defines][9]\
- [Enumerations][10]\
-
- Low Level API
-=============
-
-[C++ interfaces][]\
- [Functions][1]\
- [Callbacks][2]\
- [Structures][3]\
- [Defines][4]\
- [Enumerations][5]\
+* [C++ interfaces][]
+* [Functions][1]
+* [Callbacks][2]
+* [Structures][3]
+* [Defines][4]
+* [Enumerations][5]
  
 
+##FSBank API
 
-Callbacks
-=========
-
-[FSBANK\_MEMORY\_ALLOC\_CALLBACK][]
-[FSBANK\_MEMORY\_FREE\_CALLBACK][]
-[FSBANK\_MEMORY\_REALLOC\_CALLBACK][]
-
-
-Defines
-=======
-
-[FSBANK\_BUILDFLAGS][]
-[FSBANK\_INITFLAGS][]
+###Callbacks
+* [FSBANK\_MEMORY\_ALLOC\_CALLBACK][]
+* [FSBANK\_MEMORY\_FREE\_CALLBACK][]
+* [FSBANK\_MEMORY\_REALLOC\_CALLBACK][]
 
 
-Enumerations
-============
-
-[FSBANK\_FORMAT][]
-[FSBANK\_FSBVERSION][]
-[FSBANK\_RESULT][]
-[FSBANK\_SPEAKERMAP][]
-[FSBANK\_STATE][]
+###Defines
+* [FSBANK\_BUILDFLAGS][]
+* [FSBANK\_INITFLAGS][]
 
 
-Functions
-=========
-
-[FSBank\_Build][]
-[FSBank\_BuildCancel][]
-[FSBank\_FetchNextProgressItem][]
-[FSBank\_Init][]
-[FSBank\_MemoryGetStats][]
-[FSBank\_MemoryInit][]
-[FSBank\_Release][]
-[FSBank\_ReleaseProgressItem][]
-
-Structures
-==========
-
-[FSBANK\_PROGRESSITEM][]
-[FSBANK\_STATEDATA\_FAILED][]
-[FSBANK\_STATEDATA\_WARNING][]
-[FSBANK\_SUBSOUND][]
+###Enumerations
+* [FSBANK\_FORMAT][]
+* [FSBANK\_FSBVERSION][]
+* [FSBANK\_RESULT][]
+* [FSBANK\_SPEAKERMAP][]
+* [FSBANK\_STATE][]
 
 
+###Functions
+* [FSBank\_Build][]
+* [FSBank\_BuildCancel][]
+* [FSBank\_FetchNextProgressItem][]
+* [FSBank\_Init][]
+* [FSBank\_MemoryGetStats][]
+* [FSBank\_MemoryInit][]
+* [FSBank\_Release][]
+* [FSBank\_ReleaseProgressItem][]
+
+###Structures
+* [FSBANK\_PROGRESSITEM][]
+* [FSBANK\_STATEDATA\_FAILED][]
+* [FSBANK\_STATEDATA\_WARNING][]
+* [FSBANK\_SUBSOUND][]
+
+##Low Level API
+
+###C++ interfaces
+
+* [System][]
+* [Sound][]
+* [ChannelControl][]
+* [Channel][]
+* [ChannelGroup][]
+* [SoundGroup][]
+* [DSP][]
+* [DSPConnection][]
+* [Geometry][]
+* [Reverb3D][]
+
+###Structures
 
 
+* [FMOD\_3D\_ATTRIBUTES][]
+* [FMOD\_ADVANCEDSETTINGS][]
+* [FMOD\_ASYNCREADINFO][]
+* [FMOD\_CODEC\_DESCRIPTION][]
+* [FMOD\_CODEC\_STATE][]
+* [FMOD\_CODEC\_WAVEFORMAT][]
+* [FMOD\_CREATESOUNDEXINFO][]
+* [FMOD\_DSP\_BUFFER\_ARRAY][]
+* [FMOD\_DSP\_DESCRIPTION][]
+* [FMOD\_DSP\_METERING\_INFO][]
+* [FMOD\_DSP\_PARAMETER\_3DATTRIBUTES][]
+* [FMOD\_DSP\_PARAMETER\_DESC][]
+* [FMOD\_DSP\_PARAMETER\_DESC\_BOOL][]
+* [FMOD\_DSP\_PARAMETER\_DESC\_DATA][]
+* [FMOD\_DSP\_PARAMETER\_DESC\_FLOAT][]
+* [FMOD\_DSP\_PARAMETER\_DESC\_INT][]
+* [FMOD\_DSP\_PARAMETER\_OVERALLGAIN][]
+* [FMOD\_DSP\_PARAMETER\_SIDECHAIN][]
+* [FMOD\_DSP\_STATE][]
+* [FMOD\_DSP\_STATE\_SYSTEMCALLBACKS][]
+* [FMOD\_ERRORCALLBACK\_INFO][]
+* [FMOD\_GUID][]
+* [FMOD\_OUTPUT\_DESCRIPTION][]
+* [FMOD\_OUTPUT\_STATE][]
+* [FMOD\_REVERB\_PROPERTIES][]
+* [FMOD\_TAG][]
+* [FMOD\_VECTOR][]
+* [piecewiselinearmapping][]
 
-Callbacks
-=========
+###Callbacks
 
-[FMOD\_3D\_ROLLOFF\_CALLBACK][]\
- [FMOD\_CHANNELCONTROL\_CALLBACK][]\
- [FMOD\_CODEC\_CLOSE\_CALLBACK][]\
- [FMOD\_CODEC\_GETLENGTH\_CALLBACK][]\
- [FMOD\_CODEC\_GETPOSITION\_CALLBACK][]\
- [FMOD\_CODEC\_METADATA\_CALLBACK][]\
- [FMOD\_CODEC\_OPEN\_CALLBACK][]\
- [FMOD\_CODEC\_READ\_CALLBACK][]\
- [FMOD\_CODEC\_SETPOSITION\_CALLBACK][]\
- [FMOD\_CODEC\_SOUNDCREATE\_CALLBACK][]\
- [FMOD\_DSP\_CREATE\_CALLBACK][]\
- [FMOD\_DSP\_DIALOG\_CALLBACK][]\
- [FMOD\_DSP\_GETPARAM\_BOOL\_CALLBACK][]\
- [FMOD\_DSP\_GETPARAM\_DATA\_CALLBACK][]\
- [FMOD\_DSP\_GETPARAM\_FLOAT\_CALLBACK][]\
- [FMOD\_DSP\_GETPARAM\_INT\_CALLBACK][]\
- [FMOD\_DSP\_PROCESS\_CALLBACK][]\
- [FMOD\_DSP\_READ\_CALLBACK][]\
- [FMOD\_DSP\_RELEASE\_CALLBACK][]\
- [FMOD\_DSP\_RESET\_CALLBACK][]\
- [FMOD\_DSP\_SETPARAM\_BOOL\_CALLBACK][]\
- [FMOD\_DSP\_SETPARAM\_DATA\_CALLBACK][]\
- [FMOD\_DSP\_SETPARAM\_FLOAT\_CALLBACK][]\
- [FMOD\_DSP\_SETPARAM\_INT\_CALLBACK][]\
- [FMOD\_DSP\_SETPOSITION\_CALLBACK][]\
- [FMOD\_DSP\_SHOULDIPROCESS\_CALLBACK][]\
- [FMOD\_FILE\_ASYNCCANCEL\_CALLBACK][]\
- [FMOD\_FILE\_ASYNCREAD\_CALLBACK][]\
- [FMOD\_FILE\_CLOSE\_CALLBACK][]\
- [FMOD\_FILE\_OPEN\_CALLBACK][]\
- [FMOD\_FILE\_READ\_CALLBACK][]\
- [FMOD\_FILE\_SEEK\_CALLBACK][]\
- [FMOD\_MEMORY\_ALLOC\_CALLBACK][]\
- [FMOD\_MEMORY\_FREE\_CALLBACK][]\
- [FMOD\_MEMORY\_REALLOC\_CALLBACK][]\
- [FMOD\_OUTPUT\_CLOSE\_CALLBACK][]\
- [FMOD\_OUTPUT\_GETDRIVERINFO\_CALLBACK][]\
- [FMOD\_OUTPUT\_GETHANDLE\_CALLBACK][]\
- [FMOD\_OUTPUT\_GETNUMDRIVERS\_CALLBACK][]\
- [FMOD\_OUTPUT\_GETPOSITION\_CALLBACK][]\
- [FMOD\_OUTPUT\_INIT\_CALLBACK][]\
- [FMOD\_OUTPUT\_LOCK\_CALLBACK][]\
- [FMOD\_OUTPUT\_READFROMMIXER][]\
- [FMOD\_OUTPUT\_UNLOCK\_CALLBACK][]\
- [FMOD\_OUTPUT\_UPDATE\_CALLBACK][]\
- [FMOD\_SOUND\_NONBLOCK\_CALLBACK][]\
- [FMOD\_SOUND\_PCMREAD\_CALLBACK][]\
- [FMOD\_SOUND\_PCMSETPOS\_CALLBACK][]\
- [FMOD\_SYSTEM\_CALLBACK][]\
- Firelight Technologies FMOD Studio API
+* [FMOD\_3D\_ROLLOFF\_CALLBACK][]
+* [FMOD\_CHANNELCONTROL\_CALLBACK][]
+* [FMOD\_DSP\_SETPARAM\_INT\_CALLBACK][]
+* [FMOD\_DSP\_SETPOSITION\_CALLBACK][]
+* [FMOD\_DSP\_SHOULDIPROCESS\_CALLBACK][]
+* [FMOD\_FILE\_ASYNCCANCEL\_CALLBACK][]
+* [FMOD\_FILE\_ASYNCREAD\_CALLBACK][]
+* [FMOD\_FILE\_CLOSE\_CALLBACK][]
+* [FMOD\_FILE\_OPEN\_CALLBACK][]
+* [FMOD\_FILE\_READ\_CALLBACK][]
+* [FMOD\_FILE\_SEEK\_CALLBACK][]
+* [FMOD\_MEMORY\_ALLOC\_CALLBACK][]
+* [FMOD\_MEMORY\_FREE\_CALLBACK][]
+* [FMOD\_MEMORY\_REALLOC\_CALLBACK][]
+* [FMOD\_OUTPUT\_CLOSE\_CALLBACK][]
+* [FMOD\_OUTPUT\_GETDRIVERINFO\_CALLBACK][]
+* [FMOD\_OUTPUT\_GETHANDLE\_CALLBACK][]
+* [FMOD\_OUTPUT\_GETNUMDRIVERS\_CALLBACK][]
+* [FMOD\_OUTPUT\_GETPOSITION\_CALLBACK][]
+* [FMOD\_OUTPUT\_INIT\_CALLBACK][]
+* [FMOD\_OUTPUT\_LOCK\_CALLBACK][]
+* [FMOD\_OUTPUT\_READFROMMIXER][]
+* [FMOD\_OUTPUT\_UNLOCK\_CALLBACK][]
+* [FMOD\_OUTPUT\_UPDATE\_CALLBACK][]
+* [FMOD\_SOUND\_NONBLOCK\_CALLBACK][]
+* [FMOD\_SOUND\_PCMREAD\_CALLBACK][]
+* [FMOD\_SOUND\_PCMSETPOS\_CALLBACK][]
+* [FMOD\_SYSTEM\_CALLBACK][]
 
-Channel
-=======
 
-Functions
----------
+###Channel
 
-[Channel::addDSP][]\
- [Channel::addFadePoint][]\
- [Channel::get3DAttributes][]\
- [Channel::get3DConeOrientation][]\
- [Channel::get3DConeSettings][]\
- [Channel::get3DCustomRolloff][]\
- [Channel::get3DDistanceFilter][]\
- [Channel::get3DDopplerLevel][]\
- [Channel::get3DLevel][]\
- [Channel::get3DMinMaxDistance][]\
- [Channel::get3DOcclusion][]\
- [Channel::get3DSpread][]\
- [Channel::getAudibility][]\
- [Channel::getChannelGroup][]\
- [Channel::getCurrentSound][]\
- [Channel::getDSP][]\
- [Channel::getDSPClock][]\
- [Channel::getDelay][]\
- [Channel::getFadePoints][]\
- [Channel::getFrequency][]\
- [Channel::getIndex][]\
- [Channel::getLoopCount][]\
- [Channel::getLoopPoints][]\
- [Channel::getLowPassGain][]\
- [Channel::getMixMatrix][]\
- [Channel::getMode][]\
- [Channel::getMute][]\
- [Channel::getNumDSPs][]\
- [Channel::getPaused][]\
- [Channel::getPitch][]\
- [Channel::getPosition][]\
- [Channel::getPriority][]\
- [Channel::getReverbProperties][]\
- [Channel::getSystemObject][]\
- [Channel::getUserData][]\
- [Channel::getVolume][]\
- [Channel::getVolumeRamp][]\
- [Channel::isPlaying][]\
- [Channel::isVirtual][]\
- [Channel::removeDSP][]\
- [Channel::removeFadePoints][]\
- [Channel::set3DAttributes][]\
- [Channel::set3DConeOrientation][]\
- [Channel::set3DConeSettings][]\
- [Channel::set3DCustomRolloff][]\
- [Channel::set3DDistanceFilter][]\
- [Channel::set3DDopplerLevel][]\
- [Channel::set3DLevel][]\
- [Channel::set3DMinMaxDistance][]\
- [Channel::set3DOcclusion][]\
- [Channel::set3DSpread][]\
- [Channel::setCallback][]\
- [Channel::setChannelGroup][]\
- [Channel::setDelay][]\
- [Channel::setFrequency][]\
- [Channel::setLoopCount][]\
- [Channel::setLoopPoints][]\
- [Channel::setLowPassGain][]\
- [Channel::setMixLevelsInput][]\
- [Channel::setMixLevelsOutput][]\
- [Channel::setMixMatrix][]\
- [Channel::setMode][]\
- [Channel::setMute][]\
- [Channel::setPan][]\
- [Channel::setPaused][]\
- [Channel::setPitch][]\
- [Channel::setPosition][]\
- [Channel::setPriority][]\
- [Channel::setReverbProperties][]\
- [Channel::setUserData][]\
- [Channel::setVolume][]\
- [Channel::setVolumeRamp][]\
- [Channel::stop][]\
- Firelight Technologies FMOD Studio API
+####Functions
 
-ChannelControl
-==============
+* [Channel::addDSP][]
+* [Channel::addFadePoint][]
+* [Channel::get3DAttributes][]
+* [Channel::get3DConeOrientation][]
+* [Channel::get3DConeSettings][]
+* [Channel::get3DCustomRolloff][]
+* [Channel::get3DDistanceFilter][]
+* [Channel::get3DDopplerLevel][]
+* [Channel::get3DLevel][]
+* [Channel::get3DMinMaxDistance][]
+* [Channel::get3DOcclusion][]
+* [Channel::get3DSpread][]
+* [Channel::getAudibility][]
+* [Channel::getChannelGroup][]
+* [Channel::getCurrentSound][]
+* [Channel::getDSP][]
+* [Channel::getDSPClock][]
+* [Channel::getDelay][]
+* [Channel::getFadePoints][]
+* [Channel::getFrequency][]
+* [Channel::getIndex][]
+* [Channel::getLoopCount][]
+* [Channel::getLoopPoints][]
+* [Channel::getLowPassGain][]
+* [Channel::getMixMatrix][]
+* [Channel::getMode][]
+* [Channel::getMute][]
+* [Channel::getNumDSPs][]
+* [Channel::getPaused][]
+* [Channel::getPitch][]
+* [Channel::getPosition][]
+* [Channel::getPriority][]
+* [Channel::getReverbProperties][]
+* [Channel::getSystemObject][]
+* [Channel::getUserData][]
+* [Channel::getVolume][]
+* [Channel::getVolumeRamp][]
+* [Channel::isPlaying][]
+* [Channel::isVirtual][]
+* [Channel::removeDSP][]
+* [Channel::removeFadePoints][]
+* [Channel::set3DAttributes][]
+* [Channel::set3DConeOrientation][]
+* [Channel::set3DConeSettings][]
+* [Channel::set3DCustomRolloff][]
+* [Channel::set3DDistanceFilter][]
+* [Channel::set3DDopplerLevel][]
+* [Channel::set3DLevel][]
+* [Channel::set3DMinMaxDistance][]
+* [Channel::set3DOcclusion][]
+* [Channel::set3DSpread][]
+* [Channel::setCallback][]
+* [Channel::setChannelGroup][]
+* [Channel::setDelay][]
+* [Channel::setFrequency][]
+* [Channel::setLoopCount][]
+* [Channel::setLoopPoints][]
+* [Channel::setLowPassGain][]
+* [Channel::setMixLevelsInput][]
+* [Channel::setMixLevelsOutput][]
+* [Channel::setMixMatrix][]
+* [Channel::setMode][]
+* [Channel::setMute][]
+* [Channel::setPan][]
+* [Channel::setPaused][]
+* [Channel::setPitch][]
+* [Channel::setPosition][]
+* [Channel::setPriority][]
+* [Channel::setReverbProperties][]
+* [Channel::setUserData][]
+* [Channel::setVolume][]
+* [Channel::setVolumeRamp][]
+* [Channel::stop][]
+ 
+
+###ChannelControl
 
 The base class for both Channels and Channel Groups.
 
-Functions
----------
+####Functions
 
-[ChannelControl::addDSP][]\
- [ChannelControl::addFadePoint][]\
- [ChannelControl::get3DAttributes][]\
- [ChannelControl::get3DConeOrientation][]\
- [ChannelControl::get3DConeSettings][]\
- [ChannelControl::get3DCustomRolloff][]\
- [ChannelControl::get3DDistanceFilter][]\
- [ChannelControl::get3DDopplerLevel][]\
- [ChannelControl::get3DLevel][]\
- [ChannelControl::get3DMinMaxDistance][]\
- [ChannelControl::get3DOcclusion][]\
- [ChannelControl::get3DSpread][]\
- [ChannelControl::getAudibility][]\
- [ChannelControl::getDSP][]\
- [ChannelControl::getDSPClock][]\
- [ChannelControl::getDelay][]\
- [ChannelControl::getFadePoints][]\
- [ChannelControl::getLowPassGain][]\
- [ChannelControl::getMixMatrix][]\
- [ChannelControl::getMute][]\
- [ChannelControl::getNumDSPs][]\
- [ChannelControl::getPaused][]\
- [ChannelControl::getPitch][]\
- [ChannelControl::getReverbProperties][]\
- [ChannelControl::getSystemObject][]\
- [ChannelControl::getUserData][]\
- [ChannelControl::getVolume][]\
- [ChannelControl::getVolumeRamp][]\
- [ChannelControl::isPlaying][]\
- [ChannelControl::removeDSP][]\
- [ChannelControl::removeFadePoints][]\
- [ChannelControl::set3DAttributes][]\
- [ChannelControl::set3DConeOrientation][]\
- [ChannelControl::set3DConeSettings][]\
- [ChannelControl::set3DCustomRolloff][]\
- [ChannelControl::set3DDistanceFilter][]\
- [ChannelControl::set3DDopplerLevel][]\
- [ChannelControl::set3DLevel][]\
- [ChannelControl::set3DMinMaxDistance][]\
- [ChannelControl::set3DOcclusion][]\
- [ChannelControl::set3DSpread][]\
- [ChannelControl::setCallback][]\
- [ChannelControl::setDelay][]\
- [ChannelControl::setLowPassGain][]\
- [ChannelControl::setMixLevelsInput][]\
- [ChannelControl::setMixLevelsOutput][]\
- [ChannelControl::setMixMatrix][]\
- [ChannelControl::setMute][]\
- [ChannelControl::setPan][]\
- [ChannelControl::setPaused][]\
- [ChannelControl::setPitch][]\
- [ChannelControl::setReverbProperties][]\
- [ChannelControl::setUserData][]\
- [ChannelControl::setVolume][]\
- [ChannelControl::setVolumeRamp][]\
- [ChannelControl::stop][]\
- Firelight Technologies FMOD Studio API
 
-ChannelGroup
-============
+* [ChannelControl::addDSP][]
+* [ChannelControl::addFadePoint][]
+* [ChannelControl::get3DAttributes][]
+* [ChannelControl::get3DConeOrientation][]
+* [ChannelControl::get3DConeSettings][]
+* [ChannelControl::get3DCustomRolloff][]
+* [ChannelControl::get3DDistanceFilter][]
+* [ChannelControl::get3DDopplerLevel][]
+* [ChannelControl::get3DLevel][]
+* [ChannelControl::get3DMinMaxDistance][]
+* [ChannelControl::get3DOcclusion][]
+* [ChannelControl::get3DSpread][]
+* [ChannelControl::getAudibility][]
+* [ChannelControl::getDSP][]
+* [ChannelControl::getDSPClock][]
+* [ChannelControl::getDelay][]
+* [ChannelControl::getFadePoints][]
+* [ChannelControl::getLowPassGain][]
+* [ChannelControl::getMixMatrix][]
+* [ChannelControl::getMute][]
+* [ChannelControl::getNumDSPs][]
+* [ChannelControl::getPaused][]
+* [ChannelControl::getPitch][]
+* [ChannelControl::getReverbProperties][]
+* [ChannelControl::getSystemObject][]
+* [ChannelControl::getUserData][]
+* [ChannelControl::getVolume][]
+* [ChannelControl::getVolumeRamp][]
+* [ChannelControl::isPlaying][]
+* [ChannelControl::removeDSP][]
+* [ChannelControl::removeFadePoints][]
+* [ChannelControl::set3DAttributes][]
+* [ChannelControl::set3DConeOrientation][]
+* [ChannelControl::set3DConeSettings][]
+* [ChannelControl::set3DCustomRolloff][]
+* [ChannelControl::set3DDistanceFilter][]
+* [ChannelControl::set3DDopplerLevel][]
+* [ChannelControl::set3DLevel][]
+* [ChannelControl::set3DMinMaxDistance][]
+* [ChannelControl::set3DOcclusion][]
+* [ChannelControl::set3DSpread][]
+* [ChannelControl::setCallback][]
+* [ChannelControl::setDelay][]
+* [ChannelControl::setLowPassGain][]
+* [ChannelControl::setMixLevelsInput][]
+* [ChannelControl::setMixLevelsOutput][]
+* [ChannelControl::setMixMatrix][]
+* [ChannelControl::setMute][]
+* [ChannelControl::setPan][]
+* [ChannelControl::setPaused][]
+* [ChannelControl::setPitch][]
+* [ChannelControl::setReverbProperties][]
+* [ChannelControl::setUserData][]
+* [ChannelControl::setVolume][]
+* [ChannelControl::setVolumeRamp][]
+* [ChannelControl::stop][]
 
-Functions
----------
+###ChannelGroup
 
-[ChannelGroup::addDSP][]\
- [ChannelGroup::addFadePoint][]\
- [ChannelGroup::addGroup][]\
- [ChannelGroup::get3DAttributes][]\
- [ChannelGroup::get3DConeOrientation][]\
- [ChannelGroup::get3DConeSettings][]\
- [ChannelGroup::get3DCustomRolloff][]\
- [ChannelGroup::get3DDistanceFilter][]\
- [ChannelGroup::get3DDopplerLevel][]\
- [ChannelGroup::get3DLevel][]\
- [ChannelGroup::get3DMinMaxDistance][]\
- [ChannelGroup::get3DOcclusion][]\
- [ChannelGroup::get3DSpread][]\
- [ChannelGroup::getAudibility][]\
- [ChannelGroup::getChannel][]\
- [ChannelGroup::getDSP][]\
- [ChannelGroup::getDSPClock][]\
- [ChannelGroup::getDSPIndex][]\
- [ChannelGroup::getDelay][]\
- [ChannelGroup::getFadePoints][]\
- [ChannelGroup::getGroup][]\
- [ChannelGroup::getLowPassGain][]\
- [ChannelGroup::getMixMatrix][]\
- [ChannelGroup::getMute][]\
- [ChannelGroup::getName][]\
- [ChannelGroup::getNumChannels][]\
- [ChannelGroup::getNumDSPs][]\
- [ChannelGroup::getNumGroups][]\
- [ChannelGroup::getParentGroup][]\
- [ChannelGroup::getPaused][]\
- [ChannelGroup::getPitch][]\
- [ChannelGroup::getReverbProperties][]\
- [ChannelGroup::getSystemObject][]\
- [ChannelGroup::getUserData][]\
- [ChannelGroup::getVolume][]\
- [ChannelGroup::getVolumeRamp][]\
- [ChannelGroup::isPlaying][]\
- [ChannelGroup::release][]\
- [ChannelGroup::removeDSP][]\
- [ChannelGroup::removeFadePoints][]\
- [ChannelGroup::set3DAttributes][]\
- [ChannelGroup::set3DConeOrientation][]\
- [ChannelGroup::set3DConeSettings][]\
- [ChannelGroup::set3DCustomRolloff][]\
- [ChannelGroup::set3DDistanceFilter][]\
- [ChannelGroup::set3DDopplerLevel][]\
- [ChannelGroup::set3DLevel][]\
- [ChannelGroup::set3DMinMaxDistance][]\
- [ChannelGroup::set3DOcclusion][]\
- [ChannelGroup::set3DSpread][]\
- [ChannelGroup::setCallback][]\
- [ChannelGroup::setDSPIndex][]\
- [ChannelGroup::setDelay][]\
- [ChannelGroup::setLowPassGain][]\
- [ChannelGroup::setMixLevelsInput][]\
- [ChannelGroup::setMixLevelsOutput][]\
- [ChannelGroup::setMixMatrix][]\
- [ChannelGroup::setMute][]\
- [ChannelGroup::setPan][]\
- [ChannelGroup::setPaused][]\
- [ChannelGroup::setPitch][]\
- [ChannelGroup::setReverbProperties][]\
- [ChannelGroup::setUserData][]\
- [ChannelGroup::setVolume][]\
- [ChannelGroup::setVolumeRamp][]\
- [ChannelGroup::stop][]\
- Firelight Technologies FMOD Studio API
 
-Defines
-=======
+####Functions
+* [ChannelGroup::addDSP][]
+* [ChannelGroup::addFadePoint][]
+* [ChannelGroup::addGroup][]
+* [ChannelGroup::get3DAttributes][]
+* [ChannelGroup::get3DConeOrientation][]
+* [ChannelGroup::get3DConeSettings][]
+* [ChannelGroup::get3DCustomRolloff][]
+* [ChannelGroup::get3DDistanceFilter][]
+* [ChannelGroup::get3DDopplerLevel][]
+* [ChannelGroup::get3DLevel][]
+* [ChannelGroup::get3DMinMaxDistance][]
+* [ChannelGroup::get3DOcclusion][]
+* [ChannelGroup::get3DSpread][]
+* [ChannelGroup::getAudibility][]
+* [ChannelGroup::getChannel][]
+* [ChannelGroup::getDSP][]
+* [ChannelGroup::getDSPClock][]
+* [ChannelGroup::getDSPIndex][]
+* [ChannelGroup::getDelay][]
+* [ChannelGroup::getFadePoints][]
+* [ChannelGroup::getGroup][]
+* [ChannelGroup::getLowPassGain][]
+* [ChannelGroup::getMixMatrix][]
+* [ChannelGroup::getMute][]
+* [ChannelGroup::getName][]
+* [ChannelGroup::getNumChannels][]
+* [ChannelGroup::getNumDSPs][]
+* [ChannelGroup::getNumGroups][]
+* [ChannelGroup::getParentGroup][]
+* [ChannelGroup::getPaused][]
+* [ChannelGroup::getPitch][]
+* [ChannelGroup::getReverbProperties][]
+* [ChannelGroup::getSystemObject][]
+* [ChannelGroup::getUserData][]
+* [ChannelGroup::getVolume][]
+* [ChannelGroup::getVolumeRamp][]
+* [ChannelGroup::isPlaying][]
+* [ChannelGroup::release][]
+* [ChannelGroup::removeDSP][]
+* [ChannelGroup::removeFadePoints][]
+* [ChannelGroup::set3DAttributes][]
+* [ChannelGroup::set3DConeOrientation][]
+* [ChannelGroup::set3DConeSettings][]
+* [ChannelGroup::set3DCustomRolloff][]
+* [ChannelGroup::set3DDistanceFilter][]
+* [ChannelGroup::set3DDopplerLevel][]
+* [ChannelGroup::set3DLevel][]
+* [ChannelGroup::set3DMinMaxDistance][]
+* [ChannelGroup::set3DOcclusion][]
+* [ChannelGroup::set3DSpread][]
+* [ChannelGroup::setCallback][]
+* [ChannelGroup::setDSPIndex][]
+* [ChannelGroup::setDelay][]
+* [ChannelGroup::setLowPassGain][]
+* [ChannelGroup::setMixLevelsInput][]
+* [ChannelGroup::setMixLevelsOutput][]
+* [ChannelGroup::setMixMatrix][]
+* [ChannelGroup::setMute][]
+* [ChannelGroup::setPan][]
+* [ChannelGroup::setPaused][]
+* [ChannelGroup::setPitch][]
+* [ChannelGroup::setReverbProperties][]
+* [ChannelGroup::setUserData][]
+* [ChannelGroup::setVolume][]
+* [ChannelGroup::setVolumeRamp][]
+* [ChannelGroup::stop][]
+ 
 
-[FMOD\_CHANNELMASK][]\
- [FMOD\_CODEC\_WAVEFORMAT\_VERSION][]\
- [FMOD\_DEBUGLEVEL][]\
- [FMOD\_INITFLAGS][]\
- [FMOD\_MEMORY\_TYPE][]\
- [FMOD\_MODE][FMOD\_OPENMEMORY\_POINT]\
- [FMOD\_PORT\_INDEX][]\
- [FMOD\_REVERB\_PRESETS][]\
- [FMOD\_SYSTEM\_CALLBACK\_TYPE][]\
- [FMOD\_TIMEUNIT][]\
- Firelight Technologies FMOD Studio API
+###Defines
 
-DSP
-===
+* [FMOD\_CHANNELMASK][]
+* [FMOD\_CODEC\_WAVEFORMAT\_VERSION][]
+* [FMOD\_DEBUGLEVEL][]
+* [FMOD\_INITFLAGS][]
+* [FMOD\_MEMORY\_TYPE][]
+* [FMOD\_MODE][] //TODO: make sure reference is right
+* [FMOD\_OPENMEMORY\_POINT][] //TODO: make sure reference is right
+* [FMOD\_PORT\_INDEX][]
+* [FMOD\_REVERB\_PRESETS][]
+* [FMOD\_SYSTEM\_CALLBACK\_TYPE][]
+* [FMOD\_TIMEUNIT][]
 
-Functions
----------
+###DSP
 
-[DSP::addInput][]\
- [DSP::disconnectAll][]\
- [DSP::disconnectFrom][]\
- [DSP::getActive][]\
- [DSP::getBypass][]\
- [DSP::getChannelFormat][]\
- [DSP::getDataParameterIndex][]\
- [DSP::getIdle][]\
- [DSP::getInfo][]\
- [DSP::getInput][]\
- [DSP::getMeteringEnabled][]\
- [DSP::getMeteringInfo][]\
- [DSP::getNumInputs][]\
- [DSP::getNumOutputs][]\
- [DSP::getNumParameters][]\
- [DSP::getOutput][]\
- [DSP::getOutputChannelFormat][]\
- [DSP::getParameterBool][]\
- [DSP::getParameterData][]\
- [DSP::getParameterFloat][]\
- [DSP::getParameterInfo][]\
- [DSP::getParameterInt][]\
- [DSP::getSystemObject][]\
- [DSP::getType][]\
- [DSP::getUserData][]\
- [DSP::release][]\
- [DSP::reset][]\
- [DSP::setActive][]\
- [DSP::setBypass][]\
- [DSP::setChannelFormat][]\
- [DSP::setMeteringEnabled][]\
- [DSP::setParameterBool][]\
- [DSP::setParameterData][]\
- [DSP::setParameterFloat][]\
- [DSP::setParameterInt][]\
- [DSP::setUserData][]\
- [DSP::showConfigDialog][]\
- Firelight Technologies FMOD Studio API
+####Functions
 
-DSPConnection
-=============
+* [DSP::addInput][]
+* [DSP::disconnectAll][]
+* [DSP::disconnectFrom][]
+* [DSP::getActive][]
+* [DSP::getBypass][]
+* [DSP::getChannelFormat][]
+* [DSP::getDataParameterIndex][]
+* [DSP::getIdle][]
+* [DSP::getInfo][]
+* [DSP::getInput][]
+* [DSP::getMeteringEnabled][]
+* [DSP::getMeteringInfo][]
+* [DSP::getNumInputs][]
+* [DSP::getNumOutputs][]
+* [DSP::getNumParameters][]
+* [DSP::getOutput][]
+* [DSP::getOutputChannelFormat][]
+* [DSP::getParameterBool][]
+* [DSP::getParameterData][]
+* [DSP::getParameterFloat][]
+* [DSP::getParameterInfo][]
+* [DSP::getParameterInt][]
+* [DSP::getSystemObject][]
+* [DSP::getType][]
+* [DSP::getUserData][]
+* [DSP::release][]
+* [DSP::reset][]
+* [DSP::setActive][]
+* [DSP::setBypass][]
+* [DSP::setChannelFormat][]
+* [DSP::setMeteringEnabled][]
+* [DSP::setParameterBool][]
+* [DSP::setParameterData][]
+* [DSP::setParameterFloat][]
+* [DSP::setParameterInt][]
+* [DSP::setUserData][]
+* [DSP::showConfigDialog][]
 
-Functions
----------
+###DSPConnection
 
-[DSPConnection::getInput][]\
- [DSPConnection::getMix][]\
- [DSPConnection::getMixMatrix][]\
- [DSPConnection::getOutput][]\
- [DSPConnection::getType][]\
- [DSPConnection::getUserData][]\
- [DSPConnection::setMix][]\
- [DSPConnection::setMixMatrix][]\
- [DSPConnection::setUserData][]\
- Firelight Technologies FMOD Studio API
+####Functions
 
-Enumerations
-============
 
-[FMOD\_CHANNELCONTROL\_CALLBACK\_TYPE][]\
- [FMOD\_CHANNELCONTROL\_DSP\_INDEX][]\
- [FMOD\_CHANNELCONTROL\_TYPE][]\
- [FMOD\_CHANNELORDER][]\
- [FMOD\_DSPCONNECTION\_TYPE][]\
- [FMOD\_DSP\_CHORUS][]\
- [FMOD\_DSP\_COMPRESSOR][]\
- [FMOD\_DSP\_DELAY][]\
- [FMOD\_DSP\_DISTORTION][]\
- [FMOD\_DSP\_ECHO][]\
- [FMOD\_DSP\_ENVELOPEFOLLOWER][]\
- [FMOD\_DSP\_FFT][]\
- [FMOD\_DSP\_FFT\_WINDOW][]\
- [FMOD\_DSP\_FLANGE][]\
- [FMOD\_DSP\_HIGHPASS][]\
- [FMOD\_DSP\_HIGHPASS\_SIMPLE][]\
- [FMOD\_DSP\_ITECHO][]\
- [FMOD\_DSP\_ITLOWPASS][]\
- [FMOD\_DSP\_LIMITER][]\
- [FMOD\_DSP\_LOWPASS][]\
- [FMOD\_DSP\_LOWPASS\_SIMPLE][]\
- [FMOD\_DSP\_NORMALIZE][]\
- [FMOD\_DSP\_OSCILLATOR][]\
- [FMOD\_DSP\_PAN][]\
- [FMOD\_DSP\_PAN\_3D\_EXTENT\_MODE\_TYPE][]\
- [FMOD\_DSP\_PAN\_3D\_ROLLOFF\_TYPE][]\
- [FMOD\_DSP\_PAN\_SURROUND\_FROM\_STEREO\_MODE\_TYPE][]\
- [FMOD\_DSP\_PARAMEQ][]\
- [FMOD\_DSP\_PARAMETER\_DATA\_TYPE][]\
- [FMOD\_DSP\_PARAMETER\_FLOAT\_MAPPING\_TYPE][]\
- [FMOD\_DSP\_PARAMETER\_TYPE][]\
- [FMOD\_DSP\_PITCHSHIFT][]\
- [FMOD\_DSP\_PROCESS\_OPERATION][]\
- [FMOD\_DSP\_RESAMPLER][]\
- [FMOD\_DSP\_RETURN][]\
- [FMOD\_DSP\_SEND][]\
- [FMOD\_DSP\_SFXREVERB][]\
- [FMOD\_DSP\_THREE\_EQ][]\
- [FMOD\_DSP\_THREE\_EQ\_CROSSOVERSLOPE\_TYPE][]\
- [FMOD\_DSP\_TREMOLO][]\
- [FMOD\_DSP\_TYPE][]\
- [FMOD\_ERRORCALLBACK\_INSTANCETYPE][]\
- [FMOD\_OPENSTATE][]\
- [FMOD\_OUTPUTTYPE][]\
- [FMOD\_PLUGINTYPE][]\
- [FMOD\_RESULT][]\
- [FMOD\_SOUNDGROUP\_BEHAVIOR][]\
- [FMOD\_SOUND\_FORMAT][]\
- [FMOD\_SOUND\_TYPE][]\
- [FMOD\_SPEAKER][]\
- [FMOD\_SPEAKERMODE][]\
- [FMOD\_TAGDATATYPE][]\
- [FMOD\_TAGTYPE][]\
- Firelight Technologies FMOD Studio API
+* [DSPConnection::getInput][]
+* [DSPConnection::getMix][]
+* [DSPConnection::getMixMatrix][]
+* [DSPConnection::getOutput][]
+* [DSPConnection::getType][]
+* [DSPConnection::getUserData][]
+* [DSPConnection::setMix][]
+* [DSPConnection::setMixMatrix][]
+* [DSPConnection::setUserData][]
 
-Functions
-=========
+####Enumerations
 
-[Debug\_GetLevel][]\
- [Debug\_SetLevel][]\
- [File\_GetDiskBusy][]\
- [File\_SetDiskBusy][]\
- [Memory\_GetStats][]\
- [Memory\_Initialize][]\
- [System\_Create][]\
- Firelight Technologies FMOD Studio API
+* [FMOD\_CHANNELCONTROL\_CALLBACK\_TYPE][]
+* [FMOD\_CHANNELCONTROL\_DSP\_INDEX][]
+* [FMOD\_CHANNELCONTROL\_TYPE][]
+* [FMOD\_CHANNELORDER][]
+* [FMOD\_DSPCONNECTION\_TYPE][]
+* [FMOD\_DSP\_CHORUS][]
+* [FMOD\_DSP\_COMPRESSOR][]
+* [FMOD\_DSP\_DELAY][]
+* [FMOD\_DSP\_DISTORTION][]
+* [FMOD\_DSP\_ECHO][]
+* [FMOD\_DSP\_ENVELOPEFOLLOWER][]
+* [FMOD\_DSP\_FFT][]
+* [FMOD\_DSP\_FFT\_WINDOW][]
+* [FMOD\_DSP\_FLANGE][]
+* [FMOD\_DSP\_HIGHPASS][]
+* [FMOD\_DSP\_HIGHPASS\_SIMPLE][]
+* [FMOD\_DSP\_ITECHO][]
+* [FMOD\_DSP\_ITLOWPASS][]
+* [FMOD\_DSP\_LIMITER][]
+* [FMOD\_DSP\_LOWPASS][]
+* [FMOD\_DSP\_LOWPASS\_SIMPLE][]
+* [FMOD\_DSP\_NORMALIZE][]
+* [FMOD\_DSP\_OSCILLATOR][]
+* [FMOD\_DSP\_PAN][]
+* [FMOD\_DSP\_PAN\_3D\_EXTENT\_MODE\_TYPE][]
+* [FMOD\_DSP\_PAN\_3D\_ROLLOFF\_TYPE][]
+* [FMOD\_DSP\_PAN\_SURROUND\_FROM\_STEREO\_MODE\_TYPE][]
+* [FMOD\_DSP\_PARAMEQ][]
+* [FMOD\_DSP\_PARAMETER\_DATA\_TYPE][]
+* [FMOD\_DSP\_PARAMETER\_FLOAT\_MAPPING\_TYPE][]
+* [FMOD\_DSP\_PARAMETER\_TYPE][]
+* [FMOD\_DSP\_PITCHSHIFT][]
+* [FMOD\_DSP\_PROCESS\_OPERATION][]
+* [FMOD\_DSP\_RESAMPLER][]
+* [FMOD\_DSP\_RETURN][]
+* [FMOD\_DSP\_SEND][]
+* [FMOD\_DSP\_SFXREVERB][]
+* [FMOD\_DSP\_THREE\_EQ][]
+* [FMOD\_DSP\_THREE\_EQ\_CROSSOVERSLOPE\_TYPE][]
+* [FMOD\_DSP\_TREMOLO][]
+* [FMOD\_DSP\_TYPE][]
+* [FMOD\_ERRORCALLBACK\_INSTANCETYPE][]
+* [FMOD\_OPENSTATE][]
+* [FMOD\_OUTPUTTYPE][]
+* [FMOD\_PLUGINTYPE][]
+* [FMOD\_RESULT][]
+* [FMOD\_SOUNDGROUP\_BEHAVIOR][]
+* [FMOD\_SOUND\_FORMAT][]
+* [FMOD\_SOUND\_TYPE][]
+* [FMOD\_SPEAKER][]
+* [FMOD\_SPEAKERMODE][]
+* [FMOD\_TAGDATATYPE][]
+* [FMOD\_TAGTYPE][]
 
-Geometry
-========
+###Functions
 
-Functions
----------
 
-[Geometry::addPolygon][]\
- [Geometry::getActive][]\
- [Geometry::getMaxPolygons][]\
- [Geometry::getNumPolygons][]\
- [Geometry::getPolygonAttributes][]\
- [Geometry::getPolygonNumVertices][]\
- [Geometry::getPolygonVertex][]\
- [Geometry::getPosition][]\
- [Geometry::getRotation][]\
- [Geometry::getScale][]\
- [Geometry::getUserData][]\
- [Geometry::release][]\
- [Geometry::save][]\
- [Geometry::setActive][]\
- [Geometry::setPolygonAttributes][]\
- [Geometry::setPolygonVertex][]\
- [Geometry::setPosition][]\
- [Geometry::setRotation][]\
- [Geometry::setScale][]\
- [Geometry::setUserData][]\
- Firelight Technologies FMOD Studio API
+* [Debug\_GetLevel][]
+* [Debug\_SetLevel][]
+* [File\_GetDiskBusy][]
+* [File\_SetDiskBusy][]
+* [Memory\_GetStats][]
+* [Memory\_Initialize][]
+* [System\_Create][]
+ 
 
-C++ interfaces
-==============
+###Geometry
 
-[System][]\
- [Sound][]\
- [ChannelControl][]\
- [Channel][]\
- [ChannelGroup][]\
- [SoundGroup][]\
- [DSP][]\
- [DSPConnection][]\
- [Geometry][]\
- [Reverb3D][]\
- Firelight Technologies FMOD Studio API
 
-Reverb3D
-========
+####Functions
 
-Functions
----------
 
-[Reverb3D::get3DAttributes][]\
- [Reverb3D::getActive][]\
- [Reverb3D::getProperties][]\
- [Reverb3D::getUserData][]\
- [Reverb3D::release][]\
- [Reverb3D::set3DAttributes][]\
- [Reverb3D::setActive][]\
- [Reverb3D::setProperties][]\
- [Reverb3D::setUserData][]\
- Firelight Technologies FMOD Studio API
+* [Geometry::addPolygon][]
+* [Geometry::getActive][]
+* [Geometry::getMaxPolygons][]
+* [Geometry::getNumPolygons][]
+* [Geometry::getPolygonAttributes][]
+* [Geometry::getPolygonNumVertices][]
+* [Geometry::getPolygonVertex][]
+* [Geometry::getPosition][]
+* [Geometry::getRotation][]
+* [Geometry::getScale][]
+* [Geometry::getUserData][]
+* [Geometry::release][]
+* [Geometry::save][]
+* [Geometry::setActive][]
+* [Geometry::setPolygonAttributes][]
+* [Geometry::setPolygonVertex][]
+* [Geometry::setPosition][]
+* [Geometry::setRotation][]
+* [Geometry::setScale][]
+* [Geometry::setUserData][]
+ 
 
-Sound
-=====
 
-Functions
----------
 
-[Sound::addSyncPoint][]\
- [Sound::deleteSyncPoint][]\
- [Sound::get3DConeSettings][]\
- [Sound::get3DCustomRolloff][]\
- [Sound::get3DMinMaxDistance][]\
- [Sound::getDefaults][]\
- [Sound::getFormat][]\
- [Sound::getLength][]\
- [Sound::getLoopCount][]\
- [Sound::getLoopPoints][]\
- [Sound::getMode][]\
- [Sound::getMusicChannelVolume][]\
- [Sound::getMusicNumChannels][]\
- [Sound::getMusicSpeed][]\
- [Sound::getName][]\
- [Sound::getNumSubSounds][]\
- [Sound::getNumSyncPoints][]\
- [Sound::getNumTags][]\
- [Sound::getOpenState][]\
- [Sound::getSoundGroup][]\
- [Sound::getSubSound][]\
- [Sound::getSubSoundParent][]\
- [Sound::getSyncPoint][]\
- [Sound::getSyncPointInfo][]\
- [Sound::getSystemObject][]\
- [Sound::getTag][]\
- [Sound::getUserData][]\
- [Sound::lock][]\
- [Sound::readData][]\
- [Sound::release][]\
- [Sound::seekData][]\
- [Sound::set3DConeSettings][]\
- [Sound::set3DCustomRolloff][]\
- [Sound::set3DMinMaxDistance][]\
- [Sound::setDefaults][]\
- [Sound::setLoopCount][]\
- [Sound::setLoopPoints][]\
- [Sound::setMode][]\
- [Sound::setMusicChannelVolume][]\
- [Sound::setMusicSpeed][]\
- [Sound::setSoundGroup][]\
- [Sound::setSubSound][]\
- [Sound::setUserData][]\
- [Sound::unlock][]\
- Firelight Technologies FMOD Studio API
+###Reverb3D
 
-SoundGroup
-==========
 
-Functions
----------
+####Functions
 
-[SoundGroup::getMaxAudible][]\
- [SoundGroup::getMaxAudibleBehavior][]\
- [SoundGroup::getMuteFadeSpeed][]\
- [SoundGroup::getName][]\
- [SoundGroup::getNumPlaying][]\
- [SoundGroup::getNumSounds][]\
- [SoundGroup::getSound][]\
- [SoundGroup::getSystemObject][]\
- [SoundGroup::getUserData][]\
- [SoundGroup::getVolume][]\
- [SoundGroup::release][]\
- [SoundGroup::setMaxAudible][]\
- [SoundGroup::setMaxAudibleBehavior][]\
- [SoundGroup::setMuteFadeSpeed][]\
- [SoundGroup::setUserData][]\
- [SoundGroup::setVolume][]\
- [SoundGroup::stop][]\
- Firelight Technologies FMOD Studio API
 
-Structures
-==========
+* [Reverb3D::get3DAttributes][]
+* [Reverb3D::getActive][]
+* [Reverb3D::getProperties][]
+* [Reverb3D::getUserData][]
+* [Reverb3D::release][]
+* [Reverb3D::set3DAttributes][]
+* [Reverb3D::setActive][]
+* [Reverb3D::setProperties][]
+* [Reverb3D::setUserData][]
+ 
 
-[FMOD\_3D\_ATTRIBUTES][]\
- [FMOD\_ADVANCEDSETTINGS][]\
- [FMOD\_ASYNCREADINFO][]\
- [FMOD\_CODEC\_DESCRIPTION][]\
- [FMOD\_CODEC\_STATE][]\
- [FMOD\_CODEC\_WAVEFORMAT][]\
- [FMOD\_CREATESOUNDEXINFO][]\
- [FMOD\_DSP\_BUFFER\_ARRAY][]\
- [FMOD\_DSP\_DESCRIPTION][]\
- [FMOD\_DSP\_METERING\_INFO][]\
- [FMOD\_DSP\_PARAMETER\_3DATTRIBUTES][]\
- [FMOD\_DSP\_PARAMETER\_DESC][]\
- [FMOD\_DSP\_PARAMETER\_DESC\_BOOL][]\
- [FMOD\_DSP\_PARAMETER\_DESC\_DATA][]\
- [FMOD\_DSP\_PARAMETER\_DESC\_FLOAT][]\
- [FMOD\_DSP\_PARAMETER\_DESC\_INT][]\
- [FMOD\_DSP\_PARAMETER\_OVERALLGAIN][]\
- [FMOD\_DSP\_PARAMETER\_SIDECHAIN][]\
- [FMOD\_DSP\_STATE][]\
- [FMOD\_DSP\_STATE\_SYSTEMCALLBACKS][]\
- [FMOD\_ERRORCALLBACK\_INFO][]\
- [FMOD\_GUID][]\
- [FMOD\_OUTPUT\_DESCRIPTION][]\
- [FMOD\_OUTPUT\_STATE][]\
- [FMOD\_REVERB\_PROPERTIES][]\
- [FMOD\_TAG][]\
- [FMOD\_VECTOR][]\
- [piecewiselinearmapping][]\
- Firelight Technologies FMOD Studio API
+###Sound
 
-System
-======
+
+####Functions
+
+
+* [Sound::addSyncPoint][]
+* [Sound::deleteSyncPoint][]
+* [Sound::get3DConeSettings][]
+* [Sound::get3DCustomRolloff][]
+* [Sound::get3DMinMaxDistance][]
+* [Sound::getDefaults][]
+* [Sound::getFormat][]
+* [Sound::getLength][]
+* [Sound::getLoopCount][]
+* [Sound::getLoopPoints][]
+* [Sound::getMode][]
+* [Sound::getMusicChannelVolume][]
+* [Sound::getMusicNumChannels][]
+* [Sound::getMusicSpeed][]
+* [Sound::getName][]
+* [Sound::getNumSubSounds][]
+* [Sound::getNumSyncPoints][]
+* [Sound::getNumTags][]
+* [Sound::getOpenState][]
+* [Sound::getSoundGroup][]
+* [Sound::getSubSound][]
+* [Sound::getSubSoundParent][]
+* [Sound::getSyncPoint][]
+* [Sound::getSyncPointInfo][]
+* [Sound::getSystemObject][]
+* [Sound::getTag][]
+* [Sound::getUserData][]
+* [Sound::lock][]
+* [Sound::readData][]
+* [Sound::release][]
+* [Sound::seekData][]
+* [Sound::set3DConeSettings][]
+* [Sound::set3DCustomRolloff][]
+* [Sound::set3DMinMaxDistance][]
+* [Sound::setDefaults][]
+* [Sound::setLoopCount][]
+* [Sound::setLoopPoints][]
+* [Sound::setMode][]
+* [Sound::setMusicChannelVolume][]
+* [Sound::setMusicSpeed][]
+* [Sound::setSoundGroup][]
+* [Sound::setSubSound][]
+* [Sound::setUserData][]
+* [Sound::unlock][]
+
+###SoundGroup
+
+
+####Functions
+
+* [SoundGroup::getMaxAudible][]
+* [SoundGroup::getMaxAudibleBehavior][]
+* [SoundGroup::getMuteFadeSpeed][]
+* [SoundGroup::getName][]
+* [SoundGroup::getNumPlaying][]
+* [SoundGroup::getNumSounds][]
+* [SoundGroup::getSound][]
+* [SoundGroup::getSystemObject][]
+* [SoundGroup::getUserData][]
+* [SoundGroup::getVolume][]
+* [SoundGroup::release][]
+* [SoundGroup::setMaxAudible][]
+* [SoundGroup::setMaxAudibleBehavior][]
+* [SoundGroup::setMuteFadeSpeed][]
+* [SoundGroup::setUserData][]
+* [SoundGroup::setVolume][]
+* [SoundGroup::stop][]
+
+
+
+ 
+
+###System
+
 
 The main object for the FMOD Low Level System.
 
-Functions
----------
+####Functions
 
-[System::attachChannelGroupToPort][]\
- [System::attachFileSystem][]\
- [System::close][]\
- [System::createChannelGroup][]\
- [System::createDSP][]\
- [System::createDSPByPlugin][]\
- [System::createDSPByType][]\
- [System::createGeometry][]\
- [System::createReverb3D][]\
- [System::createSound][]\
- [System::createSoundGroup][]\
- [System::createStream][]\
- [System::detachChannelGroupFromPort][]\
- [System::get3DListenerAttributes][]\
- [System::get3DNumListeners][]\
- [System::get3DSettings][]\
- [System::getAdvancedSettings][]\
- [System::getCPUUsage][]\
- [System::getChannel][]\
- [System::getChannelsPlaying][]\
- [System::getDSPBufferSize][]\
- [System::getDSPInfoByPlugin][]\
- [System::getDriver][]\
- [System::getDriverInfo][]\
- [System::getGeometryOcclusion][]\
- [System::getGeometrySettings][]\
- [System::getMasterChannelGroup][]\
- [System::getMasterSoundGroup][]\
- [System::getNetworkProxy][]\
- [System::getNetworkTimeout][]\
- [System::getNumDrivers][]\
- [System::getNumPlugins][]\
- [System::getOutput][]\
- [System::getOutputByPlugin][]\
- [System::getOutputHandle][]\
- [System::getPluginHandle][]\
- [System::getPluginInfo][]\
- [System::getRecordDriverInfo][]\
- [System::getRecordNumDrivers][]\
- [System::getRecordPosition][]\
- [System::getReverbProperties][]\
- [System::getSoftwareChannels][]\
- [System::getSoftwareFormat][]\
- [System::getSoundRAM][]\
- [System::getSpeakerPosition][]\
- [System::getStreamBufferSize][]\
- [System::getUserData][]\
- [System::getVersion][]\
- [System::init][]\
- [System::isRecording][]\
- [System::loadGeometry][]\
- [System::loadPlugin][]\
- [System::lockDSP][]\
- [System::mixerResume][]\
- [System::mixerSuspend][]\
- [System::playDSP][]\
- [System::playSound][]\
- [System::recordStart][]\
- [System::recordStop][]\
- [System::registerCodec][]\
- [System::registerDSP][]\
- [System::release][]\
- [System::set3DListenerAttributes][]\
- [System::set3DNumListeners][]\
- [System::set3DRolloffCallback][]\
- [System::set3DSettings][]\
- [System::setAdvancedSettings][]\
- [System::setCallback][]\
- [System::setDSPBufferSize][]\
- [System::setDriver][]\
- [System::setFileSystem][]\
- [System::setGeometrySettings][]\
- [System::setNetworkProxy][]\
- [System::setNetworkTimeout][]\
- [System::setOutput][]\
- [System::setOutputByPlugin][]\
- [System::setPluginPath][]\
- [System::setReverbProperties][]\
- [System::setSoftwareChannels][]\
- [System::setSoftwareFormat][]\
- [System::setSpeakerPosition][]\
- [System::setStreamBufferSize][]\
- [System::setUserData][]\
- [System::unloadPlugin][]\
- [System::unlockDSP][]\
- [System::update][]\
- Remarks -------
+
+* [System::attachChannelGroupToPort][]
+* [System::attachFileSystem][]
+* [System::close][]
+* [System::createChannelGroup][]
+* [System::createDSP][]
+* [System::createDSPByPlugin][]
+* [System::createDSPByType][]
+* [System::createGeometry][]
+* [System::createReverb3D][]
+* [System::createSound][]
+* [System::createSoundGroup][]
+* [System::createStream][]
+* [System::detachChannelGroupFromPort][]
+* [System::get3DListenerAttributes][]
+* [System::get3DNumListeners][]
+* [System::get3DSettings][]
+* [System::getAdvancedSettings][]
+* [System::getCPUUsage][]
+* [System::getChannel][]
+* [System::getChannelsPlaying][]
+* [System::getDSPBufferSize][]
+* [System::getDSPInfoByPlugin][]
+* [System::getDriver][]
+* [System::getDriverInfo][]
+* [System::getGeometryOcclusion][]
+* [System::getGeometrySettings][]
+* [System::getMasterChannelGroup][]
+* [System::getMasterSoundGroup][]
+* [System::getNetworkProxy][]
+* [System::getNetworkTimeout][]
+* [System::getNumDrivers][]
+* [System::getNumPlugins][]
+* [System::getOutput][]
+* [System::getOutputByPlugin][]
+* [System::getOutputHandle][]
+* [System::getPluginHandle][]
+* [System::getPluginInfo][]
+* [System::getRecordDriverInfo][]
+* [System::getRecordNumDrivers][]
+* [System::getRecordPosition][]
+* [System::getReverbProperties][]
+* [System::getSoftwareChannels][]
+* [System::getSoftwareFormat][]
+* [System::getSoundRAM][]
+* [System::getSpeakerPosition][]
+* [System::getStreamBufferSize][]
+* [System::getUserData][]
+* [System::getVersion][]
+* [System::init][]
+* [System::isRecording][]
+* [System::loadGeometry][]
+* [System::loadPlugin][]
+* [System::lockDSP][]
+* [System::mixerResume][]
+* [System::mixerSuspend][]
+* [System::playDSP][]
+* [System::playSound][]
+* [System::recordStart][]
+* [System::recordStop][]
+* [System::registerCodec][]
+* [System::registerDSP][]
+* [System::release][]
+* [System::set3DListenerAttributes][]
+* [System::set3DNumListeners][]
+* [System::set3DRolloffCallback][]
+* [System::set3DSettings][]
+* [System::setAdvancedSettings][]
+* [System::setCallback][]
+* [System::setDSPBufferSize][]
+* [System::setDriver][]
+* [System::setFileSystem][]
+* [System::setGeometrySettings][]
+* [System::setNetworkProxy][]
+* [System::setNetworkTimeout][]
+* [System::setOutput][]
+* [System::setOutputByPlugin][]
+* [System::setPluginPath][]
+* [System::setReverbProperties][]
+* [System::setSoftwareChannels][]
+* [System::setSoftwareFormat][]
+* [System::setSpeakerPosition][]
+* [System::setStreamBufferSize][]
+* [System::setUserData][]
+* [System::unloadPlugin][]
+* [System::unlockDSP][]
+* [System::update][]
+
+Remarks ------ 
 
 When using FMOD Studio, this system object will be automatically
 instantiated as part of [Studio::System::initialize][].
 
-See Also
---------
-
--   [Studio::System::getLowLevelSystem][]
-
-Firelight Technologies FMOD Studio API
+See Also -------
 
 
-Studio::Bank
-============
+* [Studio::System::getLowLevelSystem][]
+
+
+
+####Studio::Bank
 
 A bank contains FMOD Studio Event data as well as the actual sound data
 for all events in that bank.
 
-Functions
----------
+#####Functions
 
-[Studio::Bank::getEventCount][]\
- [Studio::Bank::getEventList][]\
- [Studio::Bank::getID][]\
- [Studio::Bank::getLoadingState][]\
- [Studio::Bank::getMixerStripCount][]\
- [Studio::Bank::getMixerStripList][]\
- [Studio::Bank::getPath][]\
- [Studio::Bank::getSampleLoadingState][]\
- [Studio::Bank::loadSampleData][]\
- [Studio::Bank::unload][]\
- [Studio::Bank::unloadSampleData][]\
- See Also --------
 
--   [Studio::System::loadBankFile][]
--   [Studio::System::loadBankMemory][]
--   [Studio::System::loadBankCustom][]
+* [Studio::Bank::getEventCount][]
+* [Studio::Bank::getEventList][]
+* [Studio::Bank::getID][]
+* [Studio::Bank::getLoadingState][]
+* [Studio::Bank::getMixerStripCount][]
+* [Studio::Bank::getMixerStripList][]
+* [Studio::Bank::getPath][]
+* [Studio::Bank::getSampleLoadingState][]
+* [Studio::Bank::loadSampleData][]
+* [Studio::Bank::unload][]
+* [Studio::Bank::unloadSampleData][]
 
-Firelight Technologies FMOD Studio API
+See Also --------
+
+* [Studio::System::loadBankFile][]
+* [Studio::System::loadBankMemory][]
+* [Studio::System::loadBankCustom][]
+
+//TODO: REST OF README FROM HERE ON
 
 Callbacks
 =========
 
-[FMOD\_STUDIO\_EVENT\_CALLBACK][]\
+[FMOD\_STUDIO\_EVENT\_CALLBACK][]
  Firelight Technologies FMOD Studio API
 
 Studio::CueInstance
@@ -822,7 +770,7 @@ A trigger for an FMOD Studio Event.
 Functions
 ---------
 
-[Studio::CueInstance::trigger][]\
+[Studio::CueInstance::trigger][]
  Remarks -------
 
 Cues can be set into events to pause the timeline at a certain point
@@ -841,22 +789,22 @@ Firelight Technologies FMOD Studio API
 Defines
 =======
 
-[FMOD\_STUDIO\_INITFLAGS][]\
- [FMOD\_STUDIO\_LOAD\_BANK\_FLAGS][]\
- [FMOD\_STUDIO\_RECORD\_COMMANDS\_FLAGS][]\
+[FMOD\_STUDIO\_INITFLAGS][]
+ [FMOD\_STUDIO\_LOAD\_BANK\_FLAGS][]
+ [FMOD\_STUDIO\_RECORD\_COMMANDS\_FLAGS][]
  Firelight Technologies FMOD Studio API
 
 Enumerations
 ============
 
-[FMOD\_STUDIO\_EVENT\_CALLBACK\_TYPE][]\
- [FMOD\_STUDIO\_LOADING\_MODE][]\
- [FMOD\_STUDIO\_LOADING\_STATE][]\
- [FMOD\_STUDIO\_LOAD\_MEMORY\_MODE][]\
- [FMOD\_STUDIO\_PARAMETER\_TYPE][]\
- [FMOD\_STUDIO\_PLAYBACK\_STATE][]\
- [FMOD\_STUDIO\_STOP\_MODE][]\
- [FMOD\_STUDIO\_USER\_PROPERTY\_TYPE][]\
+[FMOD\_STUDIO\_EVENT\_CALLBACK\_TYPE][]
+ [FMOD\_STUDIO\_LOADING\_MODE][]
+ [FMOD\_STUDIO\_LOADING\_STATE][]
+ [FMOD\_STUDIO\_LOAD\_MEMORY\_MODE][]
+ [FMOD\_STUDIO\_PARAMETER\_TYPE][]
+ [FMOD\_STUDIO\_PLAYBACK\_STATE][]
+ [FMOD\_STUDIO\_STOP\_MODE][]
+ [FMOD\_STUDIO\_USER\_PROPERTY\_TYPE][]
  Firelight Technologies FMOD Studio API
 
 Studio::EventDescription
@@ -867,30 +815,30 @@ The description for a FMOD Studio Event.
 Functions
 ---------
 
-[Studio::EventDescription::createInstance][]\
- [Studio::EventDescription::getID][]\
- [Studio::EventDescription::getInstanceCount][]\
- [Studio::EventDescription::getInstanceList][]\
- [Studio::EventDescription::getLength][]\
- [Studio::EventDescription::getMaximumDistance][]\
- [Studio::EventDescription::getMinimumDistance][]\
- [Studio::EventDescription::getParameter][]\
- [Studio::EventDescription::getParameterByIndex][]\
- [Studio::EventDescription::getParameterCount][]\
- [Studio::EventDescription::getPath][]\
- [Studio::EventDescription::getSampleLoadingState][]\
- [Studio::EventDescription::getUserData][]\
- [Studio::EventDescription::getUserProperty][]\
- [Studio::EventDescription::getUserPropertyByIndex][]\
- [Studio::EventDescription::getUserPropertyCount][]\
- [Studio::EventDescription::is3D][]\
- [Studio::EventDescription::isOneshot][]\
- [Studio::EventDescription::isStream][]\
- [Studio::EventDescription::loadSampleData][]\
- [Studio::EventDescription::releaseAllInstances][]\
- [Studio::EventDescription::setCallback][]\
- [Studio::EventDescription::setUserData][]\
- [Studio::EventDescription::unloadSampleData][]\
+[Studio::EventDescription::createInstance][]
+ [Studio::EventDescription::getID][]
+ [Studio::EventDescription::getInstanceCount][]
+ [Studio::EventDescription::getInstanceList][]
+ [Studio::EventDescription::getLength][]
+ [Studio::EventDescription::getMaximumDistance][]
+ [Studio::EventDescription::getMinimumDistance][]
+ [Studio::EventDescription::getParameter][]
+ [Studio::EventDescription::getParameterByIndex][]
+ [Studio::EventDescription::getParameterCount][]
+ [Studio::EventDescription::getPath][]
+ [Studio::EventDescription::getSampleLoadingState][]
+ [Studio::EventDescription::getUserData][]
+ [Studio::EventDescription::getUserProperty][]
+ [Studio::EventDescription::getUserPropertyByIndex][]
+ [Studio::EventDescription::getUserPropertyCount][]
+ [Studio::EventDescription::is3D][]
+ [Studio::EventDescription::isOneshot][]
+ [Studio::EventDescription::isStream][]
+ [Studio::EventDescription::loadSampleData][]
+ [Studio::EventDescription::releaseAllInstances][]
+ [Studio::EventDescription::setCallback][]
+ [Studio::EventDescription::setUserData][]
+ [Studio::EventDescription::unloadSampleData][]
  Remarks -------
 
 Event Descriptions belong to banks and can be queried after the relevant
@@ -917,36 +865,36 @@ An instance of an FMOD Studio Event.
 Functions
 ---------
 
-[Studio::EventInstance::createSubEvent][]\
- [Studio::EventInstance::get3DAttributes][]\
- [Studio::EventInstance::getChannelGroup][]\
- [Studio::EventInstance::getCue][]\
- [Studio::EventInstance::getCueByIndex][]\
- [Studio::EventInstance::getCueCount][]\
- [Studio::EventInstance::getDescription][]\
- [Studio::EventInstance::getLoadingState][]\
- [Studio::EventInstance::getParameter][]\
- [Studio::EventInstance::getParameterByIndex][]\
- [Studio::EventInstance::getParameterCount][]\
- [Studio::EventInstance::getPaused][]\
- [Studio::EventInstance::getPitch][]\
- [Studio::EventInstance::getPlaybackState][]\
- [Studio::EventInstance::getTimelinePosition][]\
- [Studio::EventInstance::getUserData][]\
- [Studio::EventInstance::getVolume][]\
- [Studio::EventInstance::isVirtual][]\
- [Studio::EventInstance::release][]\
- [Studio::EventInstance::set3DAttributes][]\
- [Studio::EventInstance::setCallback][]\
- [Studio::EventInstance::setParameterValue][]\
- [Studio::EventInstance::setParameterValueByIndex][]\
- [Studio::EventInstance::setPaused][]\
- [Studio::EventInstance::setPitch][]\
- [Studio::EventInstance::setTimelinePosition][]\
- [Studio::EventInstance::setUserData][]\
- [Studio::EventInstance::setVolume][]\
- [Studio::EventInstance::start][]\
- [Studio::EventInstance::stop][]\
+[Studio::EventInstance::createSubEvent][]
+ [Studio::EventInstance::get3DAttributes][]
+ [Studio::EventInstance::getChannelGroup][]
+ [Studio::EventInstance::getCue][]
+ [Studio::EventInstance::getCueByIndex][]
+ [Studio::EventInstance::getCueCount][]
+ [Studio::EventInstance::getDescription][]
+ [Studio::EventInstance::getLoadingState][]
+ [Studio::EventInstance::getParameter][]
+ [Studio::EventInstance::getParameterByIndex][]
+ [Studio::EventInstance::getParameterCount][]
+ [Studio::EventInstance::getPaused][]
+ [Studio::EventInstance::getPitch][]
+ [Studio::EventInstance::getPlaybackState][]
+ [Studio::EventInstance::getTimelinePosition][]
+ [Studio::EventInstance::getUserData][]
+ [Studio::EventInstance::getVolume][]
+ [Studio::EventInstance::isVirtual][]
+ [Studio::EventInstance::release][]
+ [Studio::EventInstance::set3DAttributes][]
+ [Studio::EventInstance::setCallback][]
+ [Studio::EventInstance::setParameterValue][]
+ [Studio::EventInstance::setParameterValueByIndex][]
+ [Studio::EventInstance::setPaused][]
+ [Studio::EventInstance::setPitch][]
+ [Studio::EventInstance::setTimelinePosition][]
+ [Studio::EventInstance::setUserData][]
+ [Studio::EventInstance::setVolume][]
+ [Studio::EventInstance::start][]
+ [Studio::EventInstance::stop][]
  See Also --------
 
 -   [Studio::EventDescription::createInstance][]
@@ -956,19 +904,19 @@ Firelight Technologies FMOD Studio API
 Functions
 =========
 
-[ParseID][]\
+[ParseID][]
  Firelight Technologies FMOD Studio API
 
 C++ interfaces
 ==============
 
-[System][11]\
- [EventDescription][]\
- [EventInstance][]\
- [CueInstance][]\
- [ParameterInstance][]\
- [MixerStrip][]\
- [Bank][]\
+[System][11]
+ [EventDescription][]
+ [EventInstance][]
+ [CueInstance][]
+ [ParameterInstance][]
+ [MixerStrip][]
+ [Bank][]
  Firelight Technologies FMOD Studio API
 
 Studio::MixerStrip
@@ -979,18 +927,18 @@ Represents either a VCA or a bus.
 Functions
 ---------
 
-[Studio::MixerStrip::getChannelGroup][]\
- [Studio::MixerStrip::getFaderLevel][]\
- [Studio::MixerStrip::getID][]\
- [Studio::MixerStrip::getLoadingState][]\
- [Studio::MixerStrip::getMute][]\
- [Studio::MixerStrip::getPath][]\
- [Studio::MixerStrip::getPaused][]\
- [Studio::MixerStrip::release][]\
- [Studio::MixerStrip::setFaderLevel][]\
- [Studio::MixerStrip::setMute][]\
- [Studio::MixerStrip::setPaused][]\
- [Studio::MixerStrip::stopAllEvents][]\
+[Studio::MixerStrip::getChannelGroup][]
+ [Studio::MixerStrip::getFaderLevel][]
+ [Studio::MixerStrip::getID][]
+ [Studio::MixerStrip::getLoadingState][]
+ [Studio::MixerStrip::getMute][]
+ [Studio::MixerStrip::getPath][]
+ [Studio::MixerStrip::getPaused][]
+ [Studio::MixerStrip::release][]
+ [Studio::MixerStrip::setFaderLevel][]
+ [Studio::MixerStrip::setMute][]
+ [Studio::MixerStrip::setPaused][]
+ [Studio::MixerStrip::stopAllEvents][]
  See Also --------
 
 -   [Studio::System::getMixerStrip][]
@@ -1005,9 +953,9 @@ A parameter instance for an FMOD Studio Event.
 Functions
 ---------
 
-[Studio::ParameterInstance::getDescription][]\
- [Studio::ParameterInstance::getValue][]\
- [Studio::ParameterInstance::setValue][]\
+[Studio::ParameterInstance::getDescription][]
+ [Studio::ParameterInstance::getValue][]
+ [Studio::ParameterInstance::setValue][]
  See Also --------
 
 -   [Studio::EventInstance::getParameter][]
@@ -1019,14 +967,14 @@ Firelight Technologies FMOD Studio API
 Structures
 ==========
 
-[FMOD\_STUDIO\_ADVANCEDSETTINGS][]\
- [FMOD\_STUDIO\_BANK\_INFO][]\
- [FMOD\_STUDIO\_BUFFER\_INFO][]\
- [FMOD\_STUDIO\_BUFFER\_USAGE][]\
- [FMOD\_STUDIO\_CPU\_USAGE][]\
- [FMOD\_STUDIO\_PARAMETER\_DESCRIPTION][]\
- [FMOD\_STUDIO\_PROGRAMMER\_SOUND\_PROPERTIES][]\
- [FMOD\_STUDIO\_USER\_PROPERTY][]\
+[FMOD\_STUDIO\_ADVANCEDSETTINGS][]
+ [FMOD\_STUDIO\_BANK\_INFO][]
+ [FMOD\_STUDIO\_BUFFER\_INFO][]
+ [FMOD\_STUDIO\_BUFFER\_USAGE][]
+ [FMOD\_STUDIO\_CPU\_USAGE][]
+ [FMOD\_STUDIO\_PARAMETER\_DESCRIPTION][]
+ [FMOD\_STUDIO\_PROGRAMMER\_SOUND\_PROPERTIES][]
+ [FMOD\_STUDIO\_USER\_PROPERTY][]
  Firelight Technologies FMOD Studio API
 
 Studio::System
@@ -1037,35 +985,35 @@ The main system object for FMOD Studio.
 Functions
 ---------
 
-[Studio::System::create][]\
- [Studio::System::flushCommands][]\
- [Studio::System::getAdvancedSettings][]\
- [Studio::System::getBank][]\
- [Studio::System::getBankCount][]\
- [Studio::System::getBankList][]\
- [Studio::System::getBufferUsage][]\
- [Studio::System::getCPUUsage][]\
- [Studio::System::getEvent][]\
- [Studio::System::getListenerAttributes][]\
- [Studio::System::getLowLevelSystem][]\
- [Studio::System::getMixerStrip][]\
- [Studio::System::initialize][]\
- [Studio::System::loadBankCustom][]\
- [Studio::System::loadBankFile][]\
- [Studio::System::loadBankMemory][]\
- [Studio::System::lookupID][]\
- [Studio::System::lookupPath][]\
- [Studio::System::playbackCommands][]\
- [Studio::System::registerPlugin][]\
- [Studio::System::release][]\
- [Studio::System::resetBufferUsage][]\
- [Studio::System::setAdvancedSettings][]\
- [Studio::System::setListenerAttributes][]\
- [Studio::System::startRecordCommands][]\
- [Studio::System::stopRecordCommands][]\
- [Studio::System::unloadAll][]\
- [Studio::System::unregisterPlugin][]\
- [Studio::System::update][]\
+[Studio::System::create][]
+ [Studio::System::flushCommands][]
+ [Studio::System::getAdvancedSettings][]
+ [Studio::System::getBank][]
+ [Studio::System::getBankCount][]
+ [Studio::System::getBankList][]
+ [Studio::System::getBufferUsage][]
+ [Studio::System::getCPUUsage][]
+ [Studio::System::getEvent][]
+ [Studio::System::getListenerAttributes][]
+ [Studio::System::getLowLevelSystem][]
+ [Studio::System::getMixerStrip][]
+ [Studio::System::initialize][]
+ [Studio::System::loadBankCustom][]
+ [Studio::System::loadBankFile][]
+ [Studio::System::loadBankMemory][]
+ [Studio::System::lookupID][]
+ [Studio::System::lookupPath][]
+ [Studio::System::playbackCommands][]
+ [Studio::System::registerPlugin][]
+ [Studio::System::release][]
+ [Studio::System::resetBufferUsage][]
+ [Studio::System::setAdvancedSettings][]
+ [Studio::System::setListenerAttributes][]
+ [Studio::System::startRecordCommands][]
+ [Studio::System::stopRecordCommands][]
+ [Studio::System::unloadAll][]
+ [Studio::System::unregisterPlugin][]
+ [Studio::System::update][]
  Remarks -------
 
 Initializing the FMOD Studio System object will also initialise the low
