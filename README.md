@@ -726,7 +726,57 @@ See Also -------
 
 * [Studio::System::getLowLevelSystem][]
 
+##Studio API
 
+###C++ interfaces
+
+* [System][11]
+* [EventDescription][]
+* [EventInstance][]
+* [CueInstance][]
+* [ParameterInstance][]
+* [MixerStrip][]
+* [Bank][]
+
+###Functions
+
+* [ParseID][]
+
+###Structures
+
+* [FMOD\_STUDIO\_ADVANCEDSETTINGS][]
+* [FMOD\_STUDIO\_BANK\_INFO][]
+* [FMOD\_STUDIO\_BUFFER\_INFO][]
+* [FMOD\_STUDIO\_BUFFER\_USAGE][]
+* [FMOD\_STUDIO\_CPU\_USAGE][]
+* [FMOD\_STUDIO\_PARAMETER\_DESCRIPTION][]
+* [FMOD\_STUDIO\_PROGRAMMER\_SOUND\_PROPERTIES][]
+* [FMOD\_STUDIO\_USER\_PROPERTY][]
+* 
+ 
+###Defines
+
+* [FMOD\_STUDIO\_INITFLAGS][]
+* [FMOD\_STUDIO\_LOAD\_BANK\_FLAGS][]
+* [FMOD\_STUDIO\_RECORD\_COMMANDS\_FLAGS][]
+
+
+###Enumerations
+
+* [FMOD\_STUDIO\_EVENT\_CALLBACK\_TYPE][]
+* [FMOD\_STUDIO\_LOADING\_MODE][]
+* [FMOD\_STUDIO\_LOADING\_STATE][]
+* [FMOD\_STUDIO\_LOAD\_MEMORY\_MODE][]
+* [FMOD\_STUDIO\_PARAMETER\_TYPE][]
+* [FMOD\_STUDIO\_PLAYBACK\_STATE][]
+* [FMOD\_STUDIO\_STOP\_MODE][]
+* [FMOD\_STUDIO\_USER\_PROPERTY\_TYPE][]
+
+
+###Callbacks
+
+* [FMOD\_STUDIO\_EVENT\_CALLBACK][]
+ 
 
 ###Studio::Bank
 
@@ -755,21 +805,15 @@ See Also --------
 * [Studio::System::loadBankCustom][]
 
 
-####Callbacks
 
-[FMOD\_STUDIO\_EVENT\_CALLBACK][]
- Firelight Technologies FMOD Studio API
 
-//TODO: REST OF README FROM HERE ON
 
-Studio::CueInstance
-===================
+###Studio::CueInstance
+
 
 A trigger for an FMOD Studio Event.
 
-Functions
----------
-
+####Functions
 [Studio::CueInstance::trigger][]
  Remarks -------
 
@@ -777,243 +821,188 @@ Cues can be set into events to pause the timeline at a certain point
 until the game activates the cue. Currently there is only a single cue
 type supported, with a name "keyOff".
 
-See Also
---------
+See Also --------
 
--   [Studio::EventInstance::getCue][]
--   [Studio::EventInstance::getCueByIndex][]
--   [Studio::EventInstance::getCueCount][]
+* [Studio::EventInstance::getCue][]
+* [Studio::EventInstance::getCueByIndex][]
+* [Studio::EventInstance::getCueCount][]
 
-Firelight Technologies FMOD Studio API
 
-Defines
-=======
 
-[FMOD\_STUDIO\_INITFLAGS][]
- [FMOD\_STUDIO\_LOAD\_BANK\_FLAGS][]
- [FMOD\_STUDIO\_RECORD\_COMMANDS\_FLAGS][]
- Firelight Technologies FMOD Studio API
 
-Enumerations
-============
+###Studio::EventDescription
 
-[FMOD\_STUDIO\_EVENT\_CALLBACK\_TYPE][]
- [FMOD\_STUDIO\_LOADING\_MODE][]
- [FMOD\_STUDIO\_LOADING\_STATE][]
- [FMOD\_STUDIO\_LOAD\_MEMORY\_MODE][]
- [FMOD\_STUDIO\_PARAMETER\_TYPE][]
- [FMOD\_STUDIO\_PLAYBACK\_STATE][]
- [FMOD\_STUDIO\_STOP\_MODE][]
- [FMOD\_STUDIO\_USER\_PROPERTY\_TYPE][]
- Firelight Technologies FMOD Studio API
-
-Studio::EventDescription
-========================
 
 The description for a FMOD Studio Event.
 
-Functions
----------
+####Functions
 
-[Studio::EventDescription::createInstance][]
- [Studio::EventDescription::getID][]
- [Studio::EventDescription::getInstanceCount][]
- [Studio::EventDescription::getInstanceList][]
- [Studio::EventDescription::getLength][]
- [Studio::EventDescription::getMaximumDistance][]
- [Studio::EventDescription::getMinimumDistance][]
- [Studio::EventDescription::getParameter][]
- [Studio::EventDescription::getParameterByIndex][]
- [Studio::EventDescription::getParameterCount][]
- [Studio::EventDescription::getPath][]
- [Studio::EventDescription::getSampleLoadingState][]
- [Studio::EventDescription::getUserData][]
- [Studio::EventDescription::getUserProperty][]
- [Studio::EventDescription::getUserPropertyByIndex][]
- [Studio::EventDescription::getUserPropertyCount][]
- [Studio::EventDescription::is3D][]
- [Studio::EventDescription::isOneshot][]
- [Studio::EventDescription::isStream][]
- [Studio::EventDescription::loadSampleData][]
- [Studio::EventDescription::releaseAllInstances][]
- [Studio::EventDescription::setCallback][]
- [Studio::EventDescription::setUserData][]
- [Studio::EventDescription::unloadSampleData][]
+
+* [Studio::EventDescription::createInstance][]
+* [Studio::EventDescription::getID][]
+* [Studio::EventDescription::getInstanceCount][]
+* [Studio::EventDescription::getInstanceList][]
+* [Studio::EventDescription::getLength][]
+* [Studio::EventDescription::getMaximumDistance][]
+* [Studio::EventDescription::getMinimumDistance][]
+* [Studio::EventDescription::getParameter][]
+* [Studio::EventDescription::getParameterByIndex][]
+* [Studio::EventDescription::getParameterCount][]
+* [Studio::EventDescription::getPath][]
+* [Studio::EventDescription::getSampleLoadingState][]
+* [Studio::EventDescription::getUserData][]
+* [Studio::EventDescription::getUserProperty][]
+* [Studio::EventDescription::getUserPropertyByIndex][]
+* [Studio::EventDescription::getUserPropertyCount][]
+* [Studio::EventDescription::is3D][]
+* [Studio::EventDescription::isOneshot][]
+* [Studio::EventDescription::isStream][]
+* [Studio::EventDescription::loadSampleData][]
+* [Studio::EventDescription::releaseAllInstances][]
+* [Studio::EventDescription::setCallback][]
+* [Studio::EventDescription::setUserData][]
+* [Studio::EventDescription::unloadSampleData][]
  Remarks -------
 
 Event Descriptions belong to banks and can be queried after the relevant
 bank has been loaded. Event Descriptions can be found either by looking
 up by GUID or by querying all descriptions as part of a bank.
 
-See Also
---------
+See Also --------
 
--   [Studio::System::loadBankFile][]
--   [Studio::System::loadBankMemory][]
--   [Studio::System::loadBankCustom][]
--   [Studio::System::getEvent][]
--   [Studio::Bank::getEventCount][]
--   [Studio::Bank::getEventList][]
+* [Studio::System::loadBankFile][]
+* [Studio::System::loadBankMemory][]
+* [Studio::System::loadBankCustom][]
+* [Studio::System::getEvent][]
+* [Studio::Bank::getEventCount][]
+* [Studio::Bank::getEventList][]
 
-Firelight Technologies FMOD Studio API
 
-Studio::EventInstance
-=====================
+###Studio::EventInstance
 
 An instance of an FMOD Studio Event.
 
-Functions
----------
+####Functions
 
-[Studio::EventInstance::createSubEvent][]
- [Studio::EventInstance::get3DAttributes][]
- [Studio::EventInstance::getChannelGroup][]
- [Studio::EventInstance::getCue][]
- [Studio::EventInstance::getCueByIndex][]
- [Studio::EventInstance::getCueCount][]
- [Studio::EventInstance::getDescription][]
- [Studio::EventInstance::getLoadingState][]
- [Studio::EventInstance::getParameter][]
- [Studio::EventInstance::getParameterByIndex][]
- [Studio::EventInstance::getParameterCount][]
- [Studio::EventInstance::getPaused][]
- [Studio::EventInstance::getPitch][]
- [Studio::EventInstance::getPlaybackState][]
- [Studio::EventInstance::getTimelinePosition][]
- [Studio::EventInstance::getUserData][]
- [Studio::EventInstance::getVolume][]
- [Studio::EventInstance::isVirtual][]
- [Studio::EventInstance::release][]
- [Studio::EventInstance::set3DAttributes][]
- [Studio::EventInstance::setCallback][]
- [Studio::EventInstance::setParameterValue][]
- [Studio::EventInstance::setParameterValueByIndex][]
- [Studio::EventInstance::setPaused][]
- [Studio::EventInstance::setPitch][]
- [Studio::EventInstance::setTimelinePosition][]
- [Studio::EventInstance::setUserData][]
- [Studio::EventInstance::setVolume][]
- [Studio::EventInstance::start][]
- [Studio::EventInstance::stop][]
+* [Studio::EventInstance::createSubEvent][]
+* [Studio::EventInstance::get3DAttributes][]
+* [Studio::EventInstance::getChannelGroup][]
+* [Studio::EventInstance::getCue][]
+* [Studio::EventInstance::getCueByIndex][]
+* [Studio::EventInstance::getCueCount][]
+* [Studio::EventInstance::getDescription][]
+* [Studio::EventInstance::getLoadingState][]
+* [Studio::EventInstance::getParameter][]
+* [Studio::EventInstance::getParameterByIndex][]
+* [Studio::EventInstance::getParameterCount][]
+* [Studio::EventInstance::getPaused][]
+* [Studio::EventInstance::getPitch][]
+* [Studio::EventInstance::getPlaybackState][]
+* [Studio::EventInstance::getTimelinePosition][]
+* [Studio::EventInstance::getUserData][]
+* [Studio::EventInstance::getVolume][]
+* [Studio::EventInstance::isVirtual][]
+* [Studio::EventInstance::release][]
+* [Studio::EventInstance::set3DAttributes][]
+* [Studio::EventInstance::setCallback][]
+* [Studio::EventInstance::setParameterValue][]
+* [Studio::EventInstance::setParameterValueByIndex][]
+* [Studio::EventInstance::setPaused][]
+* [Studio::EventInstance::setPitch][]
+* [Studio::EventInstance::setTimelinePosition][]
+* [Studio::EventInstance::setUserData][]
+* [Studio::EventInstance::setVolume][]
+* [Studio::EventInstance::start][]
+* [Studio::EventInstance::stop][]
  See Also --------
 
--   [Studio::EventDescription::createInstance][]
+* [Studio::EventDescription::createInstance][]
 
-Firelight Technologies FMOD Studio API
 
-Functions
-=========
 
-[ParseID][]
- Firelight Technologies FMOD Studio API
 
-C++ interfaces
-==============
+###Studio::MixerStrip
 
-[System][11]
- [EventDescription][]
- [EventInstance][]
- [CueInstance][]
- [ParameterInstance][]
- [MixerStrip][]
- [Bank][]
- Firelight Technologies FMOD Studio API
-
-Studio::MixerStrip
-==================
 
 Represents either a VCA or a bus.
 
-Functions
----------
+####Functions
 
-[Studio::MixerStrip::getChannelGroup][]
- [Studio::MixerStrip::getFaderLevel][]
- [Studio::MixerStrip::getID][]
- [Studio::MixerStrip::getLoadingState][]
- [Studio::MixerStrip::getMute][]
- [Studio::MixerStrip::getPath][]
- [Studio::MixerStrip::getPaused][]
- [Studio::MixerStrip::release][]
- [Studio::MixerStrip::setFaderLevel][]
- [Studio::MixerStrip::setMute][]
- [Studio::MixerStrip::setPaused][]
- [Studio::MixerStrip::stopAllEvents][]
+
+* [Studio::MixerStrip::getChannelGroup][]
+* [Studio::MixerStrip::getFaderLevel][]
+* [Studio::MixerStrip::getID][]
+* [Studio::MixerStrip::getLoadingState][]
+* [Studio::MixerStrip::getMute][]
+* [Studio::MixerStrip::getPath][]
+* [Studio::MixerStrip::getPaused][]
+* [Studio::MixerStrip::release][]
+* [Studio::MixerStrip::setFaderLevel][]
+* [Studio::MixerStrip::setMute][]
+* [Studio::MixerStrip::setPaused][]
+* [Studio::MixerStrip::stopAllEvents][]
  See Also --------
 
--   [Studio::System::getMixerStrip][]
+* [Studio::System::getMixerStrip][]
 
 Firelight Technologies FMOD Studio API
 
-Studio::ParameterInstance
-=========================
+###Studio::ParameterInstance
+
 
 A parameter instance for an FMOD Studio Event.
 
-Functions
----------
+####Functions
 
-[Studio::ParameterInstance::getDescription][]
- [Studio::ParameterInstance::getValue][]
- [Studio::ParameterInstance::setValue][]
+
+* [Studio::ParameterInstance::getDescription][]
+* [Studio::ParameterInstance::getValue][]
+* [Studio::ParameterInstance::setValue][]
  See Also --------
 
--   [Studio::EventInstance::getParameter][]
--   [Studio::EventInstance::getParameterByIndex][]
--   [Studio::EventInstance::getParameterCount][]
+* [Studio::EventInstance::getParameter][]
+* [Studio::EventInstance::getParameterByIndex][]
+* [Studio::EventInstance::getParameterCount][]
 
-Firelight Technologies FMOD Studio API
 
-Structures
-==========
 
-[FMOD\_STUDIO\_ADVANCEDSETTINGS][]
- [FMOD\_STUDIO\_BANK\_INFO][]
- [FMOD\_STUDIO\_BUFFER\_INFO][]
- [FMOD\_STUDIO\_BUFFER\_USAGE][]
- [FMOD\_STUDIO\_CPU\_USAGE][]
- [FMOD\_STUDIO\_PARAMETER\_DESCRIPTION][]
- [FMOD\_STUDIO\_PROGRAMMER\_SOUND\_PROPERTIES][]
- [FMOD\_STUDIO\_USER\_PROPERTY][]
- Firelight Technologies FMOD Studio API
+###Studio::System
 
-Studio::System
-==============
 
 The main system object for FMOD Studio.
 
-Functions
----------
+####Functions
 
-[Studio::System::create][]
- [Studio::System::flushCommands][]
- [Studio::System::getAdvancedSettings][]
- [Studio::System::getBank][]
- [Studio::System::getBankCount][]
- [Studio::System::getBankList][]
- [Studio::System::getBufferUsage][]
- [Studio::System::getCPUUsage][]
- [Studio::System::getEvent][]
- [Studio::System::getListenerAttributes][]
- [Studio::System::getLowLevelSystem][]
- [Studio::System::getMixerStrip][]
- [Studio::System::initialize][]
- [Studio::System::loadBankCustom][]
- [Studio::System::loadBankFile][]
- [Studio::System::loadBankMemory][]
- [Studio::System::lookupID][]
- [Studio::System::lookupPath][]
- [Studio::System::playbackCommands][]
- [Studio::System::registerPlugin][]
- [Studio::System::release][]
- [Studio::System::resetBufferUsage][]
- [Studio::System::setAdvancedSettings][]
- [Studio::System::setListenerAttributes][]
- [Studio::System::startRecordCommands][]
- [Studio::System::stopRecordCommands][]
- [Studio::System::unloadAll][]
- [Studio::System::unregisterPlugin][]
- [Studio::System::update][]
+
+* [Studio::System::create][]
+* [Studio::System::flushCommands][]
+* [Studio::System::getAdvancedSettings][]
+* [Studio::System::getBank][]
+* [Studio::System::getBankCount][]
+* [Studio::System::getBankList][]
+* [Studio::System::getBufferUsage][]
+* [Studio::System::getCPUUsage][]
+* [Studio::System::getEvent][]
+* [Studio::System::getListenerAttributes][]
+* [Studio::System::getLowLevelSystem][]
+* [Studio::System::getMixerStrip][]
+* [Studio::System::initialize][]
+* [Studio::System::loadBankCustom][]
+* [Studio::System::loadBankFile][]
+* [Studio::System::loadBankMemory][]
+* [Studio::System::lookupID][]
+* [Studio::System::lookupPath][]
+* [Studio::System::playbackCommands][]
+* [Studio::System::registerPlugin][]
+* [Studio::System::release][]
+* [Studio::System::resetBufferUsage][]
+* [Studio::System::setAdvancedSettings][]
+* [Studio::System::setListenerAttributes][]
+* [Studio::System::startRecordCommands][]
+* [Studio::System::stopRecordCommands][]
+* [Studio::System::unloadAll][]
+* [Studio::System::unregisterPlugin][]
+* [Studio::System::update][]
  Remarks -------
 
 Initializing the FMOD Studio System object will also initialise the low
@@ -1022,8 +1011,8 @@ level System object.
 See Also
 --------
 
--   [Studio::System::create][]
--   [Studio::System::initialize][]
+* [Studio::System::create][]
+* [Studio::System::initialize][]
 
   [Functions]: generated/fsbank_api_functions.html
   [Callbacks]: generated/fsbank_api_callbacks.html
