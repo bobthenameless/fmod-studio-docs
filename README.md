@@ -1,6 +1,7 @@
 
-
 This is a project to strip the FMOD Studio API out of the .chm file and into md files. Currently very messy. FMOD can be downloaded/purchased at http://www.fmod.org/ and the .chm file can be found in API_INSTALL_DIRECTORY/docs.
+
+This API specifically from **FMOD Studio API version 1.03.06**
 
 #FSBank API
 * [Functions][]
