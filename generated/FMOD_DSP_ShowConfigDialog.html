@@ -1,0 +1,60 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>DSP::showConfigDialog</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>DSP::showConfigDialog</H1>
+<P>
+<p>Display or hide a DSP unit configuration dialog box inside the target window.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT DSP::showConfigDialog(
+  void *<I>hwnd</I>,
+  bool <I>show</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_DSP_ShowConfigDialog(
+  FMOD_DSP *<I>dsp</I>,
+  void *<I>hwnd</I>,
+  FMOD_BOOL <I>show</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>hwnd</dt>
+<dd>Target HWND in windows to display configuration dialog.</dd>
+<dt>show</dt>
+<dd>true = show dialog box inside target hwnd.  false = remove dialog from target hwnd.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Dialog boxes are used by DSP plugins that prefer to use a graphical user interface to modify their parameters rather
+than using the other method of enumerating the parameters and using <A HREF="FMOD_DSP_SetParameterFloat.html">DSP::setParameterFloat</A> / <A HREF="FMOD_DSP_SetParameterInt.html">DSP::setParameterInt</A> /
+<A HREF="FMOD_DSP_SetParameterBool.html">DSP::setParameterBool</A> / <A HREF="FMOD_DSP_SetParameterData.html">DSP::setParameterData</A>.</p>
+
+<p>These are usually VST plugins.  FMOD Studio plugins do not have configuration dialog boxes.
+To find out what size window to create to store the configuration screen, use <A HREF="FMOD_DSP_GetInfo.html">DSP::getInfo</A> where you can get the
+width and height.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_GetInfo.html">DSP::getInfo</A></LI>
+<LI><A HREF="FMOD_DSP_SetParameterFloat.html">DSP::setParameterFloat</A></LI>
+<LI><A HREF="FMOD_DSP_SetParameterInt.html">DSP::setParameterInt</A></LI>
+<LI><A HREF="FMOD_DSP_SetParameterBool.html">DSP::setParameterBool</A></LI>
+<LI><A HREF="FMOD_DSP_SetParameterData.html">DSP::setParameterData</A></LI>
+<LI><A HREF="FMOD_DSP_GetParameterFloat.html">DSP::getParameterFloat</A></LI>
+<LI><A HREF="FMOD_DSP_GetParameterInt.html">DSP::getParameterInt</A></LI>
+<LI><A HREF="FMOD_DSP_GetParameterBool.html">DSP::getParameterBool</A></LI>
+<LI><A HREF="FMOD_DSP_GetParameterData.html">DSP::getParameterData</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

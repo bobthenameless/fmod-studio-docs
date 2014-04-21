@@ -1,0 +1,39 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Studio::EventInstance::createSubEvent</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Studio::EventInstance::createSubEvent</H1>
+<P>
+<p>Creates an instance of a subevent that is routed into the event instance.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Studio::EventInstance::createSubEvent(
+  const char *<I>name</I>,
+  Studio::EventInstance **<I>instance</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Studio_EventInstance_CreateSubEvent(
+  FMOD_STUDIO_EVENTINSTANCE *<I>eventinstance</I>,
+  const char *<I>name</I>,
+  FMOD_STUDIO_EVENTINSTANCE **<I>instance</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>name</dt>
+<dd>Name of the subevent.</dd>
+<dt>instance</dt>
+<dd>Address of a variable to receive the new subevent instance object.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

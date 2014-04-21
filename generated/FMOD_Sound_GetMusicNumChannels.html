@@ -1,0 +1,40 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Sound::getMusicNumChannels</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Sound::getMusicNumChannels</H1>
+<P>
+<p>Gets the number of music channels inside a MOD/S3M/XM/IT/MIDI file.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Sound::getMusicNumChannels(
+  int *<I>numchannels</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Sound_GetMusicNumChannels(
+  FMOD_SOUND *<I>sound</I>,
+  int *<I>numchannels</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>numchannels</dt>
+<dd>Number of music channels used in the song.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Sound_SetMusicChannelVolume.html">Sound::setMusicChannelVolume</A></LI>
+<LI><A HREF="FMOD_Sound_GetMusicChannelVolume.html">Sound::getMusicChannelVolume</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

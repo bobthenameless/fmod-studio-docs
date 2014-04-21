@@ -1,0 +1,39 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::getDSPInfoByPlugin</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::getDSPInfoByPlugin</H1>
+<P>
+<p>Retrieve the description structure for a pre-existing DSP plugin.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::getDSPInfoByPlugin(
+  unsigned int <I>handle</I>,
+  const FMOD_DSP_DESCRIPTION **<I>description</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_GetDSPInfoByPlugin(
+  FMOD_SYSTEM *<I>system</I>,
+  unsigned int <I>handle</I>,
+  const FMOD_DSP_DESCRIPTION **<I>description</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>handle</dt>
+<dd>Handle to a pre-existing DSP plugin.</dd>
+<dt>description</dt>
+<dd>Address of a variable to receive the description structure for the DSP.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

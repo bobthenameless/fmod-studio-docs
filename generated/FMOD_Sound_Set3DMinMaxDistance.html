@@ -1,0 +1,61 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Sound::set3DMinMaxDistance</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Sound::set3DMinMaxDistance</H1>
+<P>
+<p>Sets the minimum and maximum audible distance for a sound.</p>
+
+<p>MinDistance is the minimum distance that the sound emitter will cease to continue growing louder at (as it approaches the listener).<br>
+Within the mindistance it stays at the constant loudest volume possible.  Outside of this mindistance it begins to attenuate.<br>
+MaxDistance is the distance a sound stops attenuating at.  Beyond this point it will stay at the volume it would be at maxdistance units from the listener and will not attenuate any more.<br>
+MinDistance is useful to give the impression that the sound is loud or soft in 3d space.  An example of this is a small quiet object, such as a bumblebee, which you could set a mindistance of to 0.1 for example, which would cause it to attenuate quickly and dissapear when only a few meters away from the listener.<br>
+Another example is a jumbo jet, which you could set to a mindistance of 100.0, which would keep the sound volume at max until the listener was 100 meters away, then it would be hundreds of meters more before it would fade out.</p>
+
+<p>In summary, increase the mindistance of a sound to make it 'louder' in a 3d world, and decrease it to make it 'quieter' in a 3d world.<br>
+Maxdistance is effectively obsolete unless you need the sound to stop fading out at a certain point.  Do not adjust this from the default if you dont need to.<br>
+Some people have the confusion that maxdistance is the point the sound will fade out to, this is not the case.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Sound::set3DMinMaxDistance(
+  float <I>min</I>,
+  float <I>max</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Sound_Set3DMinMaxDistance(
+  FMOD_SOUND *<I>sound</I>,
+  float <I>min</I>,
+  float <I>max</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>min</dt>
+<dd>The sound's minimum volume distance in "units".  See remarks for more on units.</dd>
+<dt>max</dt>
+<dd>The sound's maximum volume distance in "units".  See remarks for more on units.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>A 'distance unit' is specified by <A HREF="FMOD_System_Set3DSettings.html">System::set3DSettings</A>.  By default this is set to meters which is a distance scale of 1.0.<br>
+See <A HREF="FMOD_System_Set3DSettings.html">System::set3DSettings</A> for more on this.<br>
+The default units for minimum and maximum distances are 1.0 and 10,000.0f.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Sound_Get3DMinMaxDistance.html">Sound::get3DMinMaxDistance</A></LI>
+<LI><A HREF="FMOD_Channel_Set3DMinMaxDistance.html">Channel::set3DMinMaxDistance</A></LI>
+<LI><A HREF="FMOD_Channel_Get3DMinMaxDistance.html">Channel::get3DMinMaxDistance</A></LI>
+<LI><A HREF="FMOD_System_Set3DSettings.html">System::set3DSettings</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

@@ -1,0 +1,134 @@
+<LINK REL="stylesheet" href="../../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Non-blocking sound creation</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+
+<H1>Non-blocking sound creation</H1>
+
+<H2>Introduction</H2>
+FMOD_NONBLOCKING flag is used so that sounds can be loaded without affecting the framerate of the application.<br>
+Normally loading operations can take a large or significant amount of time, but with this feature, sounds can be loaded in the background without the application skipping a beat.
+
+<h2>Creating the sound.</h2>
+Simply create the sound as you normally would but add the FMOD_NONBLOCKING flag.<br>
+<PRE>
+FMOD::Sound *sound;
+result = system->createStream("../media/wave.mp3", FMOD_NONBLOCKING, 0, &sound); <b>// Creates a handle to a stream then commands the FMOD Async loader to open the stream in the background.</b>
+ERRCHECK(result);
+</PRE>
+
+Now the sound will open in the background, and you will get a handle to the sound immediately.  You cannot do anything with this sound handle except call Sound::getOpenState.  Any other attempts to use this sound handle will result in the function returning FMOD_ERR_NOTREADY.
+
+<h2>Getting a callback when the sound loads.</h2>
+When the sound loads or the stream opens, you can specify a callback using the nonblockcallback member of the FMOD_CREATESOUNDEXINFO structure that is called when the operation is completed.<br>
+Firstly the callback definition.<br>
+
+<PRE>
+FMOD_RESULT F_CALLBACK nonblockcallback(FMOD_SOUND *sound, FMOD_RESULT result)
+{
+    FMOD::Sound *snd = (FMOD::Sound *)sound;
+
+    printf("Sound loaded! (%d) %s\n", result, FMOD_ErrorString(result)); 
+
+    return FMOD_OK;
+}
+</PRE>
+
+And then the createSound call.
+
+<PRE>
+FMOD_RESULT result;
+FMOD::Sound *sound;
+FMOD_CREATESOUNDEXINFO exinfo;
+
+memset(&exinfo, 0, sizeof(FMOD_CREATESOUNDEXINFO));
+exinfo.cbsize = sizeof(FMOD_CREATESOUNDEXINFO);
+exinfo.nonblockcallback = nonblockcallback;
+
+result = system->createStream("../media/wave.mp3", FMOD_NONBLOCKING, &exinfo, &sound);
+ERRCHECK(result);
+</PRE>
+
+<h2>Waiting for the sound to be ready and using it.</h2>
+
+As mentioned, you will have to call Sound::getOpenState to wait for the sound to load in the background.   You could do this, or just continually try to call the function you want to call (i.e. System::playSound) until it succeeds.<br>
+Here is an example of polling the sound until it is ready, then playing it.<br>
+<PRE>
+FMOD_RESULT result;
+FMOD::Sound *sound;
+result = system->createStream("../media/wave.mp3", FMOD_NONBLOCKING, 0, &sound); <b>// Creates a handle to a stream then commands the FMOD Async loader to open the stream in the background.</b>
+ERRCHECK(result);
+
+do
+{
+	FMOD_OPENSTATE state;
+
+	result = tmpsnd->getOpenState(&state, 0, 0);
+	ERRCHECK(result);
+	
+	if (state == FMOD_OPENSTATE_READY && !channel)
+	{
+		result = system->playSound(FMOD_CHANNEL_FREE, sound, false, &channel);
+		ERRCHECK(result);
+	}
+
+	GameCode();
+} while (1)
+</PRE>
+
+or
+
+<PRE>
+do
+{
+	if (!channel)
+	{
+		result = system->playSound(FMOD_CHANNEL_FREE, sound, false, &channel);
+		if (result != FMOD_ERR_NOTREADY)
+		{
+			ERRCHECK(result);
+		}
+	}
+
+	GameCode();
+} while (1)
+</PRE>
+
+The second loop will simply retry playsound until it succeeds.
+
+<h2>Creating the sound as a streamed FSB file.</h2>
+An FSB file will have subsounds in it, so if you open it as a stream, you may not want FMOD seeking to the first subsound and wasting time.  You can use the initialsubsound member of the FMOD_CREATESOUNDEXINFO structure to make the non-blocking open seek to the subsound of your choice.<br>
+<PRE>
+FMOD_RESULT result;
+FMOD::Sound *sound;
+FMOD_CREATESOUNDEXINFO exinfo;
+
+memset(&exinfo, 0, sizeof(FMOD_CREATESOUNDEXINFO));
+exinfo.cbsize = sizeof(FMOD_CREATESOUNDEXINFO);
+exinfo.initialsubsound = 1;
+
+result = system->createStream("../media/sounds.fsb", FMOD_NONBLOCKING, &exinfo, &sound);
+ERRCHECK(result);
+</PRE>
+Then get the subsound you wanted with Sound::getSubSound.<br>
+
+<h2>Getting a subsound.</h2>
+
+Sound::getSubSound is a free function call normally, all it does is return a pointer to the subsound, whether it be a sample or a stream.  It does not execute any special code besides this.<br>
+What it would cause if it was a blocking stream though, is System::playSound stalling several milliseconds or more while it seeks and reflushes the stream buffer.  Time taken can depend on the file format and media.<br>
+<br>
+If the parent sound was opened using FMOD_NONBLOCKING, then it will set the <b>subsound</b> to be FMOD_OPENSTATE_SEEKING and it will become not ready again until the seek and stream buffer flush has completed.<br>
+When the stream is ready and System::playSound is called, then the playsound will not stall and will execute immediately because the stream has been flushed.<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<P>
+&nbsp;<P>
+</BODY>
+</HTML>

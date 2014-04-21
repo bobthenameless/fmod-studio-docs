@@ -1,0 +1,54 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::setDriver</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::setDriver</H1>
+<P>
+<p>Selects a soundcard driver.  This function is used when an output mode has enumerated more than one output device,
+and you need to select between them.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::setDriver(
+  int <I>driver</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_SetDriver(
+  FMOD_SYSTEM *<I>system</I>,
+  int <I>driver</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>driver</dt>
+<dd>Driver number to select.  0 = primary or main sound device as selected by the operating system settings. Use <A HREF="FMOD_System_GetNumDrivers.html">System::getNumDrivers</A> and <A HREF="FMOD_System_GetDriverInfo.html">System::getDriverInfo</A> to determine available devices.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>If this function is called after FMOD is already initialized with <A HREF="FMOD_System_Init.html">System::init</A>, the current driver will be shutdown
+and the newly selected driver will be initialized / started.</p>
+
+<p>The driver that you wish to change to must support the current output format, sample rate, and number of channels.
+If it does not, <A HREF="FMOD_RESULT.html">FMOD_ERR_OUTPUT_INIT</A> is returned and driver state is cleared. You should now call <A HREF="FMOD_System_SetDriver.html">System::setDriver</A>
+with your original driver index to restore driver state (providing that driver is still available / connected) or
+make another selection.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_GetDriver.html">System::getDriver</A></LI>
+<LI><A HREF="FMOD_System_GetNumDrivers.html">System::getNumDrivers</A></LI>
+<LI><A HREF="FMOD_System_GetDriverInfo.html">System::getDriverInfo</A></LI>
+<LI><A HREF="FMOD_System_SetOutput.html">System::setOutput</A></LI>
+<LI><A HREF="FMOD_System_Init.html">System::init</A></LI>
+<LI><A HREF="FMOD_System_Close.html">System::close</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

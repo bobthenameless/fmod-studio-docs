@@ -1,0 +1,43 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Channel::setMute</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Channel::setMute</H1>
+<P>
+<p>Sets the mute state effectively silencing it or returning it to its normal volume.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Channel::setMute(
+  bool <I>mute</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Channel_SetMute(
+  FMOD_CHANNEL *<I>channel</I>,
+  FMOD_BOOL <I>mute</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>mute</dt>
+<dd>Mute state, true = mute (silent), false = normal volume.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Each channel and channel group has its own mute state, muting a channel group will mute all child channels but will
+not affect their individual setting. Calling <A HREF="FMOD_ChannelControl_GetMute.html">ChannelControl::getMute</A> will always return the value you set.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_ChannelControl_GetMute.html">ChannelControl::getMute</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

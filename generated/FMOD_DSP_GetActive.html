@@ -1,0 +1,40 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>DSP::getActive</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>DSP::getActive</H1>
+<P>
+<p>Retrieves the active state of a DSP unit.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT DSP::getActive(
+  bool *<I>active</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_DSP_GetActive(
+  FMOD_DSP *<I>dsp</I>,
+  FMOD_BOOL *<I>active</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>active</dt>
+<dd>Address of a variable that receives the active state of the unit. true = unit is activated, false = unit is deactivated.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_SetActive.html">DSP::setActive</A></LI>
+<LI><A HREF="FMOD_DSP_SetBypass.html">DSP::setBypass</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

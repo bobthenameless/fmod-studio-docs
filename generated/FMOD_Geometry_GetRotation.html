@@ -1,0 +1,48 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Geometry::getRotation</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Geometry::getRotation</H1>
+<P>
+<p>Retrieves the orientation of the geometry object.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Geometry::getRotation(
+  FMOD_VECTOR *<I>forward</I>,
+  FMOD_VECTOR *<I>up</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Geometry_GetRotation(
+  FMOD_GEOMETRY *<I>geometry</I>,
+  FMOD_VECTOR *<I>forward</I>,
+  FMOD_VECTOR *<I>up</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>forward</dt>
+<dd>Address of a variable that receives the forwards orientation of the geometry object. Specify 0 or NULL to ignore.</dd>
+<dt>up</dt>
+<dd>Address of a variable that receives the upwards orientation of the geometry object. Specify 0 or NULL to ignore.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>See remarks in <A HREF="FMOD_System_Set3DListenerAttributes.html">System::set3DListenerAttributes</A> for more description on forward and up vectors.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Geometry_SetRotation.html">Geometry::setRotation</A></LI>
+<LI><A HREF="FMOD_System_Set3DListenerAttributes.html">System::set3DListenerAttributes</A></LI>
+<LI><A HREF="FMOD_VECTOR.html">FMOD_VECTOR</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

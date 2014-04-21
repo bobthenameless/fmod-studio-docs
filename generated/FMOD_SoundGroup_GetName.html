@@ -1,0 +1,44 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>SoundGroup::getName</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>SoundGroup::getName</H1>
+<P>
+<p>Retrieves the name of the sound group.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT SoundGroup::getName(
+  char *<I>name</I>,
+  int <I>namelen</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_SoundGroup_GetName(
+  FMOD_SOUNDGROUP *<I>soundgroup</I>,
+  char *<I>name</I>,
+  int <I>namelen</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>name</dt>
+<dd>Address of a variable that receives the name of the sound group.</dd>
+<dt>namelen</dt>
+<dd>Length in bytes of the target buffer to receieve the string.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_CreateSoundGroup.html">System::createSoundGroup</A></LI>
+<LI><A HREF="FMOD_System_GetMasterSoundGroup.html">System::getMasterSoundGroup</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

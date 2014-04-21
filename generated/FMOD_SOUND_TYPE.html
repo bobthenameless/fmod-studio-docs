@@ -1,0 +1,108 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_SOUND_TYPE</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_SOUND_TYPE</H1>
+<P>
+<p>These definitions describe the type of song being played.</p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_SOUND_TYPE_UNKNOWN,
+  FMOD_SOUND_TYPE_AIFF,
+  FMOD_SOUND_TYPE_ASF,
+  FMOD_SOUND_TYPE_AT3,
+  FMOD_SOUND_TYPE_DLS,
+  FMOD_SOUND_TYPE_FLAC,
+  FMOD_SOUND_TYPE_FSB,
+  FMOD_SOUND_TYPE_GCADPCM,
+  FMOD_SOUND_TYPE_IT,
+  FMOD_SOUND_TYPE_MIDI,
+  FMOD_SOUND_TYPE_MOD,
+  FMOD_SOUND_TYPE_MPEG,
+  FMOD_SOUND_TYPE_OGGVORBIS,
+  FMOD_SOUND_TYPE_PLAYLIST,
+  FMOD_SOUND_TYPE_RAW,
+  FMOD_SOUND_TYPE_S3M,
+  FMOD_SOUND_TYPE_USER,
+  FMOD_SOUND_TYPE_WAV,
+  FMOD_SOUND_TYPE_XM,
+  FMOD_SOUND_TYPE_XMA,
+  FMOD_SOUND_TYPE_VAG,
+  FMOD_SOUND_TYPE_AUDIOQUEUE,
+  FMOD_SOUND_TYPE_XWMA,
+  FMOD_SOUND_TYPE_BCWAV,
+  FMOD_SOUND_TYPE_AT9,
+  FMOD_SOUND_TYPE_VORBIS,
+  FMOD_SOUND_TYPE_MEDIA_FOUNDATION,
+  FMOD_SOUND_TYPE_MAX
+} FMOD_SOUND_TYPE;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_SOUND_TYPE_UNKNOWN</I></P>
+<P class=indent>3rd party / unknown plugin format. </P>
+<P class=dt><I>FMOD_SOUND_TYPE_AIFF</I></P>
+<P class=indent>AIFF. </P>
+<P class=dt><I>FMOD_SOUND_TYPE_ASF</I></P>
+<P class=indent>Microsoft Advanced Systems Format (ie WMA/ASF/WMV). </P>
+<P class=dt><I>FMOD_SOUND_TYPE_AT3</I></P>
+<P class=indent>Sony ATRAC 3 format </P>
+<P class=dt><I>FMOD_SOUND_TYPE_DLS</I></P>
+<P class=indent>Sound font / downloadable sound bank. </P>
+<P class=dt><I>FMOD_SOUND_TYPE_FLAC</I></P>
+<P class=indent>FLAC lossless codec. </P>
+<P class=dt><I>FMOD_SOUND_TYPE_FSB</I></P>
+<P class=indent>FMOD Sample Bank. </P>
+<P class=dt><I>FMOD_SOUND_TYPE_GCADPCM</I></P>
+<P class=indent>Nintendo GameCube/Wii ADPCM </P>
+<P class=dt><I>FMOD_SOUND_TYPE_IT</I></P>
+<P class=indent>Impulse Tracker. </P>
+<P class=dt><I>FMOD_SOUND_TYPE_MIDI</I></P>
+<P class=indent>MIDI. extracodecdata is a pointer to an FMOD_MIDI_EXTRACODECDATA structure. </P>
+<P class=dt><I>FMOD_SOUND_TYPE_MOD</I></P>
+<P class=indent>Protracker / Fasttracker MOD. </P>
+<P class=dt><I>FMOD_SOUND_TYPE_MPEG</I></P>
+<P class=indent>MP2/MP3 MPEG. </P>
+<P class=dt><I>FMOD_SOUND_TYPE_OGGVORBIS</I></P>
+<P class=indent>Ogg vorbis. </P>
+<P class=dt><I>FMOD_SOUND_TYPE_PLAYLIST</I></P>
+<P class=indent>Information only from ASX/PLS/M3U/WAX playlists </P>
+<P class=dt><I>FMOD_SOUND_TYPE_RAW</I></P>
+<P class=indent>Raw PCM data. </P>
+<P class=dt><I>FMOD_SOUND_TYPE_S3M</I></P>
+<P class=indent>ScreamTracker 3. </P>
+<P class=dt><I>FMOD_SOUND_TYPE_USER</I></P>
+<P class=indent>User created sound. </P>
+<P class=dt><I>FMOD_SOUND_TYPE_WAV</I></P>
+<P class=indent>Microsoft WAV. </P>
+<P class=dt><I>FMOD_SOUND_TYPE_XM</I></P>
+<P class=indent>FastTracker 2 XM. </P>
+<P class=dt><I>FMOD_SOUND_TYPE_XMA</I></P>
+<P class=indent>Xbox360 XMA </P>
+<P class=dt><I>FMOD_SOUND_TYPE_VAG</I></P>
+<P class=indent>PlayStation Portable ADPCM VAG format. </P>
+<P class=dt><I>FMOD_SOUND_TYPE_AUDIOQUEUE</I></P>
+<P class=indent>iPhone hardware decoder, supports AAC, ALAC and MP3. extracodecdata is a pointer to an FMOD_AUDIOQUEUE_EXTRACODECDATA structure. </P>
+<P class=dt><I>FMOD_SOUND_TYPE_XWMA</I></P>
+<P class=indent>Xbox360 XWMA </P>
+<P class=dt><I>FMOD_SOUND_TYPE_BCWAV</I></P>
+<P class=indent>3DS BCWAV container format for DSP ADPCM and PCM </P>
+<P class=dt><I>FMOD_SOUND_TYPE_AT9</I></P>
+<P class=indent>PS4 / PSVita ATRAC 9 format </P>
+<P class=dt><I>FMOD_SOUND_TYPE_VORBIS</I></P>
+<P class=indent>Vorbis </P>
+<P class=dt><I>FMOD_SOUND_TYPE_MEDIA_FOUNDATION</I></P>
+<P class=indent>Windows Store Application built in system codecs </P>
+<P class=dt><I>FMOD_SOUND_TYPE_MAX</I></P>
+<P class=indent>Maximum number of sound types supported. </P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Sound_GetFormat.html">Sound::getFormat</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

@@ -1,0 +1,37 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>ChannelControl::getDSP</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>ChannelControl::getDSP</H1>
+<P>
+<p>Retrieve a DSP unit based on an index.  The index represents an offset into the chain of DSPs added with <A HREF="FMOD_ChannelControl_AddDSP.html">ChannelControl::addDSP</A>.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT ChannelControl::getDSP(
+  int <I>index</I>,
+  DSP **<I>dsp</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>index</I></P>
+<P class=indent>Index into the linear DSP chain within the Channel or ChannelGroup.  The first added DSP with <A HREF="FMOD_ChannelControl_AddDSP.html">ChannelControl::addDSP</A> would be represented by index 0.</P>
+<P class=dt><I>dsp</I></P>
+<P class=indent>Address of a variable to receive a pointer to a DSP unit upon completion.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_ChannelControl_AddDSP.html">ChannelControl::addDSP</A></LI>
+<LI><A HREF="FMOD_ChannelControl_RemoveDSP.html">ChannelControl::removeDSP</A></LI>
+<LI><A HREF="FMOD_ChannelControl_GetNumDSPs.html">ChannelControl::getNumDSPs</A></LI>
+<LI><A HREF="FMOD_CHANNELCONTROL_DSP_INDEX.html">FMOD_CHANNELCONTROL_DSP_INDEX</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

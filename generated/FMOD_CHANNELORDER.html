@@ -1,0 +1,45 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_CHANNELORDER</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_CHANNELORDER</H1>
+<P>
+<p>When creating a multichannel sound, FMOD will pan them to their default speaker locations, for example a 6 channel sound will default to one channel per 5.1 output speaker.<br>
+Another example is a stereo sound.  It will default to left = front left, right = front right.<br>
+<br>
+This is for sounds that are not 'default'.  For example you might have a sound that is 6 channels but actually made up of 3 stereo pairs, that should all be located in front left, front right only.</p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_CHANNELORDER_DEFAULT,
+  FMOD_CHANNELORDER_WAVEFORMAT,
+  FMOD_CHANNELORDER_PROTOOLS,
+  FMOD_CHANNELORDER_ALLMONO,
+  FMOD_CHANNELORDER_ALLSTEREO,
+  FMOD_CHANNELORDER_MAX
+} FMOD_CHANNELORDER;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_CHANNELORDER_DEFAULT</I></P>
+<P class=indent>Left, Right, Center, LFE, Surround Left, Surround Right, Back Left, Back Right (see <A HREF="FMOD_SPEAKER.html">FMOD_SPEAKER</A> enumeration)   </P>
+<P class=dt><I>FMOD_CHANNELORDER_WAVEFORMAT</I></P>
+<P class=indent>Left, Right, Center, LFE, Back Left, Back Right, Surround Left, Surround Right (as per Microsoft .wav WAVEFORMAT structure master order) </P>
+<P class=dt><I>FMOD_CHANNELORDER_PROTOOLS</I></P>
+<P class=indent>Left, Center, Right, Surround Left, Surround Right, LFE </P>
+<P class=dt><I>FMOD_CHANNELORDER_ALLMONO</I></P>
+<P class=indent>Mono, Mono, Mono, Mono, Mono, Mono, ... (each channel all the way up to 32 channels are treated as if they were mono) </P>
+<P class=dt><I>FMOD_CHANNELORDER_ALLSTEREO</I></P>
+<P class=indent>Left, Right, Left, Right, Left, Right, ... (each pair of channels is treated as stereo all the way up to 32 channels) </P>
+<P class=dt><I>FMOD_CHANNELORDER_MAX</I></P>
+<P class=indent>Maximum number of channel orderings supported. </P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_CREATESOUNDEXINFO.html">FMOD_CREATESOUNDEXINFO</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

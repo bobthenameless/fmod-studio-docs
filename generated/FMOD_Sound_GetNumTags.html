@@ -1,0 +1,47 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Sound::getNumTags</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Sound::getNumTags</H1>
+<P>
+<p>Retrieves the number of tags belonging to a sound.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Sound::getNumTags(
+  int *<I>numtags</I>,
+  int *<I>numtagsupdated</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Sound_GetNumTags(
+  FMOD_SOUND *<I>sound</I>,
+  int *<I>numtags</I>,
+  int *<I>numtagsupdated</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>numtags</dt>
+<dd>Address of a variable that receives the number of tags in the sound.  Optional.  Specify 0 or NULL to ignore.</dd>
+<dt>numtagsupdated</dt>
+<dd>Address of a variable that receives the number of tags updated since this function was last called.  Optional.  Specify 0 or NULL to ignore.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>The 'numtagsupdated' parameter can be used to check if any tags have been updated since last calling this function.<br>
+This can be useful to update tag fields, for example from internet based streams, such as shoutcast or icecast where the name of the song might change.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Sound_GetTag.html">Sound::getTag</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

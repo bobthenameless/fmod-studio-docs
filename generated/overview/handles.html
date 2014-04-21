@@ -1,0 +1,34 @@
+<LINK REL="stylesheet" href="../../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Handle System</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<h1>Handle System</h1>
+
+<h2>Introduction</h2>
+
+<p>The FMOD Studio and Low Level API returns pointers to types.  Some of these types are actually implemented as an underlying handle with the handle data represented to the user as a pointer type.  This section explains the underlying representation and lifetime of these objects.</p>
+
+<h2>General Information</h2>
+
+<p>All FMOD types, whether they are represented internally via pointer or handle, look like a pointer type.  No matter the type, a null pointer will never be returned as a valid result, but it is not safe to assume anything else about the pointer value.  The user should not assume that the pointer value falls in any particular address range, or that it has any zero bits in the bottom of the pointer value address.</p>
+
+<p>All FMOD types are equivalent for both the C and C++ API.  It is possible to cast between the appropriate types by re-interpreting the pointer type directly.</p>
+
+<h2>Low Level Channels</h2>
+
+<p>FMOD Channels are returned to the user as a pointer but actually consist of packed handle data.  This allows channels to be re-used safely.  When channels are stolen and re-used, then the API will return <A HREF="../FMOD_RESULT.html">FMOD_ERR_INVALID_HANDLE</A>.  Internally FMOD can detect the difference between channels and channel groups because the bit pattern of channels always has 1 in the lowest significant bit, whereas channel groups have 0 in the lowest bit.</p>
+
+<h2>Low Level Channel Groups</h2>
+
+<p>FMOD Channel Groups are returned to the user directly as a pointer.  Once the user destroys a channel group, it is not safe to call FMOD functions with that pointer.</p>
+
+<h2>Low Level System</h2>
+
+<p>FMOD system object is returned to the user directly as a pointer.  Once the user destroys the low level system, is is not safe to call FMOD functions with that pointer.</p>
+
+<h2>Studio Types</h2>
+
+<p>FMOD Studio types are returned to the user as a pointer but actually consist of packed handle data.  If the underlying type has been destroyed then the API will return <A HREF="../FMOD_RESULT.html">FMOD_ERR_INVALID_HANDLE</A>.  An example of this would be unloading a Studio::Bank and then referencing a Studio::EventDescription belonging to that bank.</p>

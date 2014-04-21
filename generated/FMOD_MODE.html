@@ -1,0 +1,144 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_MODE</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_MODE</H1>
+<P>
+<p>Sound description bitfields, bitwise OR them together for loading and describing sounds.</p>
+
+<p>By default a sound will open as a static sound that is decompressed fully into memory to PCM. (ie equivalent of <A HREF="FMOD_MODE.html">FMOD_CREATESAMPLE</A>)<br>
+To have a sound stream instead, use <A HREF="FMOD_MODE.html">FMOD_CREATESTREAM</A>, or use the wrapper function <A HREF="FMOD_System_CreateStream.html">System::createStream</A>.<br>
+Some opening modes (ie <A HREF="FMOD_MODE.html">FMOD_OPENUSER</A>, <A HREF="FMOD_MODE.html">FMOD_OPENMEMORY</A>, <A HREF="FMOD_MODE.html">FMOD_OPENMEMORY_POINT</A>, <A HREF="FMOD_MODE.html">FMOD_OPENRAW</A>) will need extra information.<br>
+This can be provided using the <A HREF="FMOD_CREATESOUNDEXINFO.html">FMOD_CREATESOUNDEXINFO</A> structure.
+<br>
+Specifying <A HREF="FMOD_MODE.html">FMOD_OPENMEMORY_POINT</A> will POINT to your memory rather allocating its own sound buffers and duplicating it internally.<br>
+<b><u>This means you cannot free the memory while FMOD is using it, until after <A HREF="FMOD_Sound_Release.html">Sound::release</A> is called.</b></u>
+With <A HREF="FMOD_MODE.html">FMOD_OPENMEMORY_POINT</A>, for PCM formats, only WAV, FSB, and RAW are supported.  For compressed formats, only those formats supported by <A HREF="FMOD_MODE.html">FMOD_CREATECOMPRESSEDSAMPLE</A> are supported.<br>
+With <A HREF="FMOD_MODE.html">FMOD_OPENMEMORY_POINT</A> and <A HREF="FMOD_MODE.html">FMOD_OPENRAW</A> or PCM, if using them together, note that you must pad the data on each side by 16 bytes.  This is so fmod can modify the ends of the data for looping/interpolation/mixing purposes.  If a wav file, you will need to insert silence, and then reset loop points to stop the playback from playing that silence.<br>
+With <A HREF="FMOD_MODE.html">FMOD_OPENMEMORY_POINT</A>, For Wii/PSP <A HREF="FMOD_MODE.html">FMOD_HARDWARE</A> supports this flag for the GCADPCM/VAG formats.  On other platforms <A HREF="FMOD_MODE.html">FMOD_SOFTWARE</A> must be used.<br>
+<br>
+<b>Xbox 360 memory</b> On Xbox 360 Specifying <A HREF="FMOD_MODE.html">FMOD_OPENMEMORY_POINT</A> to a virtual memory address will cause <A HREF="FMOD_RESULT.html">FMOD_ERR_INVALID_ADDRESS</A>
+to be returned.  Use physical memory only for this functionality.<br>
+<br>
+<A HREF="FMOD_MODE.html">FMOD_LOWMEM</A> is used on a sound if you want to minimize the memory overhead, by having FMOD not allocate memory for certain
+features that are not likely to be used in a game environment.  These are :<br>
+1. <A HREF="FMOD_Sound_GetName.html">Sound::getName</A> functionality is removed.  256 bytes per sound is saved.<br></p>
+</P>
+<h3>Definition</h3>
+<PRE class=syntax><CODE>#define FMOD_DEFAULT 0x00000000
+#define FMOD_LOOP_OFF 0x00000001
+#define FMOD_LOOP_NORMAL 0x00000002
+#define FMOD_LOOP_BIDI 0x00000004
+#define FMOD_2D 0x00000008
+#define FMOD_3D 0x00000010
+#define FMOD_HARDWARE 0x00000020
+#define FMOD_SOFTWARE 0x00000040
+#define FMOD_CREATESTREAM 0x00000080
+#define FMOD_CREATESAMPLE 0x00000100
+#define FMOD_CREATECOMPRESSEDSAMPLE 0x00000200
+#define FMOD_OPENUSER 0x00000400
+#define FMOD_OPENMEMORY 0x00000800
+#define FMOD_OPENMEMORY_POINT 0x10000000
+#define FMOD_OPENRAW 0x00001000
+#define FMOD_OPENONLY 0x00002000
+#define FMOD_ACCURATETIME 0x00004000
+#define FMOD_MPEGSEARCH 0x00008000
+#define FMOD_NONBLOCKING 0x00010000
+#define FMOD_UNIQUE 0x00020000
+#define FMOD_3D_HEADRELATIVE 0x00040000
+#define FMOD_3D_WORLDRELATIVE 0x00080000
+#define FMOD_3D_INVERSEROLLOFF 0x00100000
+#define FMOD_3D_LINEARROLLOFF 0x00200000
+#define FMOD_3D_LINEARSQUAREROLLOFF 0x00400000
+#define FMOD_3D_CUSTOMROLLOFF 0x04000000
+#define FMOD_3D_IGNOREGEOMETRY 0x40000000
+#define FMOD_UNICODE 0x01000000
+#define FMOD_IGNORETAGS 0x02000000
+#define FMOD_LOWMEM 0x08000000
+#define FMOD_LOADSECONDARYRAM 0x20000000
+#define FMOD_VIRTUAL_PLAYFROMSTART 0x80000000
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_DEFAULT</I></P>
+<P class=indent>Default for all modes listed below. <A HREF="FMOD_MODE.html">FMOD_LOOP_OFF</A>, <A HREF="FMOD_MODE.html">FMOD_2D</A>, <A HREF="FMOD_MODE.html">FMOD_3D_WORLDRELATIVE</A>, <A HREF="FMOD_MODE.html">FMOD_3D_INVERSEROLLOFF</A> </P>
+<P class=dt><I>FMOD_LOOP_OFF</I></P>
+<P class=indent>For non looping sounds. (DEFAULT).  Overrides <A HREF="FMOD_MODE.html">FMOD_LOOP_NORMAL</A> / <A HREF="FMOD_MODE.html">FMOD_LOOP_BIDI</A>. </P>
+<P class=dt><I>FMOD_LOOP_NORMAL</I></P>
+<P class=indent>For forward looping sounds. </P>
+<P class=dt><I>FMOD_LOOP_BIDI</I></P>
+<P class=indent>For bidirectional looping sounds. (only works on software mixed static sounds). </P>
+<P class=dt><I>FMOD_2D</I></P>
+<P class=indent>Ignores any 3d processing. (DEFAULT). </P>
+<P class=dt><I>FMOD_3D</I></P>
+<P class=indent>Makes the sound positionable in 3D.  Overrides <A HREF="FMOD_MODE.html">FMOD_2D</A>. </P>
+<P class=dt><I>FMOD_HARDWARE</I></P>
+<P class=indent>Attempts to make sounds use hardware acceleration.  Note on platforms that don't support <A HREF="FMOD_MODE.html">FMOD_HARDWARE</A> (only 3DS, PS Vita, PSP, Wii and Wii U support <A HREF="FMOD_MODE.html">FMOD_HARDWARE</A>), this will be internally treated as <A HREF="FMOD_MODE.html">FMOD_SOFTWARE</A>. </P>
+<P class=dt><I>FMOD_SOFTWARE</I></P>
+<P class=indent>Makes the sound be mixed by the FMOD CPU based software mixer.  (DEFAULT).  Overrides <A HREF="FMOD_MODE.html">FMOD_HARDWARE</A>.  The majority of FMOD functions rely on <A HREF="FMOD_MODE.html">FMOD_SOFTWARE</A> and should always be used unless it is a limited platform that supports hardware and needs the cpu time back. </P>
+<P class=dt><I>FMOD_CREATESTREAM</I></P>
+<P class=indent>Decompress at runtime, streaming from the source provided (ie from disk).  Overrides <A HREF="FMOD_MODE.html">FMOD_CREATESAMPLE</A> and <A HREF="FMOD_MODE.html">FMOD_CREATECOMPRESSEDSAMPLE</A>.  Note a stream can only be played once at a time due to a stream only having 1 stream buffer and file handle.  Open multiple streams to have them play concurrently. </P>
+<P class=dt><I>FMOD_CREATESAMPLE</I></P>
+<P class=indent>Decompress at loadtime, decompressing or decoding whole file into memory as the target sample format (ie PCM).  Fastest for <A HREF="FMOD_MODE.html">FMOD_SOFTWARE</A> based playback and most flexible.  </P>
+<P class=dt><I>FMOD_CREATECOMPRESSEDSAMPLE</I></P>
+<P class=indent>Load MP2/MP3/IMAADPCM/CELT/Vorbis/AT9 or XMA into memory and leave it compressed.  CELT/Vorbis/AT9 encoding only supported in the FSB file format.  During playback the FMOD software mixer will decode it in realtime as a 'compressed sample'.  Can only be used in combination with <A HREF="FMOD_MODE.html">FMOD_SOFTWARE</A>.  Overrides <A HREF="FMOD_MODE.html">FMOD_CREATESAMPLE</A>.  If the sound data is not one of the supported formats, it will behave as if it was created with <A HREF="FMOD_MODE.html">FMOD_CREATESAMPLE</A> and decode the sound into PCM. </P>
+<P class=dt><I>FMOD_OPENUSER</I></P>
+<P class=indent>Opens a user created static sample or stream. Use <A HREF="FMOD_CREATESOUNDEXINFO.html">FMOD_CREATESOUNDEXINFO</A> to specify format and/or read callbacks.  If a user created 'sample' is created with no read callback, the sample will be empty.  Use <A HREF="FMOD_Sound_Lock.html">Sound::lock</A> and <A HREF="FMOD_Sound_Unlock.html">Sound::unlock</A> to place sound data into the sound if this is the case. </P>
+<P class=dt><I>FMOD_OPENMEMORY</I></P>
+<P class=indent>"name_or_data" will be interpreted as a pointer to memory instead of filename for creating sounds.  Use <A HREF="FMOD_CREATESOUNDEXINFO.html">FMOD_CREATESOUNDEXINFO</A> to specify length.  If used with <A HREF="FMOD_MODE.html">FMOD_CREATESAMPLE</A> or <A HREF="FMOD_MODE.html">FMOD_CREATECOMPRESSEDSAMPLE</A>, FMOD duplicates the memory into its own buffers.  Your own buffer can be freed after open.  If used with <A HREF="FMOD_MODE.html">FMOD_CREATESTREAM</A>, FMOD will stream out of the buffer whose pointer you passed in.  In this case, your own buffer should not be freed until you have finished with and released the stream.</P>
+<P class=dt><I>FMOD_OPENMEMORY_POINT</I></P>
+<P class=indent>"name_or_data" will be interpreted as a pointer to memory instead of filename for creating sounds.  Use <A HREF="FMOD_CREATESOUNDEXINFO.html">FMOD_CREATESOUNDEXINFO</A> to specify length.  This differs to <A HREF="FMOD_MODE.html">FMOD_OPENMEMORY</A> in that it uses the memory as is, without duplicating the memory into its own buffers.  For Wii/PSP <A HREF="FMOD_MODE.html">FMOD_HARDWARE</A> supports this flag for the GCADPCM/VAG formats.  On other platforms <A HREF="FMOD_MODE.html">FMOD_SOFTWARE</A> must be used, as sound hardware on the other platforms (ie PC) cannot access main ram.  Cannot be freed after open, only after <A HREF="FMOD_Sound_Release.html">Sound::release</A>.   Will not work if the data is compressed and <A HREF="FMOD_MODE.html">FMOD_CREATECOMPRESSEDSAMPLE</A> is not used. </P>
+<P class=dt><I>FMOD_OPENRAW</I></P>
+<P class=indent>Will ignore file format and treat as raw pcm.  Use <A HREF="FMOD_CREATESOUNDEXINFO.html">FMOD_CREATESOUNDEXINFO</A> to specify format.  Requires at least defaultfrequency, numchannels and format to be specified before it will open.  Must be little endian data. </P>
+<P class=dt><I>FMOD_OPENONLY</I></P>
+<P class=indent>Just open the file, dont prebuffer or read.  Good for fast opens for info, or when sound::readData is to be used. </P>
+<P class=dt><I>FMOD_ACCURATETIME</I></P>
+<P class=indent>For <A HREF="FMOD_System_CreateSound.html">System::createSound</A> - for accurate <A HREF="FMOD_Sound_GetLength.html">Sound::getLength</A>/<A HREF="FMOD_Channel_SetPosition.html">Channel::setPosition</A> on VBR MP3, and MOD/S3M/XM/IT/MIDI files.  Scans file first, so takes longer to open. <A HREF="FMOD_MODE.html">FMOD_OPENONLY</A> does not affect this. </P>
+<P class=dt><I>FMOD_MPEGSEARCH</I></P>
+<P class=indent>For corrupted / bad MP3 files.  This will search all the way through the file until it hits a valid MPEG header.  Normally only searches for 4k. </P>
+<P class=dt><I>FMOD_NONBLOCKING</I></P>
+<P class=indent>For opening sounds and getting streamed subsounds (seeking) asyncronously.  Use <A HREF="FMOD_Sound_GetOpenState.html">Sound::getOpenState</A> to poll the state of the sound as it opens or retrieves the subsound in the background. </P>
+<P class=dt><I>FMOD_UNIQUE</I></P>
+<P class=indent>Unique sound, can only be played one at a time </P>
+<P class=dt><I>FMOD_3D_HEADRELATIVE</I></P>
+<P class=indent>Make the sound's position, velocity and orientation relative to the listener. </P>
+<P class=dt><I>FMOD_3D_WORLDRELATIVE</I></P>
+<P class=indent>Make the sound's position, velocity and orientation absolute (relative to the world). (DEFAULT) </P>
+<P class=dt><I>FMOD_3D_INVERSEROLLOFF</I></P>
+<P class=indent>This sound will follow the inverse rolloff model where mindistance = full volume, maxdistance = where sound stops attenuating, and rolloff is fixed according to the global rolloff factor.  (DEFAULT) </P>
+<P class=dt><I>FMOD_3D_LINEARROLLOFF</I></P>
+<P class=indent>This sound will follow a linear rolloff model where mindistance = full volume, maxdistance = silence.  Rolloffscale is ignored. </P>
+<P class=dt><I>FMOD_3D_LINEARSQUAREROLLOFF</I></P>
+<P class=indent>This sound will follow a linear-square rolloff model where mindistance = full volume, maxdistance = silence.  Rolloffscale is ignored. </P>
+<P class=dt><I>FMOD_3D_CUSTOMROLLOFF</I></P>
+<P class=indent>This sound will follow a rolloff model defined by <A HREF="FMOD_Sound_Set3DCustomRolloff.html">Sound::set3DCustomRolloff</A> / <A HREF="FMOD_Channel_Set3DCustomRolloff.html">Channel::set3DCustomRolloff</A>.  </P>
+<P class=dt><I>FMOD_3D_IGNOREGEOMETRY</I></P>
+<P class=indent>Is not affect by geometry occlusion.  If not specified in <A HREF="FMOD_Sound_SetMode.html">Sound::setMode</A>, or <A HREF="FMOD_Channel_SetMode.html">Channel::setMode</A>, the flag is cleared and it is affected by geometry again. </P>
+<P class=dt><I>FMOD_UNICODE</I></P>
+<P class=indent>Filename is double-byte unicode. </P>
+<P class=dt><I>FMOD_IGNORETAGS</I></P>
+<P class=indent>Skips id3v2/asf/etc tag checks when opening a sound, to reduce seek/read overhead when opening files (helps with CD performance). </P>
+<P class=dt><I>FMOD_LOWMEM</I></P>
+<P class=indent>Removes some features from samples to give a lower memory overhead, like <A HREF="FMOD_Sound_GetName.html">Sound::getName</A>.  See remarks. </P>
+<P class=dt><I>FMOD_LOADSECONDARYRAM</I></P>
+<P class=indent>Load sound into the secondary RAM of supported platform. On PS3, sounds will be loaded into RSX/VRAM. </P>
+<P class=dt><I>FMOD_VIRTUAL_PLAYFROMSTART</I></P>
+<P class=indent>For sounds that start virtual (due to being quiet or low importance), instead of swapping back to audible, and playing at the correct offset according to time, this flag makes the sound play from the start. </P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_CreateSound.html">System::createSound</A></LI>
+<LI><A HREF="FMOD_System_CreateStream.html">System::createStream</A></LI>
+<LI><A HREF="FMOD_Sound_SetMode.html">Sound::setMode</A></LI>
+<LI><A HREF="FMOD_Sound_GetMode.html">Sound::getMode</A></LI>
+<LI><A HREF="FMOD_Channel_SetMode.html">Channel::setMode</A></LI>
+<LI><A HREF="FMOD_Channel_GetMode.html">Channel::getMode</A></LI>
+<LI><A HREF="FMOD_Sound_Set3DCustomRolloff.html">Sound::set3DCustomRolloff</A></LI>
+<LI><A HREF="FMOD_Channel_Set3DCustomRolloff.html">Channel::set3DCustomRolloff</A></LI>
+<LI><A HREF="FMOD_Sound_GetOpenState.html">Sound::getOpenState</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

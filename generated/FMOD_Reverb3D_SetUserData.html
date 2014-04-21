@@ -1,0 +1,46 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Reverb3D::setUserData</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Reverb3D::setUserData</H1>
+<P>
+<p>Sets a user value that the Reverb object will store internally.  Can be retrieved with Reverb::getUserData.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Reverb3D::setUserData(
+  void *<I>userdata</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Reverb3D_SetUserData(
+  FMOD_REVERB3D *<I>reverb3d</I>,
+  void *<I>userdata</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>userdata</dt>
+<dd>Address of user data that the user wishes stored within the Reverb object.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>This function is primarily used in case the user wishes to 'attach' data to an FMOD object.</p>
+
+<p>It can be useful if an FMOD callback passes an object of this type as a parameter, and the user does not know which
+object it is (if many of these types of objects exist).  Using Reverb::getUserData would help in the identification
+of the object.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Reverb3D_GetUserData.html">Reverb3D::getUserData</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

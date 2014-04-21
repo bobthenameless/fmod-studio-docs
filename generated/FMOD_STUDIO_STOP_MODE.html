@@ -1,0 +1,31 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_STUDIO_STOP_MODE</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_STUDIO_STOP_MODE</H1>
+<P>
+<p>Controls how to stop playback of an event instance.</p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_STUDIO_STOP_ALLOWFADEOUT,
+  FMOD_STUDIO_STOP_IMMEDIATE
+} FMOD_STUDIO_STOP_MODE;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_STUDIO_STOP_ALLOWFADEOUT</I></P>
+<P class=indent>Allows AHDSR modulators to complete their release, and DSP effect tails to play out. </P>
+<P class=dt><I>FMOD_STUDIO_STOP_IMMEDIATE</I></P>
+<P class=indent>Stops the event instance immediately. </P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Studio_EventInstance_Stop.html">Studio::EventInstance::stop</A></LI>
+<LI><A HREF="FMOD_Studio_MixerStrip_StopAllEvents.html">Studio::MixerStrip::stopAllEvents</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

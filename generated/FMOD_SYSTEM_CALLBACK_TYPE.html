@@ -1,0 +1,55 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_SYSTEM_CALLBACK_TYPE</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_SYSTEM_CALLBACK_TYPE</H1>
+<P>
+<p>These callback types are used with <A HREF="FMOD_System_SetCallback.html">System::setCallback</A>.</p>
+
+<p>Each callback has commanddata parameters passed as void* unique to the type of callback.<br>
+See reference to <A HREF="FMOD_SYSTEM_CALLBACK.html">FMOD_SYSTEM_CALLBACK</A> to determine what they might mean for each type of callback.<br>
+<br>
+<b>Note!</b> Using <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_DEVICELISTCHANGED</A> (on Mac only) requires the application to be running an event loop which will allow external changes to device list to be detected by FMOD.<br>
+<br>
+<b>Note!</b> The 'system' object pointer will be null for <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_THREADCREATED</A> and <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_MEMORYALLOCATIONFAILED</A> callbacks.</p>
+</P>
+<h3>Definition</h3>
+<PRE class=syntax><CODE>#define FMOD_SYSTEM_CALLBACK_DEVICELISTCHANGED 0x00000001
+#define FMOD_SYSTEM_CALLBACK_DEVICELOST 0x00000002
+#define FMOD_SYSTEM_CALLBACK_MEMORYALLOCATIONFAILED 0x00000004
+#define FMOD_SYSTEM_CALLBACK_THREADCREATED 0x00000008
+#define FMOD_SYSTEM_CALLBACK_BADDSPCONNECTION 0x00000010
+#define FMOD_SYSTEM_CALLBACK_PREMIX 0x00000020
+#define FMOD_SYSTEM_CALLBACK_POSTMIX 0x00000040
+#define FMOD_SYSTEM_CALLBACK_ERROR 0x00000080
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_SYSTEM_CALLBACK_DEVICELISTCHANGED</I></P>
+<P class=indent>Called from <A HREF="FMOD_System_Update.html">System::update</A> when the enumerated list of devices has changed. </P>
+<P class=dt><I>FMOD_SYSTEM_CALLBACK_DEVICELOST</I></P>
+<P class=indent>Called from <A HREF="FMOD_System_Update.html">System::update</A> when an output device has been lost due to control panel parameter changes and FMOD cannot automatically recover. </P>
+<P class=dt><I>FMOD_SYSTEM_CALLBACK_MEMORYALLOCATIONFAILED</I></P>
+<P class=indent>Called directly when a memory allocation fails somewhere in FMOD.  (NOTE - 'system' will be NULL in this callback type.)</P>
+<P class=dt><I>FMOD_SYSTEM_CALLBACK_THREADCREATED</I></P>
+<P class=indent>Called directly when a thread is created. (NOTE - 'system' will be NULL in this callback type.) </P>
+<P class=dt><I>FMOD_SYSTEM_CALLBACK_BADDSPCONNECTION</I></P>
+<P class=indent>Called when a bad connection was made with <A HREF="FMOD_DSP_AddInput.html">DSP::addInput</A>. Usually called from mixer thread because that is where the connections are made.  </P>
+<P class=dt><I>FMOD_SYSTEM_CALLBACK_PREMIX</I></P>
+<P class=indent>Called each tick before a mix update happens. </P>
+<P class=dt><I>FMOD_SYSTEM_CALLBACK_POSTMIX</I></P>
+<P class=indent>Called each tick after a mix update happens. </P>
+<P class=dt><I>FMOD_SYSTEM_CALLBACK_ERROR</I></P>
+<P class=indent>Called when each API function returns an error code, including delayed async functions. </P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_SetCallback.html">System::setCallback</A></LI>
+<LI><A HREF="FMOD_System_Update.html">System::update</A></LI>
+<LI><A HREF="FMOD_DSP_AddInput.html">DSP::addInput</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

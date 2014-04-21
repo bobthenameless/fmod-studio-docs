@@ -1,0 +1,56 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_COMPRESSOR</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_COMPRESSOR</H1>
+<P>
+<p>Parameter types for the <A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE_COMPRESSOR</A> unit.
+This is a simple linked multichannel software limiter that is uniform across the whole spectrum.<br></p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_DSP_COMPRESSOR_THRESHOLD,
+  FMOD_DSP_COMPRESSOR_RATIO,
+  FMOD_DSP_COMPRESSOR_ATTACK,
+  FMOD_DSP_COMPRESSOR_RELEASE,
+  FMOD_DSP_COMPRESSOR_GAINMAKEUP,
+  FMOD_DSP_COMPRESSOR_USESIDECHAIN
+} FMOD_DSP_COMPRESSOR;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_DSP_COMPRESSOR_THRESHOLD</I></P>
+<P class=indent>(Type:float) - Threshold level (dB) in the range from -80 through 0. The default value is 0. </P>
+<P class=dt><I>FMOD_DSP_COMPRESSOR_RATIO</I></P>
+<P class=indent>(Type:float) - Compression Ratio (dB/dB) in the range from 1 to 50. The default value is 2.5. </P>
+<P class=dt><I>FMOD_DSP_COMPRESSOR_ATTACK</I></P>
+<P class=indent>(Type:float) - Attack time (milliseconds), in the range from 0.1 through 1000. The default value is 20. </P>
+<P class=dt><I>FMOD_DSP_COMPRESSOR_RELEASE</I></P>
+<P class=indent>(Type:float) - Release time (milliseconds), in the range from 10 through 5000. The default value is 100 </P>
+<P class=dt><I>FMOD_DSP_COMPRESSOR_GAINMAKEUP</I></P>
+<P class=indent>(Type:float) - Make-up gain (dB) applied after limiting, in the range from 0 through 30. The default value is 0. </P>
+<P class=dt><I>FMOD_DSP_COMPRESSOR_USESIDECHAIN</I></P>
+<P class=indent>(Type:bool)  - Whether to analyse the sidechain signal instead of the input signal. The default value is false </P>
+<h2>Remarks</h2><P>
+<p>The limiter is not guaranteed to catch every peak above the threshold level,
+because it cannot apply gain reduction instantaneously - the time delay is
+determined by the attack time. However setting the attack time too short will
+distort the sound, so it is a compromise. High level peaks can be avoided by
+using a short attack time - but not too short, and setting the threshold a few
+decibels below the critical level.
+<br></p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI>DSP::SetParameterFloat</LI>
+<LI>DSP::GetParameterFloat</LI>
+<LI>DSP::SetParameterBool</LI>
+<LI>DSP::GetParameterBool</LI>
+<LI><A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

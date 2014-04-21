@@ -1,0 +1,39 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FSBank_MemoryInit</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FSBank_MemoryInit</H1>
+<P>
+<p>Specifies a method for FSBank to allocate memory through callbacks.</p>
+</P>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FSBANK_RESULT FSBank_MemoryInit(
+  FSBANK_MEMORY_ALLOC_CALLBACK <I>userAlloc</I>,
+  FSBANK_MEMORY_REALLOC_CALLBACK <I>userRealloc</I>,
+  FSBANK_MEMORY_FREE_CALLBACK <I>userFree</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>userAlloc</I></P>
+<P class=indent>Overrides the internal calls to alloc. Compatible with ANSI malloc().</P>
+<P class=dt><I>userRealloc</I></P>
+<P class=indent>Overrides the internal calls to realloc. Compatible with ANSI realloc().</P>
+<P class=dt><I>userFree</I></P>
+<P class=indent>Overrides the internal calls to free. Compatible with ANSI free().</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fsbank_result.html">FSBANK_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fsbank_result.html">FSBANK_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FSBANK_MEMORY_ALLOC_CALLBACK.html">FSBANK_MEMORY_ALLOC_CALLBACK</A></LI>
+<LI><A HREF="FSBANK_MEMORY_REALLOC_CALLBACK.html">FSBANK_MEMORY_REALLOC_CALLBACK</A></LI>
+<LI><A HREF="FSBANK_MEMORY_FREE_CALLBACK.html">FSBANK_MEMORY_FREE_CALLBACK</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

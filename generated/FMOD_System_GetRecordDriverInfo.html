@@ -1,0 +1,68 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::getRecordDriverInfo</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::getRecordDriverInfo</H1>
+<P>
+<p>Retrieves identification information about a sound device specified by its index, and specific to the output mode set with <A HREF="FMOD_System_SetOutput.html">System::setOutput</A>.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::getRecordDriverInfo(
+  int <I>id</I>,
+  char *<I>name</I>,
+  short *<I>nameW</I>,
+  int <I>namelen</I>,
+  FMOD_GUID *<I>guid</I>,
+  int *<I>systemrate</I>,
+  FMOD_SPEAKERMODE *<I>speakermode</I>,
+  int *<I>speakermodechannels</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_GetRecordDriverInfo(
+  FMOD_SYSTEM *<I>system</I>,
+  int <I>id</I>,
+  char *<I>name</I>,
+  short *<I>nameW</I>,
+  int <I>namelen</I>,
+  FMOD_GUID *<I>guid</I>,
+  int *<I>systemrate</I>,
+  FMOD_SPEAKERMODE *<I>speakermode</I>,
+  int *<I>speakermodechannels</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>id</dt>
+<dd>Index into the enumerated list of record devices up to the value returned by <A HREF="FMOD_System_GetRecordNumDrivers.html">System::getRecordNumDrivers</A>.</dd>
+<dt>name</dt>
+<dd>Address of a variable that receives the name of the recording device. Optional. Specify 0 or NULL to ignore.</dd>
+<dt>nameW</dt>
+<dd>Address of a variable that recieves the name of the recording device in Unicode.  Optional.  Specify 0 or NULL to ignore.</dd>
+<dt>namelen</dt>
+<dd>Length in bytes of the target buffer to receieve the string. Required if name parameter is not NULL.</dd>
+<dt>guid</dt>
+<dd>Address of a variable that receives the GUID that uniquely identifies the device. Optional. Specify 0 or NULL to ignore.</dd>
+<dt>systemrate</dt>
+<dd>Default frequency in hz of the recording device. Optional. Specify 0 or NULL to ignore.</dd>
+<dt>speakermode</dt>
+<dd>Default speaker mode of the recording device. Optional. Specify 0 or NULL to ignore.</dd>
+<dt>speakermodechannels</dt>
+<dd>Default speaker count (that should match the speakermode) of the recording device. Optional. Specify 0 or NULL to ignore.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_SetOutput.html">System::setOutput</A></LI>
+<LI><A HREF="FMOD_System_GetRecordNumDrivers.html">System::getRecordNumDrivers</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

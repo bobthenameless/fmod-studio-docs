@@ -1,0 +1,41 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_MEMORY_FREE_CALLBACK</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_MEMORY_FREE_CALLBACK</H1>
+<P>
+<p>Callback to free a block of memory.</p>
+</P>
+<h3>C/C++ Syntax</h3>
+<PRE class=syntax><CODE>void F_CALLBACK FMOD_MEMORY_FREE_CALLBACK(
+  void *<I>ptr</I>,
+  FMOD_MEMORY_TYPE <I>type</I>,
+  const char *<I>sourcestr</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>ptr</I></P>
+<P class=indent>Pointer to a pre-existing block of memory to be freed.</P>
+<P class=dt><I>type</I></P>
+<P class=indent>Type of memory to be freed.</P>
+<P class=dt><I>sourcestr</I></P>
+<P class=indent>Only valid (not null) in logging versions of FMOD.  Gives a string with the fmod source code filename and line number in it, for better resource tracking.</P>
+<h2>Return Values</h2><P>
+void<BR>
+<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Memory_Initialize.html">Memory_Initialize</A></LI>
+<LI><A HREF="FMOD_Memory_GetStats.html">Memory_GetStats</A></LI>
+<LI><A HREF="FMOD_MEMORY_ALLOC_CALLBACK.html">FMOD_MEMORY_ALLOC_CALLBACK</A></LI>
+<LI><A HREF="FMOD_MEMORY_REALLOC_CALLBACK.html">FMOD_MEMORY_REALLOC_CALLBACK</A></LI>
+<LI><A HREF="FMOD_MEMORY_TYPE.html">FMOD_MEMORY_TYPE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

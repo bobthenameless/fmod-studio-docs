@@ -1,0 +1,42 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_PARAMEQ</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_PARAMEQ</H1>
+<P>
+<p>Parameter types for the <A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE_PARAMEQ</A> filter.</p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_DSP_PARAMEQ_CENTER,
+  FMOD_DSP_PARAMEQ_BANDWIDTH,
+  FMOD_DSP_PARAMEQ_GAIN
+} FMOD_DSP_PARAMEQ;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_DSP_PARAMEQ_CENTER</I></P>
+<P class=indent>(Type:float) - Frequency center.  20.0 to 22000.0.  Default = 8000.0. </P>
+<P class=dt><I>FMOD_DSP_PARAMEQ_BANDWIDTH</I></P>
+<P class=indent>(Type:float) - Octave range around the center frequency to filter.  0.2 to 5.0.  Default = 1.0. </P>
+<P class=dt><I>FMOD_DSP_PARAMEQ_GAIN</I></P>
+<P class=indent>(Type:float) - Frequency Gain in dB.  -30 to 30.  Default = 0.  </P>
+<h2>Remarks</h2><P>
+<p>Parametric EQ is a bandpass filter that attenuates or amplifies a selected frequency and its neighbouring frequencies.<br>
+<br>
+To create a multi-band EQ create multiple <A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE_PARAMEQ</A> units and set each unit to different frequencies, for example 1000hz, 2000hz, 4000hz, 8000hz, 16000hz with a range of 1 octave each.<br>
+<br>
+When a frequency has its gain set to 1.0, the sound will be unaffected and represents the original signal exactly.<br></p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_SetParameterFloat.html">DSP::setParameterFloat</A></LI>
+<LI><A HREF="FMOD_DSP_GetParameterFloat.html">DSP::getParameterFloat</A></LI>
+<LI><A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

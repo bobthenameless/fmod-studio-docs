@@ -1,0 +1,48 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FSBANK_STATE</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FSBANK_STATE</H1>
+<P>
+<p>Current state during the build process.</p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FSBANK_STATE_DECODING,
+  FSBANK_STATE_ANALYSING,
+  FSBANK_STATE_PREPROCESSING,
+  FSBANK_STATE_ENCODING,
+  FSBANK_STATE_WRITING,
+  FSBANK_STATE_FINISHED,
+  FSBANK_STATE_FAILED,
+  FSBANK_STATE_WARNING
+} FSBANK_STATE;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FSBANK_STATE_DECODING</I></P>
+<P class=indent>Decode a file to usable raw sample data. </P>
+<P class=dt><I>FSBANK_STATE_ANALYSING</I></P>
+<P class=indent>Scan sound data for details (such as optimized sample rate). </P>
+<P class=dt><I>FSBANK_STATE_PREPROCESSING</I></P>
+<P class=indent>Prepares sound data for encoder. </P>
+<P class=dt><I>FSBANK_STATE_ENCODING</I></P>
+<P class=indent>Pass the sample data to the chosen encoder. </P>
+<P class=dt><I>FSBANK_STATE_WRITING</I></P>
+<P class=indent>Write encoded data into an FSB. </P>
+<P class=dt><I>FSBANK_STATE_FINISHED</I></P>
+<P class=indent>Process complete. </P>
+<P class=dt><I>FSBANK_STATE_FAILED</I></P>
+<P class=indent>An error has occurred, check data (as <A HREF="FSBANK_STATEDATA_FAILED.html">FSBANK_STATEDATA_FAILED</A>) for details. </P>
+<P class=dt><I>FSBANK_STATE_WARNING</I></P>
+<P class=indent>A warning has been issued, check data (as <A HREF="FSBANK_STATEDATA_WARNING.html">FSBANK_STATEDATA_WARNING</A>) for details. </P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FSBANK_PROGRESSITEM.html">FSBANK_PROGRESSITEM</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

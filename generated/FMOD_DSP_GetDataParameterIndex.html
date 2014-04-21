@@ -1,0 +1,49 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>DSP::getDataParameterIndex</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>DSP::getDataParameterIndex</H1>
+<P>
+<p>Retrieve the index of the first data parameter of a particular data type.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT DSP::getDataParameterIndex(
+  int <I>datatype</I>,
+  int *<I>index</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_DSP_GetDataParameterIndex(
+  FMOD_DSP *<I>dsp</I>,
+  int <I>datatype</I>,
+  int *<I>index</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>datatype</dt>
+<dd>The type of data to find. This would usually be set to a value defined in <A HREF="FMOD_DSP_PARAMETER_DATA_TYPE.html">FMOD_DSP_PARAMETER_DATA_TYPE</A> but can be any value for custom types.</dd>
+<dt>index</dt>
+<dd>Contains the index of the first data parameter of type 'datatype' after the function is called. Will be -1 if no matches were found.  Can be null.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>This function returns <A HREF="FMOD_RESULT.html">FMOD_OK</A> if a parmeter of matching type is found and <A HREF="FMOD_RESULT.html">FMOD_ERR_INVALID_PARAM</A> if no matches were found.</p>
+
+<p>The return code can therefore be used to check whether the DSP supports specific functionality through data parameters of
+certain types without the need to pass in 'index'.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_PARAMETER_DATA_TYPE.html">FMOD_DSP_PARAMETER_DATA_TYPE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

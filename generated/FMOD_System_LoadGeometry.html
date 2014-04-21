@@ -1,0 +1,48 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::loadGeometry</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::loadGeometry</H1>
+<P>
+<p>Creates a geometry object from a block of memory which contains pre-saved geometry data, saved by <A HREF="FMOD_Geometry_Save.html">Geometry::save</A>.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::loadGeometry(
+  const void *<I>data</I>,
+  int <I>datasize</I>,
+  FMOD::Geometry **<I>geometry</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_LoadGeometry(
+  FMOD_SYSTEM *<I>system</I>,
+  const void *<I>data</I>,
+  int <I>datasize</I>,
+  FMOD_GEOMETRY **<I>geometry</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>data</dt>
+<dd>Address of data containing pre-saved geometry data.</dd>
+<dt>datasize</dt>
+<dd>Size of geometry data block in bytes.</dd>
+<dt>geometry</dt>
+<dd>Address of a variable to receive a newly created FMOD::Geometry object.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Geometry_Save.html">Geometry::save</A></LI>
+<LI><A HREF="FMOD_System_CreateGeometry.html">System::createGeometry</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

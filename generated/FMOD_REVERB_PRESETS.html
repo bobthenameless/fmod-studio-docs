@@ -1,0 +1,98 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_REVERB_PRESETS</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_REVERB_PRESETS</H1>
+<P>
+<p>A set of predefined environment PARAMETERS.<br>
+These are used to initialize an <A HREF="FMOD_REVERB_PROPERTIES.html">FMOD_REVERB_PROPERTIES</A> structure statically.<br>
+i.e.<br>
+<A HREF="FMOD_REVERB_PROPERTIES.html">FMOD_REVERB_PROPERTIES</A> prop = <A HREF="FMOD_REVERB_PRESETS.html">FMOD_PRESET_GENERIC</A>;</p>
+</P>
+<h3>Definition</h3>
+<PRE class=syntax><CODE>#define FMOD_PRESET_OFF {  1000,    7,  11, 5000, 100, 100, 100, 250, 0,    20,  96, -80.0f }
+#define FMOD_PRESET_GENERIC {  1500,    7,  11, 5000,  83, 100, 100, 250, 0, 14500,  96,  -8.0f }
+#define FMOD_PRESET_PADDEDCELL {   170,    1,   2, 5000,  10, 100, 100, 250, 0,   160,  84,  -7.8f }
+#define FMOD_PRESET_ROOM {   400,    2,   3, 5000,  83, 100, 100, 250, 0,  6050,  88,  -9.4f }
+#define FMOD_PRESET_BATHROOM {  1500,    7,  11, 5000,  54, 100,  60, 250, 0,  2900,  83,   0.5f }
+#define FMOD_PRESET_LIVINGROOM {   500,    3,   4, 5000,  10, 100, 100, 250, 0,   160,  58, -19.0f }
+#define FMOD_PRESET_STONEROOM {  2300,   12,  17, 5000,  64, 100, 100, 250, 0,  7800,  71,  -8.5f }
+#define FMOD_PRESET_AUDITORIUM {  4300,   20,  30, 5000,  59, 100, 100, 250, 0,  5850,  64, -11.7f }
+#define FMOD_PRESET_CONCERTHALL {  3900,   20,  29, 5000,  70, 100, 100, 250, 0,  5650,  80,  -9.8f }
+#define FMOD_PRESET_CAVE {  2900,   15,  22, 5000, 100, 100, 100, 250, 0, 20000,  59, -11.3f }
+#define FMOD_PRESET_ARENA {  7200,   20,  30, 5000,  33, 100, 100, 250, 0,  4500,  80,  -9.6f }
+#define FMOD_PRESET_HANGAR { 10000,   20,  30, 5000,  23, 100, 100, 250, 0,  3400,  72,  -7.4f }
+#define FMOD_PRESET_CARPETTEDHALLWAY {   300,    2,  30, 5000,  10, 100, 100, 250, 0,   500,  56, -24.0f }
+#define FMOD_PRESET_HALLWAY {  1500,    7,  11, 5000,  59, 100, 100, 250, 0,  7800,  87,  -5.5f }
+#define FMOD_PRESET_STONECORRIDOR {   270,   13,  20, 5000,  79, 100, 100, 250, 0,  9000,  86,  -6.0f }
+#define FMOD_PRESET_ALLEY {  1500,    7,  11, 5000,  86, 100, 100, 250, 0,  8300,  80,  -9.8f }
+#define FMOD_PRESET_FOREST {  1500,  162,  88, 5000,  54,  79, 100, 250, 0,   760,  94, -12.3f }
+#define FMOD_PRESET_CITY {  1500,    7,  11, 5000,  67,  50, 100, 250, 0,  4050,  66, -26.0f }
+#define FMOD_PRESET_MOUNTAINS {  1500,  300, 100, 5000,  21,  27, 100, 250, 0,  1220,  82, -24.0f }
+#define FMOD_PRESET_QUARRY {  1500,   61,  25, 5000,  83, 100, 100, 250, 0,  3400, 100,  -5.0f }
+#define FMOD_PRESET_PLAIN {  1500,  179, 100, 5000,  50,  21, 100, 250, 0,  1670,  65, -28.0f }
+#define FMOD_PRESET_PARKINGLOT {  1700,    8,  12, 5000, 100, 100, 100, 250, 0, 20000,  56, -19.5f }
+#define FMOD_PRESET_SEWERPIPE {  2800,   14,  21, 5000,  14,  80,  60, 250, 0,  3400,  66,   1.2f }
+#define FMOD_PRESET_UNDERWATER {  1500,    7,  11, 5000,  10, 100, 100, 250, 0,   500,  92,   7.0f }
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_PRESET_OFF</I></P>
+<P class=indent></P>
+<P class=dt><I>FMOD_PRESET_GENERIC</I></P>
+<P class=indent></P>
+<P class=dt><I>FMOD_PRESET_PADDEDCELL</I></P>
+<P class=indent></P>
+<P class=dt><I>FMOD_PRESET_ROOM</I></P>
+<P class=indent></P>
+<P class=dt><I>FMOD_PRESET_BATHROOM</I></P>
+<P class=indent></P>
+<P class=dt><I>FMOD_PRESET_LIVINGROOM</I></P>
+<P class=indent></P>
+<P class=dt><I>FMOD_PRESET_STONEROOM</I></P>
+<P class=indent></P>
+<P class=dt><I>FMOD_PRESET_AUDITORIUM</I></P>
+<P class=indent></P>
+<P class=dt><I>FMOD_PRESET_CONCERTHALL</I></P>
+<P class=indent></P>
+<P class=dt><I>FMOD_PRESET_CAVE</I></P>
+<P class=indent></P>
+<P class=dt><I>FMOD_PRESET_ARENA</I></P>
+<P class=indent></P>
+<P class=dt><I>FMOD_PRESET_HANGAR</I></P>
+<P class=indent></P>
+<P class=dt><I>FMOD_PRESET_CARPETTEDHALLWAY</I></P>
+<P class=indent></P>
+<P class=dt><I>FMOD_PRESET_HALLWAY</I></P>
+<P class=indent></P>
+<P class=dt><I>FMOD_PRESET_STONECORRIDOR</I></P>
+<P class=indent></P>
+<P class=dt><I>FMOD_PRESET_ALLEY</I></P>
+<P class=indent></P>
+<P class=dt><I>FMOD_PRESET_FOREST</I></P>
+<P class=indent></P>
+<P class=dt><I>FMOD_PRESET_CITY</I></P>
+<P class=indent></P>
+<P class=dt><I>FMOD_PRESET_MOUNTAINS</I></P>
+<P class=indent></P>
+<P class=dt><I>FMOD_PRESET_QUARRY</I></P>
+<P class=indent></P>
+<P class=dt><I>FMOD_PRESET_PLAIN</I></P>
+<P class=indent></P>
+<P class=dt><I>FMOD_PRESET_PARKINGLOT</I></P>
+<P class=indent></P>
+<P class=dt><I>FMOD_PRESET_SEWERPIPE</I></P>
+<P class=indent></P>
+<P class=dt><I>FMOD_PRESET_UNDERWATER</I></P>
+<P class=indent></P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_SetReverbProperties.html">System::setReverbProperties</A></LI>
+<LI><A HREF="FMOD_System_GetReverbProperties.html">System::getReverbProperties</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

@@ -1,0 +1,51 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::getMasterSoundGroup</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::getMasterSoundGroup</H1>
+<P>
+<p>Retrieves the default sound group, where all sounds are placed when they are created.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::getMasterSoundGroup(
+  FMOD::SoundGroup **<I>soundgroup</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_GetMasterSoundGroup(
+  FMOD_SYSTEM *<I>system</I>,
+  FMOD_SOUNDGROUP **<I>soundgroup</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>soundgroup</dt>
+<dd>Address of a pointer to a SoundGroup object to receive the master sound group.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>If a user based soundgroup is deleted/released, the sounds will be put back into this sound group.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_SoundGroup_Release.html">SoundGroup::release</A></LI>
+<LI><A HREF="FMOD_SoundGroup_GetSystemObject.html">SoundGroup::getSystemObject</A></LI>
+<LI><A HREF="FMOD_SoundGroup_SetMaxAudible.html">SoundGroup::setMaxAudible</A></LI>
+<LI><A HREF="FMOD_SoundGroup_GetMaxAudible.html">SoundGroup::getMaxAudible</A></LI>
+<LI><A HREF="FMOD_SoundGroup_GetName.html">SoundGroup::getName</A></LI>
+<LI><A HREF="FMOD_SoundGroup_GetNumSounds.html">SoundGroup::getNumSounds</A></LI>
+<LI><A HREF="FMOD_SoundGroup_GetSound.html">SoundGroup::getSound</A></LI>
+<LI><A HREF="FMOD_SoundGroup_GetNumPlaying.html">SoundGroup::getNumPlaying</A></LI>
+<LI><A HREF="FMOD_SoundGroup_SetUserData.html">SoundGroup::setUserData</A></LI>
+<LI><A HREF="FMOD_SoundGroup_GetUserData.html">SoundGroup::getUserData</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

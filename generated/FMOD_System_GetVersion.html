@@ -1,0 +1,44 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::getVersion</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::getVersion</H1>
+<P>
+<p>Returns the current version of FMOD Studio being used.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::getVersion(
+  unsigned int *<I>version</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_GetVersion(
+  FMOD_SYSTEM *<I>system</I>,
+  unsigned int *<I>version</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>version</dt>
+<dd>Address of a variable that receives the current FMOD Studio version.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>The version is a 32bit hexadecimal value formated as 16:8:8, with the upper 16bits being the major version, the
+middle 8bits being the minor version and the bottom 8bits being the development version.  For example a value of
+00040106h is equal to 4.01.06.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_Init.html">System::init</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

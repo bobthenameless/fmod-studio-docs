@@ -1,0 +1,68 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::getCPUUsage</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::getCPUUsage</H1>
+<P>
+<p>Retrieves in percent of CPU time - the amount of cpu usage that FMOD is taking for streaming/mixing and
+<A HREF="FMOD_System_Update.html">System::update</A> combined.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::getCPUUsage(
+  float *<I>dsp</I>,
+  float *<I>stream</I>,
+  float *<I>geometry</I>,
+  float *<I>update</I>,
+  float *<I>total</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_GetCPUUsage(
+  FMOD_SYSTEM *<I>system</I>,
+  float *<I>dsp</I>,
+  float *<I>stream</I>,
+  float *<I>geometry</I>,
+  float *<I>update</I>,
+  float *<I>total</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>dsp</dt>
+<dd>Address of a variable that receives the current dsp mixing engine cpu usage. Result will be from 0 to 100.0f.  Optional.  Specify 0 or NULL to ignore.</dd>
+<dt>stream</dt>
+<dd>Address of a variable that receives the current streaming engine cpu usage. Result will be from 0 to 100.0f.  Optional.  Specify 0 or NULL to ignore.</dd>
+<dt>geometry</dt>
+<dd>Address of a variable that receives the current geometry engine cpu usage. Result will be from 0 to 100.0f.  Optional.  Specify 0 or NULL to ignore.</dd>
+<dt>update</dt>
+<dd>Address of a variable that receives the current <A HREF="FMOD_System_Update.html">System::update</A> cpu usage. Result will be from 0 to 100.0f.  Optional.  Specify 0 or NULL to ignore.</dd>
+<dt>total</dt>
+<dd>Address of a variable that receives the current total cpu usage. Result will be from 0 to 100.0f.  Optional.  Specify 0 or NULL to ignore.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>This value is slightly smoothed to provide more stable readout (and to round off spikes that occur due to
+multitasking/operating system issues).</p>
+
+<p>NOTE!  On ps3 and xbox360, the dsp and stream figures are NOT main cpu/main thread usage.  On PS3 this is the
+percentage of SPU being used.  On Xbox 360 it is the percentage of a hardware thread being used which is on a
+totally different CPU than the main one.</p>
+
+<p>Do not be alarmed if the usage for these platforms reaches over 50%, this is normal and should be ignored if you
+are playing a lot of compressed sounds and are using effects.  The only value on the main cpu / main thread to take
+note of here that will impact your framerate is the update value, and this is typically very low (ie less than 1%).</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_Update.html">System::update</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

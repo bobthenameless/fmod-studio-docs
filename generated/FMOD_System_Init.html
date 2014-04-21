@@ -1,0 +1,71 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::init</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::init</H1>
+<P>
+<p>Initializes the system object, and the sound device.  This has to be called at the start of the user's program.<br>
+<strong>You must create a system object with FMOD::System_create.</strong></p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::init(
+  int <I>maxchannels</I>,
+  FMOD_INITFLAGS <I>flags</I>,
+  void *<I>extradriverdata</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_Init(
+  FMOD_SYSTEM *<I>system</I>,
+  int <I>maxchannels</I>,
+  FMOD_INITFLAGS <I>flags</I>,
+  void *<I>extradriverdata</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>maxchannels</dt>
+<dd>The maximum number of channels to be used in FMOD.  They are also called 'virtual channels' as you can play as many of these as you want, even if you only have a small number of software voices.  See remarks for more.</dd>
+<dt>flags</dt>
+<dd>See <A HREF="FMOD_INITFLAGS.html">FMOD_INITFLAGS</A>.  This can be a selection of flags bitwise OR'ed together to change the behaviour of FMOD at initialization time.</dd>
+<dt>extradriverdata</dt>
+<dd>Driver specific data that can be passed to the output plugin.  For example the filename for the wav writer plugin.  See <A HREF="FMOD_OUTPUTTYPE.html">FMOD_OUTPUTTYPE</A> for what each output mode might take here. Optional.  Specify 0 or NULL to ignore.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p><u>Virtual channels.</u><br>
+These types of voices are the ones you work with using the FMOD::Channel API. The advantage of virtual channels are,
+unlike older versions of FMOD, you can now play as many sounds as you like without fear of ever running out of voices,
+or playsound failing. You can also avoid 'channel stealing' if you specify enough virtual voices.</p>
+
+<p>As an example, you can play 1000 sounds at once, even on a 32 channel soundcard.</p>
+
+<p>FMOD will only play the most important/closest/loudest (determined by volume/distance/geometry and priority
+settings) voices, and the other 968 voices will be virtualized without expense to the CPU.
+The voice's cursor positions are updated.</p>
+
+<p>When the priority of sounds change or emulated sounds get louder than audible ones, they will swap the actual voice
+resource over and play the voice from its correct position in time as it should be heard.</p>
+
+<p>What this means is you can play all 1000 sounds, if they are scattered around the game world, and as you move around
+the world you will hear the closest or most important 32, and they will automatically swap in and out as you move.</p>
+
+<p>Currently the maximum channel limit is 4093.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_INITFLAGS.html">FMOD_INITFLAGS</A></LI>
+<LI><A HREF="FMOD_System_Close.html">System::close</A></LI>
+<LI><A HREF="FMOD_System_Create.html">System_Create</A></LI>
+<LI><A HREF="FMOD_OUTPUTTYPE.html">FMOD_OUTPUTTYPE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

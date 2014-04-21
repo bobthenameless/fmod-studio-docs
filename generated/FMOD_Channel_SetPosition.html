@@ -1,0 +1,61 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Channel::setPosition</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Channel::setPosition</H1>
+<P>
+<p>Sets the playback position for the currently playing sound to the specified offset.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Channel::setPosition(
+  unsigned int <I>position</I>,
+  FMOD_TIMEUNIT <I>postype</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Channel_SetPosition(
+  FMOD_CHANNEL *<I>channel</I>,
+  unsigned int <I>position</I>,
+  FMOD_TIMEUNIT <I>postype</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>position</dt>
+<dd>Position of the channel to set in units specified in the 'postype' parameter.</dd>
+<dt>postype</dt>
+<dd>Time unit to set the channel position by. See <A HREF="FMOD_TIMEUNIT.html">FMOD_TIMEUNIT</A>.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Certain timeunits do not work depending on the file format. For example <A HREF="FMOD_TIMEUNIT.html">FMOD_TIMEUNIT_MODORDER</A> will not work with an MP3 file.</p>
+
+<p>If you are calling this function on a stream, it has to possibly reflush its buffer to get zero latency playback when it resumes
+playing, therefore it could potentially cause a stall or take a small amount of time to do this.</p>
+
+<p>If you are using <A HREF="FMOD_MODE.html">FMOD_NONBLOCKING</A>, note that a stream will go into <A HREF="FMOD_OPENSTATE.html">FMOD_OPENSTATE_SETPOSITION</A> state (see <A HREF="FMOD_Sound_GetOpenState.html">Sound::getOpenState</A>) and
+sound commands will return <A HREF="FMOD_RESULT.html">FMOD_ERR_NOTREADY</A>. <A HREF="FMOD_Channel_GetPosition.html">Channel::getPosition</A> will also not update until this non-blocking setposition operation
+has completed.</p>
+
+<p><strong>Warning!</strong> Using a VBR source that does not have an associated seek table or seek information (such as MP3 or MOD/S3M/XM/IT) may
+cause inaccurate seeking if you specify <A HREF="FMOD_TIMEUNIT.html">FMOD_TIMEUNIT_MS</A> or <A HREF="FMOD_TIMEUNIT.html">FMOD_TIMEUNIT_PCM</A>. If you want FMOD to create a PCM vs bytes seek table
+so that seeking is accurate, you will have to specify <A HREF="FMOD_MODE.html">FMOD_ACCURATETIME</A> when loading or opening the sound. This means there is a slight
+delay as FMOD scans the whole file when loading the sound to create this table.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Channel_GetPosition.html">Channel::getPosition</A></LI>
+<LI><A HREF="FMOD_TIMEUNIT.html">FMOD_TIMEUNIT</A></LI>
+<LI><A HREF="FMOD_MODE.html">FMOD_MODE</A></LI>
+<LI><A HREF="FMOD_Sound_GetOpenState.html">Sound::getOpenState</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

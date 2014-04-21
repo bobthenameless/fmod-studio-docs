@@ -1,0 +1,39 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::getRecordPosition</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::getRecordPosition</H1>
+<P>
+<p>Retrieves the current recording position of the record buffer in PCM samples.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::getRecordPosition(
+  int <I>id</I>,
+  unsigned int *<I>position</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_GetRecordPosition(
+  FMOD_SYSTEM *<I>system</I>,
+  int <I>id</I>,
+  unsigned int *<I>position</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>id</dt>
+<dd>Enumerated driver ID.  This must be in a valid range delimited by <A HREF="FMOD_System_GetRecordNumDrivers.html">System::getRecordNumDrivers</A>.</dd>
+<dt>position</dt>
+<dd>Address of a variable to receieve the current recording position in PCM samples.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

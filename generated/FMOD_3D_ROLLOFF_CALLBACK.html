@@ -1,0 +1,43 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_3D_ROLLOFF_CALLBACK</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_3D_ROLLOFF_CALLBACK</H1>
+<P>
+<p>Callback for system wide 3d channel volume calculation which overrides fmod's internal calculation code.</p>
+</P>
+<h3>C/C++ Syntax</h3>
+<PRE class=syntax><CODE>float F_CALLBACK FMOD_3D_ROLLOFF_CALLBACK(
+  FMOD_CHANNEL *<I>channel</I>,
+  float <I>distance</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>channel</I></P>
+<P class=indent>Pointer to a channel handle.</P>
+<P class=dt><I>distance</I></P>
+<P class=indent>Distance in units (meters by default).</P>
+<h2>Return Values</h2><P>
+Return the channel volume for the given distance.<BR>
+<BR>
+</P>
+<h2>Remarks</h2><P>
+<p><u>C++ Users</u>.  Cast <code>FMOD_CHANNEL *</code> to <code>FMOD::Channel *</code> inside the callback and use as normal.</p>
+
+<p>NOTE: When using the event system, call <A HREF="FMOD_Channel_GetUserData.html">Channel::getUserData</A> to get the event instance handle of the event
+that spawned the channel in question.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_Set3DRolloffCallback.html">System::set3DRolloffCallback</A></LI>
+<LI><A HREF="FMOD_System_Set3DListenerAttributes.html">System::set3DListenerAttributes</A></LI>
+<LI><A HREF="FMOD_System_Get3DListenerAttributes.html">System::get3DListenerAttributes</A></LI>
+<LI><A HREF="FMOD_Channel_GetUserData.html">Channel::getUserData</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

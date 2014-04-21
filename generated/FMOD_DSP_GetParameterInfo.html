@@ -1,0 +1,54 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>DSP::getParameterInfo</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>DSP::getParameterInfo</H1>
+<P>
+<p>Retrieve information about a specified parameter within the DSP unit.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT DSP::getParameterInfo(
+  int <I>index</I>,
+  FMOD_DSP_PARAMETER_DESC **<I>desc</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_DSP_GetParameterInfo(
+  FMOD_DSP *<I>dsp</I>,
+  int <I>index</I>,
+  FMOD_DSP_PARAMETER_DESC **<I>desc</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>index</dt>
+<dd>Parameter index for this unit.  Find the number of parameters with <A HREF="FMOD_DSP_GetNumParameters.html">DSP::getNumParameters</A>.</dd>
+<dt>desc</dt>
+<dd>Address of a variable to receive the contents of an array of <A HREF="FMOD_DSP_PARAMETER_DESC.html">FMOD_DSP_PARAMETER_DESC</A> structures for this DSP unit.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Use <A HREF="FMOD_DSP_GetNumParameters.html">DSP::getNumParameters</A> to find out the number of parameters for this DSP unit.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_SetParameterFloat.html">DSP::setParameterFloat</A></LI>
+<LI><A HREF="FMOD_DSP_SetParameterInt.html">DSP::setParameterInt</A></LI>
+<LI><A HREF="FMOD_DSP_SetParameterBool.html">DSP::setParameterBool</A></LI>
+<LI><A HREF="FMOD_DSP_SetParameterData.html">DSP::setParameterData</A></LI>
+<LI><A HREF="FMOD_DSP_GetParameterFloat.html">DSP::getParameterFloat</A></LI>
+<LI><A HREF="FMOD_DSP_GetParameterInt.html">DSP::getParameterInt</A></LI>
+<LI><A HREF="FMOD_DSP_GetParameterBool.html">DSP::getParameterBool</A></LI>
+<LI><A HREF="FMOD_DSP_GetParameterData.html">DSP::getParameterData</A></LI>
+<LI><A HREF="FMOD_DSP_GetNumParameters.html">DSP::getNumParameters</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

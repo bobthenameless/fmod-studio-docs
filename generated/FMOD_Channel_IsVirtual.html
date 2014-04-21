@@ -1,0 +1,42 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Channel::isVirtual</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Channel::isVirtual</H1>
+<P>
+<p>Retrieves whether the channel is virtual (emulated) or not due to the virtual channel management system.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Channel::isVirtual(
+  bool *<I>isvirtual</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Channel_IsVirtual(
+  FMOD_CHANNEL *<I>channel</I>,
+  FMOD_BOOL *<I>isvirtual</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>isvirtual</dt>
+<dd>Address of a variable that receives the virtual status. TRUE = inaudible and currently being emulated at no CPU cost, FALSE = real voice that should be audible.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>See the <a href="../static/virtualvoices.html">channel management</a> tutorial for more details about how channel virtualization works.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_PlaySound.html">System::playSound</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

@@ -1,0 +1,47 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::isRecording</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::isRecording</H1>
+<P>
+<p>Retrieves the state of the FMOD recording API, ie if it is currently recording or not.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::isRecording(
+  int <I>id</I>,
+  bool *<I>recording</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_IsRecording(
+  FMOD_SYSTEM *<I>system</I>,
+  int <I>id</I>,
+  FMOD_BOOL *<I>recording</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>id</dt>
+<dd>Enumerated driver ID.  This must be in a valid range delimited by <A HREF="FMOD_System_GetRecordNumDrivers.html">System::getRecordNumDrivers</A>.</dd>
+<dt>recording</dt>
+<dd>Address of a variable to receive the current recording state.  True or non zero if the FMOD recording api is currently in the middle of recording, false or zero if the recording api is stopped / not recording.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Recording can be started with <A HREF="FMOD_System_RecordStart.html">System::recordStart</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_RecordStart.html">System::recordStart</A></LI>
+<LI><A HREF="FMOD_System_RecordStop.html">System::recordStop</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

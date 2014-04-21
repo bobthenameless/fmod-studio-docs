@@ -1,0 +1,42 @@
+<LINK REL="stylesheet" href="../../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Load Banks Example</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<h1>Load Banks Example</h1>
+
+<p>This example demonstrates loading banks and then loading sample data.
+It also hooks into the error callback to visually list any error codes that
+are generated from bank loading.</p>
+
+<p>It tries to load the following banks:</p>
+
+<ul>
+<li>Master Bank</li>
+<li>Weapons Bank</li>
+<li>"nope" Bank, which does not exist.  Opening this bank will fail and log errors.</li>
+</ul>
+
+<p>The sample loading of banks can be controlled independently of the bank loading
+itself.  Sample loading is asynchronous and the sample loading state can be 
+polled to check whether the loading has finished.</p>
+
+<p>A define can be enabled to demonstrate extra errors due to bad banks:</p>
+
+<pre><code>#define INCLUDE_BAD_BANKS
+</code></pre>
+
+<h3>See Also</h3>
+
+<ul>
+<li><A HREF="../FMOD_Studio_System_LoadBankFile.html">Studio::System::loadBankFile</A></li>
+<li><A HREF="../FMOD_Studio_Bank_LoadSampleData.html">Studio::Bank::loadSampleData</A></li>
+<li><A HREF="../FMOD_Studio_Bank_GetSampleLoadingState.html">Studio::Bank::getSampleLoadingState</A></li>
+<li><A HREF="../FMOD_System_SetCallback.html">System::setCallback</A></li>
+</ul>
+
+<h3>Location</h3>
+
+<p>The example is located at api/studio/examples/load_banks.cpp.</p>

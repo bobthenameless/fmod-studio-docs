@@ -1,0 +1,46 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Sound::setSoundGroup</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Sound::setSoundGroup</H1>
+<P>
+<p>Moves the sound from its existing SoundGroup to the specified sound group.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Sound::setSoundGroup(
+  FMOD::SoundGroup *<I>soundgroup</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Sound_SetSoundGroup(
+  FMOD_SOUND *<I>sound</I>,
+  FMOD_SOUNDGROUP *<I>soundgroup</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>soundgroup</dt>
+<dd>Address of a SoundGroup object to move the sound to.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>By default a sound is located in the 'master sound group'.  This can be retrieved with <A HREF="FMOD_System_GetMasterSoundGroup.html">System::getMasterSoundGroup</A>.<br>
+Putting a sound in a sound group (or just using the master sound group) allows for functionality like limiting a group of sounds to a certain number of playbacks (see <A HREF="FMOD_SoundGroup_SetMaxAudible.html">SoundGroup::setMaxAudible</A>).</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Sound_GetSoundGroup.html">Sound::getSoundGroup</A></LI>
+<LI><A HREF="FMOD_System_GetMasterSoundGroup.html">System::getMasterSoundGroup</A></LI>
+<LI><A HREF="FMOD_System_CreateSoundGroup.html">System::createSoundGroup</A></LI>
+<LI><A HREF="FMOD_SoundGroup_SetMaxAudible.html">SoundGroup::setMaxAudible</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

@@ -1,0 +1,60 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_OUTPUT_GETDRIVERINFO_CALLBACK</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_OUTPUT_GETDRIVERINFO_CALLBACK</H1>
+<P>
+<p>Called when the user calls <A HREF="FMOD_System_GetDriverInfo.html">System::getDriverInfo</A>.</p>
+</P>
+<h3>C/C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT F_CALLBACK FMOD_OUTPUT_GETDRIVERINFO_CALLBACK(
+  FMOD_OUTPUT_STATE *<I>output_state</I>,
+  int <I>id</I>,
+  char *<I>name</I>,
+  short *<I>nameW</I>,
+  int <I>namelen</I>,
+  FMOD_GUID *<I>guid</I>,
+  int *<I>systemrate</I>,
+  FMOD_SPEAKERMODE *<I>speakermode</I>,
+  int *<I>speakermodechannels</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>output_state</I></P>
+<P class=indent>Pointer to the plugin state.  The user can use this variable to access runtime plugin specific variables and plugin writer user data.</P>
+<P class=dt><I>id</I></P>
+<P class=indent>Index into the total number of outputs possible, provided by the <A HREF="FMOD_OUTPUT_GETNUMDRIVERS_CALLBACK.html">FMOD_OUTPUT_GETNUMDRIVERS_CALLBACK</A> callback.</P>
+<P class=dt><I>name</I></P>
+<P class=indent>Address of a variable to receive the driver name relevant to the index passed in. Fill this in.</P>
+<P class=dt><I>nameW</I></P>
+<P class=indent>Address of a variable to receive the driver name relevant to the index passed in, in wide char format.  Fill this in.</P>
+<P class=dt><I>namelen</I></P>
+<P class=indent>Length of name buffer being passed in by the user.</P>
+<P class=dt><I>guid</I></P>
+<P class=indent>Pointer to a GUID structure for the user to fill in.  A unique indentifier here can be used to identify a driver rather than the string.</P>
+<P class=dt><I>systemrate</I></P>
+<P class=indent>The rate the output device prefers.  Leave 0 to remain flexible.</P>
+<P class=dt><I>speakermode</I></P>
+<P class=indent>The speaker mode the output device prefers.  Leave <A HREF="FMOD_SPEAKERMODE.html">FMOD_SPEAKERMODE_DEFAULT</A> to remain flexible.</P>
+<P class=dt><I>speakermodechannels</I></P>
+<P class=indent>The speaker mode associated channels the output device prefers.  Leave at 0 to remain flexible. More relevant with <A HREF="FMOD_SPEAKERMODE.html">FMOD_SPEAKERMODE_RAW</A>.  This will be ignored with other speaker modes.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Remember to return <A HREF="FMOD_RESULT.html">FMOD_OK</A> at the bottom of the function, or an appropriate error code from <A HREF="FMOD_RESULT.html">FMOD_RESULT</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_GetDriverInfo.html">System::getDriverInfo</A></LI>
+<LI><A HREF="FMOD_System_GetNumDrivers.html">System::getNumDrivers</A></LI>
+<LI><A HREF="FMOD_OUTPUT_GETNUMDRIVERS_CALLBACK.html">FMOD_OUTPUT_GETNUMDRIVERS_CALLBACK</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

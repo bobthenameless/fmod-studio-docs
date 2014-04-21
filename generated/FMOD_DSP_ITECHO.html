@@ -1,0 +1,50 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_ITECHO</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_ITECHO</H1>
+<P>
+<p>Parameter types for the <A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE_ITECHO</A> filter.<br>
+This is effectively a software based echo filter that emulates the DirectX DMO echo effect.  Impulse tracker files can support this, and FMOD will produce the effect on ANY platform, not just those that support DirectX effects!<br></p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_DSP_ITECHO_WETDRYMIX,
+  FMOD_DSP_ITECHO_FEEDBACK,
+  FMOD_DSP_ITECHO_LEFTDELAY,
+  FMOD_DSP_ITECHO_RIGHTDELAY,
+  FMOD_DSP_ITECHO_PANDELAY
+} FMOD_DSP_ITECHO;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_DSP_ITECHO_WETDRYMIX</I></P>
+<P class=indent>(Type:float) - Ratio of wet (processed) signal to dry (unprocessed) signal. Must be in the range from 0.0 through 100.0 (all wet). The default value is 50. </P>
+<P class=dt><I>FMOD_DSP_ITECHO_FEEDBACK</I></P>
+<P class=indent>(Type:float) - Percentage of output fed back into input, in the range from 0.0 through 100.0. The default value is 50. </P>
+<P class=dt><I>FMOD_DSP_ITECHO_LEFTDELAY</I></P>
+<P class=indent>(Type:float) - Delay for left channel, in milliseconds, in the range from 1.0 through 2000.0. The default value is 500 ms. </P>
+<P class=dt><I>FMOD_DSP_ITECHO_RIGHTDELAY</I></P>
+<P class=indent>(Type:float) - Delay for right channel, in milliseconds, in the range from 1.0 through 2000.0. The default value is 500 ms. </P>
+<P class=dt><I>FMOD_DSP_ITECHO_PANDELAY</I></P>
+<P class=indent>(Type:float) - Value that specifies whether to swap left and right delays with each successive echo. The default value is zero, meaning no swap. Possible values are defined as 0.0 (equivalent to FALSE) and 1.0 (equivalent to TRUE).  CURRENTLY NOT SUPPORTED. </P>
+<h2>Remarks</h2><P>
+<p>Note.  Every time the delay is changed, the plugin re-allocates the echo buffer.  This means the echo will dissapear at that time while it refills its new buffer.<br>
+Larger echo delays result in larger amounts of memory allocated.<br>
+<br>
+As this is a stereo filter made mainly for IT playback, it is targeted for stereo signals.<br>
+With mono signals only the <A HREF="FMOD_DSP_ITECHO.html">FMOD_DSP_ITECHO_LEFTDELAY</A> is used.<br>
+For multichannel signals (>2) there will be no echo on those channels.<br></p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI>DSP::SetParameterFloat</LI>
+<LI>DSP::GetParameterFloat</LI>
+<LI><A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

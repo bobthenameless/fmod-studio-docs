@@ -1,0 +1,49 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_STATE</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_STATE</H1>
+<P>
+<p>DSP plugin structure that is passed into each callback.</p>
+</P>
+<h3>Structure</h3>
+<PRE class=syntax><CODE>typedef struct {
+  FMOD_DSP *<I>instance</I>;
+  void *<I>plugindata</I>;
+  FMOD_CHANNELMASK <I>channelmask</I>;
+  FMOD_SPEAKERMODE <I>source_speakermode</I>;
+  float *<I>sidechaindata</I>;
+  int <I>sidechainchannels</I>;
+  FMOD_DSP_STATE_SYSTEMCALLBACKS *<I>callbacks</I>;
+} FMOD_DSP_STATE;
+</CODE></PRE>
+<h2>Members</h2>
+<P class=dt><I>instance</I></P>
+<P class=indent>[r] Handle to the FMOD_DSP object the callback is associated with.  Not to be modified.  C++ users cast to FMOD::DSP to use.  </P>
+<P class=dt><I>plugindata</I></P>
+<P class=indent>[r/w] Plugin writer created data the output author wants to attach to this object. </P>
+<P class=dt><I>channelmask</I></P>
+<P class=indent>[r] Specifies which speakers the DSP effect is active on </P>
+<P class=dt><I>source_speakermode</I></P>
+<P class=indent>[r] Specifies which speaker mode the signal originated for information purposes, ie in case panning needs to be done differently. </P>
+<P class=dt><I>sidechaindata</I></P>
+<P class=indent>[r] The mixed result of all incoming sidechains is stored at this pointer address. </P>
+<P class=dt><I>sidechainchannels</I></P>
+<P class=indent>[r] The number of channels of pcm data stored within the sidechain buffer. </P>
+<P class=dt><I>callbacks</I></P>
+<P class=indent>[r] Struct containing callbacks for system level functionality. </P>
+<h2>Remarks</h2><P>
+<p>Members marked with [r] mean the variable is modified by FMOD and is for reading purposes only.  Do not change this value.<br>
+Members marked with [w] mean the variable can be written to.  The user can set the value.<br></p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_DESCRIPTION.html">FMOD_DSP_DESCRIPTION</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

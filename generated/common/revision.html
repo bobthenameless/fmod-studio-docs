@@ -1,0 +1,1343 @@
+<LINK REL="stylesheet" href="../../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Detailed Revision History</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<h1>Detailed Revision History</h1>
+
+<h2>17/04/14 1.03.06 - Studio API patch release (build 52927)</h2>
+
+<h3>Features:</h3>
+
+<ul>
+<li><em>Studio API</em> - Improved performance of automation and modulation</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>Studio API</em> - Fixed crash when creating new automation via LiveUpdate</li>
+<li><em>Studio API</em> - Fixed possible internal error being returned from
+             <A HREF="../FMOD_Studio_Bank_GetSampleLoadingState.html">Studio::Bank::getSampleLoadingState</A> when called on an
+             unloading bank.</li>
+</ul>
+
+<h2>14/04/14 1.03.05 - Studio API patch release</h2>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Added ChannelControl to the C# wrapper to match the C++ API.</li>
+<li><em>LowLevel API</em> - Fixed the definition of <A HREF="../FMOD_ChannelControl_SetDelay.html">ChannelControl.setDelay</A> and
+             <A HREF="../FMOD_ChannelControl_GetDelay.html">ChannelControl.getDelay</A> in the C# wrapper.</li>
+<li><em>LowLevel API</em> - Replaced broken C# wrapper System.set3DSpeakerPosition and
+             System.get3DSpeakerPosition functions with
+             <A HREF="../FMOD_System_SetSpeakerPosition.html">System.setSpeakerPosition</A> and <A HREF="../FMOD_System_GetSpeakerPosition.html">System.getSpeakerPosition</A>.</li>
+<li><em>LowLevel API</em> - Fixed the capitalization of <A HREF="../FMOD_DSP_SetMeteringEnabled.html">DSP.setMeteringEnabled</A>,
+             <A HREF="../FMOD_DSP_GetMeteringEnabled.html">DSP.getMeteringEnabled</A> and <A HREF="../FMOD_DSP_GetMeteringInfo.html">DSP.getMeteringInfo</A> in the C#
+             wrapper.</li>
+<li><em>LowLevel API</em> - <em>Xbox 360</em> - Fix hang on XMA playback</li>
+<li><em>Lowlevel API</em> - Fix crash when running out of memory loading an ogg vorbis
+             file.</li>
+<li><em>Lowlevel API</em> - Fix symbol collisions when statically linking both FMOD
+             and Xiph libvorbis or libtremor.</li>
+</ul>
+
+<h2>08/04/14 1.03.04 - Studio API patch release</h2>
+
+<h3>Features:</h3>
+
+<ul>
+<li><em>Studio API</em> - <A HREF="../FMOD_Studio_EventInstance_Start.html">Studio::EventInstance::start</A> now does a full restart of the
+             event if already playing.  Restarting events will trigger the
+             <A HREF="../FMOD_STUDIO_EVENT_CALLBACK_TYPE.html">FMOD_STUDIO_EVENT_CALLBACK_RESTARTED</A> callback type.</li>
+<li><em>Studio API</em> - Added <A HREF="../FMOD_Studio_MixerStrip_SetMute.html">Studio::MixerStrip::setMute</A>, and <A HREF="../FMOD_Studio_MixerStrip_GetMute.html">Studio::MixerStrip::getMute</A>
+             for muting buses.</li>
+<li><em>Studio API</em> - Added <A HREF="../FMOD_Studio_System_GetBufferUsage.html">Studio::System::getBufferUsage</A> and
+             <A HREF="../FMOD_Studio_System_ResetBufferUsage.html">Studio::System::resetBufferUsage</A> for querying command and handle
+             buffer size usage.</li>
+<li><em>LowLevel API</em> - <A HREF="../FMOD_System_CreateSound.html">System::createSound</A> and <A HREF="../FMOD_System_CreateStream.html">System::createStream</A> now faster due to
+             file extension check and immediate prioritization of the relevant
+             codec, before scanning rest of codec types.</li>
+<li><em>LowLevel API</em> - Paused channels now have an effective audibility of 0 and
+             will go virtual if <A HREF="../FMOD_INITFLAGS.html">FMOD_INIT_VOL0_BECOMES_VIRTUAL</A> is enabled.</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>Studio API</em> - Added <A HREF="../FMOD_Studio_System_Initialize.html">Studio.System.initialize</A> to the C# wrapper to match the C++ API
+             (replacing Studio.System.init, which is now deprecated).</li>
+<li><em>Studio API</em> - Added <A HREF="../FMOD_Studio_System_Create.html">Studio.System.create</A> to the C# wrapper to match the C++ API
+             (replacing Studio.Factory.System_Create, which is now deprecated).</li>
+<li><em>Studio API</em> - Added missing functions to the C# wrapper:
+             <A HREF="../FMOD_Studio_EventInstance_Get3DAttributes.html">Studio.EventInstance.get3DAttributes</A>,
+             <A HREF="../FMOD_Studio_EventInstance_IsVirtual.html">Studio.EventInstance.isVirtual</A>,
+             <A HREF="../FMOD_Studio_EventInstance_SetUserData.html">Studio.EventInstance.setUserData</A>,
+             <A HREF="../FMOD_Studio_EventInstance_GetUserData.html">Studio.EventInstance.getUserData</A>,
+             <A HREF="../FMOD_Studio_MixerStrip_GetChannelGroup.html">Studio.MixerStrip.getChannelGroup</A>,
+             <A HREF="../FMOD_Studio_EventDescription_GetUserProperty.html">Studio.EventDescription.getUserProperty</A>,
+             <A HREF="../FMOD_Studio_EventDescription_GetUserPropertyCount.html">Studio.EventDescription.getUserPropertyCount</A>,
+             <A HREF="../FMOD_Studio_EventDescription_GetUserPropertyByIndex.html">Studio.EventDescription.getUserPropertyByIndex</A>,
+             <A HREF="../FMOD_Studio_EventDescription_SetUserData.html">Studio.EventDescription.setUserData</A>,
+             <A HREF="../FMOD_Studio_EventDescription_GetUserData.html">Studio.EventDescription.getUserData</A> and
+             <A HREF="../FMOD_Studio_System_LoadBankCustom.html">Studio.System.loadBankCustom</A>.</li>
+<li><em>LowLevel API</em> - Fix for VBR sounds that dont use <A HREF="../FMOD_MODE.html">FMOD_CREATECOMPRESSEDSAMPLE</A>
+             and <A HREF="../FMOD_MODE.html">FMOD_ACCURATETIME</A> not looping when <A HREF="../FMOD_MODE.html">FMOD_LOOP_NORMAL</A> was set.</li>
+<li><em>LowLevel API</em> - <em>XboxOne</em> - Fixed rare mixer hang when playing XMA as a compressed
+                       sample.</li>
+<li><em>LowLevel API</em> - Fix crash with combination of <A HREF="../FMOD_MODE.html">FMOD_OPENUSER</A> + <A HREF="../FMOD_MODE.html">FMOD_NONBLOCKING</A> and
+             a null pointer being passed to <A HREF="../FMOD_System_CreateSound.html">System::createSound</A>/createStream.</li>
+</ul>
+
+<h3>Notes:</h3>
+
+<ul>
+<li>Added examples to the Programmer API documentation.</li>
+<li><em>Xbox One</em> - Now built with March 2014 QFE1 XDK.</li>
+<li><em>Studio API</em> - In the C# wrapper, Studio.System.init is now deprecated in favour of
+             <A HREF="../FMOD_Studio_System_Initialize.html">Studio.System.initialize</A>.</li>
+<li><em>Studio API</em> - In the C# wrapper, Studio.Factory.System_Create is now deprecated in
+             favour of <A HREF="../FMOD_Studio_System_Create.html">Studio.System.create</A>.</li>
+<li><em>Studio API</em> - <A HREF="../FMOD_Studio_EventDescription_Is3D.html">Studio::EventDescription::is3D</A> now returns true if any of its nested
+             events are 3D.</li>
+<li><em>LowLevel API</em> - FMOD_CREATESOUNDEXINFO::suggestedsoundtype now tries the suggested
+             type first, then tries the rest of the codecs later if that fails,
+             rather than returning <A HREF="../FMOD_RESULT.html">FMOD_ERR_FORMAT</A>.</li>
+<li><em>LowLevel API</em> - Custom codecs.  The open callback for a user created codec plugin
+             now does not have to seek to 0 with the file function pointer before
+             doing a read.</li>
+</ul>
+
+<h2>28/03/14 1.03.03 - Studio API patch release</h2>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>Studio API</em> - Fixed <A HREF="../FMOD_Studio_EventDescription_GetInstanceCount.html">Studio::EventDescription::getInstanceCount</A> and
+             <A HREF="../FMOD_Studio_EventDescription_GetInstanceList.html">Studio::EventDescription::getInstanceList</A> incorrectly providing
+             data for all events in the bank, not just the queried event.</li>
+<li><em>Studio API</em> - Added <A HREF="../FMOD_Studio_EventDescription_LoadSampleData.html">Studio::EventDescription::loadSampleData</A>,
+             <A HREF="../FMOD_Studio_EventDescription_UnloadSampleData.html">Studio::EventDescription::unloadSampleData</A> and
+             <A HREF="../FMOD_Studio_EventDescription_GetSampleLoadingState.html">Studio::EventDescription::getSampleLoadingState</A> to C# wrapper.</li>
+</ul>
+
+<h2>26/03/14 1.03.02 - Studio API patch release</h2>
+
+<h3>Features:</h3>
+
+<ul>
+<li><em>Studio API</em> - Added <A HREF="../FMOD_Studio_EventDescription_LoadSampleData.html">Studio::EventDescription::loadSampleData</A>,
+             <A HREF="../FMOD_Studio_EventDescription_UnloadSampleData.html">Studio::EventDescription::unloadSampleData</A> and
+             <A HREF="../FMOD_Studio_EventDescription_GetSampleLoadingState.html">Studio::EventDescription::getSampleLoadingState</A> functions.</li>
+<li><em>LowLevel API</em> - Added <A HREF="../FMOD_ChannelGroup_IsPlaying.html">FMOD_ChannelGroup_IsPlaying</A> to C API.</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>Studio API</em> - Fix for setting parameter values that could cause volume
+             changes without the appropriate volume ramp.</li>
+<li><em>LowLevel API</em> - Fix for some incorrect declarations in the C header files.</li>
+<li><em>LowLevel API</em> - Fixed a linker error when calling some C API functions.</li>
+<li><em>LowLevel API</em> - Fixed <A HREF="../FMOD_ChannelGroup_AddGroup.html">FMOD_ChannelGroup_AddGroup</A> not returning the DSP
+             connection on success.</li>
+<li><em>LowLevel API</em> - <em>PS4</em> - Fixed FMOD macros for declaring plugin functions.</li>
+</ul>
+
+<h3>Notes:</h3>
+
+<ul>
+<li><em>Studio API</em> - <A HREF="../FMOD_Studio_EventInstance_GetLoadingState.html">Studio::EventInstance::getLoadingState</A> is now deprecated in
+             favour of <A HREF="../FMOD_Studio_EventDescription_GetSampleLoadingState.html">Studio::EventDescription::getSampleLoadingState</A>.</li>
+</ul>
+
+<h2>18/03/14 1.03.01 - Studio API patch release</h2>
+
+<h3>Important:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Blocking commands are not allowed to be called from the low level
+             non-blocking callback.  Attempting to do so will log an error
+             and return <A HREF="../FMOD_RESULT.html">FMOD_ERR_INVALID_THREAD</A>.  See <A HREF="../FMOD_SOUND_NONBLOCK_CALLBACK.html">FMOD_SOUND_NONBLOCK_CALLBACK</A>
+             for more information.</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>Studio API</em> - Fixed simple nested events not terminating properly when inside
+             multi sounds</li>
+<li><em>LowLevel API</em> - Fix SRS downmix crash on startup if software mixer was set to 5.1,
+             and the OS was set to stereo, and the system sample rate was not
+             44/48/96khz</li>
+<li><em>LowLevel API</em> - Fix for deadlock that could occur when executing commands in the
+             non-blocking callback as another thread is releasing sounds.</li>
+<li><em>LowLevel API</em> - Fix for <A HREF="../FMOD_Channel_GetPosition.html">Channel::getPosition</A> and <A HREF="../FMOD_ChannelControl_GetDSPClock.html">ChannelControl::getDSPClock</A>
+             returning errors when called on emulated channels created with
+             <A HREF="../FMOD_System_PlayDSP.html">System::playDSP</A>.</li>
+<li><em>LowLevel API</em> - <em>PS4</em> - Fixed leak of audio output handles on shutdown.</li>
+<li><em>LowLevel API</em> - Fix crash in compressor when placed on a channel with a delay.</li>
+</ul>
+
+<h3>Notes:</h3>
+
+<ul>
+<li><em>PS4</em> - Now built with SDK 1.600.071.</li>
+</ul>
+
+<h2>03/03/14 1.03.00 - Studio API minor release</h2>
+
+<h3>Important:</h3>
+
+<ul>
+<li>Added PS Vita platform support.</li>
+<li>Updated FMOD Studio Programmers API documentation.</li>
+<li><em>Studio API</em> - Changed .bank file format - ALL BANKS MUST BE REBUILT</li>
+<li><em>Studio API</em> - Studio API is now asynchronous by default, with the processing
+             occuring on a new Studio thread.  Asynchronous behaviour can be
+             disabled with the <A HREF="../FMOD_STUDIO_INITFLAGS.html">FMOD_STUDIO_INIT_SYNCHRONOUS_UPDATE</A> init flag.</li>
+<li><em>Studio API</em> - Studio API classes are now all referenced as pointers.  This
+             reflects a change in the handle system to make it thread-safe,
+             more performant and match the C and low level interface.</li>
+<li><em>Studio API</em> - Event and mixer strip paths now include a prefix in order to
+             guarantee uniqueness. See <A HREF="../FMOD_Studio_System_LookupID.html">Studio::System::lookupID</A>.</li>
+<li><em>LowLevel API</em> - Low Level is now thread-safe by default.  Thread safety can be
+             disabled with the <A HREF="../FMOD_INITFLAGS.html">FMOD_INIT_THREAD_UNSAFE</A> init flag.</li>
+<li><em>LowLevel API</em> - Codecs must set waveformatversion to <A HREF="../FMOD_CODEC_WAVEFORMAT_VERSION.html">FMOD_CODEC_WAVEFORMAT_VERSION</A>
+             in the <A HREF="../FMOD_CODEC_OPEN_CALLBACK.html">FMOD_CODEC_OPEN_CALLBACK</A>.</li>
+<li><em>LowLevel API</em> - Removed support for digital CD audio</li>
+</ul>
+
+<h3>Features:</h3>
+
+<ul>
+<li><em>Studio API</em> - The new .bank file format provides improved support for backward
+             and forward compatibility. Future version updates will not
+             generally require banks to be rebuilt.</li>
+<li><em>Studio API</em> - Added support for events duplicated across banks.</li>
+<li><em>Studio API</em> - Added support for transition marker and loop region probability.</li>
+<li><em>Studio API</em> - Added support for sounds on transition timelines.</li>
+<li><em>Studio API</em> - Added asset enumeration functions: <A HREF="../FMOD_Studio_System_GetBankCount.html">Studio::System::getBankCount</A>,
+             <A HREF="../FMOD_Studio_System_GetBankList.html">Studio::System::getBankList</A>, <A HREF="../FMOD_Studio_Bank_GetEventCount.html">Studio::Bank::getEventCount</A>,
+             <A HREF="../FMOD_Studio_Bank_GetEventList.html">Studio::Bank::getEventList</A>, <A HREF="../FMOD_Studio_Bank_GetMixerStripCount.html">Studio::Bank::getMixerStripCount</A>,
+             <A HREF="../FMOD_Studio_Bank_GetMixerStripList.html">Studio::Bank::getMixerStripList</A>.</li>
+<li><em>Studio API</em> - Added path retrieval functions: <A HREF="../FMOD_Studio_System_LookupPath.html">Studio::System::lookupPath</A>,
+             <A HREF="../FMOD_Studio_EventDescription_GetPath.html">Studio::EventDescription::getPath</A>, <A HREF="../FMOD_Studio_MixerStrip_GetPath.html">Studio::MixerStrip::getPath</A>,
+             <A HREF="../FMOD_Studio_Bank_GetPath.html">Studio::Bank::getPath</A>.</li>
+<li><em>Studio API</em> - Bank loading now takes an extra flags argument.  It is possible
+             to load banks in non-blocking mode in which case the function
+             will return while the bank is still in the process of loading.</li>
+<li><em>Studio API</em> - Added <A HREF="../FMOD_Studio_System_SetAdvancedSettings.html">Studio::System::setAdvancedSettings</A>.</li>
+<li><em>Studio API</em> - Added <A HREF="../FMOD_Studio_System_GetCPUUsage.html">Studio::System::getCPUUsage</A>.</li>
+<li><em>Studio API</em> - Studio repositories have improved performance and no longer depend
+             on the standard library map.</li>
+<li><em>LowLevel API</em> - The system callback now includes the error callback type which
+             will be invoked whenever a public FMOD function returns a result
+             which is not <A HREF="../FMOD_RESULT.html">FMOD_OK</A>.</li>
+<li><em>LowLevel API</em> - Optimize <A HREF="../FMOD_Sound_GetNumSyncPoints.html">Sound::getNumSyncPoints</A> when using large FSB files with
+             many subsounds and many syncpoints.</li>
+<li><em>LowLevel API</em> - Made improvements to virtual voices for DSP graphs using sends,
+             returns, fade points, and sounds with varying peak volumes.</li>
+<li><em>LowLevel API</em> - <em>PS4</em> - Added recording support.</li>
+<li><em>LowLevel API</em> - <em>XBox One</em> - Added dll loading support.</li>
+<li><em>FSBank API</em> - Added support for exporting peak volume per sound using the
+             <A HREF="../FSBANK_BUILDFLAGS.html">FSBANK_BUILD_WRITEPEAKVOLUME</A> flag.</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Channels now take fade points into account for virtualisation</li>
+<li><em>LowLevel API</em> - Fixed pops when changing Echo DSP Delay parameter</li>
+<li><em>LowLevel API</em> - <em>Xbox One</em> - Removed a CPU spike when first playing a compressed
+                        sample XMA.</li>
+</ul>
+
+<h3>Notes:</h3>
+
+<ul>
+<li><em>Studio API</em> - Replaced Studio::System::lookupEventID and Studio::System::lookupBusID
+             with <A HREF="../FMOD_Studio_System_LookupID.html">Studio::System::lookupID</A>.</li>
+<li><em>LowLevel API</em> - The system callback now has an extra userdata argument that matches
+             the userdata specified in <A HREF="../FMOD_System_SetUserData.html">System::setUserData</A>.</li>
+<li><em>LowLevel API</em> - <em>Xbox One</em> - APU allocations are now handled internally for developers
+                        using memory callbacks or memory pools.</li>
+</ul>
+
+<h2>24/02/14 1.02.13 - Studio API patch release</h2>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Removed stalls when removing a DSP chain from a channel</li>
+<li><em>LowLevel API</em> - Fixed <A HREF="../FMOD_Channel_GetPosition.html">Channel::getPosition</A> returning incorrect value for streams
+             with very short loops.</li>
+<li><em>LowLevel API</em> - Fixed rare bug with DSP nodes not being set active in the mixer graph.</li>
+<li><em>LowLevel API</em> - Fixed rare bug with DSP metering not being set.</li>
+<li><em>LowLevel API</em> - Fixed incorrect playback of multi-channel PCM8 data.</li>
+<li><em>LowLevel API</em> - <em>PS4</em> - Fixed issues with calling ChannelControl::setPosition on AT9
+                   streams and compressed samples.</li>
+<li><em>LowLevel API</em> - <em>PS4</em> - Fixed audio glitches when using the background music port and
+                   the system format is not 7.1</li>
+<li><em>LowLevel API</em> - <em>PS4</em> - Added loading of plugins from PRX files.</li>
+<li><em>LowLevel API</em> - <em>Android</em> - Fixed crash on low quality Vorbis encoded FSBs.</li>
+<li><em>LowLevel API</em> - <em>Android</em> - Fixed one time memory leak on <A HREF="../FMOD_System_Release.html">System::release</A> when using
+                       OpenSL output mode.</li>
+<li><em>Studio API</em> - Fixed playlist instruments occasionally cutting off too early.</li>
+<li><em>Studio API</em> - Fixed rare timing issue that caused spawning instruments to trigger
+             too early.</li>
+</ul>
+
+<h3>Notes:</h3>
+
+<ul>
+<li><em>Xbox One</em> - Now built with August QFE11 XDK.</li>
+<li><em>PS4</em> - Now built with SDK 1.600.051.</li>
+</ul>
+
+<h2>07/01/14 1.02.12 - Studio API patch release</h2>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Fixed potential crash with net streams.</li>
+<li><em>LowLevel API</em> - <em>PS4</em> - Fixed rare internal error in AT9 codec when channels are
+                   reused after stopping.</li>
+<li><em>Studio API</em> - Fixed nested events getting incorrect 3D position information</li>
+</ul>
+
+<h2>17/12/13 1.02.11 - Studio API patch release</h2>
+
+<h3>Features:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Added <A HREF="../FMOD_ChannelControl_SetVolumeRamp.html">ChannelControl::setVolumeRamp</A> and <A HREF="../FMOD_ChannelControl_GetVolumeRamp.html">ChannelControl::getVolumeRamp</A>
+            to control whether channels automatically ramp their volume changes.</li>
+<li><em>Studio API</em> - Added <A HREF="../FMOD_STUDIO_EVENT_CALLBACK_TYPE.html">FMOD_STUDIO_EVENT_CALLBACK_IDLE</A> callback type, fired
+             when an event instance enters the idle state.</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>Studio API</em> - Fixed <A HREF="../FMOD_STUDIO_EVENT_CALLBACK_TYPE.html">FMOD_STUDIO_EVENT_CALLBACK_STOPPED</A> callback firing when
+             an event instance is already stopped.</li>
+<li><em>Studio API</em> - Fixed <A HREF="../FMOD_Studio_EventInstance_GetCueCount.html">Studio::EventInstance::getCueCount</A> returning 1 even on events
+             with no sustain points.</li>
+<li><em>LowLevel API</em> - Fixed <A HREF="../FMOD_ChannelControl_SetDelay.html">ChannelControl::setDelay</A> rarely being ignored.</li>
+</ul>
+
+<h3>Notes:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - PCM data will now be read the main data in a single read instead
+             of breaking the reads up into 16kb chunks.</li>
+<li><em>Studio API</em> - Changed behavior of <A HREF="../FMOD_Studio_EventInstance_GetCue.html">Studio::EventInstance::getCue</A> to return
+             <A HREF="../FMOD_RESULT.html">FMOD_ERR_EVENT_NOTFOUND</A> if the event has no sustain points.</li>
+</ul>
+
+<h2>02/12/13 1.02.10 - Studio API patch release</h2>
+
+<h3>Important:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Updated the C ChannelGroup functions to take 64 bit integer argument.</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Fix <A HREF="../FMOD_SPEAKERMODE.html">FMOD_SPEAKERMODE_SURROUND</A> upmixing to 5.1 or 7.1 incorrectly,
+             ie surround left mixing into LFE and surround right into surround
+             right.</li>
+<li><em>LowLevel API</em> - <em>PS4</em> - Fix playback of background music when system software format
+             is not 7.1.</li>
+</ul>
+
+<h2>26/11/13 1.02.09 - Studio API patch release</h2>
+
+<h3>Notes:</h3>
+
+<ul>
+<li><em>PS4</em> - Now built with SDK 1.500.111</li>
+</ul>
+
+<h2>19/11/13 1.02.08 - Studio API patch release</h2>
+
+<h3>Important:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - DSP clock now uses 64 bit integers.  The following functions have
+             been modified to accept a 64 bit integer argument: <A HREF="../FMOD_ChannelControl_GetDSPClock.html">ChannelControl::getDSPClock</A>,
+             <A HREF="../FMOD_ChannelControl_SetDelay.html">ChannelControl::setDelay</A>, <A HREF="../FMOD_ChannelControl_GetDelay.html">ChannelControl::getDelay</A>, <A HREF="../FMOD_ChannelControl_AddFadePoint.html">ChannelControl::addFadePoint</A>,
+             <A HREF="../FMOD_ChannelControl_RemoveFadePoints.html">ChannelControl::removeFadePoints</A>, <A HREF="../FMOD_ChannelControl_GetFadePoints.html">ChannelControl::getFadePoints</A>.</li>
+</ul>
+
+<h3>Features:</h3>
+
+<ul>
+<li><em>Studio API</em> - Added setParameterValue and setParameterValueByIndex functions in
+             eventInstance to wrap finding and then setting a parameter value.</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Fixed positioning of 5.1 surround speakers when soundcard is
+             set to other surround formats</li>
+<li><em>LowLevel API</em> - Fixed excessive log spam making the logging version much slower</li>
+<li><em>LowLevel API</em> - <em>Xbox One</em> - Fixed rare XMA codec hang which could also manifest as
+                        <A HREF="../FMOD_RESULT.html">FMOD_ERR_INTERNAL</A>.</li>
+<li><em>LowLevel API</em> - <em>PS4</em> - Fixed crash when assigning a channel group to the controller speaker.</li>
+<li><em>Studio API</em> - Fixed MixerStrip release not working when the user has multiple
+             handles to the same strip</li>
+<li><em>Studio API</em> - Fixed pops when playing nested events that have silent tracks</li>
+<li><em>Studio API</em> - Fixed crash when shutting down with profiler connected.</li>
+<li><em>Studio API</em> - Fixed unused streams being created during event preloading</li>
+</ul>
+
+<h3>Notes:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Turned off optimization for user created DSP effects that do not call the read
+             callback if no sound is coming in.  read callbacks will now always fire
+             regardless.  'shouldiprocess' callback can be defined to optimize out no input.</li>
+</ul>
+
+<h2>12/11/13 1.02.07 - Studio API patch release</h2>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - <em>iOS</em> - Fixed streams returning <A HREF="../FMOD_RESULT.html">FMOD_ERR_INTERNAL</A> on ARM64 devices.</li>
+<li><em>LowLevel API</em> - <em>iOS</em> - Fixed automatic interruption handling not working for ARM64
+                   devices.</li>
+<li><em>Lowlevel API</em> - Fix possible crash on startup, if using 5.1 mixing on a
+stereo output (downmixer enabled).</li>
+<li><em>LowLevel API</em> - Fix setMute on master channelgroup not working.</li>
+<li><em>Studio API</em> - Fixed AHDSR modulators starting at the wrong value when
+             attack time is 0</li>
+<li><em>Studio API</em> - Fixed Multi Sounds and Scatterer Sounds not randomizing
+             correctly after deleting all entries</li>
+</ul>
+
+<h2>06/11/13 1.02.06 - Studio API patch release</h2>
+
+<h3>Features:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - <em>iOS</em> - Added support for ARM64 devices and x86_64 simulator.</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>Studio API</em> - Fix playback issues after running for more than 12 hours</li>
+<li><em>LowLevel API</em> - Fixed net streaming truncating or repeatings parts of the end
+             of a netstream.</li>
+<li><em>LowLevel API</em> - Fix crash due to missing functions in kernel32.dll on Windows XP.</li>
+</ul>
+
+<h2>29/10/13 1.02.05 - Studio API patch release</h2>
+
+<h3>Features:</h3>
+
+<ul>
+<li><em>Studio API</em> - Improved performance of <A HREF="../FMOD_Studio_System_SetListenerAttributes.html">Studio::System::setListenerAttributes</A></li>
+<li><em>Studio API</em> - FMOD profiler can now show Studio Bus and Event instances in
+             the DSP node graph.</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>Studio API</em> - Fixed pan jittering on events that move with the listener</li>
+</ul>
+
+<h2>22/10/13 1.02.04 - Studio API patch release</h2>
+
+<h3>Features:</h3>
+
+<ul>
+<li><em>Studio API</em> - Added ability to continue loading banks when missing plugins.</li>
+<li><em>Studio API</em> - Added <A HREF="../FMOD_STUDIO_PARAMETER_TYPE.html">FMOD_STUDIO_PARAMETER_TYPE</A> enum to describe the type of a
+             parameter to <A HREF="../FMOD_STUDIO_PARAMETER_DESCRIPTION.html">FMOD_STUDIO_PARAMETER_DESCRIPTION</A>.</li>
+<li><em>LowLevel API</em> - Added function to get parent sound from a subsound.</li>
+<li><em>LowLevel API</em> - <em>Android</em> - Added support for dynamic plugins.</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>Studio API</em> - Trying to set an automatic parameter will return <A HREF="../FMOD_RESULT.html">FMOD_ERR_INVALID_PARAM</A>.</li>
+<li><em>LowLevel API</em> - Fix restarting a channel corrupting fader and panner positions
+             if effects are added.</li>
+<li><em>LowLevel API</em> - Fix channel restarting if 1. sound ended, 2. <A HREF="../FMOD_Channel_SetVolume.html">Channel::setVolume</A>(0)
+             with FMOD_VOL0BECOMESVIRTUAL happened, 3. setVolume(>0) happened,
+             in between 2 system updates.</li>
+<li><em>LowLevel API</em> - Fixed issues on PS4 after opening an output audio port fails.</li>
+<li><em>LowLevel API</em> - Calling playSound on a fsb loaded with createStream will now
+             return FMOD_ERR_SUBSOUND.</li>
+</ul>
+
+<h2>15/10/13 1.02.03 - Studio API patch release</h2>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - <em>iOS</em> - Fixed potential crash when stopping virtual channels.</li>
+<li><em>Studio API</em> - Fixed click with cross-fade for nested events</li>
+<li><em>Studio API</em> - <em>Mac</em> - Fixed link issues from certain API functions.</li>
+</ul>
+
+<h3>Notes:</h3>
+
+<ul>
+<li><em>Studio API</em> - <A HREF="../FMOD_Studio_System_Create.html">FMOD_Studio_System_Create</A> now takes a headerVersion parameter
+             to match the C++ API</li>
+</ul>
+
+<h2>07/10/13 1.02.02 - Studio API patch release</h2>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Fixed rare crash when using virtual voices.</li>
+<li><em>LowLevel API</em> - Fixed channel fade state not being preserved when switching to virtual.</li>
+<li><em>LowLevel API</em> - Fixed 5.1 and 7.1 downmix to stereo being off-center.</li>
+<li><em>LowLevel API</em> - <em>Mac</em> - Fixed incorrect downmix logic causing excess channels to
+                   be dropped.</li>
+</ul>
+
+<h3>Notes:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - changed <A HREF="../FMOD_DSP_LIMITER.html">FMOD_DSP_LIMITER_MODE</A> parameter to bool</li>
+</ul>
+
+<h2>01/10/13 1.02.01 - Studio API patch release</h2>
+
+<h3>Features:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Improved performance of compressor on X86/x64 platforms.</li>
+<li><em>Studio API</em> - Added support for new automatic parameters: Event Orientation,
+             Direction, Elevation and Listener Orientation</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Fixed crash when downmixing to 16-bit output.</li>
+<li><em>LowLevel API</em> - Fixed floating point issue when setting very low pitch values.</li>
+<li><em>Studio API</em> - Fixed sound glitch that could occur after crossfade.</li>
+<li><em>Studio API</em> - Fix for assert when rescheduling with modified pitch.</li>
+</ul>
+
+<h3>Notes:</h3>
+
+<ul>
+<li><em>iOS</em> - Now built with SDK 7.0.</li>
+<li><em>Mac</em> - Now built with SDK 10.8.</li>
+</ul>
+
+<h2>23/09/13 1.02.00 - Studio API minor release</h2>
+
+<h3>Important:</h3>
+
+<ul>
+<li>Added Android platform support.</li>
+</ul>
+
+<h3>Features:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Added <A HREF="../FMOD_CREATESOUNDEXINFO.html">FMOD_CREATESOUNDEXINFO.fileuserdata</A> to hold user data
+             that will be passed into all file callbacks for the sound</li>
+<li><em>LowLevel API</em> - Added <A HREF="../FMOD_System_MixerSuspend.html">System::mixerSuspend</A> and <A HREF="../FMOD_System_MixerResume.html">System::mixerResume</A> for mobile
+             platforms to allow FMOD to be suspended when interrupted or
+             operating in the background.</li>
+<li><em>LowLevel API</em> - Added float parameter mappings support to plug-ins</li>
+<li><em>LowLevel API</em> - <em>PS4</em> - Added Output Ports example</li>
+<li><em>Studio API</em> - Reduced memory overhead for several core types.</li>
+<li><em>Studio API</em> - Added <A HREF="../FMOD_Studio_System_LoadBankMemory.html">Studio::System::loadBankMemory</A> to support loading banks
+             from a memory buffer</li>
+<li><em>Studio API</em> - Added <A HREF="../FMOD_Studio_System_LoadBankCustom.html">Studio::System::loadBankCustom</A> to support loading banks
+             using bank-specific custom file callbacks</li>
+<li><em>Studio API</em> - Added support for placing multiple tempo markers on a timeline.</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Fix incorrect error codes being returned by C# wrapper.</li>
+<li><em>LowLevel API</em> - Fix bug in stereo-to-surround and surround-to-surround panning</li>
+<li><em>LowLevel API</em> - Fix <A HREF="../FMOD_System_PlayDSP.html">System::playDSP</A> not working</li>
+<li><em>LowLevel API</em> - Fix rare crash with <A HREF="../FMOD_DSPConnection_SetMixMatrix.html">DSPConnection::setMixMatrix</A>.  Studio API
+             could also be affected.</li>
+<li><em>LowLevel API</em> - Fix getMeteringInfo not clearing its values when pausing.</li>
+<li><em>LowLevel API</em> - Fix audio pops when restarting sounds due to downmixing.</li>
+<li><em>LowLevel API</em> - <em>PS4</em> - Fix crash when disconnecting a channel group from an output
+                   port.</li>
+<li><em>LowLevel API</em> - <em>PS4</em> - Fix issue with audio channels not finishing correctly when
+                   being played through a port.</li>
+<li><em>LowLevel API</em> - <em>Xbox One</em> - Fixed 'clicking' when a realtime decoded XMA sample
+                        loops if adjusting pitch during playback.</li>
+<li><em>Studio API</em> - Fix event priority not working</li>
+<li><em>Studio API</em> - Fix <A HREF="../FMOD_Studio_EventInstance_Start.html">Studio::EventInstance::start</A>() returning incorrect result with
+             non-blocking sounds.</li>
+<li><em>Studio API</em> - Fix memory leaks when loading corrupt banks</li>
+<li><em>Studio API</em> - Fix channels leaking with nested instruments</li>
+<li><em>Studio API</em> - Fix MixerStrip::setFaderLevel on the game side affecting volume
+             levels in the tool when connected via Live Update</li>
+<li><em>Studio API</em> - Fix a potential crash when getting a string property with
+             <A HREF="../FMOD_Studio_EventDescription_GetUserPropertyByIndex.html">Studio::EventDescription::getUserPropertyByIndex</A></li>
+</ul>
+
+<h3>Notes:</h3>
+
+<ul>
+<li><em>Studio API</em> - Renamed Studio::System::loadBank to <A HREF="../FMOD_Studio_System_LoadBankFile.html">Studio::System::loadBankFile</A></li>
+<li><em>Studio API</em> - Updated the API examples to use the new example project</li>
+<li><em>LowLevel API</em> - Changed <A HREF="../FMOD_FILE_OPEN_CALLBACK.html">FMOD_FILE_OPEN_CALLBACK</A> userdata parameter from void**
+             to void* (it now comes from <A HREF="../FMOD_CREATESOUNDEXINFO.html">FMOD_CREATESOUNDEXINFO.fileuserdata</A>
+             rather than being set by the open callback)</li>
+<li><em>LowLevel API</em> - <em>iOS</em> - Removed automatic handling of interruptions. Developers
+                   should call the new <A HREF="../FMOD_System_MixerSuspend.html">System::mixerSuspend</A> /
+                   <A HREF="../FMOD_System_MixerResume.html">System::mixerResume</A> API from their interruption handler.</li>
+<li><em>LowLevel API</em> - <em>iOS</em> - Removed all usage of AudioSession API, developers are
+                   now encouraged to use the platform native APIs as there
+                   is no possible conflict with FMOD.</li>
+<li><em>PS4</em> - Now built with SDK 1.020.041.</li>
+</ul>
+
+<h2>26/08/13 1.01.15 - Studio API patch release</h2>
+
+<h3>Features:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Performance optimizations.</li>
+<li><em>Studio   API</em> - Performance optimizations.</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Fix oscillators not changing pitch if <A HREF="../FMOD_System_PlayDSP.html">System::playDSP</A> was used.</li>
+<li><em>LowLevel API</em> - Fix crash when setting 0 or invalid pitch.</li>
+<li><em>Studio   API</em> - Fix for some allocations not propagating <A HREF="../FMOD_RESULT.html">FMOD_ERR_MEMORY</A> errors.</li>
+<li><em>Studio   API</em> - Fix for memory leak when failing to load a bank.</li>
+</ul>
+
+<h2>26/08/13 1.01.14 - Studio API patch release</h2>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Fix crash if adding an <A HREF="../FMOD_DSP_TYPE.html">FMOD_DSP_TYPE_FADER</A> dsp to a channelgroup.</li>
+<li><em>LowLevel API</em> - <em>Xbox One</em> - Internal WASAPI (mmdevapi.dll) threads will now have
+                        their affinity set to match the FMOD feeder thread.</li>
+</ul>
+
+<h3>Notes:</h3>
+
+<ul>
+<li><em>Xbox One</em> - Now built with August XDK.</li>
+</ul>
+
+<h2>19/08/13 1.01.13 - Studio API patch release</h2>
+
+<h3>Features:</h3>
+
+<ul>
+<li><p><em>Studio API</em> - Global mixer strips will now be automatically cleaned up when
+             when the events routed into them complete.</p></li>
+<li><p><em>Studio API</em> - Improved performance of Studio::System::Update by removing stalls
+             waiting on the mixer the complete.</p></li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - <A HREF="../FMOD_Channel_SetPitch.html">Channel::setPitch</A>() now returns an error if a NaN is passed in.
+             Fixes crashes occuring later in the mixer thread.</li>
+<li><em>Studio API</em> - Fixed sustain points at the start of the timeline not working</li>
+<li><em>Studio API</em> - Fixed sustain point keyoff incorrectly being ignored if the
+             cursor is not currently sustaining</li>
+<li><em>Studio API</em> - Fixed sustain point keyoff incorrectly skipping sustain points
+             repeatedly when looping</li>
+</ul>
+
+<h3>Notes:</h3>
+
+<ul>
+<li><em>Studio API</em> - Changed behavior of <A HREF="../FMOD_Studio_EventInstance_GetCue.html">Studio::EventInstance::getCue</A> to return
+             <A HREF="../FMOD_RESULT.html">FMOD_ERR_INVALID_PARAM</A> if the event contains no sustain points.</li>
+</ul>
+
+<h2>12/08/13 1.01.12 - Studio API patch release</h2>
+
+<h3>Features:</h3>
+
+<ul>
+<li>Added FMOD SoundBank Generator tool for creating .fsb files. Both a GUI version
+(fsbank.exe) and a command line version (fsbankcl.exe) are provided.</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Fix FSB Vorbis seek table containing an invalid entry at the end.</li>
+<li><em>LowLevel API</em> - Fix cpu stall when using <A HREF="../FMOD_System_PlayDSP.html">System::playDSP</A>.  Also if using
+             oscillator in studio.</li>
+<li><em>LowLevel API</em> - <em>Xbox One</em> - Fixed rare crash on <A HREF="../FMOD_System_Init.html">System::init</A> when using WASAPI.</li>
+</ul>
+
+<h2>05/08/13 1.01.11 - Studio API patch release</h2>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>Studio API</em> - Fixed resource leak.</li>
+<li><em>Studio API</em> - Fixed a crash when releasing an event instance with sub events.</li>
+<li><em>LowLevel API</em> - Fixed <A HREF="../FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_MEMORYALLOCATIONFAILED</A> not being
+             passed to the application.</li>
+<li><em>LowLevel API</em> - <em>PS4</em> - Fix crashes caused by out-of-memory conditions.
+                   <A HREF="../FMOD_RESULT.html">FMOD_ERR_MEMORY</A> is now returned correctly.</li>
+<li><em>LowLevel API</em> - <em>Xbox One</em> - Fixed race condition that causes a hang when playing
+                        compressed XMA samples and streams at the same time.</li>
+<li><em>LowLevel API</em> - <em>Xbox One</em> - Fixed leak of SHAPE contexts that would cause
+                        createSound to fail if playing and releasing lots of
+                        XMA streams.</li>
+<li><em>LowLevel API</em> - <em>Xbox One &amp; Win</em> - Fixed surrounds and rears being swapped in 7.1.</li>
+</ul>
+
+<h2>29/07/13 1.01.10 - Studio API patch release</h2>
+
+<h3>Important:</h3>
+
+<ul>
+<li><em>Studio API</em> - Changed .bank file format - API is backward compatible but must
+             be upgraded for compatibility with Studio tool 1.01.10 or newer.</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>Studio API</em> - Fixed plugin effect sounds not working in game.</li>
+<li><em>Studio API</em> - Fixed a crash in <A HREF="../FMOD_Studio_System_Update.html">Studio::System::update</A> after calling
+             <A HREF="../FMOD_Studio_EventDescription_ReleaseAllInstances.html">Studio::EventDescription::releaseAllInstances</A></li>
+<li><em>Studio API</em> - Fixed sustain points at the start of the timeline not working</li>
+<li><em>Studio API</em> - Fixed sustain point keyoff incorrectly being ignored if the
+             cursor is not currently sustaining</li>
+<li><em>Studio API</em> - Fixed sustain point keyoff incorrectly skipping sustain points
+             repeatedly when looping</li>
+<li><em>Studio API</em> - Fixed a crash when unloading a bank that contains a nested
+             event that is currently playing</li>
+<li><em>Studio API</em> - Fixed <A HREF="../FMOD_Studio_System_Update.html">Studio::System::update</A> sometimes failing with <A HREF="../FMOD_RESULT.html">FMOD_ERR_INTERNAL</A>
+             and leaving the system in an inconsistent state</li>
+<li><em>LowLevel API</em> - <em>Xbox One</em> - Fixed <A HREF="../FMOD_MODE.html">FMOD_CREATECOMPRESSEDSAMPLE</A> XMA playback issues.</li>
+</ul>
+
+<h3>Notes:</h3>
+
+<ul>
+<li><em>Studio API</em> - Changed behavior of <A HREF="../FMOD_Studio_EventInstance_GetCue.html">Studio::EventInstance::getCue</A> to return
+             <A HREF="../FMOD_RESULT.html">FMOD_ERR_INVALID_PARAM</A> if the event contains no sustain points.</li>
+</ul>
+
+<h2>22/07/13 1.01.09 - Studio API patch release</h2>
+
+<h3>Important:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Fixed rare crash in mixer.</li>
+</ul>
+
+<h3>Features:</h3>
+
+<ul>
+<li><em>Studio API</em> - Fixed spawning sounds not playing at correct 3D position.</li>
+<li><em>Studio API</em> - Fixed 40ms of latency getting added for each layer of event
+             sound nesting.</li>
+<li><em>Lowlevel API</em> - Optimized mixer by about 30% in some configurations.</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Remove FMOD_CHANNELCONTROL union, used in ChannelControl type
+             callbacks, as it was incorrect and using it as a union would
+             have lead to corruption/crash.  A simple opaque
+             FMOD_CHANNELCONTROL type is now used for callbacks, and the
+             user should just cast to the relevant channel or channelgroup
+             type.</li>
+<li><em>LowLevel API</em> - Fixed fade point interpolation on channels with pitch.</li>
+<li><em>LowLevel API</em> - Fixed race condition when channels were reused after stopping.</li>
+<li><em>LowLevel API</em> - <em>Xbox One</em> - Fixed hang for short (2KB) XMA files.</li>
+<li><em>LowLevel API</em> - <em>Xbox One</em> - Fixed incorrect seek offset for XMA files.</li>
+<li><em>LowLevel API</em> - <em>PS4</em> - Added support for AT9 streams with greater than 2 channels.</li>
+<li><em>Studio API</em> - <em>PS4</em> - Fixed crash when Handle derived classes went out of scope after
+                   the dynamic lib was unloaded</li>
+</ul>
+
+<h3>Notes:</h3>
+
+<ul>
+<li><em>PS4</em> - Now built with SDK 1.0.</li>
+</ul>
+
+<h2>15/07/13 1.01.08 - Studio API patch release</h2>
+
+<h3>Features:</h3>
+
+<ul>
+<li><em>Studio API</em> - Added <A HREF="../FMOD_Studio_EventDescription_GetMinimumDistance.html">Studio::EventDescription::getMinimumDistance</A></li>
+<li><em>Studio API</em> - Added <A HREF="../FMOD_Studio_EventDescription_IsStream.html">Studio::EventDescription::isStream</A></li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Fixed crash / corruption from DSP Fader/Panner objects.</li>
+<li><em>LowLevel API</em> - Fixed mod/s3m/xm/mid playback.</li>
+<li><em>Studio API</em> - Fixed <A HREF="../FMOD_Studio_EventDescription_IsOneshot.html">Studio::EventDescription::isOneshot</A>() incorrectly returning true
+             for an event that has a loop on the logic track.</li>
+<li><em>Linux</em> - Fixed crash on playback of certain CELT streams.</li>
+<li><em>Xbox One</em> - Fixed potential hangs with compressed XMA samples.</li>
+<li><em>Xbox One</em> - Fixed potential silence if XMA sample rate was not one of 24K, 32K,
+         44.1K or 48K.</li>
+</ul>
+
+<h2>10/07/13 1.01.07 - Studio API patch release</h2>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Fix "Sample Rate Change" tag from passing through 0 rate when
+             EOF was hit on certain MP3 files.</li>
+<li><em>LowLevel API</em> - Fix crash when using <A HREF="../FMOD_MODE.html">FMOD_CREATECOMPRESSEDSAMPLE</A> introduced in
+             1.01.06</li>
+<li><em>LowLevel API</em> - <em>iOS</em> - Fixed crash when using DSP Echo.</li>
+<li><em>LowLevel API</em> - <em>iOS</em> - Fixed crash in mixer due to misaligned buffers.</li>
+</ul>
+
+<h2>08/07/13 1.01.06 - Studio API patch release</h2>
+
+<h3>Features:</h3>
+
+<ul>
+<li><em>XboxOne</em> - Officially added support for XMA. Please note this requires the July
+        XDK to avoid a hang.</li>
+<li><em>Studio API</em> - Added <A HREF="../FMOD_Studio_ParameterInstance_GetDescription.html">Studio::ParameterInstance::getDescription</A></li>
+<li><em>Studio API</em> - Added EventDescription getParameter, getParameterCount and
+           getParameterByIndex functions</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li>Fix Sound userdata being overwritten when FMOD_SOUND_NONBLOCKCALLBACK was
+called for a 2nd or more time.</li>
+<li><em>LowLevel API</em> - Fix rare crash in mixer when releasing a ChannelGroup</li>
+<li><em>LowLevel API</em> - Fix 3D Panner DSPs and Studio Event 3d volumes not being
+             considered by virtual voice system.</li>
+<li><em>LowLevel API</em> - Fixed compressor sounding erratic and unresponsive</li>
+<li><em>Studio API</em> - Fixed clicks when a <A HREF="../FMOD_Studio_ParameterInstance_SetValue.html">Studio::ParameterInstance::setValue</A> call causes
+             sounds to be cut off</li>
+</ul>
+
+<h3>Notes:</h3>
+
+<ul>
+<li><em>XboxOne</em> - Now built with July XDK.</li>
+<li><em>LowLevel API</em> - Changed <A HREF="../FMOD_DSP_TYPE.html">FMOD_DSP_TYPE_PAN</A> <A HREF="../FMOD_DSP_PAN.html">FMOD_DSP_PAN_STEREO_POSITION</A>
+             parameter to go from -100 to 100.</li>
+<li><em>LowLevel API</em> - Changed <A HREF="../FMOD_DSP_TYPE.html">FMOD_DSP_TYPE_COMPRESSOR</A> <A HREF="../FMOD_DSP_COMPRESSOR.html">FMOD_DSP_COMPRESSOR_ATTACK</A>
+             parameter to go from 0.1 to 500ms.</li>
+</ul>
+
+<h2>28/06/13 1.01.05 - Studio API patch release</h2>
+
+<h3>Important:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Changed .fsb file format - ALL BANKS MUST BE REBUILT</li>
+<li><em>Studio API</em> - Changed .bank file format - ALL BANKS MUST BE REBUILT</li>
+</ul>
+
+<h3>Features:</h3>
+
+<ul>
+<li><em>Studio API</em> - Added <A HREF="../FMOD_Studio_System_UnloadAll.html">Studio::System::unloadAll</A> function</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - <em>PS4</em> - Improved AT9 decoding performance, fixed issue with
+                   when a sound has loop points not aligned to frame size,
+                   fixed seamless looping playback glitches.</li>
+<li><em>LowLevel API</em> - Fixed bug that was causing virtual channels to stop prematurely.</li>
+<li><em>LowLevel API</em> - Fixed fade points leaking when channels go virtual.</li>
+</ul>
+
+<h3>Notes:</h3>
+
+<ul>
+<li><em>Studio API</em> - Effect data parameter buffers are now 16-byte aligned
+             (128-byte aligned on PS3)</li>
+<li><em>Studio API</em> - Added automatic header version verification to
+             <A HREF="../FMOD_Studio_System_Create.html">Studio::System::create</A></li>
+</ul>
+
+<h2>19/06/13 1.01.04 - Studio API patch release</h2>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>Low Level API</em> - Fix rare crash with Fader DSP unit.</li>
+<li><em>Studio API</em> - Fixed some effects causing events to not stop correctly</li>
+<li><em>Studio API</em> - Fixed multiple concurrent playbacks of one event sometimes
+             failing with <A HREF="../FMOD_RESULT.html">FMOD_ERR_SUBSOUNDS</A> returned from <A HREF="../FMOD_Studio_System_Update.html">Studio::System::update</A></li>
+</ul>
+
+<h3>Notes:</h3>
+
+<ul>
+<li><em>Studio API</em> - Changed <A HREF="../FMOD_Studio_EventInstance_GetTimelinePosition.html">Studio::EventInstance::getTimelinePosition</A> to const</li>
+<li><em>PS4</em> - Now built with SDK 0.990.020.</li>
+</ul>
+
+<h2>07/06/13 1.01.03 - Studio API patch release</h2>
+
+<h3>Features:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Optimized mixer when pausing or delaying nodes.  Should
+             provide significant speed increase for Studio runtime
+             projects.</li>
+<li><em>LowLevel API</em> - Add <A HREF="../FMOD_DSPCONNECTION_TYPE.html">FMOD_DSPCONNECTION_TYPE_SEND_SIDECHAIN</A>.</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Fixed silence in certain DSP configurations.</li>
+<li><em>LowLevel API</em> - Fixed virtual channels not stopping correctly when a parent
+             channelgroup stops due to an end delay</li>
+<li><em>LowLevel API</em> - Fixed virtual channels not cleaning up fade points correctly</li>
+<li><em>LowLevel API</em> - Fixed fade points being ignored when channels go from virtual
+             to non-virtual</li>
+<li><em>Studio API</em> - Fixed crash when playing a multisound after unloading and
+             reloading it's bank.</li>
+<li><em>Studio API</em> - Implemented <A HREF="../FMOD_Studio_Bank_LoadSampleData.html">Studio::Bank::loadSampleData</A>, <A HREF="../FMOD_Studio_Bank_UnloadSampleData.html">Studio::Bank::unloadSampleData</A> and
+             <A HREF="../FMOD_Studio_Bank_GetSampleLoadingState.html">Studio::Bank::getSampleLoadingState</A> (they previously did nothing)</li>
+<li><em>Studio API</em> - Fixed crashes and unexpected behavior with sidechains when they
+             are connected to multiple compressors.</li>
+<li><em>Studio API</em> - Fixed a linker error when calling handle assignment operators</li>
+<li><em>Studio API</em> - Fixed a crash in the game when adding a sound to an event
+             while connected via Live Update</li>
+</ul>
+
+<h3>Notes:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Specific parameter description structures like
+             <A HREF="../FMOD_DSP_PARAMETER_DESC_FLOAT.html">FMOD_DSP_PARAMETER_DESC_FLOAT</A> no longer inherit from
+             <A HREF="../FMOD_DSP_PARAMETER_DESC.html">FMOD_DSP_PARAMETER_DESC</A>; instead, <A HREF="../FMOD_DSP_PARAMETER_DESC.html">FMOD_DSP_PARAMETER_DESC</A>
+             includes a union of all the specific structures with
+             floatdesc, intdesc, booldesc and datadesc members.
+             The FMOD_DSP_INIT_PARAMDESC_xxxx macros have been updated
+             to reflect this.</li>
+<li><em>PS4</em> - Now built with SDK 0.930.060.</li>
+</ul>
+
+<h2>31/05/13 1.01.02 - Studio API patch release</h2>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>Studio API</em> - Fixed getMixerStrip not returning a valid handle when
+             retrieving a VCA.</li>
+</ul>
+
+<h2>30/05/13 1.01.01 - Studio API patch release</h2>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Fix rare crash in DSPFader.</li>
+<li><em>Studio API</em> - <A HREF="../FMOD_Studio_EventInstance_GetParameter.html">Studio::EventInstance::getParameter</A> and <A HREF="../FMOD_Studio_EventInstance_GetCue.html">Studio::EventInstance::getCue</A> now use
+             case-insensitive name comparison</li>
+</ul>
+
+<h3>Notes:</h3>
+
+<ul>
+<li><em>Studio API</em> - Renamed Studio::EventInstance::getNumCues to <A HREF="../FMOD_Studio_EventInstance_GetCueCount.html">Studio::EventInstance::getCueCount</A></li>
+</ul>
+
+<h2>27/05/13 1.01.00 - Studio API minor release</h2>
+
+<h3>Important:</h3>
+
+<ul>
+<li><em>Studio API</em> - Changed .bank file format - ALL BANKS MUST BE REBUILT</li>
+</ul>
+
+<h3>Features:</h3>
+
+<ul>
+<li><em>PS4</em> - Added support for mono and stereo AT9 FSBs.</li>
+<li><em>LowLevel API</em> - Optimized mixer by about 10%</li>
+<li><em>LowLevel API</em> - Added 'sends' which is a special type of DSPConnection that
+             does not try and execute the input, the output (return) just
+             consumes what was generated by the input (the send). See
+             <A HREF="../FMOD_DSPCONNECTION_TYPE.html">FMOD_DSPCONNECTION_TYPE_SEND</A></li>
+<li><em>LowLevel API</em> - Added <A HREF="../FMOD_DSP_GetIdle.html">DSP::getIdle</A>.  Very useful for seeing if a signal is
+             still running to a DSP unit.</li>
+<li><em>LowLevel API</em> - <em>Added FadePoint API</em> - now arbitrary volume ramps can be set
+             anywhere on the timeline.  ChannelControl::SetDelay removes
+             ramp in/ramp out in favour of this.  See
+             <A HREF="../FMOD_ChannelControl_AddFadePoint.html">ChannelControl::addFadePoint</A>/removeFadePointsgetFadePoints.</li>
+<li><em>Studio API</em> - Added <A HREF="../FMOD_Studio_EventInstance_SetTimelinePosition.html">Studio::EventInstance::setTimelinePosition</A> and
+           <A HREF="../FMOD_Studio_EventInstance_GetTimelinePosition.html">Studio::EventInstance::getTimelinePosition</A></li>
+<li><em>Studio API</em> - Disconnect stopped events from the DSP graph to reduce CPU usage</li>
+<li><em>LowLevel API</em> - removed 'sidechain' API, added <A HREF="../FMOD_DSPCONNECTION_TYPE.html">FMOD_DSPCONNECTION_TYPE</A> which is now
+             a parameter to <A HREF="../FMOD_DSP_AddInput.html">DSP::addInput</A>.  <A HREF="../FMOD_DSPCONNECTION_TYPE.html">FMOD_DSPCONNECTION_TYPE_STANDARD</A>,
+             <A HREF="../FMOD_DSPCONNECTION_TYPE.html">FMOD_DSPCONNECTION_TYPE_SIDECHAIN</A>, and <A HREF="../FMOD_DSPCONNECTION_TYPE.html">FMOD_DSPCONNECTION_TYPE_SEND</A>
+             are now supported.   <A HREF="../FMOD_DSPConnection_GetType.html">DSPConnection::getType</A> replaces DSPConnection::isSideChain</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Fixed FSB Vorbis not working with encryption key enabled.</li>
+<li><em>LowLevel API</em> - Fixed virtual voices not respecting <A HREF="../FMOD_ChannelControl_SetDelay.html">ChannelControl::setDelay</A></li>
+<li><em>LowLevel API</em> - Fixed parameter index validation when getting/setting DSP parameters.</li>
+<li><em>LowLevel API</em> - Fixed reverb not always idling when it should.</li>
+<li><em>LowLevel API</em> - Fixed bug with loop count being incorrectly set to infinite</li>
+<li><em>LowLevel API</em> - Optimised Echo DSP effect on x86/x64 architectures</li>
+<li><em>LowLevel API</em> - Fixed <A HREF="../FMOD_ChannelControl_Set3DLevel.html">ChannelControl::set3DLevel</A>, ChannelControl::set3DSpeakerSpread
+             and stereo 3d sounds not working</li>
+<li><em>LowLevel API</em> - Fixed flange effect not updating 'rate' parameter if the rate was
+             set before adding it to a channel or channelgroup or system object.</li>
+<li><em>LowLevel API</em> - <em>PS4</em> - Added support for music, voice, personal device and pad speaker routing.
+                   See System::AttachChannelGroupToPort and fmodorbis.h</li>
+<li><em>LowLevel API</em> - <em>PS4</em> - Added dynamic linking option.</li>
+<li><em>Studio API</em> - Fixed stop/release behaviour of event instances containing logic markers.</li>
+<li><em>Studio API</em> - Fixed memory corruption in <A HREF="../FMOD_Studio_System_Release.html">Studio::System::release</A></li>
+<li><em>Studio API</em> - Fixed <A HREF="../FMOD_STUDIO_STOP_MODE.html">FMOD_STUDIO_STOP_ALLOWFADEOUT</A> cutting off delay and reverb</li>
+<li><em>PS4</em> - Fixed closing the FMOD::System causing platform wide networking to be shutdown
+    even if the system did not initialize it.</li>
+</ul>
+
+<h3>Notes:</h3>
+
+<ul>
+<li><em>XboxOne</em> - Now built with April XDK.</li>
+<li><em>PS4</em> - Now built with SDK 0.930.</li>
+</ul>
+
+<h2>09/05/13 1.00.03 - Studio API patch release</h2>
+
+<h3>Features:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Added memory callbacks for DSP plugins</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Fixed true peak calculation in loudness meter</li>
+<li><em>LowLevel API</em> - Fix thread related crash in fader DSP and possibly panner DSP.</li>
+<li><em>Studio API</em> - Fixed automatic angle parameter calculation</li>
+</ul>
+
+<h2>12/04/13 1.00.02 - Studio API patch release</h2>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>Studio API</em> - Fixed snapshots sometimes not working on some properties</li>
+<li><em>Studio API</em> - Fixed VCAs applying fader level twice to controlled buses</li>
+</ul>
+
+<h2>09/04/13 1.00.01 - Studio API patch release</h2>
+
+<h3>Important:</h3>
+
+<ul>
+<li><em>Studio API</em> - Changed .bank file format - ALL BANKS MUST BE REBUILT</li>
+</ul>
+
+<h3>Features:</h3>
+
+<ul>
+<li><em>PS4 &amp; XboxOne</em> - Reduced CPU usage with optimized SSE and AVX functions.</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>LowLevel API</em> - Fix potential crash when stopping and starting sounds quickly
+             and a leak for FMOD_CREATECOMPRESSED codecs which made all
+             sounds go virtual.</li>
+<li><em>Studio API</em> - Fixed a crash when connecting to the game via Live Update</li>
+<li><em>Studio API</em> - Fixed serialization of snapshots with automation</li>
+</ul>
+
+<h3>Notes:</h3>
+
+<ul>
+<li><em>XboxOne</em> - Now built with March XDK.</li>
+</ul>
+
+<h2>25/03/13 1.00.00 - Studio API major release</h2>
+
+<h3>Important:</h3>
+
+<ul>
+<li><em>Studio API</em> - Changed .bank file format - ALL BANKS MUST BE REBUILT</li>
+</ul>
+
+<h3>Features:</h3>
+
+<ul>
+<li><em>Mac</em> - Reduced CPU usage with optimized SSE and AVX functions.</li>
+<li><em>XboxOne</em> - Added ability to set affinity via FMOD_Durango_SetThreadAffinity.</li>
+<li><em>PS4</em> - Added ability to set affinity via FMOD_Orbis_SetThreadAffinity.</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>Studio API</em> - Fixed <A HREF="../FMOD_Studio_EventDescription_GetLength.html">Studio::EventDescription::getLength</A> return incorrect values</li>
+<li><em>Studio API</em> - Fixed playback glitches when sounds are placed end-to-end on the
+           timeline</li>
+<li><em>Studio API</em> - Studio::System::lookupEventID and Studio::System::lookupBusID
+           now ignore case</li>
+<li><em>Studio API</em> - Fixed playback of Sound Scatterers with non-zero pitch</li>
+<li>Made return DSPs go idle when there is no input from sends</li>
+<li>Fixed sends sometimes going silent if there are multiple sends to a
+single return</li>
+<li>Fixed rare hang in mixer when using setDelay with a pitch on the parent</li>
+</ul>
+
+<h3>Notes:</h3>
+
+<ul>
+<li><em>Studio API</em> - Replaced <A HREF="../FMOD_Studio_System_LookupID.html">Studio::System::lookupID</A> with Studio::System::lookupEventID
+           and Studio::System::lookupBusID.</li>
+<li>FSBank API will now always encode PCM FSBs as PCM16 instead of deciding based
+on the source file format.</li>
+<li><em>PS4</em> - Now built with SDK 0.920.</li>
+</ul>
+
+<h2>25/02/13 0.02.04 - Studio API patch release</h2>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>Studio API</em> - Studio::System::loadBank now returns <A HREF="../FMOD_RESULT.html">FMOD_ERR_PLUGIN_MISSING</A> instead of
+           <A HREF="../FMOD_RESULT.html">FMOD_ERR_FILE_BAD</A> when the bank uses a missing plugin</li>
+</ul>
+
+<h2>15/02/13 0.02.03 - Studio API patch release</h2>
+
+<h3>Features:</h3>
+
+<ul>
+<li><em>Studio API</em> - Added <A HREF="../FMOD_Studio_System_LookupID.html">Studio::System::lookupID</A>() to look up event IDs from paths
+           (using any string tables present in currently loaded banks).</li>
+<li><em>Studio API</em> - Added <A HREF="../FMOD_Studio_Bank_Unload.html">Studio::Bank::unload</A>() to free loaded bank data.</li>
+<li><em>Windows</em> - Added optimisations to the 64 bit build.</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>Studio API</em> - Fixed a linker error when calling <A HREF="../FMOD_Studio_EventDescription_GetID.html">Studio::EventDescription::getID</A></li>
+<li>Fixed constant <A HREF="../FMOD_RESULT.html">FMOD_ERR_MEMORY</A> in the TTY and hang if <A HREF="../FMOD_ADVANCEDSETTINGS.html">FMOD_ADVANCEDSETTINGS</A> is
+used with DSPBufferPoolSize being set to 0.</li>
+<li>Changed custom DSPs with no shouldiprocess callback to only be processed when
+their inputs are active.</li>
+<li>Fixed high freqency noise coming from send DSP when channel counts mismatches
+the return DSP.</li>
+<li>Fixed metering not working via LiveUpdate</li>
+<li><em>Windows</em> - fixed bug in 5.1 mixing in 32bit builds.</li>
+</ul>
+
+<h3>Notes:</h3>
+
+<ul>
+<li><em>XboxOne</em> - Now built with January XDK.</li>
+<li><em>PS4</em> - Now built with SDK 0.915.</li>
+</ul>
+
+<h2>18/01/13 0.02.02 - Studio API patch release</h2>
+
+<h3>Important:</h3>
+
+<ul>
+<li><em>Studio API</em> - Changed .bank file format - ALL BANKS MUST BE REBUILT</li>
+<li><em>Studio API</em> - Changed function signature for <A HREF="../FMOD_Studio_System_Initialize.html">Studio::System::initialize</A>, added
+           STUDIO_FLAGS field</li>
+</ul>
+
+<h3>Features:</h3>
+
+<ul>
+<li><em>Studio API</em> - Added <A HREF="../FMOD_STUDIO_INITFLAGS.html">FMOD_STUDIO_INIT_LIVEUPDATE</A> flag to make Live Update optional</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>Studio API</em> - Fixed an internal error on instantiating a VCA when not all of
+           the mixer strips it controls are loaded</li>
+</ul>
+
+<h3>Notes:</h3>
+
+<ul>
+<li><em>XboxOne</em> - Now built with December XDK.</li>
+</ul>
+
+<h2>11/01/13 0.02.01 - Studio API patch release</h2>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>Studio API</em> - Fixed Distance and Angle parameters not being created properly
+           by live update</li>
+<li>Fixed reverb effect generating denorm floats after silence</li>
+</ul>
+
+<h2>20/12/12 0.02.00 - Studio API minor release</h2>
+
+<h3>Features:</h3>
+
+<ul>
+<li>Added Xbox360 support.</li>
+<li>Added iOS support.</li>
+<li><em>Studio API</em> - Added sub-event instantiation via <A HREF="../FMOD_Studio_EventInstance_CreateSubEvent.html">Studio::EventInstance::createSubEvent</A></li>
+</ul>
+
+<h2>23/11/12 0.01.04 - Patch release</h2>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li>Fixed a crash when calling <A HREF="../FMOD_Studio_EventInstance_Release.html">Studio::EventInstance::release</A> in a callback fired from
+<A HREF="../FMOD_Studio_EventInstance_Stop.html">Studio::EventInstance::stop</A> with <A HREF="../FMOD_STUDIO_STOP_MODE.html">FMOD_STUDIO_STOP_IMMEDIATE</A></li>
+<li>Fixed a linker error when using <A HREF="../FMOD_Studio_CueInstance_Trigger.html">Studio::CueInstance::trigger</A></li>
+<li>Fixed a bug in volume conflict resolver</li>
+</ul>
+
+<h2>9/11/12 0.01.03 - Patch release</h2>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li>Fixed a linker error when using <A HREF="../FMOD_Studio_EventInstance_SetPaused.html">Studio::EventInstance::setPaused</A></li>
+</ul>
+
+<h2>29/10/12 0.01.02 - Patch release</h2>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li>Fixed distortion when the distance between 3D sound and the listener is greater
+than the maximum attenuation distance.</li>
+<li>Fixed memory leaks when playing a persistent event and triggering sounds via
+parameter changes.</li>
+</ul>
+
+<h2>16/10/12 0.01.00 - Minor release</h2>
+
+<h3>Features:</h3>
+
+<ul>
+<li>Implemented side chaining for FMOD Compressor</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>Studio API</em> - Fixed linker error when calling <A HREF="../FMOD_Studio_EventInstance_IsVirtual.html">Studio::EventInstance::isVirtual</A></li>
+<li><em>Studio API</em> - Added log message for asset not found error</li>
+</ul>
+
+<h3>Notes:</h3>
+
+<ul>
+<li>Second Developer Preview release</li>
+</ul>
+
+<h2>28/09/12 0.00.04 - Patch release</h2>
+
+<h3>Important:</h3>
+
+<ul>
+<li><em>Studio API</em> - Changed .bank file format - ALL BANKS MUST BE REBUILT</li>
+</ul>
+
+<h3>Features:</h3>
+
+<ul>
+<li>Add DSP::addSideChain and FMOD_DSP_STATE::sidechainbuffer to allow a DSP unit
+to support sidechaining from the output of another DSP.</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>Studio API</em> - Fixed Event::getParameter() and retrieving the name of a parameter
+           via EventParameter::getInfo()</li>
+<li><em>Studio API</em> - Added version checking to bank loading, the runtime will
+           return <A HREF="../FMOD_RESULT.html">FMOD_ERR_FORMAT</A> when attempting to load an old bank</li>
+</ul>
+
+<h2>19/09/12 0.00.03 - Patch release</h2>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li>Fix panning issue introduced in 5.00.02</li>
+<li>Fix possible crackling noises from mixer optimization in 5.00.02</li>
+</ul>
+
+<h2>14/09/12 0.00.02 - Patch release</h2>
+
+<h3>Important:</h3>
+
+<ul>
+<li><em>Studio API</em> - Changed .bank file format - ALL BANKS MUST BE REBUILT</li>
+</ul>
+
+<h3>Features:</h3>
+
+<ul>
+<li>Optimized mixer to be 20% faster in some cases.</li>
+<li><em>Studio API</em> - Improved performance of event playback containing mono/stereo tracks</li>
+</ul>
+
+<h3>Fixes:</h3>
+
+<ul>
+<li><em>Studio API</em> - Fixed panning different in game to tool</li>
+</ul>
+
+<h2>27/08/12 0.00.00 - Initial release</h2>
+
+<h3>Notes:</h3>
+
+<ul>
+<li>First Developer Preview release</li>
+</ul>

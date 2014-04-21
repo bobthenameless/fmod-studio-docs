@@ -1,0 +1,34 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_OUTPUT_STATE</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_OUTPUT_STATE</H1>
+<P>
+<p>Output plugin structure that is passed into each callback.</p>
+</P>
+<h3>Structure</h3>
+<PRE class=syntax><CODE>typedef struct {
+  void *<I>plugindata</I>;
+  FMOD_OUTPUT_READFROMMIXER <I>readfrommixer</I>;
+} FMOD_OUTPUT_STATE;
+</CODE></PRE>
+<h2>Members</h2>
+<P class=dt><I>plugindata</I></P>
+<P class=indent>[in] Plugin writer created data the output author wants to attach to this object. </P>
+<P class=dt><I>readfrommixer</I></P>
+<P class=indent>[out] Function to update mixer and write the result to the provided pointer.  Used from callback based output only.  Polling based output uses lock/unlock/getposition. </P>
+<h2>Remarks</h2><P>
+<p>Members marked with [in] mean the variable can be written to.  The user can set the value.<br>
+Members marked with [out] mean the variable is modified by FMOD and is for reading purposes only.  Do not change this value.<br></p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_OUTPUT_DESCRIPTION.html">FMOD_OUTPUT_DESCRIPTION</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

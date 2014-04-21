@@ -1,0 +1,43 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_NORMALIZE</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_NORMALIZE</H1>
+<P>
+<p>Parameter types for the <A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE_NORMALIZE</A> filter.</p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_DSP_NORMALIZE_FADETIME,
+  FMOD_DSP_NORMALIZE_THRESHHOLD,
+  FMOD_DSP_NORMALIZE_MAXAMP
+} FMOD_DSP_NORMALIZE;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_DSP_NORMALIZE_FADETIME</I></P>
+<P class=indent>(Type:float) - Time to ramp the silence to full in ms.  0.0 to 20000.0. Default = 5000.0. </P>
+<P class=dt><I>FMOD_DSP_NORMALIZE_THRESHHOLD</I></P>
+<P class=indent>(Type:float) - Lower volume range threshold to ignore.  0.0 to 1.0.  Default = 0.1.  Raise higher to stop amplification of very quiet signals. </P>
+<P class=dt><I>FMOD_DSP_NORMALIZE_MAXAMP</I></P>
+<P class=indent>(Type:float) - Maximum amplification allowed.  1.0 to 100000.0.  Default = 20.0.  1.0 = no amplifaction, higher values allow more boost. </P>
+<h2>Remarks</h2><P>
+<p>Normalize amplifies the sound based on the maximum peaks within the signal.<br>
+For example if the maximum peaks in the signal were 50% of the bandwidth, it would scale the whole sound by 2.<br>
+The lower threshold value makes the normalizer ignores peaks below a certain point, to avoid over-amplification if a loud signal suddenly came in, and also to avoid amplifying to maximum things like background hiss.<br>
+<br>
+Because FMOD is a realtime audio processor, it doesn't have the luxury of knowing the peak for the whole sound (ie it can't see into the future), so it has to process data as it comes in.<br>
+To avoid very sudden changes in volume level based on small samples of new data, fmod fades towards the desired amplification which makes for smooth gain control.  The fadetime parameter can control this.<br></p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_SetParameterFloat.html">DSP::setParameterFloat</A></LI>
+<LI><A HREF="FMOD_DSP_GetParameterFloat.html">DSP::getParameterFloat</A></LI>
+<LI><A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

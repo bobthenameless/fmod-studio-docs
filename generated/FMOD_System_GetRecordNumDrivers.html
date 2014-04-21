@@ -1,0 +1,40 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::getRecordNumDrivers</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::getRecordNumDrivers</H1>
+<P>
+<p>Retrieves the number of recording devices available for this output mode.  Use this to enumerate all recording
+devices possible so that the user can select one.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::getRecordNumDrivers(
+  int *<I>numdrivers</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_GetRecordNumDrivers(
+  FMOD_SYSTEM *<I>system</I>,
+  int *<I>numdrivers</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>numdrivers</dt>
+<dd>Address of a variable that receives the number of recording drivers available for this output mode.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI>System::GetRecordDriverInfo</LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

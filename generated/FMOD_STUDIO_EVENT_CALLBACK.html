@@ -1,0 +1,58 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_STUDIO_EVENT_CALLBACK</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_STUDIO_EVENT_CALLBACK</H1>
+<P>
+<p>Callback that is fired when a Studio::EventInstance changes state.</p>
+</P>
+<h3>C/C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT F_CALLBACK FMOD_STUDIO_EVENT_CALLBACK(
+  FMOD_STUDIO_EVENT_CALLBACK_TYPE <I>type</I>,
+  void *<I>parameters</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>type</I></P>
+<P class=indent>The type of event that has occurred.</P>
+<P class=dt><I>parameters</I></P>
+<P class=indent>The callback parameters.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>This callback is used for tracking playback state and providing programmer
+sounds. The data passed to the callback function in the <em>parameters</em> argument
+varies based on the callback type. See <A HREF="FMOD_STUDIO_EVENT_CALLBACK_TYPE.html">FMOD_STUDIO_EVENT_CALLBACK_TYPE</A> for
+more information.</p>
+
+<p>Example:</p>
+
+<pre><code><A HREF="FMOD_RESULT.html">FMOD_RESULT</A> F_CALLBACK mycallback(<A HREF="FMOD_STUDIO_EVENT_CALLBACK_TYPE.html">FMOD_STUDIO_EVENT_CALLBACK_TYPE</A> type, void *parameters)
+{
+    if (type == <A HREF="FMOD_STUDIO_EVENT_CALLBACK_TYPE.html">FMOD_STUDIO_EVENT_CALLBACK_STOPPED</A>)
+    {
+        Studio::EventInstance *instance = (Studio::EventInstance *)parameters;
+
+        // More code goes here.
+
+    }
+
+    return <A HREF="FMOD_RESULT.html">FMOD_OK</A>;
+}
+</code></pre>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Studio_EventInstance_SetCallback.html">Studio::EventInstance::setCallback</A></LI>
+<LI><A HREF="FMOD_Studio_EventDescription_SetCallback.html">Studio::EventDescription::setCallback</A></LI>
+<LI><A HREF="FMOD_STUDIO_EVENT_CALLBACK_TYPE.html">FMOD_STUDIO_EVENT_CALLBACK_TYPE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

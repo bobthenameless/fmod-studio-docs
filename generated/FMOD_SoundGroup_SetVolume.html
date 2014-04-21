@@ -1,0 +1,41 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>SoundGroup::setVolume</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>SoundGroup::setVolume</H1>
+<P>
+<p>Sets the volume for a sound group, affecting all channels playing the sounds in this soundgroup.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT SoundGroup::setVolume(
+  float <I>volume</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_SoundGroup_SetVolume(
+  FMOD_SOUNDGROUP *<I>soundgroup</I>,
+  float <I>volume</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>volume</dt>
+<dd>A linear volume level. 0.0 = silent, 1.0 = full volume.  Default = 1.0. Negative volumes and amplification (> 1.0) are supported.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_SoundGroup_GetVolume.html">SoundGroup::getVolume</A></LI>
+<LI><A HREF="FMOD_System_CreateSoundGroup.html">System::createSoundGroup</A></LI>
+<LI><A HREF="FMOD_System_GetMasterSoundGroup.html">System::getMasterSoundGroup</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

@@ -1,0 +1,40 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_STUDIO_ADVANCEDSETTINGS</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_STUDIO_ADVANCEDSETTINGS</H1>
+<P>
+<p>Settings for advanced features like configuring memory and cpu usage.</p>
+</P>
+<h3>Structure</h3>
+<PRE class=syntax><CODE>typedef struct {
+  int <I>cbSize</I>;
+  unsigned int <I>commandQueueSize</I>;
+  unsigned int <I>handleInitialSize</I>;
+} FMOD_STUDIO_ADVANCEDSETTINGS;
+</CODE></PRE>
+<h2>Members</h2>
+<P class=dt><I>cbSize</I></P>
+<P class=indent>[w]   Size of this structure.  Use sizeof(<A HREF="FMOD_STUDIO_ADVANCEDSETTINGS.html">FMOD_STUDIO_ADVANCEDSETTINGS</A>)  NOTE: This must be set before calling <A HREF="FMOD_System_GetAdvancedSettings.html">System::getAdvancedSettings</A>! </P>
+<P class=dt><I>commandQueueSize</I></P>
+<P class=indent>[r/w] Optional. Specify 0 to ignore. Specify the command queue size for studio async processing.  Default 8192 (4kb) </P>
+<P class=dt><I>handleInitialSize</I></P>
+<P class=indent>[r/w] Optional. Specify 0 to ignore. Specify the initial size to allocate for handles.  Memory for handles will grow as needed in pages. </P>
+<h2>Remarks</h2><P>
+<p>Members marked with [r] mean the variable is modified by FMOD and is for reading purposes only.  Do not change this value.<br>
+Members marked with [w] mean the variable can be written to.  The user can set the value.<br>
+Members marked with [r/w] are either read or write depending on if you are using <A HREF="FMOD_System_SetAdvancedSettings.html">System::setAdvancedSettings</A> (w) or <A HREF="FMOD_System_GetAdvancedSettings.html">System::getAdvancedSettings</A> (r).</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Studio_System_SetAdvancedSettings.html">Studio::System::setAdvancedSettings</A></LI>
+<LI><A HREF="FMOD_Studio_System_GetAdvancedSettings.html">Studio::System::getAdvancedSettings</A></LI>
+<LI><A HREF="FMOD_MODE.html">FMOD_MODE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

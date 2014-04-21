@@ -1,0 +1,52 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::createChannelGroup</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::createChannelGroup</H1>
+<P>
+<p>Creates a channel group object.  These objects can be used to assign channels to for group channel settings, such as volume.<br>
+Channel groups are also used for sub-mixing.  Any channels that are assigned to a channel group get submixed into that channel group's DSP.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::createChannelGroup(
+  const char *<I>name</I>,
+  FMOD::ChannelGroup **<I>channelgroup</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_CreateChannelGroup(
+  FMOD_SYSTEM *<I>system</I>,
+  const char *<I>name</I>,
+  FMOD_CHANNELGROUP **<I>channelgroup</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>name</dt>
+<dd>Label to give to the channel group for identification purposes.  Optional (can be null).</dd>
+<dt>channelgroup</dt>
+<dd>Address of a variable to receive a newly created FMOD::ChannelGroup object.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>See the channel group class definition for the types of operations that can be performed on 'groups' of channels.<br>
+The channel group can for example be used to have 2 seperate groups of master volume, instead of one global master volume.<br>
+A channel group can be used for sub-mixing, ie so that a set of channels can be mixed into a channel group, then can have effects
+applied to it without affecting other channels.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_GetMasterChannelGroup.html">System::getMasterChannelGroup</A></LI>
+<LI><A HREF="FMOD_Channel_SetChannelGroup.html">Channel::setChannelGroup</A></LI>
+<LI><A HREF="FMOD_ChannelGroup_Release.html">ChannelGroup::release</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

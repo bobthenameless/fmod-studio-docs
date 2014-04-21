@@ -1,0 +1,85 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_CODEC_WAVEFORMAT</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_CODEC_WAVEFORMAT</H1>
+<P>
+<p>Set these values marked 'in' to tell fmod what sort of sound to create.<br>
+The format, channels and frequency tell FMOD what sort of hardware buffer to create when you initialize your code.  So if you wrote an MP3 codec that decoded to stereo 16bit integer PCM, you would specify <A HREF="FMOD_SOUND_FORMAT.html">FMOD_SOUND_FORMAT_PCM16</A>, and channels would be equal to 2.<br>
+Members marked as 'out' are set by fmod.  Do not modify these.  Simply specify 0 for these values when declaring the structure, FMOD will fill in the values for you after creation with the correct function pointers.<br></p>
+</P>
+<h3>Structure</h3>
+<PRE class=syntax><CODE>typedef struct {
+  char <I>name</I>[256];
+  FMOD_SOUND_FORMAT <I>format</I>;
+  int <I>channels</I>;
+  int <I>frequency</I>;
+  unsigned int <I>lengthbytes</I>;
+  unsigned int <I>lengthpcm</I>;
+  int <I>blockalign</I>;
+  int <I>loopstart</I>;
+  int <I>loopend</I>;
+  FMOD_MODE <I>mode</I>;
+  FMOD_CHANNELMASK <I>channelmask</I>;
+  FMOD_CHANNELORDER <I>channelorder</I>;
+  float <I>peakvolume</I>;
+} FMOD_CODEC_WAVEFORMAT;
+</CODE></PRE>
+<h2>Members</h2>
+<P class=dt><I>name</I></P>
+<P class=indent>[in] Name of sound.</P>
+<P class=dt><I>format</I></P>
+<P class=indent>[in] Format for (decompressed) codec output, ie <A HREF="FMOD_SOUND_FORMAT.html">FMOD_SOUND_FORMAT_PCM8</A>, <A HREF="FMOD_SOUND_FORMAT.html">FMOD_SOUND_FORMAT_PCM16</A>.</P>
+<P class=dt><I>channels</I></P>
+<P class=indent>[in] Number of channels used by codec, ie mono = 1, stereo = 2. </P>
+<P class=dt><I>frequency</I></P>
+<P class=indent>[in] Default frequency in hz of the codec, ie 44100. </P>
+<P class=dt><I>lengthbytes</I></P>
+<P class=indent>[in] Length in bytes of the source data. </P>
+<P class=dt><I>lengthpcm</I></P>
+<P class=indent>[in] Length in decompressed, PCM samples of the file, ie length in seconds * frequency.  Used for <A HREF="FMOD_Sound_GetLength.html">Sound::getLength</A> and for memory allocation of static decompressed sample data. </P>
+<P class=dt><I>blockalign</I></P>
+<P class=indent>[in] Blockalign in decompressed, PCM samples of the optimal decode chunk size for this format.  The codec read callback will be called in multiples of this value. </P>
+<P class=dt><I>loopstart</I></P>
+<P class=indent>[in] Loopstart in decompressed, PCM samples of file. </P>
+<P class=dt><I>loopend</I></P>
+<P class=indent>[in] Loopend in decompressed, PCM samples of file. </P>
+<P class=dt><I>mode</I></P>
+<P class=indent>[in] Mode to determine whether the sound should by default load as looping, non looping, 2d or 3d. </P>
+<P class=dt><I>channelmask</I></P>
+<P class=indent>[in] Defined channel bitmask to describe which speakers the channels in the codec map to, in order of channel count.  See fmod_common.h.  Leave at 0 to map to the speaker layout defined in <A HREF="FMOD_SPEAKER.html">FMOD_SPEAKER</A>. </P>
+<P class=dt><I>channelorder</I></P>
+<P class=indent>[in] Defined channel order type, to describe where each sound channel should pan for the number of channels specified.  See fmod_common.h.  Leave at 0 to play in default speaker order. </P>
+<P class=dt><I>peakvolume</I></P>
+<P class=indent>[in] Peak volume of sound, or 0 if not used. </P>
+<h2>Remarks</h2><P>
+<p>Members marked with [in] mean the variable can be written to.  The user can set the value.<br>
+Members marked with [out] mean the variable is modified by FMOD and is for reading purposes only.  Do not change this value.<br>
+<br>
+An FMOD file might be from disk, memory or network, however the file may be opened by the user.<br>
+<br>
+'numsubsounds' should be 0 if the file is a normal single sound stream or sound.  Examples of this would be .WAV, .WMA, .MP3, .AIFF.<br>
+'numsubsounds' should be 1+ if the file is a container format, and does not contain wav data itself.  Examples of these types would be FSB (contains multiple sounds), MIDI/MOD/S3M/XM/IT (contain instruments).<br>
+The arrays of format, channel, frequency, length and blockalign should point to arrays of information based on how many subsounds are in the format.  If the number of subsounds is 0 then it should point to 1 of each attribute, the same as if the number of subsounds was 1.  If subsounds was 100 for example, each pointer should point to an array of 100 of each attribute.<br>
+When a sound has 1 or more subsounds, you must play the individual sounds specified by first obtaining the subsound with <A HREF="FMOD_Sound_GetSubSound.html">Sound::getSubSound</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_SOUND_FORMAT.html">FMOD_SOUND_FORMAT</A></LI>
+<LI><A HREF="FMOD_MODE.html">FMOD_MODE</A></LI>
+<LI><A HREF="FMOD_CHANNELMASK.html">FMOD_CHANNELMASK</A></LI>
+<LI><A HREF="FMOD_CHANNELORDER.html">FMOD_CHANNELORDER</A></LI>
+<LI><A HREF="FMOD_SPEAKER.html">FMOD_SPEAKER</A></LI>
+<LI>FMOD_FILE_READCALLBACK</LI>
+<LI>FMOD_FILE_SEEKCALLBACK</LI>
+<LI>FMOD_CODEC_METADATACALLBACK</LI>
+<LI><A HREF="FMOD_Sound_GetSubSound.html">Sound::getSubSound</A></LI>
+<LI><A HREF="FMOD_Sound_GetNumSubSounds.html">Sound::getNumSubSounds</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

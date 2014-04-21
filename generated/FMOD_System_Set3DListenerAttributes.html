@@ -1,0 +1,84 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::set3DListenerAttributes</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::set3DListenerAttributes</H1>
+<P>
+<p>This updates the position, velocity and orientation of the specified 3D sound listener.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::set3DListenerAttributes(
+  int <I>listener</I>,
+  const FMOD_VECTOR *<I>pos</I>,
+  const FMOD_VECTOR *<I>vel</I>,
+  const FMOD_VECTOR *<I>forward</I>,
+  const FMOD_VECTOR *<I>up</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_Set3DListenerAttributes(
+  FMOD_SYSTEM *<I>system</I>,
+  int <I>listener</I>,
+  const FMOD_VECTOR *<I>pos</I>,
+  const FMOD_VECTOR *<I>vel</I>,
+  const FMOD_VECTOR *<I>forward</I>,
+  const FMOD_VECTOR *<I>up</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>listener</dt>
+<dd>Listener ID in a multi-listener environment.  Specify 0 if there is only 1 listener.</dd>
+<dt>pos</dt>
+<dd>The position of the listener in world space, measured in distance units. You can specify 0 or NULL to not update the position.</dd>
+<dt>vel</dt>
+<dd>The velocity of the listener measured in distance units <strong>per second</strong>. You can specify 0 or NULL to not update the velocity of the listener.</dd>
+<dt>forward</dt>
+<dd>The forwards orientation of the listener.  This vector must be of unit length and perpendicular to the up vector.    You can specify 0 or NULL to not update the forwards orientation of the listener.</dd>
+<dt>up</dt>
+<dd>The upwards orientation of the listener.  This vector must be of unit length and perpendicular to the forwards vector.    You can specify 0 or NULL to not update the upwards orientation of the listener.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>By default, FMOD uses a left-handed co-ordinate system.  This means +X is right, +Y is up, and +Z is forwards.<br>
+To change this to a right-handed coordinate system, use <A HREF="FMOD_INITFLAGS.html">FMOD_INIT_3D_RIGHTHANDED</A>. This means +X is right, +Y is up,
+and +Z is backwards or towards you.</p>
+
+<p>To map to another coordinate system, flip/negate and exchange these values.</p>
+
+<p>Orientation vectors are expected to be of UNIT length. This means the magnitude of the vector should be 1.0.</p>
+
+<p>A 'distance unit' is specified by <A HREF="FMOD_System_Set3DSettings.html">System::set3DSettings</A>.  By default this is set to meters which is a distance
+scale of 1.0.</p>
+
+<p>Always remember to use <strong>units per second</strong>, <em>not</em> units per frame as this is a common mistake and will make the
+doppler effect sound wrong.</p>
+
+<p>For example, Do not just use (pos - lastpos) from the last frame's data for velocity, as this is not correct.
+You need to time compensate it so it is given in units per <strong>second</strong>.</p>
+
+<p>You could alter your pos - lastpos calculation to something like this.</p>
+
+<pre><code>vel = (pos-lastpos) / time_taken_since_last_frame_in_seconds.
+</code></pre>
+
+<p>I.e. at 60fps the formula would look like this vel = (pos-lastpos) / 0.0166667.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_Get3DListenerAttributes.html">System::get3DListenerAttributes</A></LI>
+<LI><A HREF="FMOD_INITFLAGS.html">FMOD_INITFLAGS</A></LI>
+<LI><A HREF="FMOD_System_Set3DSettings.html">System::set3DSettings</A></LI>
+<LI><A HREF="FMOD_System_Get3DSettings.html">System::get3DSettings</A></LI>
+<LI><A HREF="FMOD_VECTOR.html">FMOD_VECTOR</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

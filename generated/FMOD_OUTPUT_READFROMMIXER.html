@@ -1,0 +1,36 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_OUTPUT_READFROMMIXER</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_OUTPUT_READFROMMIXER</H1>
+<P>
+<p>Called by the plugin, when the 'polling' member of <A HREF="FMOD_OUTPUT_DESCRIPTION.html">FMOD_OUTPUT_DESCRIPTION</A> is set to false.<br>
+Use this function from your own driver irq/timer to read some data from FMOD's DSP engine.  All of the resulting
+output caused by playing sounds and specifying effects by the user will be mixed here and written to the memory
+provided by the plugin writer.</p>
+</P>
+<h3>C/C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT F_CALLBACK FMOD_OUTPUT_READFROMMIXER(
+  FMOD_OUTPUT_STATE *<I>output_state</I>,
+  void *<I>buffer</I>,
+  unsigned int <I>length</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>output_state</I></P>
+<P class=indent>Pointer to the plugin state.  The user can use this variable to access runtime plugin specific variables and plugin writer user data.</P>
+<P class=dt><I>buffer</I></P>
+<P class=indent>Plugin-writer provided memory for the FMOD Studio mixer to write to.</P>
+<P class=dt><I>length</I></P>
+<P class=indent>Length of the buffer in samples.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

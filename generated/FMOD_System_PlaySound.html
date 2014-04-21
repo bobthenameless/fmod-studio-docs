@@ -1,0 +1,78 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::playSound</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::playSound</H1>
+<P>
+<p>Plays a sound object on a particular channel and ChannelGroup if desired.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::playSound(
+  FMOD::Sound *<I>sound</I>,
+  FMOD::ChannelGroup *<I>channelgroup</I>,
+  bool <I>paused</I>,
+  FMOD::Channel **<I>channel</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_PlaySound(
+  FMOD_SYSTEM *<I>system</I>,
+  FMOD_SOUND *<I>sound</I>,
+  FMOD_CHANNELGROUP *<I>channelgroup</I>,
+  FMOD_BOOL <I>paused</I>,
+  FMOD_CHANNEL **<I>channel</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>sound</dt>
+<dd>Pointer to the sound to play.  This is opened with <A HREF="FMOD_System_CreateSound.html">System::createSound</A>.</dd>
+<dt>channelgroup</dt>
+<dd>Pointer to a channelgroup become a member of.  This is more efficient than using <A HREF="FMOD_Channel_SetChannelGroup.html">Channel::setChannelGroup</A>, as it does it during the channel setup, rather than connecting to the master channel group, then later disconnecting and connecting to the new channelgroup when specified.  Use 0/NULL to ignore.</dd>
+<dt>paused</dt>
+<dd>True or false flag to specify whether to start the channel paused or not.  Starting a channel paused allows the user to alter its attributes without it being audible, and unpausing with <A HREF="FMOD_Channel_SetPaused.html">Channel::setPaused</A> actually starts the sound.</dd>
+<dt>channel</dt>
+<dd>Address of a channel handle pointer that receives the newly playing channel.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>When a sound is played, it will use the sound's default frequency and priority.</p>
+
+<p>A sound defined as <A HREF="FMOD_MODE.html">FMOD_3D</A> will by default play at the position of the listener.<br>
+To set the 3D position of the channel before the sound is audible, start the channel paused by setting the paused
+flag to true, and calling <A HREF="FMOD_Channel_Set3DAttributes.html">Channel::set3DAttributes</A>.  Following that, unpause the channel with <A HREF="FMOD_Channel_SetPaused.html">Channel::setPaused</A>.</p>
+
+<p>Channels are reference counted.  If a channel is stolen by the FMOD priority system, then the handle to the stolen
+voice becomes invalid, and Channel based commands will not affect the new sound playing in its place.<br>
+If all channels are currently full playing a sound, FMOD will steal a channel with the lowest priority sound.<br>
+If more channels are playing than are currently available on the soundcard/sound device or software mixer, then
+FMOD will 'virtualize' the channel.  This type of channel is not heard, but it is updated as if it was playing.
+When its priority becomes high enough or another sound stops that was using a real hardware/software channel, it
+will start playing from where it should be.  This technique saves CPU time (thousands of sounds can be played at
+once without actually being mixed or taking up resources), and also removes the need for the user to manage voices
+themselves.<br>
+An example of virtual channel usage is a dungeon with 100 torches burning, all with a looping crackling sound, but
+with a soundcard that only supports 32 hardware voices.  If the 3D positions and priorities for each torch are set
+correctly, FMOD will play all 100 sounds without any 'out of channels' errors, and swap the real voices in and out
+according to which torches are closest in 3D space.<br>
+Priority for virtual channels can be changed in the sound's defaults, or at runtime with <A HREF="FMOD_Channel_SetPriority.html">Channel::setPriority</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_CreateSound.html">System::createSound</A></LI>
+<LI><A HREF="FMOD_Channel_SetPaused.html">Channel::setPaused</A></LI>
+<LI><A HREF="FMOD_Channel_SetPriority.html">Channel::setPriority</A></LI>
+<LI><A HREF="FMOD_Channel_Set3DAttributes.html">Channel::set3DAttributes</A></LI>
+<LI><A HREF="FMOD_Sound_SetDefaults.html">Sound::setDefaults</A></LI>
+<LI><A HREF="FMOD_System_Init.html">System::init</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

@@ -1,0 +1,49 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Channel::getDSPClock</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Channel::getDSPClock</H1>
+<P>
+<p>Retrieves the DSP clock values which count up by the number of samples per second in the software mixer, i.e. if the default sample rate is 48KHz, the DSP clock increments by 48000 per second.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Channel::getDSPClock(
+  unsigned long long *<I>dspclock</I>,
+  unsigned long long *<I>parentclock</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Channel_GetDSPClock(
+  FMOD_CHANNEL *<I>channel</I>,
+  unsigned long long *<I>dspclock</I>,
+  unsigned long long *<I>parentclock</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>dspclock</dt>
+<dd>Address of a variable to receive the DSP clock value for the head DSP node.</dd>
+<dt>parentclock</dt>
+<dd>Address of a variable to receive the DSP clock value for the tail DSP node.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Use result with <A HREF="FMOD_ChannelControl_SetDelay.html">ChannelControl::setDelay</A> to play a sound on an exact tick in the future, or stop it in the future.</p>
+
+<p>Note that when delaying a channel or channel group you want to sync it to the parent channel group DSP clock value, not its own DSP clock value.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_ChannelControl_SetDelay.html">ChannelControl::setDelay</A></LI>
+<LI><A HREF="FMOD_ChannelControl_GetDelay.html">ChannelControl::getDelay</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

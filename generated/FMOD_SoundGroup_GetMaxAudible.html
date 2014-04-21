@@ -1,0 +1,47 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>SoundGroup::getMaxAudible</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>SoundGroup::getMaxAudible</H1>
+<P>
+<p>Retrieves the number of concurrent playbacks of sounds in a sound group to the specified value.<br>
+If the sounds in the sound group are playing this many times, any attepts to play more of the sounds in the sound
+group will fail with <A HREF="FMOD_RESULT.html">FMOD_ERR_MAXAUDIBLE</A>.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT SoundGroup::getMaxAudible(
+  int *<I>maxaudible</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_SoundGroup_GetMaxAudible(
+  FMOD_SOUNDGROUP *<I>soundgroup</I>,
+  int *<I>maxaudible</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>maxaudible</dt>
+<dd>Address of a variable to receive the number of playbacks to be audible at once. -1 = unlimited.  0 means no sounds in this group will succeed. Default = -1.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p><A HREF="FMOD_SoundGroup_GetNumPlaying.html">SoundGroup::getNumPlaying</A> can be used to determine how many instances of the sounds in the sound group are playing.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_SoundGroup_SetMaxAudible.html">SoundGroup::setMaxAudible</A></LI>
+<LI><A HREF="FMOD_SoundGroup_GetNumPlaying.html">SoundGroup::getNumPlaying</A></LI>
+<LI><A HREF="FMOD_System_CreateSoundGroup.html">System::createSoundGroup</A></LI>
+<LI><A HREF="FMOD_System_GetMasterSoundGroup.html">System::getMasterSoundGroup</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

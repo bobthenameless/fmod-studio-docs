@@ -1,0 +1,41 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Studio::MixerStrip::getLoadingState</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Studio::MixerStrip::getLoadingState</H1>
+<P>
+<p>Retrieves the loading state of the MixerStrip.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Studio::MixerStrip::getLoadingState(
+  FMOD_STUDIO_LOADING_STATE *<I>state</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Studio_MixerStrip_GetLoadingState(
+  FMOD_STUDIO_MIXERSTRIP *<I>mixerstrip</I>,
+  FMOD_STUDIO_LOADING_STATE *<I>state</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>state</dt>
+<dd>Address of a variable to receive the loading state.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_STUDIO_LOADING_STATE.html">FMOD_STUDIO_LOADING_STATE</A></LI>
+<LI><A HREF="FMOD_Studio_Bank_LoadSampleData.html">Studio::Bank::loadSampleData</A></LI>
+<LI><A HREF="FMOD_Studio_Bank_Unload.html">Studio::Bank::unload</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

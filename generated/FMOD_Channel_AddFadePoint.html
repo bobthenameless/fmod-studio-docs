@@ -1,0 +1,47 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Channel::addFadePoint</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Channel::addFadePoint</H1>
+<P>
+<p>Add a volume point to fade from or towards, using a clock offset and 0 to 1 volume level.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Channel::addFadePoint(
+  unsigned long long <I>dspclock</I>,
+  float <I>volume</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Channel_AddFadePoint(
+  FMOD_CHANNEL *<I>channel</I>,
+  unsigned long long <I>dspclock</I>,
+  float <I>volume</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>dspclock</dt>
+<dd>DSP clock of the parent channel group to set the fade point volume.</dd>
+<dt>volume</dt>
+<dd>Volume level where 0 is silent and 1.0 is normal volume.  Amplification is supported.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>For every fade point, FMOD will do a per sample volume ramp between them.  It will scale with the current Channel or ChannelGroup's volume.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_ChannelControl_RemoveFadePoints.html">ChannelControl::removeFadePoints</A></LI>
+<LI><A HREF="FMOD_ChannelControl_GetFadePoints.html">ChannelControl::getFadePoints</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

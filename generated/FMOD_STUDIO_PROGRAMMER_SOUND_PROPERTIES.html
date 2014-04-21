@@ -1,0 +1,38 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_STUDIO_PROGRAMMER_SOUND_PROPERTIES</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_STUDIO_PROGRAMMER_SOUND_PROPERTIES</H1>
+<P>
+<p>This structure holds information about a programmer sound.</p>
+</P>
+<h3>Structure</h3>
+<PRE class=syntax><CODE>typedef struct {
+  const char *<I>name</I>;
+  FMOD_STUDIO_EVENTINSTANCE *<I>event</I>;
+  FMOD_SOUND *<I>sound</I>;
+} FMOD_STUDIO_PROGRAMMER_SOUND_PROPERTIES;
+</CODE></PRE>
+<h2>Members</h2>
+<P class=dt><I>name</I></P>
+<P class=indent>The name of the programmer instrument (set in FMOD Studio). </P>
+<P class=dt><I>event</I></P>
+<P class=indent>The event instance that needs to play the sound. Can be cast to Studio::EventInstance* type. </P>
+<P class=dt><I>sound</I></P>
+<P class=indent>The programmer-created sound. This should be filled in by the create callback, and cleaned up by the destroy callback. This can be cast to/from FMOD::Sound* type. </P>
+<h2>Remarks</h2><P>
+<p>This data is passed to the event callback function when type is <A HREF="FMOD_STUDIO_EVENT_CALLBACK_TYPE.html">FMOD_STUDIO_EVENT_CALLBACK_CREATE_PROGRAMMER_SOUND</A> or <A HREF="FMOD_STUDIO_EVENT_CALLBACK_TYPE.html">FMOD_STUDIO_EVENT_CALLBACK_DESTROY_PROGRAMMER_SOUND</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_STUDIO_EVENT_CALLBACK.html">FMOD_STUDIO_EVENT_CALLBACK</A></LI>
+<LI><A HREF="FMOD_Studio_EventDescription_SetCallback.html">Studio::EventDescription::setCallback</A></LI>
+<LI><A HREF="FMOD_Studio_EventInstance_SetCallback.html">Studio::EventInstance::setCallback</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

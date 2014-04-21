@@ -1,0 +1,62 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>DSP::getInput</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>DSP::getInput</H1>
+<P>
+<p>Retrieves a pointer to a DSP unit which is acting as an input to this unit.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT DSP::getInput(
+  int <I>index</I>,
+  FMOD::DSP **<I>input</I>,
+  FMOD::DSPConnection **<I>inputconnection</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_DSP_GetInput(
+  FMOD_DSP *<I>dsp</I>,
+  int <I>index</I>,
+  FMOD_DSP **<I>input</I>,
+  FMOD_DSPCONNECTION **<I>inputconnection</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>index</dt>
+<dd>Index of the input unit to retrieve.</dd>
+<dt>input</dt>
+<dd>Address of a variable that receieves the pointer to the desired input unit.</dd>
+<dt>inputconnection</dt>
+<dd>The connection between the 2 units.  Optional.  Specify 0 or NULL to ignore.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>An input is a unit which feeds audio data to this unit.<br>
+If there are more than 1 input to this unit, the inputs will be mixed, and the current unit processes the mixed result.<br>
+Find out the number of input units to this unit by calling <A HREF="FMOD_DSP_GetNumInputs.html">DSP::getNumInputs</A>.</p>
+
+<p><strong>Performance warning!</strong>  Because this function needs to flush the dsp queue before it can determine if the
+specified numerical input is available or not, this function may block significantly while the background mixer
+thread operates.</p>
+
+<p><strong>Note:</strong> The connection pointer retrieved here will become invalid if you disconnect the 2 dsp units that use it.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_GetNumInputs.html">DSP::getNumInputs</A></LI>
+<LI><A HREF="FMOD_DSP_AddInput.html">DSP::addInput</A></LI>
+<LI><A HREF="FMOD_DSP_GetOutput.html">DSP::getOutput</A></LI>
+<LI><A HREF="FMOD_DSPConnection_GetMix.html">DSPConnection::getMix</A></LI>
+<LI><A HREF="FMOD_DSPConnection_SetMix.html">DSPConnection::setMix</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

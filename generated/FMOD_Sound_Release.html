@@ -1,0 +1,36 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Sound::release</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Sound::release</H1>
+<P>
+<p>Frees a sound object.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Sound::release();</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Sound_Release(FMOD_SOUND *<I>sound</I>);</CODE></PRE>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>This will free the sound object and everything created under it.</p>
+
+<p>If this is a stream that is playing as a subsound of another parent stream, then if this is the currently playing
+subsound, the whole stream will stop.</p>
+
+<p>Note - This function will block if it was opened with <A HREF="FMOD_MODE.html">FMOD_NONBLOCKING</A> and hasn't finished opening yet.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_CreateSound.html">System::createSound</A></LI>
+<LI><A HREF="FMOD_Sound_GetSubSound.html">Sound::getSubSound</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

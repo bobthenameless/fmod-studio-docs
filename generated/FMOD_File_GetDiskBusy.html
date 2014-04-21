@@ -1,0 +1,40 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>File_GetDiskBusy</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>File_GetDiskBusy</H1>
+<P>
+<p>Information function to retreive the state of fmod's disk access.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT File_GetDiskBusy(
+  int *<I>busy</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_File_GetDiskBusy(
+  int *<I>busy</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>busy</I></P>
+<P class=indent>Address of an integer to receive the busy state of the disk at the current time.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Do not use this function to syncrhonize your own reads with, as due to timing, you might call this function and it says false = it is not busy,
+but the split second after call this function, internally FMOD might set it to busy.  Use <A HREF="FMOD_File_SetDiskBusy.html">File_SetDiskBusy</A> for proper mutual exclusion as it uses semaphores.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_File_SetDiskBusy.html">File_SetDiskBusy</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

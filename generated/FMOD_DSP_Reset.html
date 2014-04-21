@@ -1,0 +1,30 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>DSP::reset</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>DSP::reset</H1>
+<P>
+<p>Calls the DSP unit's reset function, which will clear internal buffers and reset the unit back to an initial state.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT DSP::reset();</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_DSP_Reset(FMOD_DSP *<I>dsp</I>);</CODE></PRE>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Calling this function is useful if the DSP unit relies on a history to process itself (ie an echo filter).</p>
+
+<p>If you disconnected the unit and reconnected it to a different part of the network with a different sound, you
+would want to call this to reset the units state (ie clear and reset the echo filter) so that you dont get left
+over artifacts from the place it used to be connected.</p>
+</P>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

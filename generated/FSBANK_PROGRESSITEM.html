@@ -1,0 +1,39 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FSBANK_PROGRESSITEM</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FSBANK_PROGRESSITEM</H1>
+<P>
+<p>Status information describing the progress of a build.</p>
+</P>
+<h3>Structure</h3>
+<PRE class=syntax><CODE>typedef struct {
+  int <I>subSoundIndex</I>;
+  int <I>threadIndex</I>;
+  FSBANK_STATE <I>state</I>;
+  const void *<I>stateData</I>;
+} FSBANK_PROGRESSITEM;
+</CODE></PRE>
+<h2>Members</h2>
+<P class=dt><I>subSoundIndex</I></P>
+<P class=indent>Index into the subsound list passed to <A HREF="FSBank_Build.html">FSBank_Build</A> that this update relates to (-1 indicates no specific subsound). </P>
+<P class=dt><I>threadIndex</I></P>
+<P class=indent>Which thread index is serving this update (-1 indicates <A HREF="FSBank_Build.html">FSBank_Build</A> / main thread). </P>
+<P class=dt><I>state</I></P>
+<P class=indent>Progress through the encoding process. </P>
+<P class=dt><I>stateData</I></P>
+<P class=indent>Cast to state specific data structure for extra information. </P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FSBank_Build.html">FSBank_Build</A></LI>
+<LI><A HREF="FSBank_FetchNextProgressItem.html">FSBank_FetchNextProgressItem</A></LI>
+<LI><A HREF="FSBank_ReleaseProgressItem.html">FSBank_ReleaseProgressItem</A></LI>
+<LI><A HREF="FSBANK_STATE.html">FSBANK_STATE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

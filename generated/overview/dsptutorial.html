@@ -1,0 +1,152 @@
+﻿<LINK REL="stylesheet" href="../../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>The FMOD DSP Network</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<h1>The FMOD DSP Network</h1>
+
+<h2>Introduction</h2>
+<p>
+    This section will introduce you to the FMOD Studio advanced DSP system. With this system you can implement custom filters or complicated signal chains to create high quality and dynamic sounding audio. The FMOD Studio DSP system is an incredibly flexible mixing engine that goes far beyond FMOD 3's capabilities.  Its emphasis on quality, flexibility and efficiency makes it an extremely powerful system when used to its full potential.
+</p>
+The figure below shows a representation of what a very basic FMOD DSP network looks like.
+<p><img src="../../static/overview/dspnet_img01.png"></p>
+Audio data flows from the right to the left, until it finally arrives at the soundcard, fully mixed and processed.
+<br>
+<p>
+    The above image was taken using the FMOD Profiler tool. You can profile your own DSP network as long as you specify 'FMOD_INIT_ENABLE_PROFILE' when initializing the FMOD Studio engine. The tool is located in the /tools directory of the SDK.
+</p>
+<p>
+FMOD Designer also provides a built in profiler. You don't need to load a project or even use the event system.  You can just use the 'Profiler' tab within FMOD Designer as a standalone application.
+</p>
+<h2>Data flow and Signal chain</h2>
+When FMOD plays a sound on a channel (using System::playSound, it creates a small sub-network consisting of a Channel DSP Head and a 
+Wavetable Unit. When FMOD plays a DSP on a channel (System::playDSP), it creates a small sub-network consisting of a Channel DSP Head and a Resampler Unit. The DSP that was specified by the user is then attached to this as an input.
+<br><br>This section will describe the units in more detail, from the origin of the data through to the soundcard, from right to left.
+<ul>
+<li><b>Wavetable Unit</b><br>
+This unit reads raw PCM data from the sound buffer and resamples it to the same rate as the soundcard. A Wavetable Unit is only connected when the user calls System::playSound. Once resampled, the audio data is then processed (or flows) at the rate of the soundcard. This is 48khz by default.</li><br>
+<li><b>Channel DSP Head</b><br>
+This unit provides a place for extra DSP effects to be connect to, between the Wavetable Unit (if System::playSound was used), or a user specified DSP unit (if System::playDSP was used), and the ChannelGroup Unit that it belongs to.<br><br>
+By default all channels connect to the Master Channel Group and it is this point where the channel volume and pan gets applied.
+A Channel DSP Head unit incurs no CPU penalty. The data is simply passed straight to its outputs.</li><br>
+<li><b>ChannelGroup DSP Heads</b><br>
+The Master ChannelGroup is the default target for Channel DSP heads, and is owned by the System object.
+When multiple Channel DSP Heads are connected to a channel group, they are mixed together.
+<br><br>
+This is the case for any DSP unit with multiple inputs.
+Other channel groups may also be created by the user, which means channels may target them instead. This happens when the user calls Channel::setChannelGroup. Channelgroups are there for sub-mixing. Effects can be placed after this point between it and the ChannelGroup Target Unit.</li><br>
+<li><b>ChannelGroup Target Unit</b><br>
+This is the target DSP unit for all ChannelGroups created by the user (with System::createChannelGroup) and the System ChannelGroup.
+</li></ul>
+<h2>Code Examples</h2>
+In this section we will look at some basic techniques that can be used to manipulate DSP network.  We shall start with the most basic signal chain (as shown in the image below) and identify the changes that occur to the DSP network with the provided code.</li>
+<p><img src="../../static/overview/dspnet_img01.png"></p>
+<h3>Connecting a DSP effect to a channel</h3>
+In this example we shall add an effect to a sound by connecting a DSP effect unit to the channel. The code below starts by playing a sound, then creates a DSP unit with System::createDSPByType and adds it to the DSP network using Channel::addDSP.
+<pre>
+result = system->playSound(FMOD_CHANNEL_FREE, sound, false, &#38channel);
+result = channel->setVolume(volume);
+result = system->createDSPByType(FMOD_DSP_TYPE_ECHO, &#38dsp);
+result = channel->addDSP(dsp, 0);
+</pre>
+The figure below shows the FMOD Echo effect inserted into the DSP network between the WaveTable unit and FMOD Channel DSPHead.
+<p><img src="../../static/overview/dspnet_img02.png"></p>
+<h3>Connecting a DSP effect to a channel group</h3>
+In this example we shall add an effect to a channel group.  The advantage of this is multiple channels can be treated with a single DSP effect (therefore is more resource friendly than adding the same affect to every individual WaveTable unit). The code below gets the Master Channel Group and attached an echo effect to it.
+<pre>
+result = system->playSound(FMOD_CHANNEL_FREE, sound, false, &#38channel);
+result = channel->setVolume(volume);
+result = system->createDSPByType(FMOD_DSP_TYPE_ECHO, &#38dsp);
+result = system->getMasterChannelGroup(&#38channelgroup);
+result = channelgroup->addDSP(dsp, 0);
+</pre>
+The figure below shows the FMOD Echo effect attached to the ChannelGroup: FMOD master group.  Note: The ChannelGroup: FMOD master group on the right is used to submix all the channels entering the channel group.
+<p><img src="../../static/overview/dspnet_img03.png"></p>
+<h3>Connecting a DSP effect on the system</h3>
+In this example we shall add an effect on the final point of the DSP network before the soundcard. This means all sounds within the network will be affected.  This is done by creating a DSP with System::createDSPByType and adding it the DSP network using ChannelGroup::addDSP.
+<pre>
+result = system->playSound(FMOD_CHANNEL_FREE, sound, false, &#38channel);
+result = channel->setVolume(volume);
+result = system->createDSPByType(FMOD_DSP_TYPE_ECHO, &#38dsp);
+result = system->addDSP(dsp, 0);
+</pre>
+The figure below shows the FMOD Echo effect inserted into the DSP network between the ChannelGroup Target unit (the final system bus) and sound card.
+<p><img src="../../static/overview/dspnet_img04.png"></p>
+<h3>Creating a wet / path for a channel group</h3>
+This example demonstrates a more complex scenario, in which we shall create a wet /dry path for a channel group.  This is very similar to using a 'send effect' signal chain on a hardware mixer.
+
+The first step is to add a channel group, which we shall call 'my channelgroup'.
+<pre>
+result = system->playSound(FMOD_CHANNEL_FREE, sound, false, &#38channel);
+result = channel->setVolume(volume);
+result = system->createChannelGroup("my channelgroup", &#38channelgroup);
+</pre>
+In the figure below we can see the new channel group 'ChannelGroup: my channelgroup' is now included in DSP network.  It is important to note that this channel group runs separately from the master group, and does not pass through it.
+<p><img src="../../static/overview/dspnet_img05.png"></p>
+Now we will add an echo DSP effect to 'my channelgroup'.
+<pre>
+result = system->createDSPByType(FMOD_DSP_TYPE_ECHO, &dsp);
+result = channelgroup->addDSP(dsp, 0);
+</pre>
+This is reflected in the figure below.  
+<p><img src="../../static/overview/dspnet_img06.png"></p>
+In this step we shall create a new path from the original channel signal path to the path that includes the echo effect.  To do this we must take the channel DSP unit head node and connect it to the head node of the 'my channelgroup' channel group using the methods DSP::getInput and DSP::addInput.
+<pre>
+FMOD::DSP *channeldsphead;
+FMOD::DSP *channelgroupdsphead;
+result = channel->getDSPHead(&#38channeldsphead);
+result = channelgroup->getDSPHead(&#38channelgroupdsphead);
+result = channelgroupdsphead->getInput(0, &#38channelgroupdsphead, 0);
+result = channelgroupdsphead->addInput(channeldsphead, 0);
+</pre>
+You can see in the figure below there is now a connection from the channel DSP head to both the channel groups 'FMOD master group' (dry) and 'my channelgroup' (wet).
+<p><img src="../../static/overview/dspnet_img07.png"></p>
+<h3>Disable an effect</h3>
+To disable an effect simply use the setBypass method.  The code below plays a sound, adds an effect then bypasses it.
+<pre>
+result = system->playSound(FMOD_CHANNEL_FREE, sound, false, &#38channel);
+result = channel->setVolume(volume);
+result = system->createDSPByType(FMOD_DSP_TYPE_ECHO, &#38dsp);
+result = channel->addDSP(dsp, 0);
+result = dsp->setBypass(true);
+</pre>
+
+<h3>Playing DSP Oscillators</h3>
+    Within FMOD Studio the DSP units can be used to generate signals.  The following example generate as 440Hz sine wave (which is the default signal settings).
+    <pre>
+result = system->createDSPByType(FMOD_DSP_TYPE_OSCILLATOR, &#38dsp);
+result = system->playDSP(FMOD_CHANNEL_FREE, dsp, false, &#38channel);
+result = channel->setVolume(volume);
+</pre>
+The figure below shows an Oscillator unit in the DSP network. The Resampler Unit is a generic buffered resampler that is usually used to connect Oscillator unit to its channel.
+<p><img src="../../static/overview/dspnet_img08.png"></p>
+<h2>A look at a more complex DSP Network</h2>
+In this section we will work through a more complex DSP Network.  Use the icons and terms in <b>bold</b> to find the appropriate reference points within the example image.
+<p><img src="../../static/overview/dspnet_capture.png"></p>
+<p><b>Submix</b> - see the icon <img src="../static/overview/icon-submix.png">. When multiple inputs converge into one unit, they are mixed together.  This is called a 'submix'.</p>
+<p><b>FMOD Channel DSPHead Unit</b> - see the icon <img src="../static/overview/icon-dsphead.png">. Any time System::playSound or System::playDSP is called, an <b>FMOD Channel DSPHead Unit</b> is attached to the network.  When it is stopped, it is disconnected from the network.</p>
+<p>To the right of each DSPHead Unit, there is either an <b>FMOD WaveTable Unit</b>, an <b>FMOD DSP Codec</b> or an <b>FMOD Resampler Unit</b>.
+<ul><li>A WaveTable unit is a unit that plays standard PCM data (ie a standard wav file).</li><li>A DSP Codec is a compressed realtime sample, created by FMOD_CREATECOMPRESSEDSAMPLE (in this case an mp3).</li><li>Resampler Unit is a generic buffered resampler that is usually used when connecting generic DSP units to a channel (wavetable and DSPcodec usually have a built in resampler, standard DSP units do not so one has to be inserted if it is to be played on a channel, so Channel::setFrequency can work).</li></ul>  These things feed data into a <b>Channel DSPHead Unit</b>, then it feeds the data onto its parent and so on.</p>
+<p>The 3 channels that have an <b>FMOD WaveTable Unit</b>, are playing a pcm wave file, and have been connected to a channelgroup.  <b>ChannelGroup: B</b>.  This was done with Channel::setChannelGroup
+<p>The 3 channels that have an <b>FMOD DSP Codec</b> Unit, are playing an mp3 file and are connected to a channelgroup.  <b>ChannelGroup A</b>.  This was done with Channel::setChannelGroup</p>
+<p>The channel that has <b>UNIT A</b> attached to it is not attached to a user created ChannelGroup.  It is connected to the default system ChannelGroup called the "master channelgroup" which is the ChannelGroup all channels are played on if no other is specified.  You can get a handle to this channelgroup with System::getMasterChannelGroup.</p>
+<p>The <b>UNIT A</b> unit was created by the user with System::createDSP and was played with System::playDSP.  It does nothing but act as a submix target, so the user has added 3 oscillators by creating them with System::createDSPByType, and adding them to <b>UNIT A</b> with DSP::addInput.</p>
+<p>You may notice that <b>ChannelGroup: B</b> is also connected to <b>ChannelGroup: A</b> as an input.  This means the result of the submix of <b>ChannelGroup: B</b> is fed into <b>ChannelGroup: A</b>.  The connection of B to A was done with ChannelGroup::addGroup</p>
+<p>ChannelGroup A and ChannelGroup B have <b>2</b> boxes each.  This is because they both have a <i>DSP effect applied to them</i>.  Without a DSP effect added, it just has one box, for optimization reasons (less memory, less cpu usage).   The first box on the left is the head node, the second box on the right with the same name is the <b>mix target</b> for the channels.  Inbetween is an <b>FMOD Echo</b> DSP (FMOD_DSP_TYPE_ECHO) effect on <b>ChannelGroup: B</b>, and a <b>FMOD Lowpass Simple</b> (FMOD_DSP_TYPE_LOWPASS_SIMPLE) effect on <b>ChannelGroup: A</b>.  These were added with ChannelGroup::addDSP</p>
+<p>Reverb has been enabled with System::setReverbProperties and can be seen as a DSP node called <b>SFX Reverb</b>.  Notice all channel based DSP units have a connection going to it.  This is the <i>wet path</i> - see the icon <img src="../static/overview/icon-wetpath.png">.  The other paths go directly to the soundcard and bypass the SFX Reverb unit, therefore it is the <i>dry path</i> - see the icon <img src="../static/overview/icon-drypath.png">.  To control the wet/dry mix you can use the Channel::setReverbProperties.  Internally this function just calls DSPConnection::setMix.  Only channels are interested in this unit.  Things like channelgroups and other units do not need to connect to this unit.</p>
+<p>If there was no reverb enabled, the secondary links/outputs (on the <b>FMOD WaveTable Unit</b>/<b>FMOD DSP Codec</b>/<b>FMOD Resampler Unit</b> units) would be absent.</p>
+<p>At the end of the mix, <b>ChannelGroup: FMOD master group</b>, <b>ChannelGroup: A</b> and <b>SFX Reverb</b> all get submixed into the <b>FMOD ChannelGroup Target Unit</b></p>
+<p>Finally the result of that submix gets sent to the <b>FMOD SoundCard Unit</b> which is the final destination.</p>
+<p>If a DSP effect was to be added with ChannelGroup::addDSP, it would be inserted between the <b>FMOD ChannelGroup DSPHead Unit</b> and <b>FMOD ChannelGroup DSPTail Unit</b>.  You could see why in that case it would affect all sound in the DSP network.</p>
+<p>If a DSP effect was to be added with Channel::addDSP, it would be inserted to the right of the <b>FMOD Channel DSPHead Unit</b>.  If this happened you should be able to see why only the channel would be affected by the DSP effect.</p>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</BODY>
+</HTML>

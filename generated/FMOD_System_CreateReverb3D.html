@@ -1,0 +1,59 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::createReverb3D</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::createReverb3D</H1>
+<P>
+<p>Creates a 'virtual reverb' object.  This object reacts to 3d location and morphs the reverb environment based on how close it is to the reverb object's center.<br>
+Multiple reverb objects can be created to achieve a multi-reverb environment.  1 Physical reverb object is used for all 3d reverb objects (slot 0 by default).</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::createReverb3D(
+  FMOD::Reverb3D **<I>reverb</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_CreateReverb3D(
+  FMOD_SYSTEM *<I>system</I>,
+  FMOD_REVERB3D **<I>reverb</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>reverb</dt>
+<dd>Address of a pointer to a Reverb object to receive the newly created virtual reverb object.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>The 3D reverb object is a sphere having 3D attributes (position, minimum distance, maximum distance) and reverb properties.<br>
+The properties and 3D attributes of all reverb objects collectively determine, along with the listener's position, the settings of and input gains into a single 3D reverb DSP.<br>
+When the listener is within the sphere of effect of one or more 3d reverbs, the listener's 3D reverb properties are a weighted combination of such 3d reverbs.<br>
+When the listener is outside all of the reverbs, no reverb is applied.</p>
+
+<p>In FMOD Ex a special 'ambient' reverb setting was used when outside the influence of all reverb spheres.   This function no longer exists.<br>
+In FMOD Studio <A HREF="FMOD_System_SetReverbProperties.html">System::setReverbProperties</A> can be used to create an alternative reverb that can be used for 2D and background global reverb.<br>
+To avoid this reverb intefering with the reverb slot used by the 3d reverb, 2d reverb should use a different slot id with <A HREF="FMOD_System_SetReverbProperties.html">System::setReverbProperties</A>, otherwise FMOD_ADVANCEDSETTINGS::reverb3Dinstance can also be used to place 3d reverb on a different physical reverb slot.</p>
+
+<p>Creating multiple reverb objects does not impact performance.  These are 'virtual reverbs'.  There will still be only 1 physical reverb DSP running that just morphs between the different virtual reverbs.</p>
+
+<p>Note about phsyical reverb DSP unit allocation.  To remove the DSP unit and the associated CPU cost, first make sure all 3d reverb objects are released.  Then call <A HREF="FMOD_System_SetReverbProperties.html">System::setReverbProperties</A> with the 3d reverb's slot ID (default is 0) with a property point of 0 or NULL, to signal that the physical reverb instance should be deleted.<br>
+If a 3d reverb is still present, and <A HREF="FMOD_System_SetReverbProperties.html">System::setReverbProperties</A> function is called to free the physical reverb, the 3D reverb system will immediately recreate it upon the next <A HREF="FMOD_System_Update.html">System::update</A> call.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Reverb3D_Release.html">Reverb3D::release</A></LI>
+<LI><A HREF="FMOD_System_SetReverbProperties.html">System::setReverbProperties</A></LI>
+<LI><A HREF="FMOD_System_GetReverbProperties.html">System::getReverbProperties</A></LI>
+<LI><A HREF="FMOD_ADVANCEDSETTINGS.html">FMOD_ADVANCEDSETTINGS</A></LI>
+<LI><A HREF="FMOD_System_Update.html">System::update</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

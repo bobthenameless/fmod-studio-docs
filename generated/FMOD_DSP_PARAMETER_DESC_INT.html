@@ -1,0 +1,46 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_PARAMETER_DESC_INT</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_PARAMETER_DESC_INT</H1>
+<P>
+<p>Structure to define a int parameter for a DSP unit.</p>
+</P>
+<h3>Structure</h3>
+<PRE class=syntax><CODE>typedef struct {
+  int <I>min</I>;
+  int <I>max</I>;
+  int <I>defaultval</I>;
+  bool <I>goestoinf</I>;
+  const char* const* <I>valuenames</I>;
+} FMOD_DSP_PARAMETER_DESC_INT;
+</CODE></PRE>
+<h2>Members</h2>
+<P class=dt><I>min</I></P>
+<P class=indent>[w] Minimum parameter value. </P>
+<P class=dt><I>max</I></P>
+<P class=indent>[w] Maximum parameter value. </P>
+<P class=dt><I>defaultval</I></P>
+<P class=indent>[w] Default parameter value. </P>
+<P class=dt><I>goestoinf</I></P>
+<P class=indent>[w] Whether the last value represents infiniy. </P>
+<P class=dt><I>valuenames</I></P>
+<P class=indent>[w] Names for each value.  There should be as many strings as there are possible values (max - min + 1).  Optional. </P>
+<h2>Remarks</h2><P>
+<p>Members marked with [r] mean the variable is modified by FMOD and is for reading purposes only.  Do not change this value.<br>
+Members marked with [w] mean the variable can be written to.  The user can set the value.<br></p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_CreateDSP.html">System::createDSP</A></LI>
+<LI><A HREF="FMOD_DSP_SetParameterInt.html">DSP::setParameterInt</A></LI>
+<LI><A HREF="FMOD_DSP_GetParameterInt.html">DSP::getParameterInt</A></LI>
+<LI><A HREF="FMOD_DSP_PARAMETER_DESC.html">FMOD_DSP_PARAMETER_DESC</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

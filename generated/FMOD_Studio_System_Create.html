@@ -1,0 +1,48 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Studio::System::create</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Studio::System::create</H1>
+<P>
+<p>Creates a Studio System object. This must be called before you do anything else.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>static FMOD_RESULT Studio::System::create(
+  Studio::System **<I>system</I>,
+  unsigned int <I>headerVersion</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Studio_System_Create(
+  FMOD_STUDIO_SYSTEM **<I>system</I>,
+  unsigned int <I>headerVersion</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>system</dt>
+<dd>Address of a variable to receive the new Studio System object.</dd>
+<dt>headerVersion</dt>
+<dd>The expected FMOD Studio API version, to ensure the library matches the headers. For the C API, pass in FMOD_VERSION. For the C++ API, it defaults to FMOD_VERSION, so you don't need to pass it in explicitly.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>This also creates the internal Low Level System object.
+Call <A HREF="FMOD_Studio_System_Release.html">Studio::System::release</A> to free the Studio System.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Studio_System_Initialize.html">Studio::System::initialize</A></LI>
+<LI><A HREF="FMOD_Studio_System_Release.html">Studio::System::release</A></LI>
+<LI><A HREF="FMOD_Studio_System_GetLowLevelSystem.html">Studio::System::getLowLevelSystem</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

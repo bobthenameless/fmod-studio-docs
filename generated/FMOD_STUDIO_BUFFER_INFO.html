@@ -1,0 +1,39 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_STUDIO_BUFFER_INFO</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_STUDIO_BUFFER_INFO</H1>
+<P>
+<p>Information for a single buffer in FMOD Studio.</p>
+</P>
+<h3>Structure</h3>
+<PRE class=syntax><CODE>typedef struct {
+  int <I>currentUsage</I>;
+  int <I>peakUsage</I>;
+  int <I>capacity</I>;
+  int <I>stallCount</I>;
+  float <I>stallTime</I>;
+} FMOD_STUDIO_BUFFER_INFO;
+</CODE></PRE>
+<h2>Members</h2>
+<P class=dt><I>currentUsage</I></P>
+<P class=indent>Current buffer usage in bytes. </P>
+<P class=dt><I>peakUsage</I></P>
+<P class=indent>Peak buffer usage in bytes. </P>
+<P class=dt><I>capacity</I></P>
+<P class=indent>Buffer capacity in bytes. </P>
+<P class=dt><I>stallCount</I></P>
+<P class=indent>Cumulative number of stalls due to buffer overflow. </P>
+<P class=dt><I>stallTime</I></P>
+<P class=indent>Cumulative amount of time stalled due to buffer overflow, in seconds. </P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_STUDIO_BUFFER_USAGE.html">FMOD_STUDIO_BUFFER_USAGE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

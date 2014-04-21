@@ -1,0 +1,40 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::setPluginPath</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::setPluginPath</H1>
+<P>
+<p>Specify a base search path for plugins so they can be placed somewhere else than the directory of the main executable.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::setPluginPath(
+  const char *<I>path</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_SetPluginPath(
+  FMOD_SYSTEM *<I>system</I>,
+  const char *<I>path</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>path</dt>
+<dd>A character string containing a correctly formatted path to load plugins from.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_LoadPlugin.html">System::loadPlugin</A></LI>
+<LI><A HREF="FMOD_System_Init.html">System::init</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

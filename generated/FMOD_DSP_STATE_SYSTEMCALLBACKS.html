@@ -1,0 +1,43 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_STATE_SYSTEMCALLBACKS</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_STATE_SYSTEMCALLBACKS</H1>
+<P>
+<p>Struct containing System level callbacks for plugins, to enable a plugin to query information about the system or allocate memory using FMOD's (and therefore possibly the game's) allocators.</p>
+</P>
+<h3>Structure</h3>
+<PRE class=syntax><CODE>typedef struct {
+  FMOD_MEMORY_ALLOC_CALLBACK <I>alloc</I>;
+  FMOD_MEMORY_REALLOC_CALLBACK <I>realloc</I>;
+  FMOD_MEMORY_FREE_CALLBACK <I>free</I>;
+  FMOD_DSP_SYSTEM_GETSAMPLERATE <I>getsamplerate</I>;
+  FMOD_DSP_SYSTEM_GETBLOCKSIZE <I>getblocksize</I>;
+} FMOD_DSP_STATE_SYSTEMCALLBACKS;
+</CODE></PRE>
+<h2>Members</h2>
+<P class=dt><I>alloc</I></P>
+<P class=indent>[r] Memory allocation callback. Use this for all dynamic memory allocation within the plugin. </P>
+<P class=dt><I>realloc</I></P>
+<P class=indent>[r] Memory reallocation callback. </P>
+<P class=dt><I>free</I></P>
+<P class=indent>[r] Memory free callback. </P>
+<P class=dt><I>getsamplerate</I></P>
+<P class=indent>[r] Callback for getting the system samplerate. </P>
+<P class=dt><I>getblocksize</I></P>
+<P class=indent>[r] Callback for getting the system's block size.  DSPs will be requested to process blocks of varying length up to this size.</P>
+<h2>Remarks</h2><P>
+<p>Members marked with [r] mean the variable is modified by FMOD and is for reading purposes only.  Do not change this value.<br>
+Members marked with [w] mean the variable can be written to.  The user can set the value.<br></p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_STATE.html">FMOD_DSP_STATE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

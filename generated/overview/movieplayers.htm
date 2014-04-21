@@ -1,0 +1,52 @@
+<LINK REL="stylesheet" href="../../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD Studio and movie players</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+
+<H1>FMOD Studio and movie players</H1>
+
+<H2>Introduction</H2>
+This section describes how to have FMOD happily coexist with various movie playback systems available. <br>
+
+<h2>Windows</h2>
+If you need to get a handle to FMOD's internal DirectSound pointer, you can share it by calling System::getOutputHandle and casting it to the appropriate pointer type.<br>
+Windows allows multiple directsound interfaces to be created, so this may not be necessary.<br />
+
+<h2>XBox 360</h2>
+If you need to get a handle to FMOD's internal XAudio2 pointer to pass to a movie player, you can share it by calling System::getOutputHandle and casting it to the appropriate pointer type.<br>
+If the movie player has already initialized XAudio2, you can stop FMOD from initializing XAudio2 by using FMOD_360_EXTRADRIVERDATA in fmodxbox360.h, and pass the existing XAudio2 handle to 'xaudio2instance'.<br />
+
+<h2>Playstation 3</h2>
+A movie player can generally create its own libaudio output port and it will run along side FMOD.<br />
+If it does not work when sharing a SPURS instance, it may be because of the SPURS mode FMOD is running in.<br />
+By default, FMOD uses only one SPURS task for both the mixer and stream decoding. This SPURS task is created with <i>no context</i>, so cannot swap out.
+<br />
+If you look in fmodps3.h, you will see the FMOD_PS3_SPURSMODE enumerations. You can use these to set the SPURS behaviour in FMOD_PS3_EXTRADRIVERDATA. <br />
+<br />
+There are three modes,<br />
+<br />
+<li>FMOD_PS3_SPURSMODE_NOCONTEXT        - described above, which is the default.
+<li>FMOD_PS3_SPURSMODE_CREATECONTEXT    - same as above, but created with a context, so hence can be swapped out.
+<li>FMOD_PS3_SPURSMODE_TWOTASKS         - Mode that used to be used in 4.26 and below by default.   This uses 2 SPURS tasks, one for mpeg stream decoding and one for mixing.
+<br />
+<br />
+If the movie player has initialized libAudio, go to fmodps3.h again and set cell_audio_initialized from the FMOD_PS3_EXTRADRIVERDATA structure to TRUE.  This will stop FMOD from trying to reinitialize it.<br />
+You then define the audio port number used with the cell_audio_port member of the FMOD_PS3_EXTRADRIVERDATA structure.<br />
+
+<h2>Wii</h2>
+If the movie player has initialized AX, go to fmodwii.h and set audiolibsinitialized from the FMOD_PS3_EXTRADRIVERDATA structure to TRUE.  This will stop FMOD from trying to reinitialize it.<br />
+Otherwise the movie player must not initialize AI/AX/MIX if FMOD has already done so first.<br />
+
+<br>
+<br>
+<br>
+<br>
+<br>
+
+<P>
+&nbsp;<P>
+</BODY>
+</HTML>

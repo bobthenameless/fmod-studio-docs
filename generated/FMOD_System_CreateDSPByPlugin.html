@@ -1,0 +1,58 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::createDSPByPlugin</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::createDSPByPlugin</H1>
+<P>
+<p>Creates a DSP unit object which is either built in or loaded as a plugin, to be inserted into a DSP network, for
+the purposes of sound filtering or sound generation.<br>
+This function creates a DSP unit that can be enumerated by using <A HREF="FMOD_System_GetNumPlugins.html">System::getNumPlugins</A> and <A HREF="FMOD_System_GetPluginInfo.html">System::getPluginInfo</A>.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::createDSPByPlugin(
+  unsigned int <I>handle</I>,
+  FMOD::DSP **<I>dsp</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_CreateDSPByPlugin(
+  FMOD_SYSTEM *<I>system</I>,
+  unsigned int <I>handle</I>,
+  FMOD_DSP **<I>dsp</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>handle</dt>
+<dd>Handle to a pre-existing DSP plugin.</dd>
+<dt>dsp</dt>
+<dd>Address of a variable to receive a newly created FMOD::DSP object.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>A DSP unit can generate or filter incoming data.<br>
+To be active, a unit must be inserted into the FMOD DSP network to be heard.
+Use functions such as <A HREF="FMOD_ChannelGroup_AddDSP.html">ChannelGroup::addDSP</A>, <A HREF="FMOD_Channel_AddDSP.html">Channel::addDSP</A> or <A HREF="FMOD_DSP_AddInput.html">DSP::addInput</A> to do this.<br>
+For more information and a detailed description (with diagrams) see the tutorial on the DSP system in the documentation.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_GetNumPlugins.html">System::getNumPlugins</A></LI>
+<LI><A HREF="FMOD_System_GetPluginInfo.html">System::getPluginInfo</A></LI>
+<LI><A HREF="FMOD_System_CreateDSPByType.html">System::createDSPByType</A></LI>
+<LI><A HREF="FMOD_System_CreateDSP.html">System::createDSP</A></LI>
+<LI><A HREF="FMOD_ChannelGroup_AddDSP.html">ChannelGroup::addDSP</A></LI>
+<LI><A HREF="FMOD_Channel_AddDSP.html">Channel::addDSP</A></LI>
+<LI><A HREF="FMOD_DSP_AddInput.html">DSP::addInput</A></LI>
+<LI><A HREF="FMOD_DSP_SetActive.html">DSP::setActive</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

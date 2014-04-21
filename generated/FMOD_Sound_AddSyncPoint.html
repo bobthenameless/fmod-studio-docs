@@ -1,0 +1,58 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Sound::addSyncPoint</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Sound::addSyncPoint</H1>
+<P>
+<p>Adds a sync point at a specific time within the sound.  These points can be user generated or can come from a wav file with embedded markers.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Sound::addSyncPoint(
+  unsigned int <I>offset</I>,
+  FMOD_TIMEUNIT <I>offsettype</I>,
+  const char *<I>name</I>,
+  FMOD_SYNCPOINT **<I>point</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Sound_AddSyncPoint(
+  FMOD_SOUND *<I>sound</I>,
+  unsigned int <I>offset</I>,
+  FMOD_TIMEUNIT <I>offsettype</I>,
+  const char *<I>name</I>,
+  FMOD_SYNCPOINT **<I>point</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>offset</dt>
+<dd>offset in units specified by offsettype to add the callback syncpoint for a sound.</dd>
+<dt>offsettype</dt>
+<dd>offset type to describe the offset provided.  Could be PCM samples or milliseconds for example.</dd>
+<dt>name</dt>
+<dd>A name character string to be stored with the sync point.  This will be provided via the sync point callback.</dd>
+<dt>point</dt>
+<dd>Address of a variable to store a pointer to the newly created syncpoint.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>In sound forge, a marker can be added a wave file by clicking on the timeline / ruler, and right clicking then selecting 'Insert Marker/Region'.<br>
+Riff wrapped mp3 files are also supported.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Sound_GetNumSyncPoints.html">Sound::getNumSyncPoints</A></LI>
+<LI><A HREF="FMOD_Sound_GetSyncPoint.html">Sound::getSyncPoint</A></LI>
+<LI><A HREF="FMOD_Sound_GetSyncPointInfo.html">Sound::getSyncPointInfo</A></LI>
+<LI><A HREF="FMOD_Sound_DeleteSyncPoint.html">Sound::deleteSyncPoint</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

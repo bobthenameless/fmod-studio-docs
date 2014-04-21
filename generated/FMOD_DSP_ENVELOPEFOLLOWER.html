@@ -1,0 +1,45 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_ENVELOPEFOLLOWER</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_ENVELOPEFOLLOWER</H1>
+<P>
+<p>Parameter types for the <A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE_ENVELOPEFOLLOWER</A> unit.
+This is a simple envelope follower for tracking the signal level.<br></p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_DSP_ENVELOPEFOLLOWER_ATTACK,
+  FMOD_DSP_ENVELOPEFOLLOWER_RELEASE,
+  FMOD_DSP_ENVELOPEFOLLOWER_ENVELOPE,
+  FMOD_DSP_ENVELOPEFOLLOWER_USESIDECHAIN
+} FMOD_DSP_ENVELOPEFOLLOWER;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_DSP_ENVELOPEFOLLOWER_ATTACK</I></P>
+<P class=indent>(Type:float) - Attack time (milliseconds), in the range from 0.1 through 1000. The default value is 20. </P>
+<P class=dt><I>FMOD_DSP_ENVELOPEFOLLOWER_RELEASE</I></P>
+<P class=indent>(Type:float) - Release time (milliseconds), in the range from 10 through 5000. The default value is 100 </P>
+<P class=dt><I>FMOD_DSP_ENVELOPEFOLLOWER_ENVELOPE</I></P>
+<P class=indent>(Type:float) - Current value of the envelope, in the range 0 to 1. Read-only. </P>
+<P class=dt><I>FMOD_DSP_ENVELOPEFOLLOWER_USESIDECHAIN</I></P>
+<P class=indent>(Type:bool)  - Whether to analyse the sidechain signal instead of the input signal. The default value is false </P>
+<h2>Remarks</h2><P>
+<p>This unit does not affect the incoming signal
+<br></p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI>DSP::SetParameterFloat</LI>
+<LI>DSP::GetParameterFloat</LI>
+<LI>DSP::SetParameterBool</LI>
+<LI>DSP::GetParameterBool</LI>
+<LI><A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

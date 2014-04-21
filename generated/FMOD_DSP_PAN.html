@@ -1,0 +1,90 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_PAN</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_PAN</H1>
+<P>
+<p>Parameter types for the <A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE_PAN</A> DSP.</p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_DSP_PAN_OUTPUT_FORMAT,
+  FMOD_DSP_PAN_STEREO_POSITION,
+  FMOD_DSP_PAN_SURROUND_DIRECTION,
+  FMOD_DSP_PAN_SURROUND_EXTENT,
+  FMOD_DSP_PAN_SURROUND_ROTATION,
+  FMOD_DSP_PAN_SURROUND_LFE_LEVEL,
+  FMOD_DSP_PAN_SURROUND_FROM_STEREO_MODE,
+  FMOD_DSP_PAN_SURROUND_STEREO_SEPARATION,
+  FMOD_DSP_PAN_SURROUND_STEREO_AXIS,
+  FMOD_DSP_PAN_ENABLED_SURROUND_SPEAKERS,
+  FMOD_DSP_PAN_3D_POSITION,
+  FMOD_DSP_PAN_3D_ROLLOFF,
+  FMOD_DSP_PAN_3D_MIN_DISTANCE,
+  FMOD_DSP_PAN_3D_MAX_DISTANCE,
+  FMOD_DSP_PAN_3D_EXTENT_MODE,
+  FMOD_DSP_PAN_3D_SOUND_SIZE,
+  FMOD_DSP_PAN_3D_MIN_EXTENT,
+  FMOD_DSP_PAN_3D_PAN_BLEND,
+  FMOD_DSP_PAN_LFE_UPMIX_ENABLED,
+  FMOD_DSP_PAN_OVERALL_GAIN
+} FMOD_DSP_PAN;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_DSP_PAN_OUTPUT_FORMAT</I></P>
+<P class=indent>(Type:float) - Output channel format.    0 = Mono, 1 = Stereo, 2 = Surround.  Default = 2 </P>
+<P class=dt><I>FMOD_DSP_PAN_STEREO_POSITION</I></P>
+<P class=indent>(Type:float) - Stereo pan position       STEREO_POSITION_MIN to STEREO_POSITION_MAX.  Default = 0.0. </P>
+<P class=dt><I>FMOD_DSP_PAN_SURROUND_DIRECTION</I></P>
+<P class=indent>(Type:float) - Surround pan direction    ROTATION_MIN to ROTATION_MAX.  Default = 0.0. </P>
+<P class=dt><I>FMOD_DSP_PAN_SURROUND_EXTENT</I></P>
+<P class=indent>(Type:float) - Surround pan extent       EXTENT_MIN to EXTENT_MAX.  Default = 360.0. </P>
+<P class=dt><I>FMOD_DSP_PAN_SURROUND_ROTATION</I></P>
+<P class=indent>(Type:float) - Surround pan rotation     ROTATION_MIN to ROTATION_MAX.  Default = 0.0. </P>
+<P class=dt><I>FMOD_DSP_PAN_SURROUND_LFE_LEVEL</I></P>
+<P class=indent>(Type:float) - Surround pan LFE level    SURROUND_LFE_LEVEL_MIN to SURROUND_LFE_LEVEL_MAX.  Default = 0.0. </P>
+<P class=dt><I>FMOD_DSP_PAN_SURROUND_FROM_STEREO_MODE</I></P>
+<P class=indent>(Type:int)   - Stereo-To-Surround Mode   <A HREF="FMOD_DSP_PAN_SURROUND_FROM_STEREO_MODE_TYPE.html">FMOD_DSP_PAN_SURROUND_FROM_STEREO_MODE_DISTRIBUTED</A> to <A HREF="FMOD_DSP_PAN_SURROUND_FROM_STEREO_MODE_TYPE.html">FMOD_DSP_PAN_SURROUND_FROM_STEREO_MODE_DISCRETE</A>.  Default = <A HREF="FMOD_DSP_PAN_SURROUND_FROM_STEREO_MODE_TYPE.html">FMOD_DSP_PAN_SURROUND_FROM_STEREO_MODE_DISCRETE</A>. </P>
+<P class=dt><I>FMOD_DSP_PAN_SURROUND_STEREO_SEPARATION</I></P>
+<P class=indent>(Type:float) - Stereo-To-Surround Stereo Separation. ROTATION_MIN to ROTATION_MAX.  Default = 60.0. </P>
+<P class=dt><I>FMOD_DSP_PAN_SURROUND_STEREO_AXIS</I></P>
+<P class=indent>(Type:float) - Stereo-To-Surround Stereo Axis. ROTATION_MIN to ROTATION_MAX.  Default = 0.0. </P>
+<P class=dt><I>FMOD_DSP_PAN_ENABLED_SURROUND_SPEAKERS</I></P>
+<P class=indent>(Type:int)   - Surround Speakers Enabled. 0 to 0xFFF.  Default = 0xFFF.  </P>
+<P class=dt><I>FMOD_DSP_PAN_3D_POSITION</I></P>
+<P class=indent>(Type:data)  - 3D Position               data of type FMOD_DSP_PARAMETER_DATA_TYPE_3DPOS </P>
+<P class=dt><I>FMOD_DSP_PAN_3D_ROLLOFF</I></P>
+<P class=indent>(Type:int)   - 3D Rolloff                <A HREF="FMOD_DSP_PAN_3D_ROLLOFF_TYPE.html">FMOD_DSP_PAN_3D_ROLLOFF_LINEARSQUARED</A> to <A HREF="FMOD_DSP_PAN_3D_ROLLOFF_TYPE.html">FMOD_DSP_PAN_3D_ROLLOFF_CUSTOM</A>.  Default = <A HREF="FMOD_DSP_PAN_3D_ROLLOFF_TYPE.html">FMOD_DSP_PAN_3D_ROLLOFF_LINEARSQUARED</A>. </P>
+<P class=dt><I>FMOD_DSP_PAN_3D_MIN_DISTANCE</I></P>
+<P class=indent>(Type:float) - 3D Min Distance           0.0 to GAME_UNITS_MAX.  Default = 1.0. </P>
+<P class=dt><I>FMOD_DSP_PAN_3D_MAX_DISTANCE</I></P>
+<P class=indent>(Type:float) - 3D Max Distance           0.0 to GAME_UNITS_MAX.  Default = 20.0. </P>
+<P class=dt><I>FMOD_DSP_PAN_3D_EXTENT_MODE</I></P>
+<P class=indent>(Type:int)   - 3D Extent Mode            <A HREF="FMOD_DSP_PAN_3D_EXTENT_MODE_TYPE.html">FMOD_DSP_PAN_3D_EXTENT_MODE_AUTO</A> to <A HREF="FMOD_DSP_PAN_3D_EXTENT_MODE_TYPE.html">FMOD_DSP_PAN_3D_EXTENT_MODE_OFF</A>.  Default = <A HREF="FMOD_DSP_PAN_3D_EXTENT_MODE_TYPE.html">FMOD_DSP_PAN_3D_EXTENT_MODE_AUTO</A>. </P>
+<P class=dt><I>FMOD_DSP_PAN_3D_SOUND_SIZE</I></P>
+<P class=indent>(Type:float) - 3D Sound Size             0.0 to GAME_UNITS_MAX.  Default = 0.0. </P>
+<P class=dt><I>FMOD_DSP_PAN_3D_MIN_EXTENT</I></P>
+<P class=indent>(Type:float) - 3D Min Extent             EXTENT_MIN to EXTENT_MAX.  Default = 0.0. </P>
+<P class=dt><I>FMOD_DSP_PAN_3D_PAN_BLEND</I></P>
+<P class=indent>(Type:float) - 3D Pan Blend              PAN_BLEND_MIN to PAN_BLEND_MAX.  Default = 0.0. </P>
+<P class=dt><I>FMOD_DSP_PAN_LFE_UPMIX_ENABLED</I></P>
+<P class=indent>(Type:int)   - LFE Upmix Enabled         0 to 1.  Default = 0. </P>
+<P class=dt><I>FMOD_DSP_PAN_OVERALL_GAIN</I></P>
+<P class=indent>(Type:data)  - Overall Gain              data of type <A HREF="FMOD_DSP_PARAMETER_DATA_TYPE.html">FMOD_DSP_PARAMETER_DATA_TYPE_OVERALLGAIN</A> </P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI>DSP::SetParameterFloat</LI>
+<LI>DSP::GetParameterFloat</LI>
+<LI>DSP::SetParameterInt</LI>
+<LI>DSP::GetParameterInt</LI>
+<LI>DSP::SetParameterData</LI>
+<LI>DSP::GetParameterData</LI>
+<LI><A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

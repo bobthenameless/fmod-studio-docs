@@ -1,0 +1,42 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FSBank_Init</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FSBank_Init</H1>
+<P>
+<p>Initialize the FSBank system.</p>
+</P>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FSBANK_RESULT FSBank_Init(
+  FSBANK_FSBVERSION <I>version</I>,
+  FSBANK_INITFLAGS <I>flags</I>,
+  unsigned int <I>numSimultaneousJobs</I>,
+  const char *<I>cacheDirectory</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>version</I></P>
+<P class=indent>FSB version, currently only <A HREF="FSBANK_FSBVERSION.html">FSBANK_FSBVERSION_FSB5</A> is supported.</P>
+<P class=dt><I>flags</I></P>
+<P class=indent>Initialization flags which control how the system behaves.</P>
+<P class=dt><I>numSimultaneousJobs</I></P>
+<P class=indent>The maximum number of threads to create for parallel encoding. Set this to your number of CPU 'cores' for best performance.</P>
+<P class=dt><I>cacheDirectory</I></P>
+<P class=indent>Optional location to store the temporary cache files, default is a directory off the current working directory.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fsbank_result.html">FSBANK_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fsbank_result.html">FSBANK_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FSBANK_FSBVERSION.html">FSBANK_FSBVERSION</A></LI>
+<LI><A HREF="FSBANK_INITFLAGS.html">FSBANK_INITFLAGS</A></LI>
+<LI><A HREF="FSBank_Release.html">FSBank_Release</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

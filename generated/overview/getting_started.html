@@ -1,0 +1,85 @@
+<LINK REL="stylesheet" href="../../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Getting Started</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<h1>Getting Started</h1>
+
+<h2>Introduction</h2>
+
+<p>The FMOD Studio and Low Level API has been designed to be intuitive and flexible. In this section an introduction to using the engine as well as the key issues involved in using it effectively will be explained.</p>
+
+<p>FMOD provides a C++ API and also a C API.  They are functional identical, and in fact the C++ and C functions can be mixed interchangeably, with the C++ and C classes being able to be casted back and forth.  The following examples only show the C++ version.</p>
+
+<h2>Initialization</h2>
+
+<h3>FMOD Studio API Initialization</h3>
+
+<p>When using the Studio API, you can create a FMOD Studio System and then call <A HREF="../FMOD_Studio_System_Initialize.html">Studio::System::initialize</A>.  That function will also initialize the in-built low level FMOD system as well.  Here is a simple example:</p>
+
+<pre><code><A HREF="../FMOD_RESULT.html">FMOD_RESULT</A> result;
+FMOD::Studio::System* system = NULL;
+
+result = FMOD::Studio::System::create(&amp;system); // Create the Studio System object.
+if (result != <A HREF="../FMOD_RESULT.html">FMOD_OK</A>)
+{
+    printf("FMOD error! (%d) %s\n", result, FMOD_ErrorString(result));
+    exit(-1);
+}
+
+// Initialize FMOD Studio, which will also initialize FMOD Low Level
+result = system-&gt;initialize(512, FMOD_STUDIO_INIT_FLAG_NORMAL, FMOD_INIT_FLAG_NORMAL, 0);
+if (result != <A HREF="../FMOD_RESULT.html">FMOD_OK</A>)
+{
+    printf("FMOD error! (%d) %s\n", result, FMOD_ErrorString(result));
+    exit(-1);
+}
+</code></pre>
+
+<h3>FMOD Low Level API Initialization</h3>
+
+<p>The FMOD Low Level API can be used without needing to use the FMOD Studio API at all.  Using the Low Level API gives access to the fundamental abilities of loading and playing sounds, creating DSP effects, setting up FMOD channel groups, and setting sample-accurate fade points and start/stop times.  However, when just using the Low Level API, it will not be possible to load Studio banks or load and play Studio events that sound artists have set up in the Studio tool.
+To initialize FMOD Low Level directly:</p>
+
+<pre><code><A HREF="../FMOD_RESULT.html">FMOD_RESULT</A> result;
+FMOD::System *system = NULL;
+
+result = FMOD::System_Create(&amp;system);      // Create the main system object.
+if (result != <A HREF="../FMOD_RESULT.html">FMOD_OK</A>)
+{
+    printf("FMOD error! (%d) %s\n", result, FMOD_ErrorString(result));
+    exit(-1);
+}
+
+result = system-&gt;init(512, <A HREF="../FMOD_INITFLAGS.html">FMOD_INIT_NORMAL</A>, 0);    // Initialize FMOD.
+if (result != <A HREF="../FMOD_RESULT.html">FMOD_OK</A>)
+{
+    printf("FMOD error! (%d) %s\n", result, FMOD_ErrorString(result));
+    exit(-1);
+}
+</code></pre>
+
+<h3>Advanced Initialization Settings</h3>
+
+<p>FMOD can be customised with advanced settings by calling <A HREF="../FMOD_System_SetAdvancedSettings.html">System::setAdvancedSettings</A> or <A HREF="../FMOD_Studio_System_SetAdvancedSettings.html">Studio::System::setAdvancedSettings</A> before initialization.  For a description of the typical settings for effective virtual voices, see the <a href="virtualvoices.html">Virtual Voice System</a>.</p>
+
+<h2>Update</h2>
+
+<p>FMOD should be ticked once per game update.  When using FMOD Studio, call <A HREF="../FMOD_Studio_System_Update.html">Studio::System::update</A>, which internally will also update the Low Level system.  If using Low Level directly, instead call <A HREF="../FMOD_System_Update.html">System::update</A>.</p>
+
+<p>If FMOD Studio is running in asynchronous mode (the default, unless <A HREF="../FMOD_STUDIO_INITFLAGS.html">FMOD_STUDIO_INIT_SYNCHRONOUS_UPDATE</A> has been specified), then the <A HREF="../FMOD_Studio_System_Update.html">Studio::System::update</A> will be extremely quick as it is merely swapping a buffer for the asynchronous execution of that frame's commands.</p>
+
+<h2>Shut Down</h2>
+
+<p>To shut down FMOD Studio call <A HREF="../FMOD_Studio_System_Release.html">Studio::System::release</A>.  If using the Low Level directly, instead call <A HREF="../FMOD_System_Release.html">System::release</A>.</p>
+
+<h2>Error Checking</h2>
+
+<p>In the FMOD examples, the error codes are checked with a macro that calls into an handling function if an unexpected error occurs.  That is the recommended way of calling FMOD Studio API functions.  There is also a callback that can be received whenever a public FMOD function has an error.  See <A HREF="../FMOD_SYSTEM_CALLBACK.html">FMOD_SYSTEM_CALLBACK</A> for more information.</p>
+
+<h2>Configuration</h2>
+
+<p>The output hardware, FMOD's resource usage, and other types of configuration options can be set if you desire behaviour differing from the default.
+These are generally called before <A HREF="../FMOD_System_Init.html">System::init</A>.  For examples of these, see <A HREF="../FMOD_Studio_System_GetLowLevelSystem.html">Studio::System::getLowLevelSystem</A>, <A HREF="../FMOD_System_SetAdvancedSettings.html">System::setAdvancedSettings</A>, <A HREF="../FMOD_Studio_System_SetAdvancedSettings.html">Studio::System::setAdvancedSettings</A>.</p>

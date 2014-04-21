@@ -1,0 +1,45 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_RESET_CALLBACK</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_RESET_CALLBACK</H1>
+<P>
+<p>This callback function is called by <A HREF="FMOD_DSP_Reset.html">DSP::reset</A> to allow the effect to reset itself to a default state.<br>
+This is useful if an effect is for example still holding audio data for a sound that has stopped, and the unit
+wants to be relocated to a new sound.  Resetting the unit would clear any buffers, put the effect back to its
+initial state, and get it ready for new sound data.</p>
+</P>
+<h3>C/C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT F_CALLBACK FMOD_DSP_RESET_CALLBACK(
+  FMOD_DSP_STATE *<I>dsp_state</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>dsp_state</I></P>
+<P class=indent>Pointer to the plugin state.  The user can use this variable to access runtime plugin specific variables and plugin writer user data.  Do not cast this to FMOD_DSP!  The handle to the user created DSP handle is stored within the <A HREF="FMOD_DSP_STATE.html">FMOD_DSP_STATE</A> structure.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Functions that the user would have to call for this callback to be called.</p>
+
+<ul>
+<li><A HREF="FMOD_DSP_Reset.html">DSP::reset</A></li>
+</ul>
+
+<p>Remember to return <A HREF="FMOD_RESULT.html">FMOD_OK</A> at the bottom of the function, or an appropriate error code from <A HREF="FMOD_RESULT.html">FMOD_RESULT</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_STATE.html">FMOD_DSP_STATE</A></LI>
+<LI><A HREF="FMOD_DSP_DESCRIPTION.html">FMOD_DSP_DESCRIPTION</A></LI>
+<LI><A HREF="FMOD_DSP_Reset.html">DSP::reset</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

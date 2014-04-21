@@ -1,0 +1,44 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>ChannelControl::setDelay</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>ChannelControl::setDelay</H1>
+<P>
+<p>Sets a start (and/or stop) time relative to the parent channel group DSP clock, with sample accuracy.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT ChannelControl::setDelay(
+  unsigned long long <I>dspclock_start</I>,
+  unsigned long long <I>dspclock_end</I>,
+  bool <I>stopchannels</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>dspclock_start</I></P>
+<P class=indent>DSP clock of the parent channel group to audibly start playing sound at, a value of 0 indicates no delay.</P>
+<P class=dt><I>dspclock_end</I></P>
+<P class=indent>DSP clock of the parent channel group to audibly stop playing sound at, a value of 0 indicates no delay.</P>
+<P class=dt><I>stopchannels</I></P>
+<P class=indent>TRUE = stop according to <A HREF="FMOD_ChannelControl_IsPlaying.html">ChannelControl::isPlaying</A>. FALSE = remain 'active' and a new start delay could start playback again at a later time.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Every channel and channel group has its own DSP Clock. A channel or channel group can be delayed relatively against its parent, with sample accurate positioning. To delay a sound, use the 'parent' channel group DSP clock to reference against when passing values into this function.</p>
+
+<p>If a parent channel group changes its pitch, the start and stop times will still be correct as the parent clock is rate adjusted by that pitch.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_ChannelControl_GetDelay.html">ChannelControl::getDelay</A></LI>
+<LI><A HREF="FMOD_ChannelControl_GetDSPClock.html">ChannelControl::getDSPClock</A></LI>
+<LI><A HREF="FMOD_ChannelControl_IsPlaying.html">ChannelControl::isPlaying</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

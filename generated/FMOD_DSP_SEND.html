@@ -1,0 +1,32 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_SEND</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_SEND</H1>
+<P>
+<p>Parameter types for the <A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE_SEND</A> DSP.</p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_DSP_SEND_RETURNID,
+  FMOD_DSP_SEND_LEVEL
+} FMOD_DSP_SEND;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_DSP_SEND_RETURNID</I></P>
+<P class=indent>(Type:float) - ID of the Return DSP this send is connected to (integer values only). -1 indicates no connected Return DSP. Default = -1. </P>
+<P class=dt><I>FMOD_DSP_SEND_LEVEL</I></P>
+<P class=indent>(Type:float) - Send level. 0.0 to 1.0. Default = 1.0 </P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI>DSP::SetParameterFloat</LI>
+<LI>DSP::GetParameterFloat</LI>
+<LI><A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

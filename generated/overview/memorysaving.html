@@ -1,0 +1,58 @@
+<LINK REL="stylesheet" href="../../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Memory Managment And Conservation Tutorial</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+
+<H1>MEMORY MANAGEMENT AND CONSERVATION TUTORIAL</H1>
+
+<H2>Introduction</H2>
+    This section will give some pointers on how to use and save memory in FMOD Studio by describing things that may not be so obvious upon first looking at the API.
+
+    <H2>Using a fixed size memory pool.</H2>
+
+To make FMOD stay inside a fixed size memory pool, and not do any external allocs, you can use the FMOD::Memory_Initialize function.<br>
+i.e.<br>
+<PRE>
+    result = FMOD::Memory_Initialize(malloc(4*1024*1024), 4*1024*1024, 0,0,0);	// allocate 4mb and pass it to FMOD Studio to use.
+    ERRCHECK(result);
+</PRE>
+<b>Note</b> that this uses malloc.  On Xbox 360 and Xbox you must use a different operating system alloc such as XPhysicalAlloc otherwise FMOD may not behave correctly.  See "Platform specific issues" tutorials for more information on this.<br>
+<br>
+Note that this function allows you to specify your own callbacks for alloc and free.  In this case the memory pool pointer and length must be NULL.  The 2 features are mutually exclusive.<br>
+
+<H2>Lowering sound instance overhead.</H2>
+
+The FMOD_LOWMEM flag is used for users wanting to shave some memory usage off of the sound class.<br>
+This flag removes memory allocation for certain features like the 'name' field which isn't used often in games.  When this happens, Sound::getName will return "(null)".<br>
+    More memory will be stripped from the sound class in future versions of FMOD Studio when this flag is used.  Currently the 'name' field is the biggest user of memory in the sound class so this has been removed first.<br>
+
+<H2>Using compressed samples.</H2>
+
+To trade CPU usage vs Memory, FMOD Studio has a feature to play ADPCM, XMA and MP2/MP3 data compressed, without needing to decompress it to PCM first.  This can save a large amount of memory.<br>
+On XBox 360, using this for XMA files incurs next to no extra CPU usage, as the Xbox 360 XMA hardware decoder does the data decompression in realtime.<br>
+
+To enable this use the FMOD_CREATECOMPRESSEDSAMPLE flag.  If this flag is used for formats other than the ones specified above, it will be ignored.<br>
+<br>
+With the exception of XMA on Xbox 360 and ADPCM on Xbox, if FMOD_CREATECOMPRESSEDSAMPLE is used with an FMOD_HARDWARE buffer it will generate an FMOD_ERR_NEEDSSOFTWARE error.<br>
+<br>
+<b>Note!</b>  If you use FMOD_CREATECOMPRESSEDSAMPLE there will be a 'one off' memory overhead to allocate the appropriate pool of codecs depending on the format being loaded.  See the next section on how to control this pool.<br>
+
+<H2>Controlling memory usage with settings.</H2>
+
+<li> System::setSoftwareFormat 'maxinputchannels' is default to 6 to allow up to 6 channel wav files to be played through FMOD's software engine.  Setting this to a lower number will save memory across the board.  If the highest channel count in a sound you are going to use is stereo, then set this to 2.
+<li> For sounds created with FMOD_CREATECOMPRESSEDSAMPLE, System::setAdvancedSettings allows the user to reduce the number of simultaneous XMA/ADPCM or MPEG sounds played at once, to save memory.  The defaults are specified in the documentation for this function.  Lowering them will reduce memory.  Note the pool of codecs for each codec type is only allocated when the first sound of that type is loaded.  Reducing XMA to 0 when XMA is never used will not save any memory.
+<li> For streams, setting System::setStreamBufferSize will control the memory usage for the stream buffer used by FMOD for each stream.  Lowering the size in this function will reduce memory, but may also lead to stuttering streams.  This is purely based on the type of media the FMOD streamer is reading from (ie CDROM is slower than harddisk), so it is to be experimented with based on this.
+<li> Reducing the number of channels used will reduce memory.  System::init and System::setSoftwareChannels give control over maximum number of virtual voices and software voices used.  You will need to make sure you specify enough voices though to avoid channel stealing.<br>
+
+<H2>Tracking FMOD memory usage.</H2>
+
+Using Memory_GetStats is a good way to track FMOD memory usage, and also find the highest amount of memory allocated at any time, so you can adjust the fix memory pool size for the next time.
+
+
+<P>
+&nbsp;<P>
+</BODY>
+</HTML>

@@ -1,0 +1,66 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Sound::lock</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Sound::lock</H1>
+<P>
+<p>Returns a pointer to the beginning of the sample data for a sound.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Sound::lock(
+  unsigned int <I>offset</I>,
+  unsigned int <I>length</I>,
+  void **<I>ptr1</I>,
+  void **<I>ptr2</I>,
+  unsigned int *<I>len1</I>,
+  unsigned int *<I>len2</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Sound_Lock(
+  FMOD_SOUND *<I>sound</I>,
+  unsigned int <I>offset</I>,
+  unsigned int <I>length</I>,
+  void **<I>ptr1</I>,
+  void **<I>ptr2</I>,
+  unsigned int *<I>len1</I>,
+  unsigned int *<I>len2</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>offset</dt>
+<dd>Offset in <em>bytes</em> to the position you want to lock in the sample buffer.</dd>
+<dt>length</dt>
+<dd>Number of <em>bytes</em> you want to lock in the sample buffer.</dd>
+<dt>ptr1</dt>
+<dd>Address of a pointer that will point to the first part of the locked data.</dd>
+<dt>ptr2</dt>
+<dd>Address of a pointer that will point to the second part of the locked data. This will be null if the data locked hasn't wrapped at the end of the buffer.</dd>
+<dt>len1</dt>
+<dd>Length of data in <em>bytes</em> that was locked for ptr1.</dd>
+<dt>len2</dt>
+<dd>Length of data in <em>bytes</em> that was locked for ptr2. This will be 0 if the data locked hasn't wrapped at the end of the buffer.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>You must always unlock the data again after you have finished with it, using <A HREF="FMOD_Sound_Unlock.html">Sound::unlock</A>.<br>
+With this function you get access to the RAW audio data, for example 8, 16, 24 or 32bit PCM data, mono or stereo
+data, and on consoles, vag, xadpcm or gcadpcm compressed data.  You must take this into consideration when
+processing the data within the pointer.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Sound_Unlock.html">Sound::unlock</A></LI>
+<LI><A HREF="FMOD_System_CreateSound.html">System::createSound</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

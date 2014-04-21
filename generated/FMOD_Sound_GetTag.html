@@ -1,0 +1,55 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Sound::getTag</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Sound::getTag</H1>
+<P>
+<p>Retrieves a descriptive tag stored by the sound, to describe things like the song name, author etc.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Sound::getTag(
+  const char *<I>name</I>,
+  int <I>index</I>,
+  FMOD_TAG *<I>tag</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Sound_GetTag(
+  FMOD_SOUND *<I>sound</I>,
+  const char *<I>name</I>,
+  int <I>index</I>,
+  FMOD_TAG *<I>tag</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>name</dt>
+<dd>Optional.  Name of a tag to retrieve.  Used to specify a particular tag if the user requires it.  To get all types of tags leave this parameter as 0 or NULL.</dd>
+<dt>index</dt>
+<dd>Index into the tag list.   If the name parameter is null, then the index is the index into all tags present, from 0 up to but not including the numtags value returned by <A HREF="FMOD_Sound_GetNumTags.html">Sound::getNumTags</A>.<br> If name is not null, then index is the index from 0 up to the number of tags with the same name.  For example if there were 2 tags with the name "TITLE" then you could use 0 and 1 to reference them.<br> Specifying an index of -1 returns new or updated tags.  This can be used to pull tags out as they are added or updated.</dd>
+<dt>tag</dt>
+<dd>Pointer to a tag structure.  This will receive</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>The number of tags available can be found with <A HREF="FMOD_Sound_GetNumTags.html">Sound::getNumTags</A>.
+The way to display or retrieve tags can be done in 3 different ways.<br>
+All tags can be continuously retrieved by looping from 0 to the numtags value in <A HREF="FMOD_Sound_GetNumTags.html">Sound::getNumTags</A> - 1.  Updated tags will refresh automatically, and the 'updated' member of the <A HREF="FMOD_TAG.html">FMOD_TAG</A> structure will be set to true if a tag has been updated, due to something like a netstream changing the song name for example.<br>
+Tags could also be retrieved by specifying -1 as the index and only updating tags that are returned.  If all tags are retrieved and this function is called the function will return an error of <A HREF="FMOD_RESULT.html">FMOD_ERR_TAGNOTFOUND</A>.<br>
+Specific tags can be retrieved by specifying a name parameter.  The index can be 0 based or -1 in the same fashion as described previously.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Sound_GetNumTags.html">Sound::getNumTags</A></LI>
+<LI><A HREF="FMOD_TAG.html">FMOD_TAG</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

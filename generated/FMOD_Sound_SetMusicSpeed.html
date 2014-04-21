@@ -1,0 +1,44 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Sound::setMusicSpeed</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Sound::setMusicSpeed</H1>
+<P>
+<p>Sets the relative speed of MOD/S3M/XM/IT/MIDI music.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Sound::setMusicSpeed(
+  float <I>speed</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Sound_SetMusicSpeed(
+  FMOD_SOUND *<I>sound</I>,
+  float <I>speed</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>speed</dt>
+<dd>Relative speed of the song from 0.01 to 100.0.  0.5 = half speed, 2.0 = double speed.  Default = 1.0.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Setting a speed outside the bounds of 0.01 to 100.0 will not return an error, it will clamp the value.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Sound_GetMusicSpeed.html">Sound::getMusicSpeed</A></LI>
+<LI><A HREF="FMOD_Sound_SetMusicChannelVolume.html">Sound::setMusicChannelVolume</A></LI>
+<LI><A HREF="FMOD_Sound_GetMusicChannelVolume.html">Sound::getMusicChannelVolume</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

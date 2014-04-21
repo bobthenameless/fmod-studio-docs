@@ -1,0 +1,44 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Studio::MixerStrip::setPaused</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Studio::MixerStrip::setPaused</H1>
+<P>
+<p>Sets the pause state of the MixerStrip.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Studio::MixerStrip::setPaused(
+  bool <I>paused</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Studio_MixerStrip_SetPaused(
+  FMOD_STUDIO_MIXERSTRIP *<I>mixerstrip</I>,
+  FMOD_BOOL <I>paused</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>paused</dt>
+<dd>The desired pause state. true = pause, false = unpause.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>This function allows pausing/unpausing of all audio routed into the mixer strip.
+If paused is true, it overrides the pause state of all objects controlled by this mixer strip.
+If paused is false, controlled objects obey their own pause state.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Studio_MixerStrip_GetPaused.html">Studio::MixerStrip::getPaused</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

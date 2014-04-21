@@ -1,0 +1,41 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System_Create</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System_Create</H1>
+<P>
+<p>FMOD System creation function.  This must be called to create an FMOD System object before you can do anything else.
+Use this function to create 1, or multiple instances of FMOD System objects.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System_Create(
+  FMOD::System **<I>system</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_Create(
+  FMOD_SYSTEM **<I>system</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>system</I></P>
+<P class=indent>Address of a pointer that receives the new FMOD System object.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Use <A HREF="FMOD_System_Release.html">System::release</A> to free a system object.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_Init.html">System::init</A></LI>
+<LI><A HREF="FMOD_System_Release.html">System::release</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

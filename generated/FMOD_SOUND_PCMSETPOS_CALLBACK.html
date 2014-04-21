@@ -1,0 +1,50 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_SOUND_PCMSETPOS_CALLBACK</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_SOUND_PCMSETPOS_CALLBACK</H1>
+<P>
+<p>Callback for when the caller calls a seeking function such as Channel::setTime or <A HREF="FMOD_Channel_SetPosition.html">Channel::setPosition</A>.<br>
+If the sound is a user created sound, this can be used to seek within the user's resource.</p>
+</P>
+<h3>C/C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT F_CALLBACK FMOD_SOUND_PCMSETPOS_CALLBACK(
+  FMOD_SOUND *<I>sound</I>,
+  int <I>subsound</I>,
+  unsigned int <I>position</I>,
+  FMOD_TIMEUNIT <I>postype</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>sound</I></P>
+<P class=indent>Pointer to the sound.  C++ users see remarks.</P>
+<P class=dt><I>subsound</I></P>
+<P class=indent>In a multi subsound type sound (ie fsb/dls), this will contain the index into the list of sounds.</P>
+<P class=dt><I>position</I></P>
+<P class=indent>Position to seek to that has been requested.  This value will be of format <A HREF="FMOD_TIMEUNIT.html">FMOD_TIMEUNIT</A> and must be parsed to determine what it is.  Generally <A HREF="FMOD_TIMEUNIT.html">FMOD_TIMEUNIT_PCM</A> will be the most common format.</P>
+<P class=dt><I>postype</I></P>
+<P class=indent>Position type that the user wanted to seek with.  If the sound is a user create sound and the seek type is unsupported return <A HREF="FMOD_RESULT.html">FMOD_ERR_FORMAT</A>.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p><u>C++ Users</u>.  Cast <code>FMOD_SOUND *</code> to <code>FMOD::Sound *</code> inside the callback and use as normal.</p>
+
+<p>If the callback is used for the purpose of 'piggybacking' normal FMOD sound loads, then you do not have to do
+anything at all, and it can be treated as purely informational.  The return value is also ignored.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_SOUND_PCMREAD_CALLBACK.html">FMOD_SOUND_PCMREAD_CALLBACK</A></LI>
+<LI><A HREF="FMOD_System_CreateSound.html">System::createSound</A></LI>
+<LI><A HREF="FMOD_System_CreateStream.html">System::createStream</A></LI>
+<LI><A HREF="FMOD_CREATESOUNDEXINFO.html">FMOD_CREATESOUNDEXINFO</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

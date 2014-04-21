@@ -1,0 +1,121 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_DESCRIPTION</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_DESCRIPTION</H1>
+<P>
+<p>When creating a DSP unit, declare one of these and provide the relevant callbacks and name for FMOD to use when it creates and uses a DSP unit of this type.</p>
+</P>
+<h3>Structure</h3>
+<PRE class=syntax><CODE>typedef struct {
+  unsigned int <I>pluginsdkversion</I>;
+  char <I>name</I>[32];
+  unsigned int <I>version</I>;
+  int <I>numinputbuffers</I>;
+  int <I>numoutputbuffers</I>;
+  FMOD_DSP_CREATE_CALLBACK <I>create</I>;
+  FMOD_DSP_RELEASE_CALLBACK <I>release</I>;
+  FMOD_DSP_RESET_CALLBACK <I>reset</I>;
+  FMOD_DSP_READ_CALLBACK <I>read</I>;
+  FMOD_DSP_PROCESS_CALLBACK <I>process</I>;
+  FMOD_DSP_SETPOSITION_CALLBACK <I>setposition</I>;
+  int <I>numparameters</I>;
+  FMOD_DSP_PARAMETER_DESC **<I>paramdesc</I>;
+  FMOD_DSP_SETPARAM_FLOAT_CALLBACK <I>setparameterfloat</I>;
+  FMOD_DSP_SETPARAM_INT_CALLBACK <I>setparameterint</I>;
+  FMOD_DSP_SETPARAM_BOOL_CALLBACK <I>setparameterbool</I>;
+  FMOD_DSP_SETPARAM_DATA_CALLBACK <I>setparameterdata</I>;
+  FMOD_DSP_GETPARAM_FLOAT_CALLBACK <I>getparameterfloat</I>;
+  FMOD_DSP_GETPARAM_INT_CALLBACK <I>getparameterint</I>;
+  FMOD_DSP_GETPARAM_BOOL_CALLBACK <I>getparameterbool</I>;
+  FMOD_DSP_GETPARAM_DATA_CALLBACK <I>getparameterdata</I>;
+  FMOD_DSP_SHOULDIPROCESS_CALLBACK <I>shouldiprocess</I>;
+  void *<I>userdata</I>;
+} FMOD_DSP_DESCRIPTION;
+</CODE></PRE>
+<h2>Members</h2>
+<P class=dt><I>pluginsdkversion</I></P>
+<P class=indent>[w] The plugin SDK version this plugin is built for.  set to this to FMOD_PLUGIN_SDK_VERSION defined above. </P>
+<P class=dt><I>name</I></P>
+<P class=indent>[w] The identifier of the DSP. This will also be used as the name of DSP and shouldn't change between versions. </P>
+<P class=dt><I>version</I></P>
+<P class=indent>[w] Plugin writer's version number. </P>
+<P class=dt><I>numinputbuffers</I></P>
+<P class=indent>[w] Number of input buffers to process.  Use 0 for DSPs that only generate sound and 1 for effects that process incoming sound. </P>
+<P class=dt><I>numoutputbuffers</I></P>
+<P class=indent>[w] Number of audio output buffers.  Only one output buffer is currently supported. </P>
+<P class=dt><I>create</I></P>
+<P class=indent>[w] Create callback.  This is called when DSP unit is created.  Can be null. </P>
+<P class=dt><I>release</I></P>
+<P class=indent>[w] Release callback.  This is called just before the unit is freed so the user can do any cleanup needed for the unit.  Can be null. </P>
+<P class=dt><I>reset</I></P>
+<P class=indent>[w] Reset callback.  This is called by the user to reset any history buffers that may need resetting for a filter, when it is to be used or re-used for the first time to its initial clean state.  Use to avoid clicks or artifacts. </P>
+<P class=dt><I>read</I></P>
+<P class=indent>[w] Read callback.  Processing is done here.  Can be null. </P>
+<P class=dt><I>process</I></P>
+<P class=indent>[w] Process callback.  Can be specified instead of the read callback if any channel format changes occur between input and output.  This also replaces shouldiprocess and should return an error if the effect is to be bypassed.  Can be null. </P>
+<P class=dt><I>setposition</I></P>
+<P class=indent>[w] Set position callback.  This is called if the unit wants to update its position info but not process data, or reset a cursor position internally if it is reading data from a certain source.  Can be null. </P>
+<P class=dt><I>numparameters</I></P>
+<P class=indent>[w] Number of parameters used in this filter.  The user finds this with <A HREF="FMOD_DSP_GetNumParameters.html">DSP::getNumParameters</A> </P>
+<P class=dt><I>paramdesc</I></P>
+<P class=indent>[w] Variable number of parameter structures. </P>
+<P class=dt><I>setparameterfloat</I></P>
+<P class=indent>[w] This is called when the user calls <A HREF="FMOD_DSP_SetParameterFloat.html">DSP::setParameterFloat</A>. Can be null. </P>
+<P class=dt><I>setparameterint</I></P>
+<P class=indent>[w] This is called when the user calls <A HREF="FMOD_DSP_SetParameterInt.html">DSP::setParameterInt</A>.   Can be null. </P>
+<P class=dt><I>setparameterbool</I></P>
+<P class=indent>[w] This is called when the user calls <A HREF="FMOD_DSP_SetParameterBool.html">DSP::setParameterBool</A>.  Can be null. </P>
+<P class=dt><I>setparameterdata</I></P>
+<P class=indent>[w] This is called when the user calls <A HREF="FMOD_DSP_SetParameterData.html">DSP::setParameterData</A>.  Can be null. </P>
+<P class=dt><I>getparameterfloat</I></P>
+<P class=indent>[w] This is called when the user calls <A HREF="FMOD_DSP_GetParameterFloat.html">DSP::getParameterFloat</A>. Can be null. </P>
+<P class=dt><I>getparameterint</I></P>
+<P class=indent>[w] This is called when the user calls <A HREF="FMOD_DSP_GetParameterInt.html">DSP::getParameterInt</A>.   Can be null. </P>
+<P class=dt><I>getparameterbool</I></P>
+<P class=indent>[w] This is called when the user calls <A HREF="FMOD_DSP_GetParameterBool.html">DSP::getParameterBool</A>.  Can be null. </P>
+<P class=dt><I>getparameterdata</I></P>
+<P class=indent>[w] This is called when the user calls <A HREF="FMOD_DSP_GetParameterData.html">DSP::getParameterData</A>.  Can be null. </P>
+<P class=dt><I>shouldiprocess</I></P>
+<P class=indent>[w] This is called before processing.  You can detect if inputs are idle and return <A HREF="FMOD_RESULT.html">FMOD_OK</A> to process, or any other error code to avoid processing the effect.  Use a count down timer to allow effect tails to process before idling! </P>
+<P class=dt><I>userdata</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. This is user data to be attached to the DSP unit during creation.  Access via <A HREF="FMOD_DSP_GetUserData.html">DSP::getUserData</A>. </P>
+<h2>Remarks</h2><P>
+<p>Members marked with [r] mean the variable is modified by FMOD and is for reading purposes only.  Do not change this value.<br>
+Members marked with [w] mean the variable can be written to.  The user can set the value.<br>
+<br>
+IMPORTANT: The 'paramdesc' member should point to static memory, as FMOD references the data internally using the pointers provided.  Do not store these parameter description structures on the stack, or in heap memory that is freed while FMOD is using it.<br>
+<br>
+There are 2 different ways to change a parameter in this architecture.<br>
+One is to use DSP::setParameter / DSP::getParameter.  This is platform independant and is dynamic, so new unknown plugins can have their parameters enumerated and used.<br>
+The other is to use <A HREF="FMOD_DSP_ShowConfigDialog.html">DSP::showConfigDialog</A>.  This is platform specific and requires a GUI, and will display a dialog box to configure the plugin.<br></p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_CreateDSP.html">System::createDSP</A></LI>
+<LI><A HREF="FMOD_DSP_STATE.html">FMOD_DSP_STATE</A></LI>
+<LI><A HREF="FMOD_DSP_CREATE_CALLBACK.html">FMOD_DSP_CREATE_CALLBACK</A></LI>
+<LI><A HREF="FMOD_DSP_RELEASE_CALLBACK.html">FMOD_DSP_RELEASE_CALLBACK</A></LI>
+<LI><A HREF="FMOD_DSP_RESET_CALLBACK.html">FMOD_DSP_RESET_CALLBACK</A></LI>
+<LI><A HREF="FMOD_DSP_READ_CALLBACK.html">FMOD_DSP_READ_CALLBACK</A></LI>
+<LI><A HREF="FMOD_DSP_PROCESS_CALLBACK.html">FMOD_DSP_PROCESS_CALLBACK</A></LI>
+<LI><A HREF="FMOD_DSP_SETPOSITION_CALLBACK.html">FMOD_DSP_SETPOSITION_CALLBACK</A></LI>
+<LI><A HREF="FMOD_DSP_SHOULDIPROCESS_CALLBACK.html">FMOD_DSP_SHOULDIPROCESS_CALLBACK</A></LI>
+<LI><A HREF="FMOD_DSP_PARAMETER_DESC.html">FMOD_DSP_PARAMETER_DESC</A></LI>
+<LI><A HREF="FMOD_DSP_SETPARAM_FLOAT_CALLBACK.html">FMOD_DSP_SETPARAM_FLOAT_CALLBACK</A></LI>
+<LI><A HREF="FMOD_DSP_SETPARAM_INT_CALLBACK.html">FMOD_DSP_SETPARAM_INT_CALLBACK</A></LI>
+<LI><A HREF="FMOD_DSP_SETPARAM_BOOL_CALLBACK.html">FMOD_DSP_SETPARAM_BOOL_CALLBACK</A></LI>
+<LI><A HREF="FMOD_DSP_SETPARAM_DATA_CALLBACK.html">FMOD_DSP_SETPARAM_DATA_CALLBACK</A></LI>
+<LI><A HREF="FMOD_DSP_GETPARAM_FLOAT_CALLBACK.html">FMOD_DSP_GETPARAM_FLOAT_CALLBACK</A></LI>
+<LI><A HREF="FMOD_DSP_GETPARAM_INT_CALLBACK.html">FMOD_DSP_GETPARAM_INT_CALLBACK</A></LI>
+<LI><A HREF="FMOD_DSP_GETPARAM_BOOL_CALLBACK.html">FMOD_DSP_GETPARAM_BOOL_CALLBACK</A></LI>
+<LI><A HREF="FMOD_DSP_GETPARAM_DATA_CALLBACK.html">FMOD_DSP_GETPARAM_DATA_CALLBACK</A></LI>
+<LI><A HREF="FMOD_DSP_SHOULDIPROCESS_CALLBACK.html">FMOD_DSP_SHOULDIPROCESS_CALLBACK</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

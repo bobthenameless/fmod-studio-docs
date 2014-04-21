@@ -1,0 +1,49 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>SoundGroup::getSound</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>SoundGroup::getSound</H1>
+<P>
+<p>Retrieves a pointer to a sound from within a sound group.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT SoundGroup::getSound(
+  int <I>index</I>,
+  FMOD::Sound **<I>sound</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_SoundGroup_GetSound(
+  FMOD_SOUNDGROUP *<I>soundgroup</I>,
+  int <I>index</I>,
+  FMOD_SOUND **<I>sound</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>index</dt>
+<dd>Index of the sound that is to be retrieved.</dd>
+<dt>sound</dt>
+<dd>Address of a variable to receieve a pointer to a Sound object.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Use <A HREF="FMOD_SoundGroup_GetNumSounds.html">SoundGroup::getNumSounds</A> in conjunction with this function to enumerate all sounds in a sound group.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_CreateSoundGroup.html">System::createSoundGroup</A></LI>
+<LI><A HREF="FMOD_System_CreateSound.html">System::createSound</A></LI>
+<LI><A HREF="FMOD_SoundGroup_GetNumSounds.html">SoundGroup::getNumSounds</A></LI>
+<LI><A HREF="FMOD_System_GetMasterSoundGroup.html">System::getMasterSoundGroup</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

@@ -1,0 +1,56 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::getGeometryOcclusion</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::getGeometryOcclusion</H1>
+<P>
+<p>Calculates geometry occlusion between a listener and a sound source.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::getGeometryOcclusion(
+  const FMOD_VECTOR *<I>listener</I>,
+  const FMOD_VECTOR *<I>source</I>,
+  float *<I>direct</I>,
+  float *<I>reverb</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_GetGeometryOcclusion(
+  FMOD_SYSTEM *<I>system</I>,
+  const FMOD_VECTOR *<I>listener</I>,
+  const FMOD_VECTOR *<I>source</I>,
+  float *<I>direct</I>,
+  float *<I>reverb</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>listener</dt>
+<dd>The listener position.</dd>
+<dt>source</dt>
+<dd>The source position.</dd>
+<dt>direct</dt>
+<dd>Optional. Specify 0 to ignore. Address of a variable to receive the direct occlusion value.</dd>
+<dt>reverb</dt>
+<dd>Optional. Specify 0 to ignore. Address of a variable to receive the reverb occlusion value.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>If single sided polygons have been created, it is important to get the source
+and listener positions round the right way, as the occlusion from point A to
+point B may not be the same as the occlusion from point B to point A.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_CreateGeometry.html">System::createGeometry</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

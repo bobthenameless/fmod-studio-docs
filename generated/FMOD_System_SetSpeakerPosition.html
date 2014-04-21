@@ -1,0 +1,92 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::setSpeakerPosition</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::setSpeakerPosition</H1>
+<P>
+<p>This function allows the user to specify the position of their actual physical speaker to account for non standard setups.<br>
+It also allows the user to disable speakers from 3D consideration in a game.<br>
+The funtion is for describing the 'real world' speaker placement to provide a more natural panning solution for 3d sound.
+Graphical configuration screens in an application could draw icons for speaker placement that the user could position at their will.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::setSpeakerPosition(
+  FMOD_SPEAKER <I>speaker</I>,
+  float <I>x</I>,
+  float <I>y</I>,
+  bool <I>active</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_SetSpeakerPosition(
+  FMOD_SYSTEM *<I>system</I>,
+  FMOD_SPEAKER <I>speaker</I>,
+  float <I>x</I>,
+  float <I>y</I>,
+  FMOD_BOOL <I>active</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>speaker</dt>
+<dd>The selected speaker of interest to position.</dd>
+<dt>x</dt>
+<dd>The 2D X offset in relation to the listening position.  For example -1.0 would mean the speaker is on the left, and +1.0 would mean the speaker is on the right.  0.0 is the speaker is in the middle.</dd>
+<dt>y</dt>
+<dd>The 2D Y offset in relation to the listening position.  For example -1.0 would mean the speaker is behind the listener, and +1 would mean the speaker is in front of the listener.</dd>
+<dt>active</dt>
+<dd>Enables or disables speaker from 3D consideration.  Useful for disabling center speaker for vocals for example, or the LFE.  x and y can be anything in this case.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>A typical stereo setup would look like this.</p>
+
+<pre><code>system-&gt;setSpeakerPosition(<A HREF="FMOD_SPEAKER.html">FMOD_SPEAKER_FRONT_LEFT</A>,    -1.0f,  0.0f, true);
+system-&gt;setSpeakerPosition(<A HREF="FMOD_SPEAKER.html">FMOD_SPEAKER_FRONT_RIGHT</A>,    1.0f,  0.0f, true);
+</code></pre>
+
+<p>A typical 7.1 setup would look like this.</p>
+
+<pre><code>system-&gt;setSpeakerPosition(<A HREF="FMOD_SPEAKER.html">FMOD_SPEAKER_FRONT_LEFT</A>,     sin(degtorad( -30)),   cos(degtorad(-30)), true);
+system-&gt;setSpeakerPosition(<A HREF="FMOD_SPEAKER.html">FMOD_SPEAKER_FRONT_RIGHT</A>,    sin(degtorad(  30)),   cos(degtorad( 30)), true);
+system-&gt;setSpeakerPosition(<A HREF="FMOD_SPEAKER.html">FMOD_SPEAKER_FRONT_CENTER</A>,   sin(degtorad(   0)),   cos(degtorad(  0)), true);
+system-&gt;setSpeakerPosition(<A HREF="FMOD_SPEAKER.html">FMOD_SPEAKER_LOW_FREQUENCY</A>,  sin(degtorad(   0)),   cos(degtorad(  0)), true);
+system-&gt;setSpeakerPosition(<A HREF="FMOD_SPEAKER.html">FMOD_SPEAKER_SURROUND_LEFT</A>,  sin(degtorad( -90)),   cos(degtorad( -90)), true);
+system-&gt;setSpeakerPosition(<A HREF="FMOD_SPEAKER.html">FMOD_SPEAKER_SURROUND_RIGHT</A>, sin(degtorad(  90)),   cos(degtorad(  90)), true);
+system-&gt;setSpeakerPosition(FMOD_SPEAKER_REAR_LEFT,      sin(degtorad(-150)),   cos(degtorad(-150)), true);
+system-&gt;setSpeakerPosition(FMOD_SPEAKER_REAR_RIGHT,     sin(degtorad( 150)),   cos(degtorad( 150)), true);
+</code></pre>
+
+<p>You could use this function to make sounds in front of your come out of different physical speakers.  If you
+specified for example that FMOD_SPEAKER_REAR_RIGHT was in front of you at &lt;0.0, 1.0> and you organized the other
+speakers accordingly the 3d audio would come out of the side right speaker when it was in front instead of the
+default which is only to the side.</p>
+
+<p>This function is also useful if speakers are not 'perfectly symmetrical'.  For example if the center speaker was
+closer to the front left than the front right, this function could be used to position that center speaker
+accordingly and FMOD would skew the panning appropriately to make it sound correct again.</p>
+
+<p>The 2d coordinates used are only used to generate angle information.  Size / distance does not matter in FMOD's
+implementation because it is not FMOD's job to attenuate or amplify the signal based on speaker distance.  If it
+amplified the signal in the digital domain the audio could clip/become distorted.  It is better to use the
+amplifier's analogue level capabilities to balance speaker volumes.</p>
+
+<p>Calling System::setSetSoftwareFormat overrides these values, so this function must be called after this.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_GetSpeakerPosition.html">System::getSpeakerPosition</A></LI>
+<LI><A HREF="FMOD_System_SetSoftwareFormat.html">System::setSoftwareFormat</A></LI>
+<LI><A HREF="FMOD_SPEAKERMODE.html">FMOD_SPEAKERMODE</A></LI>
+<LI><A HREF="FMOD_SPEAKER.html">FMOD_SPEAKER</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

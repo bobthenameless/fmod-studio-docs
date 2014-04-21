@@ -1,0 +1,62 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_ASYNCREADINFO</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_ASYNCREADINFO</H1>
+<P>
+<p>Structure that is passed into <A HREF="FMOD_FILE_ASYNCREAD_CALLBACK.html">FMOD_FILE_ASYNCREAD_CALLBACK</A>.  Use the information in this structure to perform</p>
+</P>
+<h3>Structure</h3>
+<PRE class=syntax><CODE>typedef struct {
+  void *<I>handle</I>;
+  unsigned int <I>offset</I>;
+  unsigned int <I>sizebytes</I>;
+  int <I>priority</I>;
+  void *<I>buffer</I>;
+  unsigned int <I>bytesread</I>;
+  FMOD_RESULT <I>result</I>;
+  void *<I>userdata</I>;
+} FMOD_ASYNCREADINFO;
+</CODE></PRE>
+<h2>Members</h2>
+<P class=dt><I>handle</I></P>
+<P class=indent>[r] The file handle that was filled out in the open callback. </P>
+<P class=dt><I>offset</I></P>
+<P class=indent>[r] Seek position, make sure you read from this file offset. </P>
+<P class=dt><I>sizebytes</I></P>
+<P class=indent>[r] how many bytes requested for read. </P>
+<P class=dt><I>priority</I></P>
+<P class=indent>[r] 0 = low importance.  100 = extremely important (ie 'must read now or stuttering may occur') </P>
+<P class=dt><I>buffer</I></P>
+<P class=indent>[w] Buffer to read file data into. </P>
+<P class=dt><I>bytesread</I></P>
+<P class=indent>[w] Fill this in before setting result code to tell FMOD how many bytes were read. </P>
+<P class=dt><I>result</I></P>
+<P class=indent>[r/w] Result code, <A HREF="FMOD_RESULT.html">FMOD_OK</A> tells the system it is ready to consume the data.  Set this last!  Default value = <A HREF="FMOD_RESULT.html">FMOD_ERR_NOTREADY</A>. </P>
+<P class=dt><I>userdata</I></P>
+<P class=indent>[r] User data pointer. </P>
+<h2>Remarks</h2><P>
+<p>Members marked with [r] mean the variable is modified by FMOD and is for reading purposes only.  Do not change this value.<br>
+Members marked with [w] mean the variable can be written to.  The user can set the value.<br>
+<br>
+Instructions: write to 'buffer', and 'bytesread' <b>BEFORE</b> setting 'result'.<br>
+As soon as result is set, FMOD will asynchronously continue internally using the data provided in this structure.<br>
+<br>
+Set 'result' to the result expected from a normal file read callback.<br>
+If the read was successful, set it to <A HREF="FMOD_RESULT.html">FMOD_OK</A>.<br>
+If it read some data but hit the end of the file, set it to <A HREF="FMOD_RESULT.html">FMOD_ERR_FILE_EOF</A>.<br>
+If a bad error occurred, return <A HREF="FMOD_RESULT.html">FMOD_ERR_FILE_BAD</A><br>
+If a disk was ejected, return <A HREF="FMOD_RESULT.html">FMOD_ERR_FILE_DISKEJECTED</A>.<br></p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_FILE_ASYNCREAD_CALLBACK.html">FMOD_FILE_ASYNCREAD_CALLBACK</A></LI>
+<LI><A HREF="FMOD_FILE_ASYNCCANCEL_CALLBACK.html">FMOD_FILE_ASYNCCANCEL_CALLBACK</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

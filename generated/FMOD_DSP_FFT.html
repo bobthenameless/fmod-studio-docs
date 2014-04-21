@@ -1,0 +1,46 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_FFT</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_FFT</H1>
+<P>
+<p>Parameter types for the <A HREF="FMOD_DSP_FFT.html">FMOD_DSP_FFT</A>.</p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_DSP_FFT_WINDOWSIZE,
+  FMOD_DSP_FFT_WINDOWTYPE,
+  FMOD_DSP_FFT_SPECTRUM,
+  FMOD_DSP_FFT_DOMINANT_FREQ
+} FMOD_DSP_FFT;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_DSP_FFT_WINDOWSIZE</I></P>
+<P class=indent>(Type:int)   - [r/w] Must be a power of 2 between 128 and 16384.  128, 256, 512, 1024, 2048, 4096, 8192, 16384 are accepted.  Default = 2048. </P>
+<P class=dt><I>FMOD_DSP_FFT_WINDOWTYPE</I></P>
+<P class=indent>(Type:int)   - [r/w] Refer to <A HREF="FMOD_DSP_FFT_WINDOW.html">FMOD_DSP_FFT_WINDOW</A> enumeration.  Default = <A HREF="FMOD_DSP_FFT_WINDOW.html">FMOD_DSP_FFT_WINDOW_HAMMING</A>. </P>
+<P class=dt><I>FMOD_DSP_FFT_SPECTRUM</I></P>
+<P class=indent>(Type:data)  - [r]   Returns the current spectrum values between 0 and 1 for each 'fft bin'.  Divide the niquist rate by the window size to get the hz value per entry. </P>
+<P class=dt><I>FMOD_DSP_FFT_DOMINANT_FREQ</I></P>
+<P class=indent>(Type:float) - [r]   Returns the dominant frequencies for each channel. </P>
+<h2>Remarks</h2><P>
+<p>Set the attributes for the spectrum analysis with <A HREF="FMOD_DSP_FFT.html">FMOD_DSP_FFT_WINDOWSIZE</A> and <A HREF="FMOD_DSP_FFT.html">FMOD_DSP_FFT_WINDOWTYPE</A>, and retrieve the results with <A HREF="FMOD_DSP_FFT.html">FMOD_DSP_FFT_SPECTRUM</A> and <A HREF="FMOD_DSP_FFT.html">FMOD_DSP_FFT_DOMINANT_FREQ</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_SetParameterFloat.html">DSP::setParameterFloat</A></LI>
+<LI><A HREF="FMOD_DSP_GetParameterFloat.html">DSP::getParameterFloat</A></LI>
+<LI><A HREF="FMOD_DSP_SetParameterInt.html">DSP::setParameterInt</A></LI>
+<LI><A HREF="FMOD_DSP_GetParameterInt.html">DSP::getParameterInt</A></LI>
+<LI><A HREF="FMOD_DSP_SetParameterData.html">DSP::setParameterData</A></LI>
+<LI><A HREF="FMOD_DSP_GetParameterData.html">DSP::getParameterData</A></LI>
+<LI><A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE</A></LI>
+<LI><A HREF="FMOD_DSP_FFT_WINDOW.html">FMOD_DSP_FFT_WINDOW</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

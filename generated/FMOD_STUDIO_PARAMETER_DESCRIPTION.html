@@ -1,0 +1,37 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_STUDIO_PARAMETER_DESCRIPTION</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_STUDIO_PARAMETER_DESCRIPTION</H1>
+<P>
+<p>Structure describing an event parameter.</p>
+</P>
+<h3>Structure</h3>
+<PRE class=syntax><CODE>typedef struct {
+  const char *<I>name</I>;
+  float <I>minimum</I>;
+  float <I>maximum</I>;
+  FMOD_STUDIO_PARAMETER_TYPE <I>type</I>;
+} FMOD_STUDIO_PARAMETER_DESCRIPTION;
+</CODE></PRE>
+<h2>Members</h2>
+<P class=dt><I>name</I></P>
+<P class=indent>Name of the parameter. </P>
+<P class=dt><I>minimum</I></P>
+<P class=indent>Minimum parameter value. </P>
+<P class=dt><I>maximum</I></P>
+<P class=indent>Maximum parameter value. </P>
+<P class=dt><I>type</I></P>
+<P class=indent>Type of the parameter </P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Studio_EventDescription_GetParameter.html">Studio::EventDescription::getParameter</A></LI>
+<LI><A HREF="FMOD_STUDIO_PARAMETER_TYPE.html">FMOD_STUDIO_PARAMETER_TYPE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

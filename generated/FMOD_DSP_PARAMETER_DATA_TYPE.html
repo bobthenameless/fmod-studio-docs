@@ -1,0 +1,39 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_PARAMETER_DATA_TYPE</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_PARAMETER_DATA_TYPE</H1>
+<P>
+<p>Built-in types for the 'datatype' member of <A HREF="FMOD_DSP_PARAMETER_DESC_DATA.html">FMOD_DSP_PARAMETER_DESC_DATA</A>.  Data parameters of type other than <A HREF="FMOD_DSP_PARAMETER_DATA_TYPE.html">FMOD_DSP_PARAMETER_DATA_TYPE_USER</A> will be treated specially by the system.</p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_DSP_PARAMETER_DATA_TYPE_USER,
+  FMOD_DSP_PARAMETER_DATA_TYPE_OVERALLGAIN,
+  FMOD_DSP_PARAMETER_DATA_TYPE_3DATTRIBUTES,
+  FMOD_DSP_PARAMETER_DATA_TYPE_SIDECHAIN
+} FMOD_DSP_PARAMETER_DATA_TYPE;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_DSP_PARAMETER_DATA_TYPE_USER</I></P>
+<P class=indent>The default data type.  All user data types should be 0 or above. </P>
+<P class=dt><I>FMOD_DSP_PARAMETER_DATA_TYPE_OVERALLGAIN</I></P>
+<P class=indent>The data type for <A HREF="FMOD_DSP_PARAMETER_OVERALLGAIN.html">FMOD_DSP_PARAMETER_OVERALLGAIN</A> parameters.  There should a maximum of one per DSP. </P>
+<P class=dt><I>FMOD_DSP_PARAMETER_DATA_TYPE_3DATTRIBUTES</I></P>
+<P class=indent>The data type for <A HREF="FMOD_DSP_PARAMETER_3DATTRIBUTES.html">FMOD_DSP_PARAMETER_3DATTRIBUTES</A> parameters.  There should a maximum of one per DSP. </P>
+<P class=dt><I>FMOD_DSP_PARAMETER_DATA_TYPE_SIDECHAIN</I></P>
+<P class=indent>The data type for <A HREF="FMOD_DSP_PARAMETER_SIDECHAIN.html">FMOD_DSP_PARAMETER_SIDECHAIN</A> parameters.  There should a maximum of one per DSP. </P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_PARAMETER_DESC_DATA.html">FMOD_DSP_PARAMETER_DESC_DATA</A></LI>
+<LI><A HREF="FMOD_DSP_PARAMETER_OVERALLGAIN.html">FMOD_DSP_PARAMETER_OVERALLGAIN</A></LI>
+<LI><A HREF="FMOD_DSP_PARAMETER_3DATTRIBUTES.html">FMOD_DSP_PARAMETER_3DATTRIBUTES</A></LI>
+<LI><A HREF="FMOD_DSP_PARAMETER_SIDECHAIN.html">FMOD_DSP_PARAMETER_SIDECHAIN</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

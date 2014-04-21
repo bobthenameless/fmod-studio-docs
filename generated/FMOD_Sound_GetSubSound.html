@@ -1,0 +1,54 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Sound::getSubSound</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Sound::getSubSound</H1>
+<P>
+<p>Retrieves a handle to a Sound object that is contained within the parent sound.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Sound::getSubSound(
+  int <I>index</I>,
+  FMOD::Sound **<I>subsound</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Sound_GetSubSound(
+  FMOD_SOUND *<I>sound</I>,
+  int <I>index</I>,
+  FMOD_SOUND **<I>subsound</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>index</dt>
+<dd>Index of the subsound to retrieve within this sound.</dd>
+<dt>subsound</dt>
+<dd>Address of a variable that receives the sound object specified.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>If the sound is a stream and <A HREF="FMOD_MODE.html">FMOD_NONBLOCKING</A> was not used, then this call will perform a blocking seek/flush to the specified subsound.</p>
+
+<p>If <A HREF="FMOD_MODE.html">FMOD_NONBLOCKING</A> was used to open this sound and the sound is a stream, FMOD will do a non blocking seek/flush and set the state of the subsound to <A HREF="FMOD_OPENSTATE.html">FMOD_OPENSTATE_SEEKING</A>.<br>
+The sound won't be ready to be used in this case until the state of the sound becomes <A HREF="FMOD_OPENSTATE.html">FMOD_OPENSTATE_READY</A> (or <A HREF="FMOD_OPENSTATE.html">FMOD_OPENSTATE_ERROR</A>).</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Sound_GetNumSubSounds.html">Sound::getNumSubSounds</A></LI>
+<LI><A HREF="FMOD_Sound_GetSubSoundParent.html">Sound::getSubSoundParent</A></LI>
+<LI><A HREF="FMOD_Sound_SetSubSound.html">Sound::setSubSound</A></LI>
+<LI><A HREF="FMOD_System_CreateSound.html">System::createSound</A></LI>
+<LI><A HREF="FMOD_MODE.html">FMOD_MODE</A></LI>
+<LI><A HREF="FMOD_OPENSTATE.html">FMOD_OPENSTATE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

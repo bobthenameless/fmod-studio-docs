@@ -1,0 +1,45 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_STUDIO_BANK_INFO</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_STUDIO_BANK_INFO</H1>
+<P>
+<p>Information for loading a bank with <A HREF="FMOD_Studio_System_LoadBankCustom.html">Studio::System::loadBankCustom</A>.</p>
+</P>
+<h3>Structure</h3>
+<PRE class=syntax><CODE>typedef struct {
+  int <I>size</I>;
+  void *<I>userData</I>;
+  int <I>userDataLength</I>;
+  FMOD_FILE_OPEN_CALLBACK <I>openCallback</I>;
+  FMOD_FILE_CLOSE_CALLBACK <I>closeCallback</I>;
+  FMOD_FILE_READ_CALLBACK <I>readCallback</I>;
+  FMOD_FILE_SEEK_CALLBACK <I>seekCallback</I>;
+} FMOD_STUDIO_BANK_INFO;
+</CODE></PRE>
+<h2>Members</h2>
+<P class=dt><I>size</I></P>
+<P class=indent>The size of this struct (for binary compatibility) </P>
+<P class=dt><I>userData</I></P>
+<P class=indent>User data to be passed to the file callbacks </P>
+<P class=dt><I>userDataLength</I></P>
+<P class=indent>If this is non-zero, userData will be copied internally </P>
+<P class=dt><I>openCallback</I></P>
+<P class=indent>Callback for opening this file. </P>
+<P class=dt><I>closeCallback</I></P>
+<P class=indent>Callback for closing this file. </P>
+<P class=dt><I>readCallback</I></P>
+<P class=indent>Callback for reading from this file. </P>
+<P class=dt><I>seekCallback</I></P>
+<P class=indent>Callback for seeking within this file. </P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Studio_System_LoadBankCustom.html">Studio::System::loadBankCustom</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

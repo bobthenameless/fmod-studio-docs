@@ -1,0 +1,114 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::setFileSystem</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::setFileSystem</H1>
+<P>
+<p>Specify user callbacks for FMOD's internal file manipulation functions. This function is useful for replacing
+FMOD's file system with a game system's own file reading API.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::setFileSystem(
+  FMOD_FILE_OPEN_CALLBACK <I>useropen</I>,
+  FMOD_FILE_CLOSE_CALLBACK <I>userclose</I>,
+  FMOD_FILE_READ_CALLBACK <I>userread</I>,
+  FMOD_FILE_SEEK_CALLBACK <I>userseek</I>,
+  FMOD_FILE_ASYNCREAD_CALLBACK <I>userasyncread</I>,
+  FMOD_FILE_ASYNCCANCEL_CALLBACK <I>userasynccancel</I>,
+  int <I>blockalign</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_SetFileSystem(
+  FMOD_SYSTEM *<I>system</I>,
+  FMOD_FILE_OPEN_CALLBACK <I>useropen</I>,
+  FMOD_FILE_CLOSE_CALLBACK <I>userclose</I>,
+  FMOD_FILE_READ_CALLBACK <I>userread</I>,
+  FMOD_FILE_SEEK_CALLBACK <I>userseek</I>,
+  FMOD_FILE_ASYNCREAD_CALLBACK <I>userasyncread</I>,
+  FMOD_FILE_ASYNCCANCEL_CALLBACK <I>userasynccancel</I>,
+  int <I>blockalign</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>useropen</dt>
+<dd>Callback for opening a file.  Specifying 0 / null will disable file callbacks.</dd>
+<dt>userclose</dt>
+<dd>Callback for closing a file.  Specifying 0 / null will disable file callbacks.</dd>
+<dt>userread</dt>
+<dd>Callback for reading from a file.  Specifying 0 / null will disable file callbacks if userasyncread is also 0 / null.  User could use userasyncread instead of userread.</dd>
+<dt>userseek</dt>
+<dd>Callback for seeking within a file.  Specifying 0 / null will disable file callbacks. User could use userasyncread instead of userseek.</dd>
+<dt>userasyncread</dt>
+<dd>OPTIONAL - Callback to replace 'userread' and 'userseek' that allows the user to defer file access to a later time and return immediately.  FMOD will internally wait for data to appear, or in a file streaming case - stutter/starve if data is not fed to fmod in time. Set to 0 / null to get normal file callback operation.</dd>
+<dt>userasynccancel</dt>
+<dd>OPTIONAL - Callback for cancelling pending user file accesses.  This will be called if a sound is released, so the user can cancel any pending file accesses.  If the sound is released and a deferred read happens into a released buffer, the application will crash.  This callback must be used to make sure this doesn't happen.  Set to 0 / null to get normal file callback operation.</dd>
+<dt>blockalign</dt>
+<dd>Internal minimum file block alignment.  FMOD will read data in at least chunks of this size if you ask it to.  Specifying 0 means there is no file buffering at all (this could adversely affect streaming).  Do NOT make this a large value, it is purely a setting for minimum sector size alignment to aid seeking and reading on certain media.  It is not for stream buffer sizes, that is what <A HREF="FMOD_System_SetStreamBufferSize.html">System::setStreamBufferSize</A> is for.  It is recommened just to pass -1.  Large values just mean large memory usage with no benefit.  Specify -1 to not set this value. Default = 2048.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>This has no effect on sounds loaded with <A HREF="FMOD_MODE.html">FMOD_OPENMEMORY</A> or FMOD_CREATEUSER.</p>
+
+<p>This function can be used to set user file callbacks, or if required, they can be turned off by specifying 0 for all callbacks.<br>
+This function can be used purely to set the 'buffersize' parameter, and ignore the callback aspect of the function.</p>
+
+<p>Warning : This function can cause unpredictable behaviour if not used properly.  You must return the right values,
+and each command must work properly, or FMOD will not function, or it may even crash if you give it invalid data.
+You must also return <A HREF="FMOD_RESULT.html">FMOD_ERR_FILE_EOF</A> from a read callback if the number of bytes read is smaller than the number
+of bytes requested.</p>
+
+<p>FMOD's default filsystem buffers reads every 2048 bytes by default.  This means every time fmod reads one byte from
+the API (say if it was parsing a file format), it simply mem copies the byte from the 2k memory buffer, and every
+time it needs to, refreshes the 2k buffer resulting in a drastic reduction in file I/O.  Large reads go straight to
+the pointer instead of the 2k buffer if it is buffer aligned.  This value can be increased or decreased by the user.
+A buffer of 0 means all reads go directly to the pointer specified.  2048 bytes is the size of a CD sector on most
+CD ISO formats so it is chosen as the default, for optimal reading speed from CD media.</p>
+
+<p><strong>NOTE!</strong>  Do not force a cast from your function pointer to the FMOD_FILE_xxxCALLBACK type!  Never try to 'force'
+fmod to accept your function.  If there is an error then find out what it is.  Remember to include F_CALLBACK
+between the return type and the function name, this equates to stdcall which you must include otherwise (besides
+not compiling) it will cause problems such as crashing and callbacks not being called.</p>
+
+<p><strong>NOTE!</strong>  Your file callbacks must be thread safe. If not unexpected behaviour may occur.  FMOD calls file
+functions from asynchronous threads, such as the streaming thread, and thread related to <A HREF="FMOD_MODE.html">FMOD_NONBLOCKING</A> flag.</p>
+
+<p><u>Asynchronous file access (userasyncread/userasynccanel).</u></p>
+
+<ul>
+<li>For 'userasyncread' and 'userasynccancel' usage, see the 'asyncio' example in the FMOD examples folder.
+There is also a tutorial in the documentation.</li>
+<li>If userasyncread callback is specified - userread and userseek will not be called at all, so they can be set
+to 0 / null.</li>
+<li>userasyncread allows the user to return immediately before the data is ready.   FMOD will either wait internally
+(see note below about thread safety), or poll in the streamer until data arrives.  It is the user's responsibility
+to provide data in time in the stream case, or the stream may stutter.  Data starvation can be detected with
+<A HREF="FMOD_Sound_GetOpenState.html">Sound::getOpenState</A>.</li>
+<li><strong>NOTE:</strong> If userasyncread is processed in the main thread, then it will hang the application, because FMOD will
+wait internally until data is ready, and the main thread process will not be able to supply the data.  For this
+reason the user's file access should normally be from a separate thread.</li>
+</ul>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_Init.html">System::init</A></LI>
+<LI><A HREF="FMOD_System_AttachFileSystem.html">System::attachFileSystem</A></LI>
+<LI><A HREF="FMOD_Sound_GetOpenState.html">Sound::getOpenState</A></LI>
+<LI><A HREF="FMOD_FILE_OPEN_CALLBACK.html">FMOD_FILE_OPEN_CALLBACK</A></LI>
+<LI><A HREF="FMOD_FILE_CLOSE_CALLBACK.html">FMOD_FILE_CLOSE_CALLBACK</A></LI>
+<LI><A HREF="FMOD_FILE_READ_CALLBACK.html">FMOD_FILE_READ_CALLBACK</A></LI>
+<LI><A HREF="FMOD_FILE_SEEK_CALLBACK.html">FMOD_FILE_SEEK_CALLBACK</A></LI>
+<LI><A HREF="FMOD_FILE_ASYNCREAD_CALLBACK.html">FMOD_FILE_ASYNCREAD_CALLBACK</A></LI>
+<LI><A HREF="FMOD_FILE_ASYNCCANCEL_CALLBACK.html">FMOD_FILE_ASYNCCANCEL_CALLBACK</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

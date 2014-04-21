@@ -1,0 +1,46 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_FILE_ASYNCREAD_CALLBACK</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_FILE_ASYNCREAD_CALLBACK</H1>
+<P>
+<p>Callback for reading from a file asynchronously.  Different to <A HREF="FMOD_FILE_READ_CALLBACK.html">FMOD_FILE_READ_CALLBACK</A> in that this function can be returned from immediately without supplying any data, which will simply cause FMOD to wait internally for data.<br>
+The user will fill out the writeable variables in the <A HREF="FMOD_ASYNCREADINFO.html">FMOD_ASYNCREADINFO</A> structure (in any thread), and when the FMOD_ASYNCREADINFO::result field is set to something other than <A HREF="FMOD_RESULT.html">FMOD_ERR_NOTREADY</A> then it will continue.</p>
+</P>
+<h3>C/C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT F_CALLBACK FMOD_FILE_ASYNCREAD_CALLBACK(
+  FMOD_ASYNCREADINFO *<I>info</I>,
+  void *<I>userdata</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>info</I></P>
+<P class=indent>Pointer to <A HREF="FMOD_ASYNCREADINFO.html">FMOD_ASYNCREADINFO</A> structure.  Use this structure for your own system, to obtain the pointer to write to and number of bytes to read, as well as other information.</P>
+<P class=dt><I>userdata</I></P>
+<P class=indent>Userdata from <A HREF="FMOD_CREATESOUNDEXINFO.html">FMOD_CREATESOUNDEXINFO.fileuserdata</A>.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>To return immediately, return <A HREF="FMOD_RESULT.html">FMOD_OK</A>.<br>
+If during your code path, there was a fatal error, for example if you ran out of memory return <A HREF="FMOD_RESULT.html">FMOD_ERR_MEMORY</A> and this will cause FMOD to stop what it was trying to do and return the error back to the caller.<br>
+<strong>NOTE:</strong> If userasyncread is processed in the main thread, then it will hang the application, because FMOD will wait internally until data is ready, and the main thread process will not be able to supply the data.  For this reason the user's file access should normally be from a separate thread.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_SetFileSystem.html">System::setFileSystem</A></LI>
+<LI><A HREF="FMOD_FILE_OPEN_CALLBACK.html">FMOD_FILE_OPEN_CALLBACK</A></LI>
+<LI><A HREF="FMOD_FILE_CLOSE_CALLBACK.html">FMOD_FILE_CLOSE_CALLBACK</A></LI>
+<LI><A HREF="FMOD_FILE_READ_CALLBACK.html">FMOD_FILE_READ_CALLBACK</A></LI>
+<LI><A HREF="FMOD_FILE_SEEK_CALLBACK.html">FMOD_FILE_SEEK_CALLBACK</A></LI>
+<LI><A HREF="FMOD_FILE_ASYNCCANCEL_CALLBACK.html">FMOD_FILE_ASYNCCANCEL_CALLBACK</A></LI>
+<LI><A HREF="FMOD_ASYNCREADINFO.html">FMOD_ASYNCREADINFO</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

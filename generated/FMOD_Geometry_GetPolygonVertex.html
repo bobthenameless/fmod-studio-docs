@@ -1,0 +1,53 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Geometry::getPolygonVertex</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Geometry::getPolygonVertex</H1>
+<P>
+<p>Retrieves the position of the vertex inside a geometry object.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Geometry::getPolygonVertex(
+  int <I>index</I>,
+  int <I>vertexindex</I>,
+  FMOD_VECTOR *<I>vertex</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Geometry_GetPolygonVertex(
+  FMOD_GEOMETRY *<I>geometry</I>,
+  int <I>index</I>,
+  int <I>vertexindex</I>,
+  FMOD_VECTOR *<I>vertex</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>index</dt>
+<dd>Polygon index.  This must be in the range of 0 to <A HREF="FMOD_Geometry_GetNumPolygons.html">Geometry::getNumPolygons</A> minus 1.</dd>
+<dt>vertexindex</dt>
+<dd>Vertex index inside the polygon.  This must be in the range of 0 to <A HREF="FMOD_Geometry_GetPolygonNumVertices.html">Geometry::getPolygonNumVertices</A> minus 1.</dd>
+<dt>vertex</dt>
+<dd>Address of an <A HREF="FMOD_VECTOR.html">FMOD_VECTOR</A> structure which will receive the new vertex location in object space.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Vertices are relative to the position of the object.  See <A HREF="FMOD_Geometry_SetPosition.html">Geometry::setPosition</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Geometry_GetPolygonNumVertices.html">Geometry::getPolygonNumVertices</A></LI>
+<LI><A HREF="FMOD_Geometry_SetPosition.html">Geometry::setPosition</A></LI>
+<LI><A HREF="FMOD_Geometry_GetNumPolygons.html">Geometry::getNumPolygons</A></LI>
+<LI><A HREF="FMOD_VECTOR.html">FMOD_VECTOR</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

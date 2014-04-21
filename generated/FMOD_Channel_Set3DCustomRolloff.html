@@ -1,0 +1,74 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Channel::set3DCustomRolloff</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Channel::set3DCustomRolloff</H1>
+<P>
+<p>Sets a custom rolloff curve to define how audio will attenuate over distance. Must be used in conjunction with <A HREF="FMOD_MODE.html">FMOD_3D_CUSTOMROLLOFF</A> flag to be activated.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Channel::set3DCustomRolloff(
+  FMOD_VECTOR *<I>points</I>,
+  int <I>numpoints</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Channel_Set3DCustomRolloff(
+  FMOD_CHANNEL *<I>channel</I>,
+  FMOD_VECTOR *<I>points</I>,
+  int <I>numpoints</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>points</dt>
+<dd>Array of <A HREF="FMOD_VECTOR.html">FMOD_VECTOR</A> structures where x = distance and y = volume from 0.0 to 1.0. z should be set to 0.</dd>
+<dt>numpoints</dt>
+<dd>Number of points in the array.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p><strong>Note!</strong> This function does not duplicate the memory for the points internally. The pointer you pass to FMOD must remain
+valid until there is no more use for it. Do not free the memory while in use, or use a local variable that goes out of
+scope while in use.</p>
+
+<p>Points must be sorted by distance! Passing an unsorted list to FMOD will result in an error.</p>
+
+<p>Set the points parameter to 0 or NULL to disable the points. If <A HREF="FMOD_MODE.html">FMOD_3D_CUSTOMROLLOFF</A> is set and the rolloff curve is 0, FMOD will revert to inverse curve rolloff.</p>
+
+<p>Values set with ChannelControl::setMinMaxDistance are meaningless when <A HREF="FMOD_MODE.html">FMOD_3D_CUSTOMROLLOFF</A> is used, their values are ignored.</p>
+
+<p>Here is an example of a custom array of points.</p>
+
+<pre><code><A HREF="FMOD_VECTOR.html">FMOD_VECTOR</A> curve[3] =
+{
+    { 0.0f,  1.0f, 0.0f },
+    { 2.0f,  0.2f, 0.0f },
+    { 20.0f, 0.0f, 0.0f }
+};
+</code></pre>
+
+<p>Distances between points are linearly interpolated.</p>
+
+<p>Note that after the highest distance specified, the volume in the last entry is used from that distance onwards.</p>
+
+<p>To define the parameters per sound use <A HREF="FMOD_Sound_Set3DCustomRolloff.html">Sound::set3DCustomRolloff</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_ChannelControl_Get3DCustomRolloff.html">ChannelControl::get3DCustomRolloff</A></LI>
+<LI>ChannelControl::setMinMaxDistance</LI>
+<LI><A HREF="FMOD_Sound_Set3DCustomRolloff.html">Sound::set3DCustomRolloff</A></LI>
+<LI><A HREF="FMOD_VECTOR.html">FMOD_VECTOR</A></LI>
+<LI><A HREF="FMOD_MODE.html">FMOD_3D_CUSTOMROLLOFF</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

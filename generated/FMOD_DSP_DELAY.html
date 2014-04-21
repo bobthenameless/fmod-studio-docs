@@ -1,0 +1,82 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_DELAY</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_DELAY</H1>
+<P>
+<p>Parameter types for the <A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE_DELAY</A> filter.</p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_DSP_DELAY_CH0,
+  FMOD_DSP_DELAY_CH1,
+  FMOD_DSP_DELAY_CH2,
+  FMOD_DSP_DELAY_CH3,
+  FMOD_DSP_DELAY_CH4,
+  FMOD_DSP_DELAY_CH5,
+  FMOD_DSP_DELAY_CH6,
+  FMOD_DSP_DELAY_CH7,
+  FMOD_DSP_DELAY_CH8,
+  FMOD_DSP_DELAY_CH9,
+  FMOD_DSP_DELAY_CH10,
+  FMOD_DSP_DELAY_CH11,
+  FMOD_DSP_DELAY_CH12,
+  FMOD_DSP_DELAY_CH13,
+  FMOD_DSP_DELAY_CH14,
+  FMOD_DSP_DELAY_CH15,
+  FMOD_DSP_DELAY_MAXDELAY
+} FMOD_DSP_DELAY;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_DSP_DELAY_CH0</I></P>
+<P class=indent>(Type:float) - Channel  #0 Delay in ms.  0  to 10000.  Default = 0. </P>
+<P class=dt><I>FMOD_DSP_DELAY_CH1</I></P>
+<P class=indent>(Type:float) - Channel  #1 Delay in ms.  0  to 10000.  Default = 0. </P>
+<P class=dt><I>FMOD_DSP_DELAY_CH2</I></P>
+<P class=indent>(Type:float) - Channel  #2 Delay in ms.  0  to 10000.  Default = 0. </P>
+<P class=dt><I>FMOD_DSP_DELAY_CH3</I></P>
+<P class=indent>(Type:float) - Channel  #3 Delay in ms.  0  to 10000.  Default = 0. </P>
+<P class=dt><I>FMOD_DSP_DELAY_CH4</I></P>
+<P class=indent>(Type:float) - Channel  #4 Delay in ms.  0  to 10000.  Default = 0. </P>
+<P class=dt><I>FMOD_DSP_DELAY_CH5</I></P>
+<P class=indent>(Type:float) - Channel  #5 Delay in ms.  0  to 10000.  Default = 0. </P>
+<P class=dt><I>FMOD_DSP_DELAY_CH6</I></P>
+<P class=indent>(Type:float) - Channel  #6 Delay in ms.  0  to 10000.  Default = 0. </P>
+<P class=dt><I>FMOD_DSP_DELAY_CH7</I></P>
+<P class=indent>(Type:float) - Channel  #7 Delay in ms.  0  to 10000.  Default = 0. </P>
+<P class=dt><I>FMOD_DSP_DELAY_CH8</I></P>
+<P class=indent>(Type:float) - Channel  #8 Delay in ms.  0  to 10000.  Default = 0. </P>
+<P class=dt><I>FMOD_DSP_DELAY_CH9</I></P>
+<P class=indent>(Type:float) - Channel  #9 Delay in ms.  0  to 10000.  Default = 0. </P>
+<P class=dt><I>FMOD_DSP_DELAY_CH10</I></P>
+<P class=indent>(Type:float) - Channel #10 Delay in ms.  0  to 10000.  Default = 0. </P>
+<P class=dt><I>FMOD_DSP_DELAY_CH11</I></P>
+<P class=indent>(Type:float) - Channel #11 Delay in ms.  0  to 10000.  Default = 0. </P>
+<P class=dt><I>FMOD_DSP_DELAY_CH12</I></P>
+<P class=indent>(Type:float) - Channel #12 Delay in ms.  0  to 10000.  Default = 0. </P>
+<P class=dt><I>FMOD_DSP_DELAY_CH13</I></P>
+<P class=indent>(Type:float) - Channel #13 Delay in ms.  0  to 10000.  Default = 0. </P>
+<P class=dt><I>FMOD_DSP_DELAY_CH14</I></P>
+<P class=indent>(Type:float) - Channel #14 Delay in ms.  0  to 10000.  Default = 0. </P>
+<P class=dt><I>FMOD_DSP_DELAY_CH15</I></P>
+<P class=indent>(Type:float) - Channel #15 Delay in ms.  0  to 10000.  Default = 0. </P>
+<P class=dt><I>FMOD_DSP_DELAY_MAXDELAY</I></P>
+<P class=indent>(Type:float) - Maximum delay in ms.      0  to 10000.  Default = 10. </P>
+<h2>Remarks</h2><P>
+<p>Note.  Every time MaxDelay is changed, the plugin re-allocates the delay buffer.  This means the delay will dissapear at that time while it refills its new buffer.<br>
+A larger MaxDelay results in larger amounts of memory allocated.<br>
+Channel delays above MaxDelay will be clipped to MaxDelay and the delay buffer will not be resized.<br></p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_SetParameterFloat.html">DSP::setParameterFloat</A></LI>
+<LI><A HREF="FMOD_DSP_GetParameterFloat.html">DSP::getParameterFloat</A></LI>
+<LI><A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

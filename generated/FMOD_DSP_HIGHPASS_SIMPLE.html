@@ -1,0 +1,31 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_HIGHPASS_SIMPLE</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_HIGHPASS_SIMPLE</H1>
+<P>
+<p>Parameter types for the <A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE_HIGHPASS_SIMPLE</A> filter.<br>
+This is a very simple single-order high pass filter.
+The emphasis is on speed rather than accuracy, so this should not be used for task requiring critical filtering.<br></p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_DSP_HIGHPASS_SIMPLE_CUTOFF
+} FMOD_DSP_HIGHPASS_SIMPLE;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_DSP_HIGHPASS_SIMPLE_CUTOFF</I></P>
+<P class=indent>(Type:float) - Highpass cutoff frequency in hz.  10.0 to 22000.0.  Default = 1000.0 </P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI>DSP::SetParameterFloat</LI>
+<LI>DSP::GetParameterFloat</LI>
+<LI><A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

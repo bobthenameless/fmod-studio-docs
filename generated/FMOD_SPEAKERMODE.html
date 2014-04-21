@@ -1,0 +1,129 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_SPEAKERMODE</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_SPEAKERMODE</H1>
+<P>
+<p>These are speaker types defined for use with the <A HREF="FMOD_System_SetSoftwareFormat.html">System::setSoftwareFormat</A> command.</p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_SPEAKERMODE_DEFAULT,
+  FMOD_SPEAKERMODE_RAW,
+  FMOD_SPEAKERMODE_MONO,
+  FMOD_SPEAKERMODE_STEREO,
+  FMOD_SPEAKERMODE_QUAD,
+  FMOD_SPEAKERMODE_SURROUND,
+  FMOD_SPEAKERMODE_5POINT1,
+  FMOD_SPEAKERMODE_7POINT1,
+  FMOD_SPEAKERMODE_MAX
+} FMOD_SPEAKERMODE;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_SPEAKERMODE_DEFAULT</I></P>
+<P class=indent>Default speaker mode based on operating system/output mode.  Windows = control panel setting, Xbox = 5.1, PS3 = 7.1 etc. </P>
+<P class=dt><I>FMOD_SPEAKERMODE_RAW</I></P>
+<P class=indent>There is no specific speakermode.  Sound channels are mapped in order of input to output.  Use <A HREF="FMOD_System_SetSoftwareFormat.html">System::setSoftwareFormat</A> to specify speaker count. See remarks for more information. </P>
+<P class=dt><I>FMOD_SPEAKERMODE_MONO</I></P>
+<P class=indent>The speakers are monaural. </P>
+<P class=dt><I>FMOD_SPEAKERMODE_STEREO</I></P>
+<P class=indent>The speakers are stereo. </P>
+<P class=dt><I>FMOD_SPEAKERMODE_QUAD</I></P>
+<P class=indent>4 speaker setup.  This includes front left, front right, surround left, surround right.  </P>
+<P class=dt><I>FMOD_SPEAKERMODE_SURROUND</I></P>
+<P class=indent>5 speaker setup.  This includes front left, front right, center, surround left, surround right. </P>
+<P class=dt><I>FMOD_SPEAKERMODE_5POINT1</I></P>
+<P class=indent>5.1 speaker setup.  This includes front left, front right, center, surround left, surround right and an LFE speaker. </P>
+<P class=dt><I>FMOD_SPEAKERMODE_7POINT1</I></P>
+<P class=indent>7.1 speaker setup.  This includes front left, front right, center, surround left, surround right, back left, back right and an LFE speaker. </P>
+<P class=dt><I>FMOD_SPEAKERMODE_MAX</I></P>
+<P class=indent>Maximum number of speaker modes supported. </P>
+<h2>Remarks</h2><P>
+<p>These are important notes on speaker modes in regards to sounds created with <A HREF="FMOD_MODE.html">FMOD_SOFTWARE</A>.<br>
+Note below the phrase 'sound channels' is used.  These are the subchannels inside a sound, they are not related and
+have nothing to do with the FMOD class "Channel".<br>
+For example a mono sound has 1 sound channel, a stereo sound has 2 sound channels, and an AC3 or 6 channel wav file have 6 "sound channels".<br>
+<br>
+<A HREF="FMOD_SPEAKERMODE.html">FMOD_SPEAKERMODE_RAW</A><br>
+---------------------<br>
+This mode is for output devices that are not specifically mono/stereo/quad/surround/5.1 or 7.1, but are multichannel.<br>
+Use <A HREF="FMOD_System_SetSoftwareFormat.html">System::setSoftwareFormat</A> to specify the number of speakers you want to address, otherwise it will default to 2 (stereo).<br>
+Sound channels map to speakers sequentially, so a mono sound maps to output speaker 0, stereo sound maps to output speaker 0 &amp; 1.<br>
+The user assumes knowledge of the speaker order.  <A HREF="FMOD_SPEAKER.html">FMOD_SPEAKER</A> enumerations may not apply, so raw channel indices should be used.<br>
+Multichannel sounds map input channels to output channels 1:1. <br>
+<A HREF="FMOD_Channel_SetPan.html">Channel::setPan</A> and Channel::setPanLevels do not work.<br>
+Speaker levels must be manually set with Channel::setPanMatrix.<br>
+<br>
+<A HREF="FMOD_SPEAKERMODE.html">FMOD_SPEAKERMODE_MONO</A><br>
+---------------------<br>
+This mode is for a 1 speaker arrangement.<br>
+Panning does not work in this speaker mode.<br>
+Mono, stereo and multichannel sounds have each sound channel played on the one speaker unity.<br>
+Mix behavior for multichannel sounds can be set with Channel::setPanMatrix.<br>
+Channel::setPanLevels does not work.<br>
+<br>
+<A HREF="FMOD_SPEAKERMODE.html">FMOD_SPEAKERMODE_STEREO</A><br>
+-----------------------<br>
+This mode is for 2 speaker arrangements that have a left and right speaker.<br>
+<li>Mono sounds default to an even distribution between left and right.  They can be panned with <A HREF="FMOD_Channel_SetPan.html">Channel::setPan</A>.<br>
+<li>Stereo sounds default to the middle, or full left in the left speaker and full right in the right speaker.
+<li>They can be cross faded with <A HREF="FMOD_Channel_SetPan.html">Channel::setPan</A>.<br>
+<li>Multichannel sounds have each sound channel played on each speaker at unity.<br>
+<li>Mix behavior for multichannel sounds can be set with Channel::setPanMatrix.<br>
+<li>Channel::setPanLevels works but only front left and right parameters are used, the rest are ignored.<br>
+<br>
+<A HREF="FMOD_SPEAKERMODE.html">FMOD_SPEAKERMODE_QUAD</A><br>
+------------------------<br>
+This mode is for 4 speaker arrangements that have a front left, front right, surround left and a surround right speaker.<br>
+<li>Mono sounds default to an even distribution between front left and front right.  They can be panned with <A HREF="FMOD_Channel_SetPan.html">Channel::setPan</A>.<br>
+<li>Stereo sounds default to the left sound channel played on the front left, and the right sound channel played on the front right.<br>
+<li>They can be cross faded with <A HREF="FMOD_Channel_SetPan.html">Channel::setPan</A>.<br>
+<li>Multichannel sounds default to all of their sound channels being played on each speaker in order of input.<br>
+<li>Mix behavior for multichannel sounds can be set with Channel::setPanMatrix.<br>
+<li>Channel::setPanLevels works but rear left, rear right, center and lfe are ignored.<br>
+<br>
+<A HREF="FMOD_SPEAKERMODE.html">FMOD_SPEAKERMODE_SURROUND</A><br>
+------------------------<br>
+This mode is for 5 speaker arrangements that have a left/right/center/surround left/surround right.<br>
+<li>Mono sounds default to the center speaker.  They can be panned with <A HREF="FMOD_Channel_SetPan.html">Channel::setPan</A>.<br>
+<li>Stereo sounds default to the left sound channel played on the front left, and the right sound channel played on the front right.
+<li>They can be cross faded with <A HREF="FMOD_Channel_SetPan.html">Channel::setPan</A>.<br>
+<li>Multichannel sounds default to all of their sound channels being played on each speaker in order of input.
+<li>Mix behavior for multichannel sounds can be set with Channel::setPanMatrix.<br>
+<li>Channel::setPanLevels works but rear left / rear right are ignored.<br>
+<br>
+<A HREF="FMOD_SPEAKERMODE.html">FMOD_SPEAKERMODE_5POINT1</A><br>
+---------------------------------------------------------<br>
+This mode is for 5.1 speaker arrangements that have a left/right/center/surround left/surround right and a subwoofer speaker.<br>
+<li>Mono sounds default to the center speaker.  They can be panned with <A HREF="FMOD_Channel_SetPan.html">Channel::setPan</A>.<br>
+<li>Stereo sounds default to the left sound channel played on the front left, and the right sound channel played on the front right.
+<li>They can be cross faded with <A HREF="FMOD_Channel_SetPan.html">Channel::setPan</A>.<br>
+<li>Multichannel sounds default to all of their sound channels being played on each speaker in order of input.
+<li>Mix behavior for multichannel sounds can be set with Channel::setPanMatrix.<br>
+<li>Channel::setPanLevels works but rear left / rear right are ignored.<br>
+<br>
+<A HREF="FMOD_SPEAKERMODE.html">FMOD_SPEAKERMODE_7POINT1</A><br>
+------------------------<br>
+This mode is for 7.1 speaker arrangements that have a left/right/center/surround left/surround right/rear left/rear right
+and a subwoofer speaker.<br>
+<li>Mono sounds default to the center speaker.  They can be panned with <A HREF="FMOD_Channel_SetPan.html">Channel::setPan</A>.<br>
+<li>Stereo sounds default to the left sound channel played on the front left, and the right sound channel played on the front right.
+<li>They can be cross faded with <A HREF="FMOD_Channel_SetPan.html">Channel::setPan</A>.<br>
+<li>Multichannel sounds default to all of their sound channels being played on each speaker in order of input.
+<li>Mix behavior for multichannel sounds can be set with Channel::setPanMatrix.<br>
+<li>Channel::setPanLevels works and every parameter is used to set the balance of a sound in any speaker.<br>
+<br></p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_SetSoftwareFormat.html">System::setSoftwareFormat</A></LI>
+<LI><A HREF="FMOD_System_GetSoftwareFormat.html">System::getSoftwareFormat</A></LI>
+<LI><A HREF="FMOD_DSP_SetChannelFormat.html">DSP::setChannelFormat</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

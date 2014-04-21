@@ -1,0 +1,59 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>ChannelGroup::getMixMatrix</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>ChannelGroup::getMixMatrix</H1>
+<P>
+<p>Retrieves a 2D pan matrix that maps input channels (columns) to output speakers (rows).</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT ChannelGroup::getMixMatrix(
+  float *<I>matrix</I>,
+  int *<I>outchannels</I>,
+  int *<I>inchannels</I>,
+  int <I>inchannel_hop</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_ChannelGroup_GetMixMatrix(
+  FMOD_CHANNELGROUP *<I>channelgroup</I>,
+  float *<I>matrix</I>,
+  int *<I>outchannels</I>,
+  int *<I>inchannels</I>,
+  int <I>inchannel_hop</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>matrix</dt>
+<dd>Address of a 2 dimensional array of volume levels in row-major order. Each row represents an output speaker, each column represents an input channel.</dd>
+<dt>outchannels</dt>
+<dd>Address of a variable to receive the number of output channels (rows) in the matrix being passed in.</dd>
+<dt>inchannels</dt>
+<dd>Address of a variable to receive the number of input channels (columns) in the matrix being passed in.</dd>
+<dt>inchannel_hop</dt>
+<dd>Width of the memory the matrix is being stored in. Allows the function to skip memory after processing each row. If your inchannels = 2, and the array size is 32, then 32 would be the hop size.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Levels can be below 0 to invert a signal and above 1 to amplify the signal. Note that increasing the signal level too far may cause audible distortion.</p>
+
+<p>The matrix size will generally be the size of the number of channels in the current speaker mode. Use <A HREF="FMOD_System_GetSoftwareFormat.html">System::getSoftwareFormat</A> to determine this.</p>
+
+<p>Passing NULL for 'matrix' will allow you to query 'outchannels' and 'inchannels' without copying any data.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_ChannelControl_SetMixMatrix.html">ChannelControl::setMixMatrix</A></LI>
+<LI><A HREF="FMOD_System_GetSoftwareFormat.html">System::getSoftwareFormat</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

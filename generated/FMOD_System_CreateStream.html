@@ -1,0 +1,88 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::createStream</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::createStream</H1>
+<P>
+<p>Opens a sound for streaming.  This function is a helper function that is the same as <A HREF="FMOD_System_CreateSound.html">System::createSound</A> but has
+the <A HREF="FMOD_MODE.html">FMOD_CREATESTREAM</A> flag added internally.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::createStream(
+  const char *<I>name_or_data</I>,
+  FMOD_MODE <I>mode</I>,
+  FMOD_CREATESOUNDEXINFO *<I>exinfo</I>,
+  FMOD::Sound **<I>sound</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_CreateStream(
+  FMOD_SYSTEM *<I>system</I>,
+  const char *<I>name_or_data</I>,
+  FMOD_MODE <I>mode</I>,
+  FMOD_CREATESOUNDEXINFO *<I>exinfo</I>,
+  FMOD_SOUND **<I>sound</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>name_or_data</dt>
+<dd>Name of the file or URL to open.</dd>
+<dt>mode</dt>
+<dd>Behaviour modifier for opening the sound.  See <A HREF="FMOD_MODE.html">FMOD_MODE</A>.  Also see remarks for more.</dd>
+<dt>exinfo</dt>
+<dd>Pointer to a <A HREF="FMOD_CREATESOUNDEXINFO.html">FMOD_CREATESOUNDEXINFO</A> which lets the user provide extended information while playing the sound.  Optional.  Specify 0 or NULL to ignore.</dd>
+<dt>sound</dt>
+<dd>Address of a variable to receive a newly created FMOD::Sound object.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Note that a stream only has 1 decode buffer and file handle, and therefore can only be played once.  It cannot play
+multiple times at once because it cannot share a stream buffer if the stream is playing at different positions.<br>
+Open multiple streams to have them play concurrently.</p>
+
+<ul>
+<li>To open a file or URL as a stream, so that it decompresses / reads at runtime, instead of loading / decompressing
+into memory all at the time of this call, use the <A HREF="FMOD_MODE.html">FMOD_CREATESTREAM</A> flag.  This is like a 'stream' in FMOD 3.</li>
+<li>To open a file or URL as a compressed sound effect that is not streamed and is not decompressed into memory at
+load time, use <A HREF="FMOD_MODE.html">FMOD_CREATECOMPRESSEDSAMPLE</A>.  This is supported with MPEG (mp2/mp3), ADPCM (wav on all platforms
+and vag on psp) and XMA files only.  This is useful for those who want realtime compressed soundeffects, but not
+the overhead of disk access.</li>
+<li>To open a sound as 2D, so that it is not affected by 3D processing, use the <A HREF="FMOD_MODE.html">FMOD_2D</A> flag.  3D sound commands will
+be ignored on these types of sounds.</li>
+<li>To open a sound as 3D, so that it is treated as a 3D sound, use the <A HREF="FMOD_MODE.html">FMOD_3D</A> flag.  Calls to <A HREF="FMOD_Channel_SetPan.html">Channel::setPan</A> will
+be ignored on these types of sounds.</li>
+</ul>
+
+<p>Note that <A HREF="FMOD_MODE.html">FMOD_OPENRAW</A>, <A HREF="FMOD_MODE.html">FMOD_OPENMEMORY</A>, <A HREF="FMOD_MODE.html">FMOD_OPENMEMORY_POINT</A> and <A HREF="FMOD_MODE.html">FMOD_OPENUSER</A> will not work here without the
+exinfo structure present, as more information is needed.</p>
+
+<p>Use <A HREF="FMOD_MODE.html">FMOD_NONBLOCKING</A> to have the sound open or load in the background.  You can use <A HREF="FMOD_Sound_GetOpenState.html">Sound::getOpenState</A> to
+determine if it has finished loading / opening or not.  While it is loading (not ready), sound functions are
+not accessable for that sound.</p>
+
+<p>To account for slow devices or computers that might cause buffer underrun (skipping/stuttering/repeating blocks
+of audio), use <A HREF="FMOD_System_SetStreamBufferSize.html">System::setStreamBufferSize</A>.</p>
+
+<p>Note that <A HREF="FMOD_MODE.html">FMOD_CREATESAMPLE</A> will be ignored, overriden by this function because this is simply a wrapper to
+<A HREF="FMOD_System_CreateSound.html">System::createSound</A> that provides the <A HREF="FMOD_MODE.html">FMOD_CREATESTREAM</A> flag.  The <A HREF="FMOD_MODE.html">FMOD_CREATESTREAM</A> flag overrides <A HREF="FMOD_MODE.html">FMOD_CREATESAMPLE</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_MODE.html">FMOD_MODE</A></LI>
+<LI><A HREF="FMOD_CREATESOUNDEXINFO.html">FMOD_CREATESOUNDEXINFO</A></LI>
+<LI><A HREF="FMOD_Sound_GetOpenState.html">Sound::getOpenState</A></LI>
+<LI><A HREF="FMOD_System_SetStreamBufferSize.html">System::setStreamBufferSize</A></LI>
+<LI><A HREF="FMOD_System_CreateSound.html">System::createSound</A></LI>
+<LI><A HREF="FMOD_Channel_SetPan.html">Channel::setPan</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

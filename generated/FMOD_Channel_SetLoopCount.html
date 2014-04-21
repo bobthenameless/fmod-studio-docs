@@ -1,0 +1,53 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Channel::setLoopCount</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Channel::setLoopCount</H1>
+<P>
+<p>Sets a channel to loop a specified number of times before stopping.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Channel::setLoopCount(
+  int <I>loopcount</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Channel_SetLoopCount(
+  FMOD_CHANNEL *<I>channel</I>,
+  int <I>loopcount</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>loopcount</dt>
+<dd>Number of times to loop before stopping. 0 = oneshot, 1 = loop once then stop, -1 = loop forever, default = -1.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p><em>Issues with streamed audio:</em></p>
+
+<p>When changing the loop count, sounds created with <A HREF="FMOD_System_CreateStream.html">System::createStream</A> or <A HREF="FMOD_MODE.html">FMOD_CREATESTREAM</A> may have already been
+pre-buffered and executed their loop logic ahead of time before this call was even made. This is dependant on the
+size of the sound versus the size of the stream <em>decode</em> buffer (see <A HREF="FMOD_CREATESOUNDEXINFO.html">FMOD_CREATESOUNDEXINFO</A>). If this happens, you
+may need to reflush the stream buffer by calling <A HREF="FMOD_Channel_SetPosition.html">Channel::setPosition</A>. Note this will usually only happen if you
+have sounds or loop points that are smaller than the stream decode buffer size.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Channel_GetLoopCount.html">Channel::getLoopCount</A></LI>
+<LI><A HREF="FMOD_Channel_SetPosition.html">Channel::setPosition</A></LI>
+<LI><A HREF="FMOD_System_CreateStream.html">System::createStream</A></LI>
+<LI><A HREF="FMOD_System_SetStreamBufferSize.html">System::setStreamBufferSize</A></LI>
+<LI><A HREF="FMOD_CREATESOUNDEXINFO.html">FMOD_CREATESOUNDEXINFO</A></LI>
+<LI><A HREF="FMOD_MODE.html">FMOD_MODE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

@@ -1,0 +1,77 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_CODEC_OPEN_CALLBACK</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_CODEC_OPEN_CALLBACK</H1>
+<P>
+<p>Open callback for the codec for when FMOD tries to open a sound using this codec.
+This is the callback the file format check is done in, codec related memory is allocated,
+and things are generally initialized / set up for the codec.</p>
+</P>
+<h3>C/C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT F_CALLBACK FMOD_CODEC_OPEN_CALLBACK(
+  FMOD_CODEC_STATE *<I>codec_state</I>,
+  FMOD_MODE <I>usermode</I>,
+  FMOD_CREATESOUNDEXINFO *<I>userexinfo</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>codec_state</I></P>
+<P class=indent>Pointer to the codec state.  The user can use this variable to access runtime plugin specific variables and plugin writer user data.</P>
+<P class=dt><I>usermode</I></P>
+<P class=indent>Mode that the user supplied via <A HREF="FMOD_System_CreateSound.html">System::createSound</A>.  This is informational and can be ignored, or used if it has relevance to your codec.</P>
+<P class=dt><I>userexinfo</I></P>
+<P class=indent>Extra info structure that the user supplied via <A HREF="FMOD_System_CreateSound.html">System::createSound</A>.  This is informational and can be ignored, or used if it has relevance to your codec.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>The usermode and userexinfo parameters tell the codec what was passed in by the user.<br>
+Generally these can be ignored, as the file format usually determines the format and frequency of the sound.</p>
+
+<p>If you have a flexible format codec (ie you don't mind what output format your codec writes to), you might want to
+use the parameter that was passed in by the user to specify the output sound format / frequency.</p>
+
+<p>For example if you normally create a codec that is always 32bit floating point, the user might supply 16bit integer
+to save memory, so you could use this information to decode your data to this format instead of the original default
+format.</p>
+
+<p>Read and seek within the file using the 'fileread' and 'fileseek' members of the FMOD_CODEC codec that is passed in.<br>
+Note: <strong>DO NOT USE YOUR OWN FILESYSTEM.</strong><br>
+The reasons for this are:</p>
+
+<ul>
+<li>The user may have set their own file system via user filesystem callbacks.</li>
+<li>FMOD allows file reading via disk, memory and TCP/IP.  If you use your own file routines you will lose this ability.</li>
+</ul>
+
+<p><strong>Important!</strong>  FMOD will ping all codecs trying to find the right one for the file the user has passed in.
+Make sure the first line of your codec open is a FAST format check.  Ie it reads an identifying string, checks
+it and returns an error <A HREF="FMOD_RESULT.html">FMOD_ERR_FORMAT</A> if it is not found.</p>
+
+<p>There may be a lot of codecs loaded into FMOD, so you don't want yours slowing down the <A HREF="FMOD_System_CreateSound.html">System::createSound</A> call
+because it is inneficient in determining if it is the right format or not.</p>
+
+<p>Remember to return <A HREF="FMOD_RESULT.html">FMOD_OK</A> at the bottom of the function, or an appropriate error code from <A HREF="FMOD_RESULT.html">FMOD_RESULT</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_CreateSound.html">System::createSound</A></LI>
+<LI><A HREF="FMOD_CREATESOUNDEXINFO.html">FMOD_CREATESOUNDEXINFO</A></LI>
+<LI><A HREF="FMOD_CODEC_STATE.html">FMOD_CODEC_STATE</A></LI>
+<LI><A HREF="FMOD_CODEC_DESCRIPTION.html">FMOD_CODEC_DESCRIPTION</A></LI>
+<LI><A HREF="FMOD_CODEC_CLOSE_CALLBACK.html">FMOD_CODEC_CLOSE_CALLBACK</A></LI>
+<LI><A HREF="FMOD_CODEC_READ_CALLBACK.html">FMOD_CODEC_READ_CALLBACK</A></LI>
+<LI><A HREF="FMOD_CODEC_GETLENGTH_CALLBACK.html">FMOD_CODEC_GETLENGTH_CALLBACK</A></LI>
+<LI><A HREF="FMOD_CODEC_SETPOSITION_CALLBACK.html">FMOD_CODEC_SETPOSITION_CALLBACK</A></LI>
+<LI><A HREF="FMOD_CODEC_GETPOSITION_CALLBACK.html">FMOD_CODEC_GETPOSITION_CALLBACK</A></LI>
+<LI><A HREF="FMOD_CODEC_SOUNDCREATE_CALLBACK.html">FMOD_CODEC_SOUNDCREATE_CALLBACK</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

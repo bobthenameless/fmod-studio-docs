@@ -1,0 +1,38 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Studio::EventInstance::getPlaybackState</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Studio::EventInstance::getPlaybackState</H1>
+<P>
+<p>Retrieves the playback state of the event instance.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Studio::EventInstance::getPlaybackState(
+  FMOD_STUDIO_PLAYBACK_STATE *<I>state</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Studio_EventInstance_GetPlaybackState(
+  FMOD_STUDIO_EVENTINSTANCE *<I>eventinstance</I>,
+  FMOD_STUDIO_PLAYBACK_STATE *<I>state</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>state</dt>
+<dd>Address of a variable to receive the current playback state of the event instance. See <A HREF="FMOD_STUDIO_PLAYBACK_STATE.html">FMOD_STUDIO_PLAYBACK_STATE</A>.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>You can poll this function to track the playback state of an event instance.</p>
+</P>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

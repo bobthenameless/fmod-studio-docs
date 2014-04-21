@@ -1,0 +1,51 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>ChannelGroup::setDSPIndex</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>ChannelGroup::setDSPIndex</H1>
+<P>
+<p>Moves a DSP inside a Channelgroup's DSP chain.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT ChannelGroup::setDSPIndex(
+  FMOD::DSP *<I>dsp</I>,
+  int <I>index</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_ChannelGroup_SetDSPIndex(
+  FMOD_CHANNELGROUP *<I>channelgroup</I>,
+  FMOD_DSP *<I>dsp</I>,
+  int <I>index</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>dsp</dt>
+<dd>Address of a DSP unit that exists inside the ChannelGroup's DSP chain (added with <A HREF="FMOD_ChannelGroup_AddDSP.html">ChannelGroup::addDSP</A>) to be moved.</dd>
+<dt>index</dt>
+<dd>Index in the ChannelGroup's DSP chain to position the dsp.  Must not equal or exceed value retrieved with <A HREF="FMOD_ChannelGroup_GetNumDSPs.html">ChannelGroup::getNumDSPs</A>.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>This function is useful for reordering DSP units inside a ChannelGroup, so that processing can happen in a certain order.<br>
+The unit specified must exist inside the ChannelGroup, or an error will be returned.<br>
+Verify the order using enumeration/iteration using <A HREF="FMOD_ChannelGroup_GetDSP.html">ChannelGroup::getDSP</A> or use the FMOD Studio Profiler tool which visualizes the units.<br>
+If a unit is specified at the location of an existing unit (as it always will be) then the existing unit's index is shifted down one.<br></p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_ChannelGroup_GetDSPIndex.html">ChannelGroup::getDSPIndex</A></LI>
+<LI><A HREF="FMOD_ChannelGroup_GetNumDSPs.html">ChannelGroup::getNumDSPs</A></LI>
+<LI><A HREF="FMOD_ChannelGroup_GetDSP.html">ChannelGroup::getDSP</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

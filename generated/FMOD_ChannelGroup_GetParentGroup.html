@@ -1,0 +1,41 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>ChannelGroup::getParentGroup</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>ChannelGroup::getParentGroup</H1>
+<P>
+<p>Retrieves a handle to the channel group parent.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT ChannelGroup::getParentGroup(
+  FMOD::ChannelGroup **<I>group</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_ChannelGroup_GetParentGroup(
+  FMOD_CHANNELGROUP *<I>channelgroup</I>,
+  FMOD_CHANNELGROUP **<I>group</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>group</dt>
+<dd>Address of a variable to receive a pointer to a channel group.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_ChannelGroup_AddGroup.html">ChannelGroup::addGroup</A></LI>
+<LI><A HREF="FMOD_ChannelGroup_GetNumGroups.html">ChannelGroup::getNumGroups</A></LI>
+<LI><A HREF="FMOD_ChannelGroup_GetGroup.html">ChannelGroup::getGroup</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

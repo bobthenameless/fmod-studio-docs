@@ -1,0 +1,60 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>ChannelGroup::set3DSpread</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>ChannelGroup::set3DSpread</H1>
+<P>
+<p>Sets the spread of a 3D sound in speaker space.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT ChannelGroup::set3DSpread(
+  float <I>angle</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_ChannelGroup_Set3DSpread(
+  FMOD_CHANNELGROUP *<I>channelgroup</I>,
+  float <I>angle</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>angle</dt>
+<dd>Speaker spread angle. 0 = all sound channels are located at the same speaker location and is 'mono'. 360 = all sound channels are located at the opposite speaker location to the speaker location that it should be according to 3D position. Default = 0.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Normally a 3D sound is aimed at one position in a speaker array depending on the 3D position to give it direction. Left and right parts
+of a stereo sound for example are consequently summed together and become 'mono'. When increasing the 'spread' of a sound, the left and
+right parts of a stereo sound rotate away from their original position, to give it more 'stereoness'. The rotation of the sound channels
+are done in 'speaker space'.</p>
+
+<p>Multichannel sounds with channel counts greater than stereo have their sub-channels spread evently through the specified angle. For example a 6 channel
+sound over a 90 degree spread has each channel located 15 degrees apart from each other in the speaker array.</p>
+
+<p>Mono sounds are spread as if they were a stereo signal, i.e. the signal is split into 2. The power will remain the same as it spreads around the speakers.</p>
+
+<p>To summarize (for a stereo sound).</p>
+
+<ol>
+<li>A spread angle of 0 makes the stereo sound mono at the point of the 3D emitter.</li>
+<li>A spread angle of 90 makes the left part of the stereo sound place itself at 45 degrees to the left and the right part 45 degrees to the right.</li>
+<li>A spread angle of 180 makes the left part of the stero sound place itself at 90 degrees to the left and the right part 90 degrees to the right.</li>
+<li>A spread angle of 360 makes the stereo sound mono at the opposite speaker location to where the 3D emitter should be located (by moving the left
+part 180 degrees left and the right part 180 degrees right). So in this case, behind you when the sound should be in front of you!</li>
+</ol>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_ChannelControl_Get3DSpread.html">ChannelControl::get3DSpread</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

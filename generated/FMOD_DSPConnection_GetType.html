@@ -1,0 +1,40 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>DSPConnection::getType</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>DSPConnection::getType</H1>
+<P>
+<p>Returns the type of the connection between 2 DSP units.  This can be <A HREF="FMOD_DSPCONNECTION_TYPE.html">FMOD_DSPCONNECTION_TYPE_STANDARD</A>,
+<A HREF="FMOD_DSPCONNECTION_TYPE.html">FMOD_DSPCONNECTION_TYPE_SIDECHAIN</A>, <A HREF="FMOD_DSPCONNECTION_TYPE.html">FMOD_DSPCONNECTION_TYPE_SEND</A> or <A HREF="FMOD_DSPCONNECTION_TYPE.html">FMOD_DSPCONNECTION_TYPE_SEND_SIDECHAIN</A>.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT DSPConnection::getType(
+  FMOD_DSPCONNECTION_TYPE *<I>type</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_DSPConnection_GetType(
+  FMOD_DSPCONNECTION *<I>dspconnection</I>,
+  FMOD_DSPCONNECTION_TYPE *<I>type</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>type</dt>
+<dd>Address of the variable to receive the type of connection between 2 DSP units. See <A HREF="FMOD_DSPCONNECTION_TYPE.html">FMOD_DSPCONNECTION_TYPE</A>.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSPCONNECTION_TYPE.html">FMOD_DSPCONNECTION_TYPE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

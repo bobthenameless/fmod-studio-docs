@@ -1,0 +1,63 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_OUTPUT_INIT_CALLBACK</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_OUTPUT_INIT_CALLBACK</H1>
+<P>
+<p>Initialization callback which is called when the user calls <A HREF="FMOD_System_Init.html">System::init</A>.</p>
+</P>
+<h3>C/C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT F_CALLBACK FMOD_OUTPUT_INIT_CALLBACK(
+  FMOD_OUTPUT_STATE *<I>output_state</I>,
+  int <I>selecteddriver</I>,
+  FMOD_INITFLAGS <I>flags</I>,
+  int *<I>outputrate</I>,
+  FMOD_SPEAKERMODE *<I>speakermode</I>,
+  int *<I>speakermodechannels</I>,
+  FMOD_SOUND_FORMAT *<I>outputformat</I>,
+  int <I>dspbufferlength</I>,
+  int <I>dspnumbuffers</I>,
+  void *<I>extradriverdata</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>output_state</I></P>
+<P class=indent>Pointer to the plugin state.  The user can use this variable to access runtime plugin specific variables and plugin writer user data.</P>
+<P class=dt><I>selecteddriver</I></P>
+<P class=indent>This is the selected driver id that the user chose from calling <A HREF="FMOD_System_SetDriver.html">System::setDriver</A>.</P>
+<P class=dt><I>flags</I></P>
+<P class=indent>Initialization flags passed in by the user.</P>
+<P class=dt><I>outputrate</I></P>
+<P class=indent>Output rate selected by the user.  If not possible, change the rate to the closest match. FMOD will resample from the rate requested to your rate if they do not match.</P>
+<P class=dt><I>speakermode</I></P>
+<P class=indent>Speaker mode selected by the user.  If not possible, change the speaker mode to the closest match.  FMOD will upmix or downmix to the requested speaker mode if they do not match.</P>
+<P class=dt><I>speakermodechannels</I></P>
+<P class=indent>Speaker mode channel count selected by the user. For example 1 = mono output.  2 = stereo output. Needed if supporting <A HREF="FMOD_SPEAKERMODE.html">FMOD_SPEAKERMODE_RAW</A>, otherwise it is informational.</P>
+<P class=dt><I>outputformat</I></P>
+<P class=indent>Sound format supported by output mode.  For example, <A HREF="FMOD_SOUND_FORMAT.html">FMOD_SOUND_FORMAT_PCM16</A> would be normal. FMOD will convert from <A HREF="FMOD_SOUND_FORMAT.html">FMOD_SOUND_FORMAT_PCMFLOAT</A> (the mixer buffer format) to whatever you specify.</P>
+<P class=dt><I>dspbufferlength</I></P>
+<P class=indent>Size of the buffer fmod will mix to in one mix update.  This value is in PCM samples.</P>
+<P class=dt><I>dspnumbuffers</I></P>
+<P class=indent>Number of buffers fmod will mix to in a circular fashion.  Multiply this by dspbufferlength to get the total size of the output sound buffer to allocate.</P>
+<P class=dt><I>extradriverdata</I></P>
+<P class=indent>Data passed in by the user specific to this driver.  May be used for any purpose.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Remember to return <A HREF="FMOD_RESULT.html">FMOD_OK</A> at the bottom of the function, or an appropriate error code from <A HREF="FMOD_RESULT.html">FMOD_RESULT</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_RESULT.html">FMOD_RESULT</A></LI>
+<LI><A HREF="FMOD_System_Init.html">System::init</A></LI>
+<LI><A HREF="FMOD_System_SetDriver.html">System::setDriver</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

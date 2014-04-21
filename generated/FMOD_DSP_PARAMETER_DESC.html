@@ -1,0 +1,64 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_PARAMETER_DESC</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_PARAMETER_DESC</H1>
+<P>
+<p>Base Structure for DSP parameter descriptions.</p>
+</P>
+<h3>Structure</h3>
+<PRE class=syntax><CODE>typedef struct {
+  FMOD_DSP_PARAMETER_TYPE <I>type</I>;
+  char <I>name</I>[16];
+  char <I>label</I>[16];
+  const char *<I>description</I>;
+  FMOD_DSP_PARAMETER_DESC_FLOAT <I>floatdesc</I>;
+  FMOD_DSP_PARAMETER_DESC_INT <I>intdesc</I>;
+  FMOD_DSP_PARAMETER_DESC_BOOL <I>booldesc</I>;
+  FMOD_DSP_PARAMETER_DESC_DATA <I>datadesc</I>;
+} FMOD_DSP_PARAMETER_DESC;
+</CODE></PRE>
+<h2>Members</h2>
+<P class=dt><I>type</I></P>
+<P class=indent>[w] Type of this parameter. </P>
+<P class=dt><I>name</I></P>
+<P class=indent>[w] Name of the parameter to be displayed (ie "Cutoff frequency"). </P>
+<P class=dt><I>label</I></P>
+<P class=indent>[w] Short string to be put next to value to denote the unit type (ie "hz"). </P>
+<P class=dt><I>description</I></P>
+<P class=indent>[w] Description of the parameter to be displayed as a help item / tooltip for this parameter. </P>
+<P class=dt><I>floatdesc</I></P>
+<P class=indent>[w] Struct containing information about the parameter in floating point format.  Use when type is <A HREF="FMOD_DSP_PARAMETER_TYPE.html">FMOD_DSP_PARAMETER_TYPE_FLOAT</A>. </P>
+<P class=dt><I>intdesc</I></P>
+<P class=indent>[w] Struct containing information about the parameter in integer format.  Use when type is <A HREF="FMOD_DSP_PARAMETER_TYPE.html">FMOD_DSP_PARAMETER_TYPE_INT</A>. </P>
+<P class=dt><I>booldesc</I></P>
+<P class=indent>[w] Struct containing information about the parameter in boolean format.  Use when type is <A HREF="FMOD_DSP_PARAMETER_TYPE.html">FMOD_DSP_PARAMETER_TYPE_BOOL</A>. </P>
+<P class=dt><I>datadesc</I></P>
+<P class=indent>[w] Struct containing information about the parameter in data format.  Use when type is <A HREF="FMOD_DSP_PARAMETER_TYPE.html">FMOD_DSP_PARAMETER_TYPE_DATA</A>. </P>
+<h2>Remarks</h2><P>
+<p>Members marked with [r] mean the variable is modified by FMOD and is for reading purposes only.  Do not change this value.<br>
+Members marked with [w] mean the variable can be written to.  The user can set the value.<br></p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_CreateDSP.html">System::createDSP</A></LI>
+<LI><A HREF="FMOD_DSP_SetParameterFloat.html">DSP::setParameterFloat</A></LI>
+<LI><A HREF="FMOD_DSP_GetParameterFloat.html">DSP::getParameterFloat</A></LI>
+<LI><A HREF="FMOD_DSP_SetParameterInt.html">DSP::setParameterInt</A></LI>
+<LI><A HREF="FMOD_DSP_GetParameterInt.html">DSP::getParameterInt</A></LI>
+<LI><A HREF="FMOD_DSP_SetParameterBool.html">DSP::setParameterBool</A></LI>
+<LI><A HREF="FMOD_DSP_GetParameterBool.html">DSP::getParameterBool</A></LI>
+<LI><A HREF="FMOD_DSP_SetParameterData.html">DSP::setParameterData</A></LI>
+<LI><A HREF="FMOD_DSP_GetParameterData.html">DSP::getParameterData</A></LI>
+<LI><A HREF="FMOD_DSP_PARAMETER_DESC_FLOAT.html">FMOD_DSP_PARAMETER_DESC_FLOAT</A></LI>
+<LI><A HREF="FMOD_DSP_PARAMETER_DESC_INT.html">FMOD_DSP_PARAMETER_DESC_INT</A></LI>
+<LI><A HREF="FMOD_DSP_PARAMETER_DESC_BOOL.html">FMOD_DSP_PARAMETER_DESC_BOOL</A></LI>
+<LI><A HREF="FMOD_DSP_PARAMETER_DESC_DATA.html">FMOD_DSP_PARAMETER_DESC_DATA</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

@@ -1,0 +1,50 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::attachChannelGroupToPort</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::attachChannelGroupToPort</H1>
+<P>
+<p>Route the signal from a channel group into a seperate audio port on the output driver.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::attachChannelGroupToPort(
+  FMOD_PORT_TYPE <I>portType</I>,
+  FMOD_PORT_INDEX <I>portIndex</I>,
+  FMOD::ChannelGroup *<I>channelgroup</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_AttachChannelGroupToPort(
+  FMOD_SYSTEM *<I>system</I>,
+  FMOD_PORT_TYPE <I>portType</I>,
+  FMOD_PORT_INDEX <I>portIndex</I>,
+  FMOD_CHANNELGROUP *<I>channelgroup</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>portType</dt>
+<dd>Output driver specific audio port type</dd>
+<dt>portIndex</dt>
+<dd>Output driver specific index of the audio port</dd>
+<dt>channelgroup</dt>
+<dd>Channel group to route away to the new port</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>No signal from the channelgroup will be played through the default output port.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_DetachChannelGroupFromPort.html">System::detachChannelGroupFromPort</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

@@ -1,0 +1,46 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_STUDIO_LOADING_STATE</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_STUDIO_LOADING_STATE</H1>
+<P>
+<p>These values describe the loading status of various objects.</p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_STUDIO_LOADING_STATE_UNLOADING,
+  FMOD_STUDIO_LOADING_STATE_UNLOADED,
+  FMOD_STUDIO_LOADING_STATE_LOADING,
+  FMOD_STUDIO_LOADING_STATE_LOADED
+} FMOD_STUDIO_LOADING_STATE;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_STUDIO_LOADING_STATE_UNLOADING</I></P>
+<P class=indent>Currently unloading. </P>
+<P class=dt><I>FMOD_STUDIO_LOADING_STATE_UNLOADED</I></P>
+<P class=indent>Not loaded. </P>
+<P class=dt><I>FMOD_STUDIO_LOADING_STATE_LOADING</I></P>
+<P class=indent>Loading in progress. </P>
+<P class=dt><I>FMOD_STUDIO_LOADING_STATE_LOADED</I></P>
+<P class=indent>Loaded and ready to play. </P>
+<h2>Remarks</h2><P>
+<p>Calling <A HREF="FMOD_Studio_System_LoadBankFile.html">Studio::System::loadBankFile</A>, <A HREF="FMOD_Studio_System_LoadBankMemory.html">Studio::System::loadBankMemory</A> or <A HREF="FMOD_Studio_System_LoadBankCustom.html">Studio::System::loadBankCustom</A>
+will trigger loading of metadata from the bank.</p>
+
+<p>Calling <A HREF="FMOD_Studio_EventDescription_LoadSampleData.html">Studio::EventDescription::loadSampleData</A>, <A HREF="FMOD_Studio_EventDescription_CreateInstance.html">Studio::EventDescription::createInstance</A>
+or <A HREF="FMOD_Studio_Bank_LoadSampleData.html">Studio::Bank::loadSampleData</A> may trigger asynchronous loading of sample data.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Studio_EventDescription_GetSampleLoadingState.html">Studio::EventDescription::getSampleLoadingState</A></LI>
+<LI><A HREF="FMOD_Studio_MixerStrip_GetLoadingState.html">Studio::MixerStrip::getLoadingState</A></LI>
+<LI><A HREF="FMOD_Studio_Bank_GetLoadingState.html">Studio::Bank::getLoadingState</A></LI>
+<LI><A HREF="FMOD_Studio_Bank_GetSampleLoadingState.html">Studio::Bank::getSampleLoadingState</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

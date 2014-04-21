@@ -1,0 +1,60 @@
+<LINK REL="stylesheet" href="../../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Threads and Thread Safety</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<h1>Threads and Thread Safety</h1>
+
+<h2>Introduction</h2>
+
+<p>This section will describe the threads FMOD uses, and the thread safety offered by both the Studio API and the Low Level API.</p>
+
+<h2>FMOD Thread Types</h2>
+
+<h3>Studio Thread</h3>
+
+<p>This thread processes all Studio API commands and updates Studio events.  It is created during <A HREF="../FMOD_Studio_System_Initialize.html">Studio::System::initialize</A> by default, unless <A HREF="../FMOD_STUDIO_INITFLAGS.html">FMOD_STUDIO_INIT_SYNCHRONOUS_UPDATE</A> is specified as a init flag.</p>
+
+<h3>Mixer Thread</h3>
+
+<p>This thread is the software mixing thread.  This is the thread that does the real work of mixing the DSP graph.  It is created at <A HREF="../FMOD_System_Init.html">System::init</A>.</p>
+
+<h3>Stream Thread</h3>
+
+<p>This thread is used for decoding streams.  It is created the first time a sound is loaded as a stream in <A HREF="../FMOD_System_CreateSound.html">System::createSound</A> with <A HREF="../FMOD_MODE.html">FMOD_CREATESTREAM</A>, or <A HREF="../FMOD_System_CreateStream.html">System::createStream</A>.</p>
+
+<h3>Async Loading Thread</h3>
+
+<p>This thread is created the first time a sound is loaded with the <A HREF="../FMOD_MODE.html">FMOD_NONBLOCKING</A> flag in <A HREF="../FMOD_System_CreateSound.html">System::createSound</A>.</p>
+
+<h3>File Reading Thread</h3>
+
+<p>This thread is used for reading from disk for streams, to then be decoded (decompressed) by the Stream thread.  It is created the first time a sound is loaded as a stream in <A HREF="../FMOD_System_CreateSound.html">System::createSound</A> with <A HREF="../FMOD_MODE.html">FMOD_CREATESTREAM</A>, or <A HREF="../FMOD_System_CreateStream.html">System::createStream</A>.</p>
+
+<h2>Thread Affinity</h2>
+
+<p>On some platforms, threads are always specified run on a particular core or hardware thread.  These platforms will have additional FMOD structures and functions defined in the platform-specific header to allow thread affinity to be customized.</p>
+
+<h2>FMOD Callback Types</h2>
+
+<p>FMOD File and memory callbacks can possibly be called from an FMOD thread. Remember that if you specify file or memory callbacks with FMOD, to make sure that they are thread safe. FMOD may call these callbacks from other threads.</p>
+
+<h2>FMOD Thread Safety</h2>
+
+<h3>FMOD Studio Thread Safety</h3>
+
+<p>By default FMOD Studio API is completely thread safe and all commands will execute on the Studio thread.  In the case of functions that return handles to the user, the handle will be valid as soon as the function returns it, and all functions using that handle will be available.  Therefore, the fact that the commands have been delayed should be completely transparent to the user.</p>
+
+<p>If <A HREF="../FMOD_Studio_System_Initialize.html">Studio::System::initialize</A> is called with <A HREF="../FMOD_STUDIO_INITFLAGS.html">FMOD_STUDIO_INIT_SYNCHRONOUS_UPDATE</A>, then Studio will not be thread-safe as it assumes all calls will be issued from a single thread. Commands in this mode will be queued up to be processed in the next <A HREF="../FMOD_Studio_System_Update.html">Studio::System::update</A> call.  This mode is not recommended except for testing or for users who have set up their own asynchronous command queue already and wish to process all calls on a single thread.</p>
+
+<h3>FMOD Low Level Thread Safety</h3>
+
+<p>By default FMOD Low Level is initialized to be thread safe, which means the API can be called from any game thread at any time.  Low Level thread safety can be disabled with the <A HREF="../FMOD_INITFLAGS.html">FMOD_INIT_THREAD_UNSAFE</A> flag in <A HREF="../FMOD_System_Init.html">System::init</A> or <A HREF="../FMOD_Studio_System_Initialize.html">Studio::System::initialize</A>.  The overhead of thread safety is that there is a mutex lock around the public API functions and (where possible) some commands are enqueued to be executed the next system update.  The cases where it is safe to disable thread safety are:</p>
+
+<ul>
+<li>The game is using FMOD Studio API exclusively, and never issues Low Level calls itself.</li>
+<li>The game is using FMOD Low Level exclusively, and always from a single thread at once.</li>
+<li>The game is using FMOD Studio API and Low Level at the same time, but FMOD Studio is created with <A HREF="../FMOD_STUDIO_INITFLAGS.html">FMOD_STUDIO_INIT_SYNCHRONOUS_UPDATE</A> and the Low Level calls are done in the same thread as the FMOD Studio calls.</li>
+</ul>

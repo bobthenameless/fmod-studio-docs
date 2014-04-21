@@ -1,0 +1,35 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>ChannelControl::get3DCustomRolloff</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>ChannelControl::get3DCustomRolloff</H1>
+<P>
+<p>Retrieves a pointer to the current custom rolloff curve.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT ChannelControl::get3DCustomRolloff(
+  FMOD_VECTOR **<I>points</I>,
+  int *<I>numpoints</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>points</I></P>
+<P class=indent>Address of a variable to receive the pointer to the current custom rolloff point list. Optional, specify 0 or NULL to ignore.</P>
+<P class=dt><I>numpoints</I></P>
+<P class=indent>Address of a variable to receive the number of points int he current custom rolloff point list.  Optional, specify 0 or NULL to ignore.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_ChannelControl_Set3DCustomRolloff.html">ChannelControl::set3DCustomRolloff</A></LI>
+<LI><A HREF="FMOD_VECTOR.html">FMOD_VECTOR</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

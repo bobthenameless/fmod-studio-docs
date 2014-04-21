@@ -1,0 +1,90 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Memory_Initialize</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Memory_Initialize</H1>
+<P>
+<p>Specifies a method for FMOD to allocate memory, either through callbacks or its own internal memory management.
+You can also supply a pool of memory for FMOD to work with and it will do so with no extra calls to malloc or free.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Memory_Initialize(
+  void *<I>poolmem</I>,
+  int <I>poollen</I>,
+  FMOD_MEMORY_ALLOC_CALLBACK <I>useralloc</I>,
+  FMOD_MEMORY_REALLOC_CALLBACK <I>userrealloc</I>,
+  FMOD_MEMORY_FREE_CALLBACK <I>userfree</I>,
+  FMOD_MEMORY_TYPE <I>memtypeflags</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Memory_Initialize(
+  void *<I>poolmem</I>,
+  int <I>poollen</I>,
+  FMOD_MEMORY_ALLOC_CALLBACK <I>useralloc</I>,
+  FMOD_MEMORY_REALLOC_CALLBACK <I>userrealloc</I>,
+  FMOD_MEMORY_FREE_CALLBACK <I>userfree</I>,
+  FMOD_MEMORY_TYPE <I>memtypeflags</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>poolmem</I></P>
+<P class=indent>If you want a fixed block of memory for FMOD to use, pass it in here.  Specify the length in poollen.  Specifying NULL doesn't use internal management and it relies on callbacks.</P>
+<P class=dt><I>poollen</I></P>
+<P class=indent>Length in bytes of the pool of memory for FMOD to use specified in poolmem.  Specifying 0 turns off internal memory management and relies purely on callbacks.  Length must be a multiple of 512.</P>
+<P class=dt><I>useralloc</I></P>
+<P class=indent>Only supported if pool is NULL.  Otherwise it overrides the FMOD internal calls to alloc. Compatible with ansi malloc().</P>
+<P class=dt><I>userrealloc</I></P>
+<P class=indent>Only supported if pool is NULL.  Otherwise it overrides the FMOD internal calls to realloc. Compatible with ansi realloc().</P>
+<P class=dt><I>userfree</I></P>
+<P class=indent>Only supported if pool is NULL.  Otherwise it overrides the FMOD internal calls to free. Compatible with ansi free().</P>
+<P class=dt><I>memtypeflags</I></P>
+<P class=indent><A HREF="FMOD_MEMORY_TYPE.html">FMOD_MEMORY_TYPE</A> flags you wish to receive through your memory callbacks. See <A HREF="FMOD_MEMORY_TYPE.html">FMOD_MEMORY_TYPE</A>. Bitwise OR these together for multiple types.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>This function is useful for systems that want FMOD to use their own memory management or for fixed memory devices
+such as Xbox360 that don't want any allocations occurring out of their control causing fragmentation or
+unpredictable overflows in a tight memory space.</p>
+
+<p>FMOD mainly does allocation when creating streams, music or samples and the <A HREF="FMOD_System_Init.html">System::init</A> stage. It will rarely
+allocate or deallocate memory during the course of runtime processing.</p>
+
+<p>To find out the required fixed size the user can call <A HREF="FMOD_Memory_Initialize.html">Memory_Initialize</A> with an overly large pool size (or no pool)
+and find out the maximum RAM usage at any one time with <A HREF="FMOD_Memory_GetStats.html">Memory_GetStats</A>.</p>
+
+<p>FMOD behaves differently based on what you pass into this function in 3 different combinations. For example:</p>
+
+<pre><code>FMOD::Memory_Initialize(NULL, 0,   NULL,    NULL,      NULL,   <A HREF="FMOD_MEMORY_TYPE.html">FMOD_MEMORY_ALL</A>);  // Falls back purely to ansi C malloc, realloc and free.  <A HREF="FMOD_MEMORY_TYPE.html">FMOD_MEMORY_ALL</A> is irrelevant in this case.
+FMOD::Memory_Initialize(NULL, 0,   myalloc, myrealloc, myfree, <A HREF="FMOD_MEMORY_TYPE.html">FMOD_MEMORY_ALL</A>);  // Calls user supplied callbacks every time FMOD does a memory allocation or deallocation.
+FMOD::Memory_Initialize(ptr,  len, NULL,    NULL,      NULL,   <A HREF="FMOD_MEMORY_TYPE.html">FMOD_MEMORY_ALL</A>);  // Uses "ptr" and manages memory internally.  NO extra mallocs or frees are performed from this point.  <A HREF="FMOD_MEMORY_TYPE.html">FMOD_MEMORY_ALL</A> is irrelevant in this case.
+</code></pre>
+
+<p>Callbacks and memory pools cannot be combined. If a memory pool is provided by the user, FMOD accesses that pool
+using its own memory management scheme. FMOD's internal memory management scheme is extremely efficient and also
+faster than the standard C malloc and free.</p>
+
+<p><strong>NOTE!</strong> Your memory callbacks must be threadsafe otherwise unexpected behaviour may occur. FMOD calls memory
+allocation functions from other threads (such as the asynchronous loading thread used when you specify
+<A HREF="FMOD_MODE.html">FMOD_NONBLOCKING</A>) and sometimes from the mixer thread.</p>
+
+<p><strong>NOTE!</strong> If you specify a fixed size pool that is too small, FMOD will return <A HREF="FMOD_RESULT.html">FMOD_ERR_MEMORY</A> when the limit of
+the fixed size pool is exceeded. At this point, it's possible that FMOD may become unstable. To maintain stability,
+do not allow FMOD to run out of memory.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_MEMORY_ALLOC_CALLBACK.html">FMOD_MEMORY_ALLOC_CALLBACK</A></LI>
+<LI><A HREF="FMOD_MEMORY_REALLOC_CALLBACK.html">FMOD_MEMORY_REALLOC_CALLBACK</A></LI>
+<LI><A HREF="FMOD_MEMORY_FREE_CALLBACK.html">FMOD_MEMORY_FREE_CALLBACK</A></LI>
+<LI><A HREF="FMOD_Memory_GetStats.html">Memory_GetStats</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

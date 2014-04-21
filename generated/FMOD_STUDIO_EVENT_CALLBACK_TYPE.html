@@ -1,0 +1,75 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_STUDIO_EVENT_CALLBACK_TYPE</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_STUDIO_EVENT_CALLBACK_TYPE</H1>
+<P>
+<p>These callback types are used with <A HREF="FMOD_STUDIO_EVENT_CALLBACK.html">FMOD_STUDIO_EVENT_CALLBACK</A>.</p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_STUDIO_EVENT_CALLBACK_STARTED,
+  FMOD_STUDIO_EVENT_CALLBACK_STOPPED,
+  FMOD_STUDIO_EVENT_CALLBACK_IDLE,
+  FMOD_STUDIO_EVENT_CALLBACK_CREATE_PROGRAMMER_SOUND,
+  FMOD_STUDIO_EVENT_CALLBACK_DESTROY_PROGRAMMER_SOUND,
+  FMOD_STUDIO_EVENT_CALLBACK_RESTARTED
+} FMOD_STUDIO_EVENT_CALLBACK_TYPE;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_STUDIO_EVENT_CALLBACK_STARTED</I></P>
+<P class=indent>Called when an instance starts. Parameters = FMOD_STUDIO_EVENTINSTANCE, which can be cast to Studio::EventInstance* type. </P>
+<P class=dt><I>FMOD_STUDIO_EVENT_CALLBACK_STOPPED</I></P>
+<P class=indent>Called when an instance stops. Parameters = FMOD_STUDIO_EVENTINSTANCE, which can be cast to Studio::EventInstance* type. </P>
+<P class=dt><I>FMOD_STUDIO_EVENT_CALLBACK_IDLE</I></P>
+<P class=indent>Called when an instance enters the idle state. Parameters = FMOD_STUDIO_EVENTINSTANCE, which can be cast to Studio::EventInstance* type. </P>
+<P class=dt><I>FMOD_STUDIO_EVENT_CALLBACK_CREATE_PROGRAMMER_SOUND</I></P>
+<P class=indent>Called when a programmer sound needs to be created in order to play a programmer instrument. Parameters = <A HREF="FMOD_STUDIO_PROGRAMMER_SOUND_PROPERTIES.html">FMOD_STUDIO_PROGRAMMER_SOUND_PROPERTIES</A>. </P>
+<P class=dt><I>FMOD_STUDIO_EVENT_CALLBACK_DESTROY_PROGRAMMER_SOUND</I></P>
+<P class=indent>Called when a programmer sound needs to be destroyed. Parameters = <A HREF="FMOD_STUDIO_PROGRAMMER_SOUND_PROPERTIES.html">FMOD_STUDIO_PROGRAMMER_SOUND_PROPERTIES</A>. </P>
+<P class=dt><I>FMOD_STUDIO_EVENT_CALLBACK_RESTARTED</I></P>
+<P class=indent>Called when an instance is restarted. Parameters = FMOD_STUDIO_EVENTINSTANCE, which can be cast to Studio::EventInstance* type. </P>
+<h2>Remarks</h2><P>
+<p>The data passed to the event callback function in the <em>parameters</em> argument varies based on the callback type.</p>
+
+<p><A HREF="FMOD_STUDIO_EVENT_CALLBACK_TYPE.html">FMOD_STUDIO_EVENT_CALLBACK_STARTED</A> is called when:</p>
+
+<ul>
+<li><A HREF="FMOD_Studio_EventInstance_Start.html">Studio::EventInstance::start</A> has been called on an event which was not already playing.</li>
+</ul>
+
+<p><A HREF="FMOD_STUDIO_EVENT_CALLBACK_TYPE.html">FMOD_STUDIO_EVENT_CALLBACK_RESTARTED</A> is called when:</p>
+
+<ul>
+<li><A HREF="FMOD_Studio_EventInstance_Start.html">Studio::EventInstance::start</A> has been called on an event which was already playing.</li>
+</ul>
+
+<p><A HREF="FMOD_STUDIO_EVENT_CALLBACK_TYPE.html">FMOD_STUDIO_EVENT_CALLBACK_STOPPED</A> is called when:</p>
+
+<ul>
+<li>The event has stopped due to <A HREF="FMOD_Studio_EventInstance_Stop.html">Studio::EventInstance::stop</A> being called with <A HREF="FMOD_STUDIO_STOP_MODE.html">FMOD_STUDIO_STOP_IMMEDIATE</A>.</li>
+<li>The event has finished fading out after <A HREF="FMOD_Studio_EventInstance_Stop.html">Studio::EventInstance::stop</A> was called with <A HREF="FMOD_STUDIO_STOP_MODE.html">FMOD_STUDIO_STOP_ALLOWFADEOUT</A>.</li>
+<li>The event has stopped naturally by reaching the end of the timeline, and no further sounds can be triggered due to
+parameter changes.</li>
+</ul>
+
+<p><A HREF="FMOD_STUDIO_EVENT_CALLBACK_TYPE.html">FMOD_STUDIO_EVENT_CALLBACK_IDLE</A> is called when:</p>
+
+<ul>
+<li>The event has reached the end of the timeline and all sounds have finished, but further sounds could be triggered due to
+parameter changes.</li>
+</ul>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Studio_EventDescription_SetCallback.html">Studio::EventDescription::setCallback</A></LI>
+<LI><A HREF="FMOD_Studio_EventInstance_SetCallback.html">Studio::EventInstance::setCallback</A></LI>
+<LI><A HREF="FMOD_STUDIO_EVENT_CALLBACK.html">FMOD_STUDIO_EVENT_CALLBACK</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

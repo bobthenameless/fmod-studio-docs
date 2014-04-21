@@ -1,0 +1,124 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::setCallback</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::setCallback</H1>
+<P>
+<p>Sets a system callback to catch various fatal or informational events.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::setCallback(
+  FMOD_SYSTEM_CALLBACK <I>callback</I>,
+  FMOD_SYSTEM_CALLBACK_TYPE <I>callbackmask</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_SetCallback(
+  FMOD_SYSTEM *<I>system</I>,
+  FMOD_SYSTEM_CALLBACK <I>callback</I>,
+  FMOD_SYSTEM_CALLBACK_TYPE <I>callbackmask</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>callback</dt>
+<dd>Pointer to a callback to receive the event callback when it happens.</dd>
+<dt>callbackmask</dt>
+<dd>A bitfield describing which callbacks are required to be triggered.  Masking out some callback types can help avoid a flood of irrelevant callbacks being triggered.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>System callbacks are not asynchronous and are bound by the latency caused by the rate the user calls the update command.</p>
+
+<p>Callbacks are stdcall.  Use F_CALLBACK inbetween your return type and function name.</p>
+
+<p>Example:</p>
+
+<pre><code><A HREF="FMOD_RESULT.html">FMOD_RESULT</A> F_CALLBACK systemcallback(FMOD_SYSTEM *system, <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_TYPE</A> type, void *commanddata1, void *commanddata2, void* userdata)
+{
+    FMOD::System *sys = (FMOD::System *)system;
+
+    switch (type)
+    {
+        case <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_DEVICELISTCHANGED</A>:
+        {
+            int numdrivers;
+
+            printf("NOTE : <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_DEVICELISTCHANGED</A> occured.\n");
+
+            sys-&gt;getNumDrivers(&amp;numdrivers);
+
+            printf("Numdevices = %d\n", numdrivers);
+            break;
+        }
+        case <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_MEMORYALLOCATIONFAILED</A>:
+        {
+            printf("ERROR : <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_MEMORYALLOCATIONFAILED</A> occured.\n");
+            printf("%s.\n", commanddata1);
+            printf("%d bytes.\n", commanddata2);
+            break;
+        }
+        case <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_THREADCREATED</A>:
+        {
+            printf("NOTE : <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_THREADCREATED</A> occured.\n");
+            printf("Thread ID = %d\n", (int)commanddata1);
+            printf("Thread Name = %s\n", (char *)commanddata2);
+            break;
+        }
+        case <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_BADDSPCONNECTION</A>:
+        {
+            FMOD::DSP *source = (FMOD::DSP *)commanddata1;
+            FMOD::DSP *dest = (FMOD::DSP *)commanddata2;
+
+            printf("ERROR : <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_BADDSPCONNECTION</A> occured.\n");
+            if (source)
+            {
+                char name[256];
+                source-&gt;getInfo(name, 0,0,0,0);
+                printf("SOURCE = %s\n", name);
+            }
+            if (dest)
+            {
+                char name[256];
+                dest-&gt;getInfo(name, 0,0,0,0);
+                printf("DEST = %s\n", name);
+            }
+            break;
+        }
+        case FMOD_SYSTEM_CALLBACK_BADDSPLEVEL:
+        {
+            printf("NOTE : FMOD_SYSTEM_CALLBACK_BADDSPLEVEL occured.\n");
+            break;
+        }
+        case <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_PREMIX</A>:
+        {
+            printf("NOTE : <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_PREMIX</A> occured.\n");
+            break;
+        }
+        case <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_POSTMIX</A>:
+        {
+            printf("NOTE : <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_POSTMIX</A> occured.\n");
+            break;
+        }
+    }
+
+    return <A HREF="FMOD_RESULT.html">FMOD_OK</A>;
+}
+</code></pre>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_Update.html">System::update</A></LI>
+<LI><A HREF="FMOD_SYSTEM_CALLBACK.html">FMOD_SYSTEM_CALLBACK</A></LI>
+<LI><A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_TYPE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

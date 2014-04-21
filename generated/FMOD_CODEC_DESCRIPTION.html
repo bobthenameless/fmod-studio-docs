@@ -1,0 +1,65 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_CODEC_DESCRIPTION</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_CODEC_DESCRIPTION</H1>
+<P>
+<p>When creating a codec, declare one of these and provide the relevant callbacks and name for FMOD to use when it opens and reads a file.</p>
+</P>
+<h3>Structure</h3>
+<PRE class=syntax><CODE>typedef struct {
+  const char *<I>name</I>;
+  unsigned int <I>version</I>;
+  int <I>defaultasstream</I>;
+  FMOD_TIMEUNIT <I>timeunits</I>;
+  FMOD_CODEC_OPEN_CALLBACK <I>open</I>;
+  FMOD_CODEC_CLOSE_CALLBACK <I>close</I>;
+  FMOD_CODEC_READ_CALLBACK <I>read</I>;
+  FMOD_CODEC_GETLENGTH_CALLBACK <I>getlength</I>;
+  FMOD_CODEC_SETPOSITION_CALLBACK <I>setposition</I>;
+  FMOD_CODEC_GETPOSITION_CALLBACK <I>getposition</I>;
+  FMOD_CODEC_SOUNDCREATE_CALLBACK <I>soundcreate</I>;
+  FMOD_CODEC_GETWAVEFORMAT_CALLBACK <I>getwaveformat</I>;
+} FMOD_CODEC_DESCRIPTION;
+</CODE></PRE>
+<h2>Members</h2>
+<P class=dt><I>name</I></P>
+<P class=indent>[in] Name of the codec. </P>
+<P class=dt><I>version</I></P>
+<P class=indent>[in] Plugin writer's version number. </P>
+<P class=dt><I>defaultasstream</I></P>
+<P class=indent>[in] Tells FMOD to open the file as a stream when calling <A HREF="FMOD_System_CreateSound.html">System::createSound</A>, and not a static sample.  Should normally be 0 (FALSE), because generally the user wants to decode the file into memory when using <A HREF="FMOD_System_CreateSound.html">System::createSound</A>.   Mainly used for formats that decode for a very long time, or could use large amounts of memory when decoded.  Usually sequenced formats such as mod/s3m/xm/it/midi fall into this category.   It is mainly to stop users that don't know what they're doing from getting <A HREF="FMOD_RESULT.html">FMOD_ERR_MEMORY</A> returned from createSound when they should have in fact called <A HREF="FMOD_System_CreateStream.html">System::createStream</A> or used <A HREF="FMOD_MODE.html">FMOD_CREATESTREAM</A> in <A HREF="FMOD_System_CreateSound.html">System::createSound</A>. </P>
+<P class=dt><I>timeunits</I></P>
+<P class=indent>[in] When setposition codec is called, only these time formats will be passed to the codec. Use bitwise OR to accumulate different types. </P>
+<P class=dt><I>open</I></P>
+<P class=indent>[in] Open callback for the codec for when FMOD tries to open a sound using this codec. </P>
+<P class=dt><I>close</I></P>
+<P class=indent>[in] Close callback for the codec for when FMOD tries to close a sound using this codec.  </P>
+<P class=dt><I>read</I></P>
+<P class=indent>[in] Read callback for the codec for when FMOD tries to read some data from the file to the destination format (specified in the open callback). </P>
+<P class=dt><I>getlength</I></P>
+<P class=indent>[in] Callback to return the length of the song in whatever format required when <A HREF="FMOD_Sound_GetLength.html">Sound::getLength</A> is called. </P>
+<P class=dt><I>setposition</I></P>
+<P class=indent>[in] Seek callback for the codec for when FMOD tries to seek within the file with <A HREF="FMOD_Channel_SetPosition.html">Channel::setPosition</A>. </P>
+<P class=dt><I>getposition</I></P>
+<P class=indent>[in] Tell callback for the codec for when FMOD tries to get the current position within the with <A HREF="FMOD_Channel_GetPosition.html">Channel::getPosition</A>. </P>
+<P class=dt><I>soundcreate</I></P>
+<P class=indent>[in] Sound creation callback for the codec when FMOD finishes creating the sound.  (So the codec can set more parameters for the related created sound, ie loop points/mode or 3D attributes etc). </P>
+<P class=dt><I>getwaveformat</I></P>
+<P class=indent>[in] Callback to tell FMOD about the waveformat of a particular subsound.  This is to save memory, rather than saving 1000 <A HREF="FMOD_CODEC_WAVEFORMAT.html">FMOD_CODEC_WAVEFORMAT</A> structures in the codec, the codec might have a more optimal way of storing this information. </P>
+<h2>Remarks</h2><P>
+<p>Members marked with [in] mean the variable can be written to.  The user can set the value.<br>
+Members marked with [out] mean the variable is modified by FMOD and is for reading purposes only.  Do not change this value.<br></p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_CODEC_STATE.html">FMOD_CODEC_STATE</A></LI>
+<LI><A HREF="FMOD_CODEC_WAVEFORMAT.html">FMOD_CODEC_WAVEFORMAT</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

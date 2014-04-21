@@ -1,0 +1,47 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>ChannelGroup::setMixLevelsInput</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>ChannelGroup::setMixLevelsInput</H1>
+<P>
+<p>Sets the incoming volume level for each channel, this is a helper to avoid calling <A HREF="FMOD_ChannelControl_SetMixMatrix.html">ChannelControl::setMixMatrix</A>. This means if you have multichannel audio you can turn channels on and off, a mono signal has 1 input channel, stereo has 2, etc.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT ChannelGroup::setMixLevelsInput(
+  float *<I>levels</I>,
+  int <I>numlevels</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_ChannelGroup_SetMixLevelsInput(
+  FMOD_CHANNELGROUP *<I>channelgroup</I>,
+  float *<I>levels</I>,
+  int <I>numlevels</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>levels</dt>
+<dd>Array of volume levels for each incoming channel.</dd>
+<dt>numlevels</dt>
+<dd>Number of levels in the array, from 0 to 32 inclusive.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Levels can be below 0 to invert a signal and above 1 to amplify the signal. Note that increasing the signal level too far may cause audible distortion.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_ChannelControl_SetMixMatrix.html">ChannelControl::setMixMatrix</A></LI>
+<LI><A HREF="FMOD_ChannelControl_GetMixMatrix.html">ChannelControl::getMixMatrix</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

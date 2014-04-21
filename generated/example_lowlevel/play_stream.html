@@ -1,0 +1,18 @@
+<LINK REL="stylesheet" href="../../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Play Stream Example</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<h1>Play Stream Example</h1>
+
+<p>This example shows how to simply play a stream such as an MP3 or WAV. The stream
+behaviour is achieved by specifying <A HREF="../FMOD_MODE.html">FMOD_CREATESTREAM</A> in the call to 
+<A HREF="../FMOD_System_CreateSound.html">System::createSound</A>. This makes FMOD decode the file in realtime as it plays,
+instead of loading it all at once which uses far less memory in exchange for a
+small runtime CPU hit.</p>
+
+<h3>Location</h3>
+
+<p>The example is located at api/lowlevel/examples/play_stream.cpp.</p>

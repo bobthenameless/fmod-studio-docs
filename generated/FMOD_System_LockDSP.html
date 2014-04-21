@@ -1,0 +1,36 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::lockDSP</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::lockDSP</H1>
+<P>
+<p>Mutual exclusion function to lock the FMOD DSP engine (which runs asynchronously in another thread), so that it
+will not execute.  If the FMOD DSP engine is already executing, this function will block until it has completed.<br>
+The function may be used to synchronize DSP network operations carried out by the user.<br>
+An example of using this function may be for when the user wants to construct a DSP sub-network, without the DSP
+engine executing in the background while the sub-network is still under construction.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::lockDSP();</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_LockDSP(FMOD_SYSTEM *<I>system</I>);</CODE></PRE>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Once the user no longer needs the DSP engine locked, it must be unlocked with <A HREF="FMOD_System_UnlockDSP.html">System::unlockDSP</A>.<br>
+Note that the DSP engine should not be locked for a significant amount of time, otherwise inconsistency in the
+audio output may result. (audio skipping/stuttering).</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_UnlockDSP.html">System::unlockDSP</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

@@ -1,0 +1,37 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>ChannelControl::set3DConeOrientation</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>ChannelControl::set3DConeOrientation</H1>
+<P>
+<p>Sets the orientation of the sound projection cone.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT ChannelControl::set3DConeOrientation(
+  FMOD_VECTOR *<I>orientation</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>orientation</I></P>
+<P class=indent>Coordinates of the sound cone orientation vector, the vector information represents the center of the sound cone.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>This function has no effect unless the cone angle and cone outside volume have also been set to values other than the default.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_ChannelControl_Get3DConeOrientation.html">ChannelControl::get3DConeOrientation</A></LI>
+<LI><A HREF="FMOD_ChannelControl_Set3DConeSettings.html">ChannelControl::set3DConeSettings</A></LI>
+<LI><A HREF="FMOD_Sound_Set3DConeSettings.html">Sound::set3DConeSettings</A></LI>
+<LI><A HREF="FMOD_VECTOR.html">FMOD_VECTOR</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

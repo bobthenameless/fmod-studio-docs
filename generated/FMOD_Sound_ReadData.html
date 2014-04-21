@@ -1,0 +1,65 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Sound::readData</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Sound::readData</H1>
+<P>
+<p>Reads data from an opened sound to a specified pointer, using the FMOD codec created internally.<br>
+This can be used for decoding data offline in small pieces (or big pieces), rather than playing and capturing it, or loading the whole file at once and having to lock / unlock the data.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Sound::readData(
+  void *<I>buffer</I>,
+  unsigned int <I>lenbytes</I>,
+  unsigned int *<I>read</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Sound_ReadData(
+  FMOD_SOUND *<I>sound</I>,
+  void *<I>buffer</I>,
+  unsigned int <I>lenbytes</I>,
+  unsigned int *<I>read</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>buffer</dt>
+<dd>Address of a buffer that receives the decoded data from the sound.</dd>
+<dt>lenbytes</dt>
+<dd>Number of bytes to read into the buffer.</dd>
+<dt>read</dt>
+<dd>Number of bytes actually read.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>If too much data is read, it is possible <A HREF="FMOD_RESULT.html">FMOD_ERR_FILE_EOF</A> will be returned, meaning it is out of data.  The 'read' parameter will reflect this by returning a smaller number of bytes read than was requested.<br>
+As a sound already reads the whole file then closes it upon calling <A HREF="FMOD_System_CreateSound.html">System::createSound</A> (unless <A HREF="FMOD_System_CreateStream.html">System::createStream</A> or <A HREF="FMOD_MODE.html">FMOD_CREATESTREAM</A> is used), this function will not work because the file is no longer open.<br>
+Note that opening a stream makes it read a chunk of data and this will advance the read cursor.  You need to either use <A HREF="FMOD_MODE.html">FMOD_OPENONLY</A> to stop the stream pre-buffering or call <A HREF="FMOD_Sound_SeekData.html">Sound::seekData</A> to reset the read cursor.<br>
+If <A HREF="FMOD_MODE.html">FMOD_OPENONLY</A> flag is used when opening a sound, it will leave the file handle open, and FMOD will not read any data internally, so the read cursor will be at position 0.  This will allow the user to read the data from the start.<br>
+As noted previously, if a sound is opened as a stream and this function is called to read some data, then you will 'miss the start' of the sound.<br>
+<A HREF="FMOD_Channel_SetPosition.html">Channel::setPosition</A> will have the same result.  These function will flush the stream buffer and read in a chunk of audio internally.  This is why if you want to read from an absolute position you should use <A HREF="FMOD_Sound_SeekData.html">Sound::seekData</A> and not the previously mentioned functions.<br>
+Remember if you are calling readData and seekData on a stream it is up to you to cope with the side effects that may occur.  Information functions such as <A HREF="FMOD_Channel_GetPosition.html">Channel::getPosition</A> may give misleading results.  Calling <A HREF="FMOD_Channel_SetPosition.html">Channel::setPosition</A> will reset and flush the stream, leading to the time values returning to their correct position.</p>
+
+<p>NOTE!  Thread safety.  If you call this from another stream callback, or any other thread besides the main thread, make sure to put a criticalsection around the call, and another around <A HREF="FMOD_Sound_Release.html">Sound::release</A> in case the sound is still being read from while releasing.<br>
+This function is thread safe to call from a stream callback or different thread as long as it doesnt conflict with a call to <A HREF="FMOD_Sound_Release.html">Sound::release</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Sound_SeekData.html">Sound::seekData</A></LI>
+<LI><A HREF="FMOD_MODE.html">FMOD_MODE</A></LI>
+<LI><A HREF="FMOD_Channel_SetPosition.html">Channel::setPosition</A></LI>
+<LI><A HREF="FMOD_System_CreateSound.html">System::createSound</A></LI>
+<LI><A HREF="FMOD_System_CreateStream.html">System::createStream</A></LI>
+<LI><A HREF="FMOD_Sound_Release.html">Sound::release</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

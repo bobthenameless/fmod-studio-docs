@@ -1,0 +1,50 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>DSP::disconnectFrom</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>DSP::disconnectFrom</H1>
+<P>
+<p>Disconnect the DSP unit from the specified target.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT DSP::disconnectFrom(
+  FMOD::DSP *<I>target</I>,
+  FMOD::DSPConnection *<I>connection</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_DSP_DisconnectFrom(
+  FMOD_DSP *<I>dsp</I>,
+  FMOD_DSP *<I>target</I>,
+  FMOD_DSPCONNECTION *<I>connection</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>target</dt>
+<dd>The unit that this unit is to be removed from. Specify 0 or NULL to disconnect the unit from all outputs and inputs.</dd>
+<dt>connection</dt>
+<dd>If there is more than one connection between 2 dsp units, this can be used to define which of the connections should be disconnected.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Note that when you disconnect a unit, it is up to you to reconnect the network so that data flow can continue.</p>
+
+<p><strong>Important note:</strong> If you have a handle to the connection pointer that binds these 2 DSP units, then it will
+become invalid.  The connection is then sent back to a freelist to be re-used again by a later addInput command.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_AddInput.html">DSP::addInput</A></LI>
+<LI><A HREF="FMOD_DSP_DisconnectAll.html">DSP::disconnectAll</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

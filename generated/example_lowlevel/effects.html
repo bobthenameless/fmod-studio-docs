@@ -1,0 +1,22 @@
+<LINK REL="stylesheet" href="../../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Effects Example</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<h1>Effects Example</h1>
+
+<p>This example shows how to apply some of the built in software effects to sounds
+by applying them to the master channel group. All software sounds played here
+would be filtered in the same way. To filter per channel, and not have other
+channels affected, simply apply the same functions to the FMOD::Channel instead
+of the FMOD::ChannelGroup.</p>
+
+<p>Note in this example you don't have to add and remove units each time, you could
+simply add them all at the start then use <A HREF="../FMOD_DSP_SetActive.html">DSP::setActive</A> to toggle them on and
+off.</p>
+
+<h3>Location</h3>
+
+<p>The example is located at api/lowlevel/examples/effects.cpp.</p>

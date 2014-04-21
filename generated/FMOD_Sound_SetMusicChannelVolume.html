@@ -1,0 +1,47 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Sound::setMusicChannelVolume</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Sound::setMusicChannelVolume</H1>
+<P>
+<p>Sets the volume of a MOD/S3M/XM/IT/MIDI music channel volume.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Sound::setMusicChannelVolume(
+  int <I>channel</I>,
+  float <I>volume</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Sound_SetMusicChannelVolume(
+  FMOD_SOUND *<I>sound</I>,
+  int <I>channel</I>,
+  float <I>volume</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>channel</dt>
+<dd>MOD/S3M/XM/IT/MIDI music subchannel to set a linear volume for.</dd>
+<dt>volume</dt>
+<dd>Volume of the channel from 0.0 to 1.0.  Default = 1.0.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Use <A HREF="FMOD_Sound_GetMusicNumChannels.html">Sound::getMusicNumChannels</A> to get the maximum number of music channels in the song.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Sound_GetMusicNumChannels.html">Sound::getMusicNumChannels</A></LI>
+<LI><A HREF="FMOD_Sound_GetMusicChannelVolume.html">Sound::getMusicChannelVolume</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

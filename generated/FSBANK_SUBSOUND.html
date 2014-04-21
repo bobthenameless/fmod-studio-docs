@@ -1,0 +1,48 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FSBANK_SUBSOUND</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FSBANK_SUBSOUND</H1>
+<P>
+<p>Representation of how to encode a single subsound in the final FSB.</p>
+</P>
+<h3>Structure</h3>
+<PRE class=syntax><CODE>typedef struct {
+  const char* const *<I>fileNames</I>;
+  unsigned int <I>numFileNames</I>;
+  FSBANK_SPEAKERMAP <I>speakerMap</I>;
+  FSBANK_BUILDFLAGS <I>overrideFlags</I>;
+  unsigned int <I>overrideQuality</I>;
+  float <I>desiredSampleRate</I>;
+  float <I>percentOptimizedRate</I>;
+} FSBANK_SUBSOUND;
+</CODE></PRE>
+<h2>Members</h2>
+<P class=dt><I>fileNames</I></P>
+<P class=indent>List of file names used to produce an interleaved sound. </P>
+<P class=dt><I>numFileNames</I></P>
+<P class=indent>Number of files in above file name list, up to 16. </P>
+<P class=dt><I>speakerMap</I></P>
+<P class=indent>Setting to define the mapping and order of channels. </P>
+<P class=dt><I>overrideFlags</I></P>
+<P class=indent>Flags that will reverse the equivalent flags passed to <A HREF="FSBank_Build.html">FSBank_Build</A>. </P>
+<P class=dt><I>overrideQuality</I></P>
+<P class=indent>Override the quality setting passed to <A HREF="FSBank_Build.html">FSBank_Build</A>. </P>
+<P class=dt><I>desiredSampleRate</I></P>
+<P class=indent>Resample to this sample rate (ignores optimize sample rate setting), up to 192000Hz. </P>
+<P class=dt><I>percentOptimizedRate</I></P>
+<P class=indent>If using <A HREF="FSBANK_BUILDFLAGS.html">FSBANK_BUILD_OPTIMIZESAMPLERATE</A>, this is the percentage of that rate to be used, up to 100.0%. </P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FSBank_Build.html">FSBank_Build</A></LI>
+<LI><A HREF="FSBANK_BUILDFLAGS.html">FSBANK_BUILD_OPTIMIZESAMPLERATE</A></LI>
+<LI><A HREF="FSBANK_SPEAKERMAP.html">FSBANK_SPEAKERMAP</A></LI>
+<LI><A HREF="FSBANK_BUILDFLAGS.html">FSBANK_BUILDFLAGS</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

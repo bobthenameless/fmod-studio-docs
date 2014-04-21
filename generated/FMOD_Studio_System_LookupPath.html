@@ -1,0 +1,59 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Studio::System::lookupPath</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Studio::System::lookupPath</H1>
+<P>
+<p>Retrieves the path for a bank, event or mixer strip.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Studio::System::lookupPath(
+  const FMOD_GUID *<I>id</I>,
+  char *<I>path</I>,
+  int <I>size</I>,
+  int *<I>retrieved</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Studio_System_LookupPath(
+  FMOD_STUDIO_SYSTEM *<I>system</I>,
+  const FMOD_GUID *<I>id</I>,
+  char *<I>path</I>,
+  int <I>size</I>,
+  int *<I>retrieved</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>id</dt>
+<dd>The 128-bit GUID which identifies the bank, event or mixer strip.</dd>
+<dt>path</dt>
+<dd>Address of a buffer to receive the path. Specify 0 or NULL to ignore.</dd>
+<dt>size</dt>
+<dd>Size of the path buffer in bytes. Required if <em>path</em> parameter is not NULL.</dd>
+<dt>retrieved</dt>
+<dd>Address of a variable to receive the size of the retrieved path in bytes, including the terminating null character. Optional. Specify 0 or NULL to ignore.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>This function will return <A HREF="FMOD_RESULT.html">FMOD_ERR_EVENT_NOTFOUND</A> unless string data for the requested
+object is loaded (by loading the "Master Bank.strings.bank" file).</p>
+
+<p>If the retrieved path is too long to fit in the supplied buffer, it will be truncated and this
+function will return <A HREF="FMOD_RESULT.html">FMOD_ERR_TRUNCATED</A>. Use the <em>retrieved</em> parameter to obtain the minimum
+buffer size required to hold the full path.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Studio_System_LookupID.html">Studio::System::lookupID</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

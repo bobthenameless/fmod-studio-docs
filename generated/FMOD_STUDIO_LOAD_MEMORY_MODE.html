@@ -1,0 +1,31 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_STUDIO_LOAD_MEMORY_MODE</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_STUDIO_LOAD_MEMORY_MODE</H1>
+<P>
+<p>Specifies how to use the memory buffer passed to <A HREF="FMOD_Studio_System_LoadBankMemory.html">Studio::System::loadBankMemory</A>.</p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_STUDIO_LOAD_MEMORY,
+  FMOD_STUDIO_LOAD_MEMORY_POINT
+} FMOD_STUDIO_LOAD_MEMORY_MODE;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_STUDIO_LOAD_MEMORY</I></P>
+<P class=indent>When passed to <A HREF="FMOD_Studio_System_LoadBankMemory.html">Studio::System::loadBankMemory</A>, FMOD duplicates the memory into its own buffers. Your buffer can be freed after <A HREF="FMOD_Studio_System_LoadBankMemory.html">Studio::System::loadBankMemory</A> returns. </P>
+<P class=dt><I>FMOD_STUDIO_LOAD_MEMORY_POINT</I></P>
+<P class=indent>This differs from <A HREF="FMOD_STUDIO_LOAD_MEMORY_MODE.html">FMOD_STUDIO_LOAD_MEMORY</A> in that FMOD uses the memory as is, without duplicating the memory into its own buffers. Cannot not be freed after load, only after calling <A HREF="FMOD_Studio_Bank_Unload.html">Studio::Bank::unload</A>. </P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Studio_System_LoadBankMemory.html">Studio::System::loadBankMemory</A></LI>
+<LI><A HREF="FMOD_Studio_Bank_Unload.html">Studio::Bank::unload</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

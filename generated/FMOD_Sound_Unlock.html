@@ -1,0 +1,52 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Sound::unlock</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Sound::unlock</H1>
+<P>
+<p>Releases previous sample data lock from <A HREF="FMOD_Sound_Lock.html">Sound::lock</A>.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Sound::unlock(
+  void *<I>ptr1</I>,
+  void *<I>ptr2</I>,
+  unsigned int <I>len1</I>,
+  unsigned int <I>len2</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Sound_Unlock(
+  FMOD_SOUND *<I>sound</I>,
+  void *<I>ptr1</I>,
+  void *<I>ptr2</I>,
+  unsigned int <I>len1</I>,
+  unsigned int <I>len2</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>ptr1</dt>
+<dd>Pointer to the 1st locked portion of sample data, from <A HREF="FMOD_Sound_Lock.html">Sound::lock</A>.</dd>
+<dt>ptr2</dt>
+<dd>Pointer to the 2nd locked portion of sample data, from <A HREF="FMOD_Sound_Lock.html">Sound::lock</A>.</dd>
+<dt>len1</dt>
+<dd>Length of data in <em>bytes</em> that was locked for ptr1.</dd>
+<dt>len2</dt>
+<dd>Length of data in <em>bytes</em> that was locked for ptr2. This will be 0 if the data locked hasn't wrapped at the end of the buffer.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Sound_Lock.html">Sound::lock</A></LI>
+<LI><A HREF="FMOD_System_CreateSound.html">System::createSound</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

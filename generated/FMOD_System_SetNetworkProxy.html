@@ -1,0 +1,43 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::setNetworkProxy</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::setNetworkProxy</H1>
+<P>
+<p>Set a proxy server to use for all subsequent internet connections.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::setNetworkProxy(
+  const char *<I>proxy</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_SetNetworkProxy(
+  FMOD_SYSTEM *<I>system</I>,
+  const char *<I>proxy</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>proxy</dt>
+<dd>The name of a proxy server in host:port format e.g. www.fmod.org:8888 (defaults to port 80 if no port is specified).</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Basic authentication is supported. To use it, this parameter must be in user:password@host:port format e.g. bob:sekrit123@www.fmod.org:8888
+Set this parameter to 0 / NULL if no proxy is required.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_GetNetworkProxy.html">System::getNetworkProxy</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

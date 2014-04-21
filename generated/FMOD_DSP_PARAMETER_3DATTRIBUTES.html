@@ -1,0 +1,37 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_PARAMETER_3DATTRIBUTES</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_PARAMETER_3DATTRIBUTES</H1>
+<P>
+<p>Structure for data parameters of type <A HREF="FMOD_DSP_PARAMETER_DATA_TYPE.html">FMOD_DSP_PARAMETER_DATA_TYPE_3DATTRIBUTES</A>.
+A parameter of this type is used in effects that respond to a sound's 3D position.
+The system will set this parameter automatically if a sound's position changes.</p>
+</P>
+<h3>Structure</h3>
+<PRE class=syntax><CODE>typedef struct {
+  FMOD_3D_ATTRIBUTES <I>relative</I>;
+  FMOD_3D_ATTRIBUTES <I>absolute</I>;
+} FMOD_DSP_PARAMETER_3DATTRIBUTES;
+</CODE></PRE>
+<h2>Members</h2>
+<P class=dt><I>relative</I></P>
+<P class=indent>[w] The position of the sound relative to the listener. </P>
+<P class=dt><I>absolute</I></P>
+<P class=indent>[w] The position of the sound in world coordinates. </P>
+<h2>Remarks</h2><P>
+<p>Members marked with [r] mean the variable is modified by FMOD and is for reading purposes only.  Do not change this value.<br>
+Members marked with [w] mean the variable can be written to.  The user can set the value.<br></p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_PARAMETER_DATA_TYPE.html">FMOD_DSP_PARAMETER_DATA_TYPE</A></LI>
+<LI><A HREF="FMOD_DSP_PARAMETER_DESC.html">FMOD_DSP_PARAMETER_DESC</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

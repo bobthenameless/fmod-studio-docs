@@ -1,0 +1,71 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_SHOULDIPROCESS_CALLBACK</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_SHOULDIPROCESS_CALLBACK</H1>
+<P>
+<p>Called to allow the plugin writer to tell FMOD's mixer whether the <A HREF="FMOD_DSP_READ_CALLBACK.html">FMOD_DSP_READ_CALLBACK</A> callback should be called or not.  This can be used as an optimization to reduce CPU overhead.
+If the effect produces silence such as when it is receiving no signal, then <A HREF="FMOD_RESULT.html">FMOD_ERR_DSP_SILENCE</A> can be returned in the <A HREF="FMOD_DSP_SHOULDIPROCESS_CALLBACK.html">FMOD_DSP_SHOULDIPROCESS_CALLBACK</A> callback.  If the effect does not modify the sound in any way with the current effect parameter settings, then <A HREF="FMOD_RESULT.html">FMOD_ERR_DSP_DONTPROCESS</A> can be returned.
+Either of these return values will cause FMOD's mixer to skip the <A HREF="FMOD_DSP_READ_CALLBACK.html">FMOD_DSP_READ_CALLBACK</A> callback.</p>
+</P>
+<h3>C/C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT F_CALLBACK FMOD_DSP_SHOULDIPROCESS_CALLBACK(
+  FMOD_DSP_STATE *<I>dsp_state</I>,
+  bool <I>inputsidle</I>,
+  unsigned int <I>length</I>,
+  FMOD_CHANNELMASK <I>inmask</I>,
+  int <I>inchannels</I>,
+  FMOD_SPEAKERMODE <I>speakermode</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>dsp_state</I></P>
+<P class=indent>Pointer to the plugin state.  The user can use this variable to access runtime plugin specific variables and plugin writer user data.  Do not cast this to FMOD_DSP!  The handle to the user created DSP handle is stored within the <A HREF="FMOD_DSP_STATE.html">FMOD_DSP_STATE</A> structure.</P>
+<P class=dt><I>inputsidle</I></P>
+<P class=indent>This is true if no audio is being fed to this unit.  Code can then either set a countdown timer based on the tail length of their effect and then call <A HREF="FMOD_RESULT.html">FMOD_ERR_DSP_DONTPROCESS</A>, or just immediately return <A HREF="FMOD_RESULT.html">FMOD_ERR_DSP_DONTPROCESS</A> if no further processing is required.</P>
+<P class=dt><I>length</I></P>
+<P class=indent>The length of the incoming and outgoing buffer in samples.  To get the length of the buffer in bytes, the user must multiply this number by the number of channels coming in (and out, they may be different) and then multiply by 4 for 1 float = 4 bytes.</P>
+<P class=dt><I>inmask</I></P>
+<P class=indent>A description of the speaker layout of the incoming buffer using <A HREF="FMOD_CHANNELMASK.html">FMOD_CHANNELMASK</A> bitfield.  For each channel in inchannels parameter, a bit will identify which speaker it belongs to.  A value of 0 means default mapping as ordered by <A HREF="FMOD_CHANNELMASK.html">FMOD_CHANNELMASK</A>.</P>
+<P class=dt><I>inchannels</I></P>
+<P class=indent>The number of channels of PCM data in the coming input. A mono signal coming in would be 1.  A stereo signal coming in would be 2.</P>
+<P class=dt><I>speakermode</I></P>
+<P class=indent>A speakermode that corresponds to the channel count and channel mask.  Default is <A HREF="FMOD_SPEAKERMODE.html">FMOD_SPEAKERMODE_DEFAULT</A>.  Where it would differ, is if the channel count is lower than the specified speaker mode's channel count, ie 1 channel could be specified, and use <A HREF="FMOD_SPEAKERMODE.html">FMOD_SPEAKERMODE_5POINT1</A> as the speaker mode, and the mask could tell the callback that it is <A HREF="FMOD_CHANNELMASK.html">FMOD_CHANNELMASK_LOW_FREQUENCY</A>.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>An example of an effect that would continue processing silence would be an echo or reverb effect that needs to play a tail sound until it fades out to silence.  At that point it could return
+<A HREF="FMOD_RESULT.html">FMOD_ERR_DSP_SILENCE</A> as well.</p>
+
+<p>Typically inmask and speakermode parameters will not be important to the plugin, unless it cares about speaker positioning.  If it processes any data regardless of channel format coming in, it can safely ignore these 2 parameters.</p>
+
+<p><strong>NOTE</strong>: Effects that do not stop processing may keep the signal chain alive when it is not desirable to do so.  In the case of FMOD Studio it may result in events that keep playing indefinitely.</p>
+
+<p>The following code can be used for DSP effects that have no tail:</p>
+
+<pre><code>static <A HREF="FMOD_RESULT.html">FMOD_RESULT</A> F_CALLBACK shouldIProcess(<A HREF="FMOD_DSP_STATE.html">FMOD_DSP_STATE</A> *dsp_state, bool inputsidle, unsigned int length, <A HREF="FMOD_CHANNELMASK.html">FMOD_CHANNELMASK</A> inmask, int inchannels, <A HREF="FMOD_SPEAKERMODE.html">FMOD_SPEAKERMODE</A> speakermode)
+{
+    if (inputsidle)
+    {
+        return <A HREF="FMOD_RESULT.html">FMOD_ERR_DSP_SILENCE</A>;
+    }
+    return <A HREF="FMOD_RESULT.html">FMOD_OK</A>;
+}
+</code></pre>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_STATE.html">FMOD_DSP_STATE</A></LI>
+<LI><A HREF="FMOD_DSP_READ_CALLBACK.html">FMOD_DSP_READ_CALLBACK</A></LI>
+<LI><A HREF="FMOD_DSP_DESCRIPTION.html">FMOD_DSP_DESCRIPTION</A></LI>
+<LI><A HREF="FMOD_RESULT.html">FMOD_RESULT</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

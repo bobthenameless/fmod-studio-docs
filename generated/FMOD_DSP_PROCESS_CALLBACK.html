@@ -1,0 +1,53 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_PROCESS_CALLBACK</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_PROCESS_CALLBACK</H1>
+<P>
+<p>Alternative callback that replaces <A HREF="FMOD_DSP_READ_CALLBACK.html">FMOD_DSP_READ_CALLBACK</A> and <A HREF="FMOD_DSP_SHOULDIPROCESS_CALLBACK.html">FMOD_DSP_SHOULDIPROCESS_CALLBACK</A>.  Can be used to specify the output channel format at runtime rather than create time, and also supports multiple input/output buffers.
+This callback will be called twice per mix as it has a dual purpsoe.  Once will be with op = <A HREF="FMOD_DSP_PROCESS_OPERATION.html">FMOD_DSP_PROCESS_QUERY</A>, and then depending on the return value of the query, if it is <A HREF="FMOD_RESULT.html">FMOD_OK</A> it will call it again with <A HREF="FMOD_DSP_PROCESS_OPERATION.html">FMOD_DSP_PROCESS_PERFORM</A>.</p>
+</P>
+<h3>C/C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT F_CALLBACK FMOD_DSP_PROCESS_CALLBACK(
+  FMOD_DSP_STATE *<I>dsp_state</I>,
+  unsigned int <I>length</I>,
+  const FMOD_DSP_BUFFER_ARRAY *<I>inbufferarray</I>,
+  FMOD_DSP_BUFFER_ARRAY *<I>outbufferarray</I>,
+  bool <I>inputsidle</I>,
+  FMOD_DSP_PROCESS_OPERATION <I>op</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>dsp_state</I></P>
+<P class=indent>Pointer to the plugin state.  The user can use this variable to access runtime plugin specific variables and plugin writer user data.  Do not cast this to FMOD_DSP!  The handle to the user created DSP handle is stored within the <A HREF="FMOD_DSP_STATE.html">FMOD_DSP_STATE</A> structure.</P>
+<P class=dt><I>length</I></P>
+<P class=indent>The length of the incoming and outgoing buffer in samples.  To get the length of the buffer in bytes, the user must multiply this number by the number of channels coming in (and out, they may be different) and then multiply by 4 for 1 float = 4 bytes.</P>
+<P class=dt><I>inbufferarray</I></P>
+<P class=indent>Pointer to an array of <A HREF="FMOD_DSP_BUFFER_ARRAY.html">FMOD_DSP_BUFFER_ARRAY</A> structures which describe the incoming signal.</P>
+<P class=dt><I>outbufferarray</I></P>
+<P class=indent>Pointer to an array of <A HREF="FMOD_DSP_BUFFER_ARRAY.html">FMOD_DSP_BUFFER_ARRAY</A> structures which describe the outgoing signal.</P>
+<P class=dt><I>inputsidle</I></P>
+<P class=indent>This is true if no audio is being fed to this unit.  Generally used when the <A HREF="FMOD_DSP_PROCESS_OPERATION.html">FMOD_DSP_PROCESS_OPERATION</A> is set to <A HREF="FMOD_DSP_PROCESS_OPERATION.html">FMOD_DSP_PROCESS_QUERY</A>, so the <A HREF="FMOD_DSP_PROCESS_OPERATION.html">FMOD_DSP_PROCESS_PERFORM</A> step can be skipped.  Code can then either skip processing, or return silence.  If the <A HREF="FMOD_DSP_PROCESS_OPERATION.html">FMOD_DSP_PROCESS_OPERATION</A> is set to set a countdown timer based on the tail length of their effect and then call <A HREF="FMOD_RESULT.html">FMOD_ERR_DSP_DONTPROCESS</A>, or just immediately return <A HREF="FMOD_RESULT.html">FMOD_ERR_DSP_DONTPROCESS</A> if no further processing is required.</P>
+<P class=dt><I>op</I></P>
+<P class=indent>Either <A HREF="FMOD_DSP_PROCESS_OPERATION.html">FMOD_DSP_PROCESS_QUERY</A> or <A HREF="FMOD_DSP_PROCESS_OPERATION.html">FMOD_DSP_PROCESS_PERFORM</A>.  <A HREF="FMOD_DSP_PROCESS_OPERATION.html">FMOD_DSP_PROCESS_QUERY</A> is only for the purpose of returning <A HREF="FMOD_RESULT.html">FMOD_OK</A> or <A HREF="FMOD_RESULT.html">FMOD_ERR_DSP_DONTPROCESS</A>.  Do not process data in this callback!  If op is <A HREF="FMOD_DSP_PROCESS_OPERATION.html">FMOD_DSP_PROCESS_PERFORM</A> then process the input (optionally) and write to the output.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Return <A HREF="FMOD_RESULT.html">FMOD_ERR_DSP_SILENCE</A> if the effect is generating silence, so FMOD's mixer can optimize the signal path and not process it any more.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_PROCESS_OPERATION.html">FMOD_DSP_PROCESS_OPERATION</A></LI>
+<LI><A HREF="FMOD_DSP_READ_CALLBACK.html">FMOD_DSP_READ_CALLBACK</A></LI>
+<LI><A HREF="FMOD_DSP_SHOULDIPROCESS_CALLBACK.html">FMOD_DSP_SHOULDIPROCESS_CALLBACK</A></LI>
+<LI><A HREF="FMOD_DSP_DESCRIPTION.html">FMOD_DSP_DESCRIPTION</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

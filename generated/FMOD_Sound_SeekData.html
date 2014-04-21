@@ -1,0 +1,45 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Sound::seekData</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Sound::seekData</H1>
+<P>
+<p>Seeks a sound for use with data reading.  This is not a function to 'seek a sound' for normal use.  This is for use in conjunction with <A HREF="FMOD_Sound_ReadData.html">Sound::readData</A>.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Sound::seekData(
+  unsigned int <I>pcm</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Sound_SeekData(
+  FMOD_SOUND *<I>sound</I>,
+  unsigned int <I>pcm</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>pcm</dt>
+<dd>Offset to seek to in PCM samples.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Note.  If a stream is opened and this function is called to read some data, then it will advance the internal file pointer, so data will be skipped if you play the stream.  Also calling position / time information functions will lead to misleading results.<br>
+A stream can be reset before playing by setting the position of the channel (ie using <A HREF="FMOD_Channel_SetPosition.html">Channel::setPosition</A>), which will make it seek, reset and flush the stream buffer.  This will make it sound correct again.<br>
+Remember if you are calling readData and seekData on a stream it is up to you to cope with the side effects that may occur.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Sound_ReadData.html">Sound::readData</A></LI>
+<LI><A HREF="FMOD_Channel_SetPosition.html">Channel::setPosition</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

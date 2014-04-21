@@ -1,0 +1,60 @@
+<LINK REL="stylesheet" href="../../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>3D Sound</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<h1>3D Reverb Tutorial</h1>
+
+<h2>Introduction</h2>
+    It is common for environments to exhibit different reverberation characteristics in different locations.  Ideally as the listener moves throughout the virtual environment, the sound of the reverberation should change accordingly. This change in reverberation properties can be modeled in FMOD Studio by using the built in 3D <a href="lowlevel_api_Reverb3D.html">Reverb API</a>. <b>Note:</b> This technique applies to <a href="FMOD_MODE.html">software channels</a>.
+
+<h2>3D Reverbs</h2>
+The 3D reverb system works by allowing you to place multiple virtual reverbs within the 3D world. Each reverb defines:
+<br/><ul>
+<li>Its position within the 3D world</li>
+<li>The area, or sphere of influence affected by the reverb (with minimum and maximum distances)</li>
+<li>The reverberation properties of the area</li>
+</ul>
+    At runtime, FMOD Studio interpolates (or morphs) between the characteristics of 3D reverbs according to the listener's proximity and the position and overlap of the reverbs. This method allows FMOD Studio to use a single reverb DSP unit to provide a dynamic reverberation within the 3D world. This process is illustrated in the image below.
+    <br>
+<img src="../../static/overview/3dreverb.png"/>
+<br>
+When the listener is within the sphere of effect of one or more 3D reverbs, the listener hears a weighted combination of the affecting reverbs. When the listener is outside the coverage of all 3D reverbs, the reverb is not applied. It is important to note that this technique will only place add reverb to 3D sounds. To place reverb effects on 2D sounds, you will need to make an additional to call System::setReverbProperties (which will incur a small CPU and memory hit).
+<br><br>
+The interpolation of 3D reverbs is only an estimation of how the multiple reverberations within the environment may sound. In some cases, greater realism is required. In these situations we suggest using multiple physical reverbs as described in the tutorial '<a href="usingmultiplereverbs.htm">'Using multiple reverbs</a>'.
+<br>
+<h2>Create a 3D Reverb</h2>
+We will now create a virtual reverb, using the call System::createReverb3D, then set the characteristics of the reverb using Reverb3D::setProperties.
+<br>
+<pre>
+FMOD::Reverb	 *reverb;
+result = system->createReverb3D(&#38reverb);
+FMOD_REVERB_PROPERTIES prop2 = FMOD_PRESET_CONCERTHALL;
+reverb->setProperties(&#38prop2);
+</pre>
+<h2>Set 3D Attributes</h2>
+The 3D attributes of the reverb must now be set. The method Reverb3D::set3DAttributes allows us to set the origin position, as well as the area of coverage using the minimum distance and maximum distance.
+<br>
+<pre>
+FMOD_VECTOR pos = { -10.0f, 0.0f, 0.0f };
+float mindist = 10.0f; 
+float maxdist = 20.0f;
+reverb->set3DAttributes(&#38pos, mindist, maxdist);
+</pre>
+<br>
+As the 3D reverb uses the position of the listener in its weighting calculation, we also need to ensure that the location of the listener is set using System::set3dListenerAtrributes.
+<br>
+<pre>
+FMOD_VECTOR  listenerpos  = { 0.0f, 0.0f, -1.0f };
+system->set3DListenerAttributes(0, &#38listenerpos, 0, 0, 0);
+</pre>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+</BODY>
+</HTML>

@@ -1,0 +1,56 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Channel::addDSP</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Channel::addDSP</H1>
+<P>
+<p>Add a pre-created DSP unit to the head of the DSP chain.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Channel::addDSP(
+  int <I>index</I>,
+  DSP *<I>dsp</I>,
+  DSPConnection **<I>dspconnection</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Channel_AddDSP(
+  FMOD_CHANNEL *<I>channel</I>,
+  int <I>index</I>,
+  FMOD_DSP *<I>dsp</I>,
+  FMOD_DSPCONNECTION **<I>dspconnection</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>index</dt>
+<dd>Offset to add this DSP at in the DSP chain, see <A HREF="FMOD_CHANNELCONTROL_DSP_INDEX.html">FMOD_CHANNELCONTROL_DSP_INDEX</A> for special named offsets.</dd>
+<dt>dsp</dt>
+<dd>Pointer to a pre-created DSP unit to be inserted at the specified offset.</dd>
+<dt>dspconnection</dt>
+<dd>Address of a variable that receives the DSP connection between the specified dsp unit and its parent. Optional, specify 0 or NULL to ignore.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>The connection pointer retrieved here will become invalid if you disconnect the 2 dsp units that use it.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_CreateDSP.html">System::createDSP</A></LI>
+<LI><A HREF="FMOD_System_CreateDSPByType.html">System::createDSPByType</A></LI>
+<LI><A HREF="FMOD_System_CreateDSPByPlugin.html">System::createDSPByPlugin</A></LI>
+<LI><A HREF="FMOD_ChannelControl_GetDSP.html">ChannelControl::getDSP</A></LI>
+<LI><A HREF="FMOD_ChannelControl_RemoveDSP.html">ChannelControl::removeDSP</A></LI>
+<LI><A HREF="FMOD_ChannelControl_GetNumDSPs.html">ChannelControl::getNumDSPs</A></LI>
+<LI><A HREF="FMOD_CHANNELCONTROL_DSP_INDEX.html">FMOD_CHANNELCONTROL_DSP_INDEX</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

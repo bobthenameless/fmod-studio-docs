@@ -1,0 +1,58 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_MEMORY_TYPE</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_MEMORY_TYPE</H1>
+<P>
+<p>Bit fields for memory allocation type being passed into FMOD memory callbacks.</p>
+
+<p>Remember this is a bitfield.  You may get more than 1 bit set (ie physical + persistent) so do not simply switch on the types!  You must check each bit individually or clear out the bits that you do not want within the callback.<br>
+Bits can be excluded if you want during <A HREF="FMOD_Memory_Initialize.html">Memory_Initialize</A> so that you never get them.</p>
+</P>
+<h3>Definition</h3>
+<PRE class=syntax><CODE>#define FMOD_MEMORY_NORMAL 0x00000000
+#define FMOD_MEMORY_STREAM_FILE 0x00000001
+#define FMOD_MEMORY_STREAM_DECODE 0x00000002
+#define FMOD_MEMORY_SAMPLEDATA 0x00000004
+#define FMOD_MEMORY_DSP_BUFFER 0x00000008
+#define FMOD_MEMORY_PLUGIN 0x00000010
+#define FMOD_MEMORY_XBOX360_PHYSICAL 0x00100000
+#define FMOD_MEMORY_PERSISTENT 0x00200000
+#define FMOD_MEMORY_SECONDARY 0x00400000
+#define FMOD_MEMORY_ALL 0xFFFFFFFF
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_MEMORY_NORMAL</I></P>
+<P class=indent>Standard memory. </P>
+<P class=dt><I>FMOD_MEMORY_STREAM_FILE</I></P>
+<P class=indent>Stream file buffer, size controllable with <A HREF="FMOD_System_SetStreamBufferSize.html">System::setStreamBufferSize</A>. </P>
+<P class=dt><I>FMOD_MEMORY_STREAM_DECODE</I></P>
+<P class=indent>Stream decode buffer, size controllable with FMOD_CREATESOUNDEXINFO::decodebuffersize. </P>
+<P class=dt><I>FMOD_MEMORY_SAMPLEDATA</I></P>
+<P class=indent>Sample data buffer.  Raw audio data, usually PCM/MPEG/ADPCM/XMA data. </P>
+<P class=dt><I>FMOD_MEMORY_DSP_BUFFER</I></P>
+<P class=indent>DSP memory block allocated when more than 1 output exists on a DSP node. </P>
+<P class=dt><I>FMOD_MEMORY_PLUGIN</I></P>
+<P class=indent>Memory allocated by a third party plugin. </P>
+<P class=dt><I>FMOD_MEMORY_XBOX360_PHYSICAL</I></P>
+<P class=indent>Requires XPhysicalAlloc / XPhysicalFree. </P>
+<P class=dt><I>FMOD_MEMORY_PERSISTENT</I></P>
+<P class=indent>Persistent memory. Memory will be freed when <A HREF="FMOD_System_Release.html">System::release</A> is called. </P>
+<P class=dt><I>FMOD_MEMORY_SECONDARY</I></P>
+<P class=indent>Secondary memory. Allocation should be in secondary memory. For example RSX on the PS3. </P>
+<P class=dt><I>FMOD_MEMORY_ALL</I></P>
+<P class=indent></P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_MEMORY_ALLOC_CALLBACK.html">FMOD_MEMORY_ALLOC_CALLBACK</A></LI>
+<LI><A HREF="FMOD_MEMORY_REALLOC_CALLBACK.html">FMOD_MEMORY_REALLOC_CALLBACK</A></LI>
+<LI><A HREF="FMOD_MEMORY_FREE_CALLBACK.html">FMOD_MEMORY_FREE_CALLBACK</A></LI>
+<LI><A HREF="FMOD_Memory_Initialize.html">Memory_Initialize</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

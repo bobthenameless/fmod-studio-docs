@@ -1,0 +1,33 @@
+<LINK REL="stylesheet" href="../../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>DSP Effect Per Speaker Example</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<h1>DSP Effect Per Speaker Example</h1>
+
+<p>This example shows how to manipulate a DSP network and as an example, creates 2
+DSP effects, splitting a single sound into 2 audio paths, which it then filters
+seperately.</p>
+
+<p>To only have each audio path come out of one speaker each,
+<A HREF="../FMOD_DSPConnection_SetMixMatrix.html">DSPConnection::setMixMatrix</A> is used just before the 2 branches merge back together
+again.</p>
+
+<p>For more speakers:</p>
+
+<ul>
+<li>Use <A HREF="../FMOD_System_SetSoftwareFormat.html">System::setSoftwareFormat</A></li>
+<li>Create more effects, currently 2 for stereo (lowpass and highpass), create one
+per speaker.</li>
+<li>Under the 'Now connect the 2 effects to channeldsp head.' section, connect
+the extra effects by duplicating the code more times.</li>
+<li>Filter each effect to each speaker by calling <A HREF="../FMOD_DSPConnection_SetMixMatrix.html">DSPConnection::setMixMatrix</A>. <br>
+Expand the existing code by extending the matrices from 2 in and 2 out, to the 
+number of speakers you require.</li>
+</ul>
+
+<h3>Location</h3>
+
+<p>The example is located at api/lowlevel/examples/dsp_effect_per_speaker.cpp.</p>

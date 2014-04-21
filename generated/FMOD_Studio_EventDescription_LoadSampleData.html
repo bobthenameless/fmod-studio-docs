@@ -1,0 +1,41 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Studio::EventDescription::loadSampleData</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Studio::EventDescription::loadSampleData</H1>
+<P>
+<p>Loads all non-streaming sample data used by the event.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Studio::EventDescription::loadSampleData();</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Studio_EventDescription_LoadSampleData(FMOD_STUDIO_EVENTDESCRIPTION *<I>eventdescription</I>);</CODE></PRE>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>You can use this function to preload sample data ahead of time so that
+events can be played immediately when required.</p>
+
+<p>Each time this function is called, it will increment the reference count,
+so the sample data will not be unloaded until <A HREF="FMOD_Studio_EventDescription_UnloadSampleData.html">Studio::EventDescription::unloadSampleData</A>
+is called the same number of times.</p>
+
+<p>See <A HREF="FMOD_Studio_Bank_LoadSampleData.html">Studio::Bank::loadSampleData</A> for a description of this function's interaction
+with <A HREF="FMOD_Studio_Bank_LoadSampleData.html">Studio::Bank::loadSampleData</A> and <A HREF="FMOD_Studio_Bank_UnloadSampleData.html">Studio::Bank::unloadSampleData</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Studio_EventDescription_UnloadSampleData.html">Studio::EventDescription::unloadSampleData</A></LI>
+<LI><A HREF="FMOD_Studio_EventDescription_GetSampleLoadingState.html">Studio::EventDescription::getSampleLoadingState</A></LI>
+<LI><A HREF="FMOD_Studio_Bank_LoadSampleData.html">Studio::Bank::loadSampleData</A></LI>
+<LI><A HREF="FMOD_Studio_Bank_UnloadSampleData.html">Studio::Bank::unloadSampleData</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

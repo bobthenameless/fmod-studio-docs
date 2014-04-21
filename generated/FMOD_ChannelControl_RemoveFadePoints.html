@@ -1,0 +1,35 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>ChannelControl::removeFadePoints</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>ChannelControl::removeFadePoints</H1>
+<P>
+<p>Remove volume fade points on the timeline.  This function will remove multiple fade points with a single call if the points lay between the 2 specified clock values (inclusive).</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT ChannelControl::removeFadePoints(
+  unsigned long long <I>dspclock_start</I>,
+  unsigned long long <I>dspclock_end</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>dspclock_start</I></P>
+<P class=indent>DSP clock of the parent channel group to start removing fade points from.</P>
+<P class=dt><I>dspclock_end</I></P>
+<P class=indent>DSP clock of the parent channel group to start removing fade points to.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_ChannelControl_AddFadePoint.html">ChannelControl::addFadePoint</A></LI>
+<LI><A HREF="FMOD_ChannelControl_GetFadePoints.html">ChannelControl::getFadePoints</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

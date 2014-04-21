@@ -1,0 +1,50 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Memory_GetStats</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Memory_GetStats</H1>
+<P>
+<p>Returns information on the memory usage of FMOD.  This information is byte accurate and counts all allocs and frees internally.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Memory_GetStats(
+  int *<I>currentalloced</I>,
+  int *<I>maxalloced</I>,
+  bool <I>blocking</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Memory_GetStats(
+  int *<I>currentalloced</I>,
+  int *<I>maxalloced</I>,
+  FMOD_BOOL <I>blocking</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>currentalloced</I></P>
+<P class=indent>Address of a variable that receives the currently allocated memory at time of call.   Optional.  Specify 0 or NULL to ignore.</P>
+<P class=dt><I>maxalloced</I></P>
+<P class=indent>Address of a variable that receives the maximum allocated memory since <A HREF="FMOD_System_Init.html">System::init</A> or <A HREF="FMOD_Memory_Initialize.html">Memory_Initialize</A>.  Optional.  Specify 0 or NULL to ignore.</P>
+<P class=dt><I>blocking</I></P>
+<P class=indent>Boolean indicating whether to favour speed or accuracy. Specifying true for this parameter will flush the DSP network to make sure all queued allocations happen immediately, which can be costly.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>This is useful for determining a fixed memory size to make FMOD work within for fixed memory machines such as consoles.</p>
+
+<p>Note that if using FMOD::Memory_Initialize, the memory usage will be slightly higher than without it, as FMOD has to have a small amount of memory overhead to manage the available memory.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_Init.html">System::init</A></LI>
+<LI><A HREF="FMOD_Memory_Initialize.html">Memory_Initialize</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

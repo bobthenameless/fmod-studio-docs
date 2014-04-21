@@ -1,0 +1,86 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FSBANK_RESULT</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FSBANK_RESULT</H1>
+<P>
+<p>Error codes returned from every function.</p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FSBANK_OK,
+  FSBANK_ERR_CACHE_CHUNKNOTFOUND,
+  FSBANK_ERR_CANCELLED,
+  FSBANK_ERR_CANNOT_CONTINUE,
+  FSBANK_ERR_ENCODER,
+  FSBANK_ERR_ENCODER_INIT,
+  FSBANK_ERR_ENCODER_NOTSUPPORTED,
+  FSBANK_ERR_FILE_OS,
+  FSBANK_ERR_FILE_NOTFOUND,
+  FSBANK_ERR_FMOD,
+  FSBANK_ERR_INITIALIZED,
+  FSBANK_ERR_INVALID_FORMAT,
+  FSBANK_ERR_INVALID_FORMAT_PCMBITS,
+  FSBANK_ERR_INVALID_PARAM,
+  FSBANK_ERR_MEMORY,
+  FSBANK_ERR_UNINITIALIZED,
+  FSBANK_ERR_WRITER_FORMAT,
+  FSBANK_WARN_CANNOTLOOP,
+  FSBANK_WARN_IGNORED_OPTIMIZESAMPLERATE,
+  FSBANK_WARN_IGNORED_FILTERHIGHFREQ,
+  FSBANK_WARN_IGNORED_DISABLESEEKING,
+  FSBANK_WARN_IGNORED_DONTINTERLEAVE
+} FSBANK_RESULT;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FSBANK_OK</I></P>
+<P class=indent>No errors. </P>
+<P class=dt><I>FSBANK_ERR_CACHE_CHUNKNOTFOUND</I></P>
+<P class=indent>An expected chunk is missing from the cache, perhaps try deleting cache files. </P>
+<P class=dt><I>FSBANK_ERR_CANCELLED</I></P>
+<P class=indent>The build process was cancelled during compilation by the user. </P>
+<P class=dt><I>FSBANK_ERR_CANNOT_CONTINUE</I></P>
+<P class=indent>The build process cannot continue due to previously ignored errors. </P>
+<P class=dt><I>FSBANK_ERR_ENCODER</I></P>
+<P class=indent>Encoder for chosen format has encountered an unexpected error. </P>
+<P class=dt><I>FSBANK_ERR_ENCODER_INIT</I></P>
+<P class=indent>Encoder initialization failed. </P>
+<P class=dt><I>FSBANK_ERR_ENCODER_NOTSUPPORTED</I></P>
+<P class=indent>Encoder for chosen format is not supported on this platform. </P>
+<P class=dt><I>FSBANK_ERR_FILE_OS</I></P>
+<P class=indent>An operating system based file error was encountered. </P>
+<P class=dt><I>FSBANK_ERR_FILE_NOTFOUND</I></P>
+<P class=indent>A specified file could not be found. </P>
+<P class=dt><I>FSBANK_ERR_FMOD</I></P>
+<P class=indent>Internal error from FMOD sub-system. </P>
+<P class=dt><I>FSBANK_ERR_INITIALIZED</I></P>
+<P class=indent>Already initialized. </P>
+<P class=dt><I>FSBANK_ERR_INVALID_FORMAT</I></P>
+<P class=indent>The format of the source file is invalid, see output for details. </P>
+<P class=dt><I>FSBANK_ERR_INVALID_FORMAT_PCMBITS</I></P>
+<P class=indent>The format of the source file is invalid, the source bit formats (i.e. PCM8, PCM16, etc) must match for all sub-sounds </P>
+<P class=dt><I>FSBANK_ERR_INVALID_PARAM</I></P>
+<P class=indent>An invalid parameter has been passed to this function. </P>
+<P class=dt><I>FSBANK_ERR_MEMORY</I></P>
+<P class=indent>Ran out of memory. </P>
+<P class=dt><I>FSBANK_ERR_UNINITIALIZED</I></P>
+<P class=indent>Not initialized yet. </P>
+<P class=dt><I>FSBANK_ERR_WRITER_FORMAT</I></P>
+<P class=indent>Chosen encode format is not supported by this FSB version. </P>
+<P class=dt><I>FSBANK_WARN_CANNOTLOOP</I></P>
+<P class=indent>Source file is too short for seamless looping. Looping disabled. </P>
+<P class=dt><I>FSBANK_WARN_IGNORED_OPTIMIZESAMPLERATE</I></P>
+<P class=indent><A HREF="FSBANK_BUILDFLAGS.html">FSBANK_BUILD_OPTIMIZESAMPLERATE</A> flag ignored: MP2, MP3 and CELT formats, and the USEBASICHEADERS flag make this option irrelevant. </P>
+<P class=dt><I>FSBANK_WARN_IGNORED_FILTERHIGHFREQ</I></P>
+<P class=indent><A HREF="FSBANK_BUILDFLAGS.html">FSBANK_BUILD_FILTERHIGHFREQ</A> flag ignored: feature only supported by XMA format. </P>
+<P class=dt><I>FSBANK_WARN_IGNORED_DISABLESEEKING</I></P>
+<P class=indent><A HREF="FSBANK_BUILDFLAGS.html">FSBANK_BUILD_DISABLESEEKING</A> flag ignored: feature only supported by XMA format. </P>
+<P class=dt><I>FSBANK_WARN_IGNORED_DONTINTERLEAVE</I></P>
+<P class=indent><A HREF="FSBANK_BUILDFLAGS.html">FSBANK_BUILD_DONTINTERLEAVE</A> flag ignored: feature only supported by VAG and GCADPCM formats. </P>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

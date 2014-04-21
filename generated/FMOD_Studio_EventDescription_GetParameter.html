@@ -1,0 +1,44 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Studio::EventDescription::getParameter</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Studio::EventDescription::getParameter</H1>
+<P>
+<p>Retrieves an event parameter by name.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Studio::EventDescription::getParameter(
+  const char *<I>name</I>,
+  FMOD_STUDIO_PARAMETER_DESCRIPTION *<I>parameter</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Studio_EventDescription_GetParameter(
+  FMOD_STUDIO_EVENTDESCRIPTION *<I>eventdescription</I>,
+  const char *<I>name</I>,
+  FMOD_STUDIO_PARAMETER_DESCRIPTION *<I>parameter</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>name</dt>
+<dd>Name of the parameter (case-insensitive).</dd>
+<dt>parameter</dt>
+<dd>Address of a variable to receive the parameter description.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_STUDIO_PARAMETER_DESCRIPTION.html">FMOD_STUDIO_PARAMETER_DESCRIPTION</A></LI>
+<LI><A HREF="FMOD_Studio_ParameterInstance_SetValue.html">Studio::ParameterInstance::setValue</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

@@ -1,0 +1,48 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_CODEC_GETLENGTH_CALLBACK</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_CODEC_GETLENGTH_CALLBACK</H1>
+<P>
+<p>Callback to return the length of the song in whatever format required when <A HREF="FMOD_Sound_GetLength.html">Sound::getLength</A> is called.</p>
+</P>
+<h3>C/C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT F_CALLBACK FMOD_CODEC_GETLENGTH_CALLBACK(
+  FMOD_CODEC_STATE *<I>codec_state</I>,
+  unsigned int *<I>length</I>,
+  FMOD_TIMEUNIT <I>lengthtype</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>codec_state</I></P>
+<P class=indent>Pointer to the codec state.  The user can use this variable to access runtime plugin specific variables and plugin writer user data.</P>
+<P class=dt><I>length</I></P>
+<P class=indent>Address of a variable that is to receive the length of the sound determined by the format specified in the lengttype parameter.</P>
+<P class=dt><I>lengthtype</I></P>
+<P class=indent>Timeunit type of length to return.  This will be one of the timeunits supplied by the codec author in the <A HREF="FMOD_CODEC_DESCRIPTION.html">FMOD_CODEC_DESCRIPTION</A> structure.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Remember to return <A HREF="FMOD_RESULT.html">FMOD_OK</A> at the bottom of the function, or an appropriate error code from <A HREF="FMOD_RESULT.html">FMOD_RESULT</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_TIMEUNIT.html">FMOD_TIMEUNIT</A></LI>
+<LI><A HREF="FMOD_CODEC_STATE.html">FMOD_CODEC_STATE</A></LI>
+<LI><A HREF="FMOD_CODEC_DESCRIPTION.html">FMOD_CODEC_DESCRIPTION</A></LI>
+<LI><A HREF="FMOD_CODEC_OPEN_CALLBACK.html">FMOD_CODEC_OPEN_CALLBACK</A></LI>
+<LI><A HREF="FMOD_CODEC_CLOSE_CALLBACK.html">FMOD_CODEC_CLOSE_CALLBACK</A></LI>
+<LI><A HREF="FMOD_CODEC_READ_CALLBACK.html">FMOD_CODEC_READ_CALLBACK</A></LI>
+<LI><A HREF="FMOD_CODEC_SETPOSITION_CALLBACK.html">FMOD_CODEC_SETPOSITION_CALLBACK</A></LI>
+<LI><A HREF="FMOD_CODEC_GETPOSITION_CALLBACK.html">FMOD_CODEC_GETPOSITION_CALLBACK</A></LI>
+<LI><A HREF="FMOD_CODEC_SOUNDCREATE_CALLBACK.html">FMOD_CODEC_SOUNDCREATE_CALLBACK</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

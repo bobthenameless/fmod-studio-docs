@@ -1,0 +1,43 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Sound::getSubSoundParent</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Sound::getSubSoundParent</H1>
+<P>
+<p>Retrieves a handle to the parent Sound object that contains our subsound.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Sound::getSubSoundParent(
+  FMOD::Sound **<I>parentsound</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Sound_GetSubSoundParent(
+  FMOD_SOUND *<I>sound</I>,
+  FMOD_SOUND **<I>parentsound</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>parentsound</dt>
+<dd>Address of a variable that receives the sound object specified.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>If the sound is not a subsound, the parentsound will be returned as NULL.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Sound_GetNumSubSounds.html">Sound::getNumSubSounds</A></LI>
+<LI><A HREF="FMOD_Sound_GetSubSound.html">Sound::getSubSound</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

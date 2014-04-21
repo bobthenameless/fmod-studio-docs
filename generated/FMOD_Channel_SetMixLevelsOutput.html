@@ -1,0 +1,75 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Channel::setMixLevelsOutput</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Channel::setMixLevelsOutput</H1>
+<P>
+<p>Sets the speaker volume levels for each speaker individually, this is a helper to avoid calling <A HREF="FMOD_ChannelControl_SetMixMatrix.html">ChannelControl::setMixMatrix</A>.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Channel::setMixLevelsOutput(
+  float <I>frontleft</I>,
+  float <I>frontright</I>,
+  float <I>center</I>,
+  float <I>lfe</I>,
+  float <I>surroundleft</I>,
+  float <I>surroundright</I>,
+  float <I>backleft</I>,
+  float <I>backright</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Channel_SetMixLevelsOutput(
+  FMOD_CHANNEL *<I>channel</I>,
+  float <I>frontleft</I>,
+  float <I>frontright</I>,
+  float <I>center</I>,
+  float <I>lfe</I>,
+  float <I>surroundleft</I>,
+  float <I>surroundright</I>,
+  float <I>backleft</I>,
+  float <I>backright</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>frontleft</dt>
+<dd>Volume level for the front left speaker of a multichannel speaker setup, 0.0 (silent), 1.0 (normal volume).</dd>
+<dt>frontright</dt>
+<dd>Volume level for the front right speaker of a multichannel speaker setup, 0.0 (silent), 1.0 (normal volume).</dd>
+<dt>center</dt>
+<dd>Volume level for the center speaker of a multichannel speaker setup, 0.0 (silent), 1.0 (normal volume).</dd>
+<dt>lfe</dt>
+<dd>Volume level for the subwoofer speaker of a multichannel speaker setup, 0.0 (silent), 1.0 (normal volume).</dd>
+<dt>surroundleft</dt>
+<dd>Volume level for the surround left speaker of a multichannel speaker setup, 0.0 (silent), 1.0 (normal volume).</dd>
+<dt>surroundright</dt>
+<dd>Volume level for the surround right speaker of a multichannel speaker setup, 0.0 (silent), 1.0 (normal volume).</dd>
+<dt>backleft</dt>
+<dd>Volume level for the back left speaker of a multichannel speaker setup, 0.0 (silent), 1.0 (normal volume).</dd>
+<dt>backright</dt>
+<dd>Volume level for the back right speaker of a multichannel speaker setup, 0.0 (silent), 1.0 (normal volume).</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Levels can be below 0 to invert a signal and above 1 to amplify the signal. Note that increasing the signal level too far may cause audible distortion.</p>
+
+<p>Speakers specified that don't exist will simply be ignored.</p>
+
+<p>For more advanced speaker control, including sending the different channels of a stereo sound to arbitrary speakers, see <A HREF="FMOD_ChannelControl_SetMixMatrix.html">ChannelControl::setMixMatrix</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_ChannelControl_SetMixMatrix.html">ChannelControl::setMixMatrix</A></LI>
+<LI><A HREF="FMOD_ChannelControl_GetMixMatrix.html">ChannelControl::getMixMatrix</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

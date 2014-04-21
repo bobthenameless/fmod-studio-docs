@@ -1,0 +1,53 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Studio::System::initialize</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Studio::System::initialize</H1>
+<P>
+<p>Initializes the Studio System, the Low Level System, and the sound device.
+This should be called at startup time, after creating a Studio System with
+<A HREF="FMOD_Studio_System_Create.html">Studio::System::create</A>.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Studio::System::initialize(
+  int <I>maxchannels</I>,
+  FMOD_STUDIO_INITFLAGS <I>studioflags</I>,
+  FMOD_INITFLAGS <I>flags</I>,
+  void *<I>extradriverdata</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Studio_System_Initialize(
+  FMOD_STUDIO_SYSTEM *<I>system</I>,
+  int <I>maxchannels</I>,
+  FMOD_STUDIO_INITFLAGS <I>studioflags</I>,
+  FMOD_INITFLAGS <I>flags</I>,
+  void *<I>extradriverdata</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>maxchannels</dt>
+<dd>The maximum number of channels to be used in FMOD. These are also called 'virtual channels', as you can play as many of these as you want, even if you only have a small number of real voices.</dd>
+<dt>studioflags</dt>
+<dd>See <A HREF="FMOD_STUDIO_INITFLAGS.html">FMOD_STUDIO_INITFLAGS</A>. This can be a selection of flags bitwise OR'ed together to change the behaviour of the Studio System.</dd>
+<dt>flags</dt>
+<dd>See <A HREF="FMOD_INITFLAGS.html">FMOD_INITFLAGS</A>. This can be a selection of flags bitwise OR'ed together to change the behaviour of the Low Level System.</dd>
+<dt>extradriverdata</dt>
+<dd>Driver specific data that can be passed to the output plugin. For example the filename for the wav writer plugin. See <A HREF="FMOD_OUTPUTTYPE.html">FMOD_OUTPUTTYPE</A> for what each output mode might take here. Optional. Specify 0 or NULL to ignore.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Studio_System_Create.html">Studio::System::create</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

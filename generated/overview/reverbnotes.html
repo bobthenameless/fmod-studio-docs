@@ -1,0 +1,237 @@
+<LINK REL="stylesheet" HREF="../../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Reverb notes</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+
+<H1>REVERB NOTES</H1>
+
+<H2>Introduction</H2>
+This section will discuss FMOD's reverb parameters focusing on the software (SFX) implementation.
+<p>
+The fields of FMOD_REVERB_PROPERTIES (found in 'fmod.h') control both hardware and software instances of reverb.
+Hardware reverbs have a few parameters that the software effect doesn't use, so you can ignore these for the purpose
+of this discussion. For example, EnvDiffusion is NOT used by the software reverb because it is only meaningful to Wii.
+<p>
+FMOD's software reverb DSP is controlled by parameters defined in the <a href="http://www.iasig.org/pubs/3dl2v1a.pdf">I3DL2 guidelines</a>,
+which describe the reverberant environment of the listener.
+<p>
+Here's a list of the fields of FMOD_REVERB_PROPERTIES that currently have an effect and a description of what they do
+within the context of the software reverb. The descriptions are much the same as in 'fmod.h'. 
+<p>&nbsp;<p>
+<center>
+<table border="2" cellpadding="0" cellspacing="0" style="width: 60%">
+  <tr>
+	<td width="12%" height="15"><b>Environment</b></td>
+    <td width="22%" height="15">Turns the reverb off if set to -1</td>
+  </tr>
+  <tr>
+	<td width="12%" height="15"><b>Room</b></td>
+    <td width="22%" height="15">Room effect level at mid frequencies</td>
+  </tr>
+  <tr>
+	<td width="12%" height="15"><b>RoomHF</b></td>
+    <td width="22%" height="15">Relative room effect level at high frequencies</td>
+  </tr>
+  <tr>
+	<td width="12%" height="15"><b>RoomLF</b></td>
+    <td width="22%" height="15">Relative room effect level at low frequencies</td>
+  </tr>  
+  <tr>
+	<td width="12%" height="15"><b>DecayTime</b></td>
+    <td width="22%" height="15">Reverberation decay time at mid frequencies</td>
+  </tr>
+  <tr>
+	<td width="12%" height="15"><b>DecayHFRatio</b></td>
+    <td width="22%" height="15">High-frequency to mid-frequency decay time ratio</td>
+  </tr>
+  <tr>
+	<td width="12%" height="15"><b>Reflections</b></td>
+    <td width="22%" height="15">Early reflections level relative to room effect</td>
+  </tr>
+  <tr>
+	<td width="12%" height="15"><b>ReflectionsDelay</b></td>
+    <td width="22%" height="15">Initial reflection delay time</td>
+  </tr>  
+  <tr>
+	<td width="12%" height="15"><b>Reverb</b></td>
+    <td width="22%" height="15">Late reverberation level relative to room effect</td>
+  </tr>
+  <tr>
+	<td width="12%" height="15"><b>ReverbDelay</b></td>
+    <td width="22%" height="15">Late reverberation delay time relative to initial reflection</td>
+  </tr>
+  <tr>
+	<td width="12%" height="15"><b>HFReference</b></td>
+    <td width="22%" height="15">Reference high frequency (Hz) [see RoomHF]</td>
+  </tr>
+  <tr>
+	<td width="12%" height="15"><b>LFReference</b></td>
+    <td width="22%" height="15">Reference low frequency (Hz) [see RoomLF]</td>
+  </tr>  
+  <tr>
+	<td width="12%" height="15"><b>Diffusion</b></td>
+    <td width="22%" height="15">Echo density in the late reverberation decay</td>
+  </tr>
+  <tr>
+	<td width="12%" height="15"><b>Density</b></td>
+    <td width="22%" height="15">Modal density in the late reverberation decay</td>
+  </tr>
+</table>
+</center>
+<p>
+<H2>Please note :</H2>
+<p>
+RoomRolloffFactor is a part of I3DL2, but has no effect within FMOD.
+<p>
+As with most reverberation models, the response is split into sections. This implementation has early reflections and late reverberation, each of which are composed of sets of delay lines having different delay and decay characteristics.
+<p>
+There are a few things to note here:
+<p>
+1) Room, RoomHF, RoomLF, Reflections and Reverb are all measured in milliBels, i.e. 100th of a deciBel, and they're all integers.
+<br>
+2) Room is the input gain
+<br>
+3) Reflections is a gain on the output of the early reflections subsystem
+<br>
+4) Reverb is a gain on the output of the late reverb subsystem
+<br>
+5) RoomLF and LFReference control a low frequency shelving filter on the input
+<br>
+6) RoomHF and HFReference control a high frequency shelving filter on the input
+<br>
+7) Diffusion and Density control the correlation among delay lines in the reverb subsystem
+<p>
+The FMOD_PRESET_* presets can be useful as examples of how these parameters change the nature of the reverb. They give quite a wide scope for representing different environments.
+<p>
+One more thing - it's important to distinguish between FMOD_REVERB_PROPERTIES and FMOD_REVERB_CHANNELPROPERTIES. The latter is just used for controlling the a channel's input gain to the reverb, and doesn't affect the characteristics of the reverb unit itself. 
+<P>
+&nbsp;<P>
+<H2>Converting FMOD Reverb parameters</H2>
+Reverb parameters have changed in FMOD Studio. The following table shows how to convert FMOD_REVERB_PROPERTIES values from the FMOD Ex set of properties to the FMOD Studio set.
+<TABLE>
+<TR>
+<TD><b>Property</b></TD>
+<TD><b>Units</b></TD>
+<TD><b>Range</b></TD>
+<TD><b>Conversion from previous FMOD Ex properties</b></TD>
+<TD><b>Clamp after conversion</b></TD>
+<TD><b>Label</b></TD>
+</TR>
+<TR>
+<TD>DecayTime</TD>
+<TD>ms</TD>
+<TD>100 to 20000</TD>
+<TD>DecayTime * 1000</TD>
+<TD>No</TD>
+<TD>Reverb Time</TD>
+</TR>
+<TR>
+<TD>EarlyDelay</TD>
+<TD>ms</TD>
+<TD>0 to 300</TD>
+<TD>EarlyDelay * 1000</TD>
+<TD>No</TD>
+<TD>Early Delay</TD>
+</TR>
+<TR>
+<TD>LateDelay</TD>
+<TD>ms</TD>
+<TD>0 to 100</TD>
+<TD>LateDelay * 1000</TD>
+<TD>No</TD>
+<TD>Late Delay</TD>
+</TR>
+<TR>
+<TD>HFReference</TD>
+<TD>Hz</TD>
+<TD>20 to 20000</TD>
+<TD>HFReference</TD>
+<TD>No</TD>
+<TD>HF Reference</TD>
+</TR>
+<TR>
+<TD>HFDecayRatio</TD>
+<TD>%</TD>
+<TD>0 to 100</TD>
+<TD>DecayHFRatio * 100</TD>
+<TD>Yes</TD>
+<TD>HF Decay</TD>
+</TR>
+<TR>
+<TD>Diffusion</TD>
+<TD>%</TD>
+<TD>0 to 100</TD>
+<TD>Diffusion</TD>
+<TD>No</TD>
+<TD>Diffusion</TD>
+</TR>
+<TR>
+<TD>Density</TD>
+<TD>%</TD>
+<TD>0 to 100</TD>
+<TD>Density</TD>
+<TD>No</TD>
+<TD>Density</TD>
+</TR>
+<TR>
+<TD>LowShelfFrequency</TD>
+<TD>Hz</TD>
+<TD>20 to 1000</TD>
+<TD>LFReference</TD>
+<TD>No</TD>
+<TD>Low Freq</TD>
+</TR>
+<TR>
+<TD>LowShelfGain</TD>
+<TD>dB</TD>
+<TD>-48 to 12</TD>
+<TD>RoomLF / 100</TD>
+<TD>Yes</TD>
+<TD>Low Gain</TD>
+</TR>
+<TR>
+<TD>HighCut</TD>
+<TD>Hz</TD>
+<TD>20 to 20000</TD>
+<TD>IF RoomHF < 0 THEN HFReference / sqrt((1-<i>HFGain</i>) / <i>HFGain</i>) ELSE 20000</TD>
+<TD>Yes</TD>
+<TD>High Cut</TD>
+</TR>
+<TR>
+<TD>EarlyLateMix</TD>
+<TD>%</TD>
+<TD>0 to 100</TD>
+<TD>IF Reflections > -10000 THEN <i>LateEarlyRatio</i>/(<i>LateEarlyRatio</i> + 1) * 100 ELSE 100</TD>
+<TD>No</TD>
+<TD>Early/Late</TD>
+</TR>
+<TR>
+<TD>WetLevel</TD>
+<TD>dB</TD>
+<TD>-80 to 20</TD>
+<TD>10 * log10(<i>EarlyAndLatePower</i>) + Room / 100</TD>
+<TD>Yes</TD>
+<TD>Wet Level</TD>
+</TR>
+<TR>
+<TD COLSPAN="6"><b>Intermediate variables used in conversion</b></TD>
+</TR>
+<TR>
+<TD COLSPAN="3"><i>LateEarlyRatio</i></TD>
+<TD COLSPAN="3">pow(10, (Reverb - Reflections) / 2000)</TD>
+</TR>
+<TR>
+<TD COLSPAN="3"><i>EarlyAndLatePower</i></TD>
+<TD COLSPAN="3">pow(10, Reflections / 1000) + pow(10, Reverb / 1000)</TD>
+</TR>
+<TR>
+<TD COLSPAN="3"><i>HFGain</i></TD>
+<TD COLSPAN="3">pow(10, RoomHF / 2000)</TD>
+</TR>
+</TABLE>
+
+</BODY>
+</HTML>

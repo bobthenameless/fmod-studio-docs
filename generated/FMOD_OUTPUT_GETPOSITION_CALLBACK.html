@@ -1,0 +1,38 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_OUTPUT_GETPOSITION_CALLBACK</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_OUTPUT_GETPOSITION_CALLBACK</H1>
+<P>
+<p>Returns the current PCM offset or playback position for the output stream.<br>
+Called from the mixer thread, only when the 'polling' member of <A HREF="FMOD_OUTPUT_DESCRIPTION.html">FMOD_OUTPUT_DESCRIPTION</A> is set to <strong>true</strong>.<br>
+The internal FMOD output thread calls this function periodically to determine if it should ask for a block of audio data or not.</p>
+</P>
+<h3>C/C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT F_CALLBACK FMOD_OUTPUT_GETPOSITION_CALLBACK(
+  FMOD_OUTPUT_STATE *<I>output_state</I>,
+  unsigned int *<I>pcm</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>output_state</I></P>
+<P class=indent>Pointer to the plugin state.  The user can use this variable to access runtime plugin specific variables and plugin writer user data.</P>
+<P class=dt><I>pcm</I></P>
+<P class=indent></P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_OUTPUT_DESCRIPTION.html">FMOD_OUTPUT_DESCRIPTION</A></LI>
+<LI><A HREF="FMOD_OUTPUT_LOCK_CALLBACK.html">FMOD_OUTPUT_LOCK_CALLBACK</A></LI>
+<LI><A HREF="FMOD_OUTPUT_UNLOCK_CALLBACK.html">FMOD_OUTPUT_UNLOCK_CALLBACK</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

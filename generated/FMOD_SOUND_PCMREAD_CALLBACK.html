@@ -1,0 +1,53 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_SOUND_PCMREAD_CALLBACK</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_SOUND_PCMREAD_CALLBACK</H1>
+<P>
+<p>Used for 2 purposes.<br>
+One use is for user created sounds when <A HREF="FMOD_MODE.html">FMOD_OPENUSER</A> is specified when creating the sound.<br>
+The other use is to 'piggyback' on FMOD's read functions when opening a normal sound, therefore
+the callee can read (rip) or even write back new PCM data while FMOD is opening the sound.</p>
+</P>
+<h3>C/C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT F_CALLBACK FMOD_SOUND_PCMREAD_CALLBACK(
+  FMOD_SOUND *<I>sound</I>,
+  void *<I>data</I>,
+  unsigned int <I>datalen</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>sound</I></P>
+<P class=indent>Pointer to the sound.  C++ users see remarks.</P>
+<P class=dt><I>data</I></P>
+<P class=indent>Pointer to raw PCM data that the user can either read or write to.</P>
+<P class=dt><I>datalen</I></P>
+<P class=indent>Length of the data in bytes.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p><u>C++ Users</u>.  Cast <code>FMOD_SOUND *</code> to <code>FMOD::Sound *</code> inside the callback and use as normal.</p>
+
+<p>The format of the sound can be retrieved with <A HREF="FMOD_Sound_GetFormat.html">Sound::getFormat</A> from this callback.  This will allow the user to
+determine what type of pointer to use if they are not sure what format the sound is.</p>
+
+<p>If the callback is used for the purpose of 'piggybacking' normal FMOD sound loads, then you do not have to do
+anything at all, and it can be treated as purely informational.  The return value is also ignored.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Sound_GetFormat.html">Sound::getFormat</A></LI>
+<LI><A HREF="FMOD_SOUND_PCMSETPOS_CALLBACK.html">FMOD_SOUND_PCMSETPOS_CALLBACK</A></LI>
+<LI><A HREF="FMOD_System_CreateSound.html">System::createSound</A></LI>
+<LI><A HREF="FMOD_System_CreateStream.html">System::createStream</A></LI>
+<LI><A HREF="FMOD_CREATESOUNDEXINFO.html">FMOD_CREATESOUNDEXINFO</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

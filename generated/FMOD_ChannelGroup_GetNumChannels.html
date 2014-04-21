@@ -1,0 +1,45 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>ChannelGroup::getNumChannels</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>ChannelGroup::getNumChannels</H1>
+<P>
+<p>Retrieves the number of assigned channels to this channel group.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT ChannelGroup::getNumChannels(
+  int *<I>numchannels</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_ChannelGroup_GetNumChannels(
+  FMOD_CHANNELGROUP *<I>channelgroup</I>,
+  int *<I>numchannels</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>numchannels</dt>
+<dd>Address of a variable to receive the current number of channels in this channel group.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Use this function to enumerate the channels within the channel group. You can then use <A HREF="FMOD_ChannelGroup_GetChannel.html">ChannelGroup::getChannel</A> to
+retrieve each individual channel.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_ChannelGroup_GetChannel.html">ChannelGroup::getChannel</A></LI>
+<LI><A HREF="FMOD_System_GetMasterChannelGroup.html">System::getMasterChannelGroup</A></LI>
+<LI><A HREF="FMOD_System_CreateChannelGroup.html">System::createChannelGroup</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

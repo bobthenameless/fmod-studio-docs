@@ -1,0 +1,97 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::setDSPBufferSize</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::setDSPBufferSize</H1>
+<P>
+<p>Sets the FMOD internal mixing buffer size.  This function is used if you need to control mixer latency or
+granularity.  Smaller buffersizes lead to smaller latency, but can lead to stuttering/skipping/unstable sound
+on slower machines or soundcards with bad drivers.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::setDSPBufferSize(
+  unsigned int <I>bufferlength</I>,
+  int <I>numbuffers</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_SetDSPBufferSize(
+  FMOD_SYSTEM *<I>system</I>,
+  unsigned int <I>bufferlength</I>,
+  int <I>numbuffers</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>bufferlength</dt>
+<dd>The mixer engine block size in samples.  Use this to adjust mixer update granularity. Default = 1024.  (milliseconds = 1024 at 48khz = 1024 / 48000 * 1000 = 21.33ms). This means the mixer updates every 21.33ms.</dd>
+<dt>numbuffers</dt>
+<dd>The mixer engine number of buffers used.  Use this to adjust mixer latency. Default = 4.  To get the total buffersize multiply the bufferlength by the numbuffers value. By default this would be 4*1024.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>The FMOD software mixer mixes to a ringbuffer.  The size of this ringbuffer is determined here.  It mixes a block
+of sound data every 'bufferlength' number of samples, and there are 'numbuffers' number of these blocks that make
+up the entire ringbuffer.  Adjusting these values can lead to extremely low latency performance (smaller values),
+or greater stability in sound output (larger values).</p>
+
+<p>Warning!  The 'buffersize' is generally best left alone.  Making the granularity smaller will just increase CPU
+usage (cache misses and DSP network overhead).  Making it larger affects how often you hear commands update such
+as volume/pitch/pan changes.  Anything above 20ms will be noticable and sound parameter changes will be obvious
+instead of smooth.</p>
+
+<p>FMOD chooses the most optimal size by default for best stability, depending on the output type, and if the drivers
+are emulated or not (for example DirectSound is emulated using waveOut on NT).  It is not recommended changing this
+value unless you really need to.  You may get worse performance than the default settings chosen by FMOD.</p>
+
+<p>To convert from milliseconds to 'samples', simply multiply the value in milliseconds by the sample rate of the
+output (ie 48000 if that is what it is set to), then divide by 1000.</p>
+
+<p>The values in milliseconds and average latency expected from the settings can be calculated using the following code.</p>
+
+<pre><code><A HREF="FMOD_RESULT.html">FMOD_RESULT</A> result;
+unsigned int blocksize;
+int numblocks;
+float ms;
+
+result = system-&gt;getDSPBufferSize(&amp;blocksize, &amp;numblocks);
+result = system-&gt;getSoftwareFormat(&amp;frequency, 0, 0);
+
+ms = (float)blocksize * 1000.0f / (float)frequency;
+
+printf("Mixer blocksize        = %.02f ms\n", ms);
+printf("Mixer Total buffersize = %.02f ms\n", ms * numblocks);
+printf("Mixer Average Latency  = %.02f ms\n", ms * ((float)numblocks - 1.5f));
+</code></pre>
+
+<p><br></p>
+
+<p><strong>Platform Notes</strong></p>
+
+<ul>
+<li>Some output modes (such as <A HREF="FMOD_OUTPUTTYPE.html">FMOD_OUTPUTTYPE_ASIO</A>) will change the buffer size to match their own internal optimal
+buffer size.  Use <A HREF="FMOD_System_GetDSPBufferSize.html">System::getDSPBufferSize</A> after calling <A HREF="FMOD_System_Init.html">System::init</A> to see if this is the case.</li>
+<li>Xbox 360 defaults to 256 sample buffersize and 4 for numblocks.  This gives a 5.333ms granularity with roughly
+a 10-15ms latency.</li>
+<li>PS3 ignores this function. Check FMOD_PS3_EXTRADRIVERDATA to control output latency.</li>
+<li>This function cannot be called after FMOD is already activated with <A HREF="FMOD_System_Init.html">System::init</A>.</li>
+<li>It must be called before <A HREF="FMOD_System_Init.html">System::init</A>, or after <A HREF="FMOD_System_Close.html">System::close</A>.</li>
+</ul>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_GetDSPBufferSize.html">System::getDSPBufferSize</A></LI>
+<LI><A HREF="FMOD_System_GetSoftwareFormat.html">System::getSoftwareFormat</A></LI>
+<LI><A HREF="FMOD_System_Init.html">System::init</A></LI>
+<LI><A HREF="FMOD_System_Close.html">System::close</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

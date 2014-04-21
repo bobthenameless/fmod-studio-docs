@@ -1,0 +1,59 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>DSP::addInput</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>DSP::addInput</H1>
+<P>
+<p>Adds the specified DSP unit as an input of the DSP object.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT DSP::addInput(
+  FMOD::DSP *<I>input</I>,
+  FMOD::DSPConnection **<I>connection</I>,
+  FMOD_DSPCONNECTION_TYPE <I>type</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_DSP_AddInput(
+  FMOD_DSP *<I>dsp</I>,
+  FMOD_DSP *<I>input</I>,
+  FMOD_DSPCONNECTION **<I>connection</I>,
+  FMOD_DSPCONNECTION_TYPE <I>type</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>input</dt>
+<dd>The DSP unit to add as an input of the current unit.</dd>
+<dt>connection</dt>
+<dd>The connection between the 2 units.  Optional.  Specify 0 or NULL to ignore.</dd>
+<dt>type</dt>
+<dd>The type of connection between the 2 units.  See <A HREF="FMOD_DSPCONNECTION_TYPE.html">FMOD_DSPCONNECTION_TYPE</A>.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>If you want to add a unit as an output of another unit, then add 'this' unit as an input of that unit instead.</p>
+
+<p>Inputs are automatically mixed together, then the mixed data is sent to the unit's output(s).<br>
+To find the number of inputs or outputs a unit has use <A HREF="FMOD_DSP_GetNumInputs.html">DSP::getNumInputs</A> or <A HREF="FMOD_DSP_GetNumOutputs.html">DSP::getNumOutputs</A>.</p>
+
+<p><strong>Note:</strong> The connection pointer retrieved here will become invalid if you disconnect the 2 dsp units that use it.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_GetNumInputs.html">DSP::getNumInputs</A></LI>
+<LI><A HREF="FMOD_DSP_GetInput.html">DSP::getInput</A></LI>
+<LI><A HREF="FMOD_DSP_GetNumOutputs.html">DSP::getNumOutputs</A></LI>
+<LI><A HREF="FMOD_DSP_DisconnectFrom.html">DSP::disconnectFrom</A></LI>
+<LI><A HREF="FMOD_DSPCONNECTION_TYPE.html">FMOD_DSPCONNECTION_TYPE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

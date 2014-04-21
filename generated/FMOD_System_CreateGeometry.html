@@ -1,0 +1,63 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::createGeometry</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::createGeometry</H1>
+<P>
+<p>Geometry creation function.  This function will create a base geometry object which can then have polygons added to it.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::createGeometry(
+  int <I>maxpolygons</I>,
+  int <I>maxvertices</I>,
+  FMOD::Geometry **<I>geometry</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_CreateGeometry(
+  FMOD_SYSTEM *<I>system</I>,
+  int <I>maxpolygons</I>,
+  int <I>maxvertices</I>,
+  FMOD_GEOMETRY **<I>geometry</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>maxpolygons</dt>
+<dd>Maximum number of polygons within this object.</dd>
+<dt>maxvertices</dt>
+<dd>Maximum number of vertices within this object.</dd>
+<dt>geometry</dt>
+<dd>Address of a variable to receive a newly created FMOD::Geometry object.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Polygons can be added to a geometry object using <A HREF="FMOD_Geometry_AddPolygon.html">Geometry::addPolygon</A>.</p>
+
+<p>A geometry object stores its list of polygons in a structure optimized for quick line intersection testing and efficient insertion and updating.<br>
+The structure works best with regularly shaped polygons with minimal overlap.<br>
+Many overlapping polygons, or clusters of long thin polygons may not be handled efficiently.<br>
+Axis aligned polygons are handled most efficiently.</p>
+
+<p>The same type of structure is used to optimize line intersection testing with multiple geometry objects.</p>
+
+<p>It is important to set the value of maxworldsize to an appropriate value using <A HREF="FMOD_System_SetGeometrySettings.html">System::setGeometrySettings</A>.<br>
+Objects or polygons outside the range of maxworldsize will not be handled efficiently.<br>
+Conversely, if maxworldsize is excessively large, the structure may lose precision and efficiency may drop.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_SetGeometrySettings.html">System::setGeometrySettings</A></LI>
+<LI><A HREF="FMOD_System_LoadGeometry.html">System::loadGeometry</A></LI>
+<LI><A HREF="FMOD_Geometry_AddPolygon.html">Geometry::addPolygon</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

@@ -1,0 +1,64 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::getOutputHandle</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::getOutputHandle</H1>
+<P>
+<p>Retrieves a pointer to the system level output device module.   This means a pointer to a DirectX "LPDIRECTSOUND",
+or a WINMM handle, or with something like with <A HREF="FMOD_OUTPUTTYPE.html">FMOD_OUTPUTTYPE_NOSOUND</A> output, the handle will be null or 0.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::getOutputHandle(
+  void **<I>handle</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_GetOutputHandle(
+  FMOD_SYSTEM *<I>system</I>,
+  void **<I>handle</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>handle</dt>
+<dd>Address of a variable that receives the handle to the output mode's native hardware API object (see remarks).</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Must be called after <A HREF="FMOD_System_Init.html">System::init</A>.<br>
+Cast the resulting pointer depending on what output system pointer you are after.</p>
+
+<p><PRE>
+<A HREF="FMOD_OUTPUTTYPE.html">FMOD_OUTPUTTYPE_DSOUND</A>       Pointer to type DIRECTSOUND is returned.
+<A HREF="FMOD_OUTPUTTYPE.html">FMOD_OUTPUTTYPE_WINMM</A>        Pointer to type HWAVEOUT is returned.
+FMOD_OUTPUTTYPE_OPENAL       Pointer to type ALCdevice is returned.
+<A HREF="FMOD_OUTPUTTYPE.html">FMOD_OUTPUTTYPE_WASAPI</A>       Pointer to type IAudioRenderClient is returned.
+<A HREF="FMOD_OUTPUTTYPE.html">FMOD_OUTPUTTYPE_ASIO</A>         Pointer to type AsioDrivers is returned.
+<A HREF="FMOD_OUTPUTTYPE.html">FMOD_OUTPUTTYPE_OSS</A>          File handle is returned, (cast to int).
+<A HREF="FMOD_OUTPUTTYPE.html">FMOD_OUTPUTTYPE_ALSA</A>         Pointer to type snd_pcm_t is returned.
+<A HREF="FMOD_OUTPUTTYPE.html">FMOD_OUTPUTTYPE_ESD</A>          Handle of type int is returned, as returned by so_esd_open_sound (cast to int).
+<A HREF="FMOD_OUTPUTTYPE.html">FMOD_OUTPUTTYPE_COREAUDIO</A>    Handle of type AudioUnit is returned.
+<A HREF="FMOD_OUTPUTTYPE.html">FMOD_OUTPUTTYPE_PS3</A>          NULL / 0 is returned.
+<A HREF="FMOD_OUTPUTTYPE.html">FMOD_OUTPUTTYPE_XBOX360</A>      Pointer to type IXAudio2 is returned.
+FMOD_OUTPUTTYPE_PSP          NULL / 0 is returned.
+FMOD_OUTPUTTYPE_WII          NULL / 0 is returned.
+<A HREF="FMOD_OUTPUTTYPE.html">FMOD_OUTPUTTYPE_NOSOUND</A>      NULL / 0 is returned.
+<A HREF="FMOD_OUTPUTTYPE.html">FMOD_OUTPUTTYPE_WAVWRITER</A>    NULL / 0 is returned.
+</PRE></p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_OUTPUTTYPE.html">FMOD_OUTPUTTYPE</A></LI>
+<LI><A HREF="FMOD_System_SetOutput.html">System::setOutput</A></LI>
+<LI><A HREF="FMOD_System_Init.html">System::init</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

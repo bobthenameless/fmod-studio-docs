@@ -1,0 +1,47 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>SoundGroup::setMaxAudibleBehavior</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>SoundGroup::setMaxAudibleBehavior</H1>
+<P>
+<p>This function changes the way the sound playback behaves when too many sounds are playing in a soundgroup.
+Muting, failing and stealing behaviors can be specified.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT SoundGroup::setMaxAudibleBehavior(
+  FMOD_SOUNDGROUP_BEHAVIOR <I>behavior</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_SoundGroup_SetMaxAudibleBehavior(
+  FMOD_SOUNDGROUP *<I>soundgroup</I>,
+  FMOD_SOUNDGROUP_BEHAVIOR <I>behavior</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>behavior</dt>
+<dd>Specify a behavior determined with a <A HREF="FMOD_SOUNDGROUP_BEHAVIOR.html">FMOD_SOUNDGROUP_BEHAVIOR</A> flag. Default is <A HREF="FMOD_SOUNDGROUP_BEHAVIOR.html">FMOD_SOUNDGROUP_BEHAVIOR_FAIL</A>.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_SOUNDGROUP_BEHAVIOR.html">FMOD_SOUNDGROUP_BEHAVIOR</A></LI>
+<LI><A HREF="FMOD_SoundGroup_GetMaxAudibleBehavior.html">SoundGroup::getMaxAudibleBehavior</A></LI>
+<LI><A HREF="FMOD_SoundGroup_SetMaxAudible.html">SoundGroup::setMaxAudible</A></LI>
+<LI><A HREF="FMOD_SoundGroup_GetMaxAudible.html">SoundGroup::getMaxAudible</A></LI>
+<LI><A HREF="FMOD_SoundGroup_SetMuteFadeSpeed.html">SoundGroup::setMuteFadeSpeed</A></LI>
+<LI><A HREF="FMOD_SoundGroup_GetMuteFadeSpeed.html">SoundGroup::getMuteFadeSpeed</A></LI>
+<LI><A HREF="FMOD_System_CreateSoundGroup.html">System::createSoundGroup</A></LI>
+<LI><A HREF="FMOD_System_GetMasterSoundGroup.html">System::getMasterSoundGroup</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

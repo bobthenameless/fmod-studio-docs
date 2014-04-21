@@ -1,0 +1,41 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::setAdvancedSettings</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::setAdvancedSettings</H1>
+<P>
+<p>Sets advanced features like configuring memory and cpu usage for <A HREF="FMOD_MODE.html">FMOD_CREATECOMPRESSEDSAMPLE</A> usage.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::setAdvancedSettings(
+  FMOD_ADVANCEDSETTINGS *<I>settings</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_SetAdvancedSettings(
+  FMOD_SYSTEM *<I>system</I>,
+  FMOD_ADVANCEDSETTINGS *<I>settings</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>settings</dt>
+<dd>Pointer to <A HREF="FMOD_ADVANCEDSETTINGS.html">FMOD_ADVANCEDSETTINGS</A> structure.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_ADVANCEDSETTINGS.html">FMOD_ADVANCEDSETTINGS</A></LI>
+<LI><A HREF="FMOD_System_GetAdvancedSettings.html">System::getAdvancedSettings</A></LI>
+<LI><A HREF="FMOD_MODE.html">FMOD_MODE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

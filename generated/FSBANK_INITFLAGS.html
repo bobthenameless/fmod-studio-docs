@@ -1,0 +1,43 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FSBANK_INITFLAGS</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FSBANK_INITFLAGS</H1>
+<P>
+<p>Bit fields to use with <A HREF="FSBank_Init.html">FSBank_Init</A> to control the general operation of the library.</p>
+</P>
+<h3>Definition</h3>
+<PRE class=syntax><CODE>#define FSBANK_INIT_NORMAL 0x00000000
+#define FSBANK_INIT_IGNOREERRORS 0x00000001
+#define FSBANK_INIT_WARNINGSASERRORS 0x00000002
+#define FSBANK_INIT_CREATEINCLUDEHEADER 0x00000004
+#define FSBANK_INIT_DONTLOADCACHEFILES 0x00000008
+#define FSBANK_INIT_GENERATEPROGRESSITEMS 0x00000010
+#define FSBANK_INIT_UNICODE 0x00000020
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FSBANK_INIT_NORMAL</I></P>
+<P class=indent>Initialize normally. </P>
+<P class=dt><I>FSBANK_INIT_IGNOREERRORS</I></P>
+<P class=indent>Ignore individual subsound build errors, continue building for as long as possible. </P>
+<P class=dt><I>FSBANK_INIT_WARNINGSASERRORS</I></P>
+<P class=indent>Treat any warnings issued as errors. </P>
+<P class=dt><I>FSBANK_INIT_CREATEINCLUDEHEADER</I></P>
+<P class=indent>Create C header files with #defines defining indices for each member of the FSB. </P>
+<P class=dt><I>FSBANK_INIT_DONTLOADCACHEFILES</I></P>
+<P class=indent>Ignore existing cache files. </P>
+<P class=dt><I>FSBANK_INIT_GENERATEPROGRESSITEMS</I></P>
+<P class=indent>Generate status items that can be queried by another thread to monitor the build progress and give detailed error messages. </P>
+<P class=dt><I>FSBANK_INIT_UNICODE</I></P>
+<P class=indent>All file paths are treated as wide chars (Windows only). </P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FSBank_Init.html">FSBank_Init</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

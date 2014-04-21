@@ -1,0 +1,51 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>DSPConnection::getMixMatrix</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>DSPConnection::getMixMatrix</H1>
+<P>
+<p>Returns the panning matrix set by the user, for a connection.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT DSPConnection::getMixMatrix(
+  float *<I>matrix</I>,
+  int *<I>outchannels</I>,
+  int *<I>inchannels</I>,
+  int <I>inchannel_hop</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_DSPConnection_GetMixMatrix(
+  FMOD_DSPCONNECTION *<I>dspconnection</I>,
+  float *<I>matrix</I>,
+  int *<I>outchannels</I>,
+  int *<I>inchannels</I>,
+  int <I>inchannel_hop</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>matrix</dt>
+<dd>Address of a variable to recieve an array of floating point matrix data, where rows represent output speakers, and columns represent input channels.</dd>
+<dt>outchannels</dt>
+<dd>Address of a variable to receive the number of output channels in the set matrix.</dd>
+<dt>inchannels</dt>
+<dd>Address of a variable to receive the number of input channels in the set matrix.</dd>
+<dt>inchannel_hop</dt>
+<dd>Number of floating point values available in the destination n memory for a row, so that the destination memory can be skipped through correctly to write the right values, if the intended matrix memory to be written to is wider than the matrix stored in the DSPConnection.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSPConnection_SetMixMatrix.html">DSPConnection::setMixMatrix</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

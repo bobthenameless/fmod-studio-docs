@@ -1,0 +1,50 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::set3DRolloffCallback</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::set3DRolloffCallback</H1>
+<P>
+<p>When FMOD wants to calculate 3d volume for a channel, this callback can be used to override the internal volume
+calculation  based on distance.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::set3DRolloffCallback(
+  FMOD_3D_ROLLOFF_CALLBACK <I>callback</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_Set3DRolloffCallback(
+  FMOD_SYSTEM *<I>system</I>,
+  FMOD_3D_ROLLOFF_CALLBACK <I>callback</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>callback</dt>
+<dd>Pointer to a C function of type <A HREF="FMOD_3D_ROLLOFF_CALLBACK.html">FMOD_3D_ROLLOFF_CALLBACK</A>, that is used to override the FMOD volume calculation.  Default is 0 or NULL.  Setting the callback to null will return 3d calculation back to FMOD.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>This function overrides <A HREF="FMOD_MODE.html">FMOD_3D_INVERSEROLLOFF</A>, <A HREF="FMOD_MODE.html">FMOD_3D_LINEARROLLOFF</A>, <A HREF="FMOD_MODE.html">FMOD_3D_LINEARSQUAREROLLOFF</A>,
+<A HREF="FMOD_MODE.html">FMOD_3D_CUSTOMROLLOFF</A>.  To allow FMOD to calculate the 3d volume again, use 0 or NULL as the callback.</p>
+
+<p>NOTE: When using the event system, call <A HREF="FMOD_Channel_GetUserData.html">Channel::getUserData</A> from your <A HREF="FMOD_3D_ROLLOFF_CALLBACK.html">FMOD_3D_ROLLOFF_CALLBACK</A> to get the event
+instance handle of the event that spawned the channel in question.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_3D_ROLLOFF_CALLBACK.html">FMOD_3D_ROLLOFF_CALLBACK</A></LI>
+<LI><A HREF="FMOD_System_Set3DListenerAttributes.html">System::set3DListenerAttributes</A></LI>
+<LI><A HREF="FMOD_System_Get3DListenerAttributes.html">System::get3DListenerAttributes</A></LI>
+<LI><A HREF="FMOD_Channel_GetUserData.html">Channel::getUserData</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

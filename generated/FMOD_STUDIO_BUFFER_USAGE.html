@@ -1,0 +1,32 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_STUDIO_BUFFER_USAGE</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_STUDIO_BUFFER_USAGE</H1>
+<P>
+<p>Information for FMOD Studio buffer usage.</p>
+</P>
+<h3>Structure</h3>
+<PRE class=syntax><CODE>typedef struct {
+  FMOD_STUDIO_BUFFER_INFO <I>studioCommandQueue</I>;
+  FMOD_STUDIO_BUFFER_INFO <I>studioHandle</I>;
+} FMOD_STUDIO_BUFFER_USAGE;
+</CODE></PRE>
+<h2>Members</h2>
+<P class=dt><I>studioCommandQueue</I></P>
+<P class=indent>Information for the Studio Async Command buffer, controlled by <A HREF="FMOD_STUDIO_ADVANCEDSETTINGS.html">FMOD_STUDIO_ADVANCEDSETTINGS</A> commandQueueSize. </P>
+<P class=dt><I>studioHandle</I></P>
+<P class=indent>Information for the Studio handle table, controlled by <A HREF="FMOD_STUDIO_ADVANCEDSETTINGS.html">FMOD_STUDIO_ADVANCEDSETTINGS</A> handleInitialSize. </P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Studio_System_GetBufferUsage.html">Studio::System::getBufferUsage</A></LI>
+<LI><A HREF="FMOD_Studio_System_ResetBufferUsage.html">Studio::System::resetBufferUsage</A></LI>
+<LI><A HREF="FMOD_STUDIO_BUFFER_INFO.html">FMOD_STUDIO_BUFFER_INFO</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

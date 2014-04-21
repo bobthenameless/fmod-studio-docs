@@ -1,0 +1,63 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>DSP::getOutputChannelFormat</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>DSP::getOutputChannelFormat</H1>
+<P>
+<p>Call the DSP process function to retrieve the output signal format for a DSP based on input values.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT DSP::getOutputChannelFormat(
+  FMOD_CHANNELMASK <I>inmask</I>,
+  int <I>inchannels</I>,
+  FMOD_SPEAKERMODE <I>inspeakermode</I>,
+  FMOD_CHANNELMASK *<I>outmask</I>,
+  int *<I>outchannels</I>,
+  FMOD_SPEAKERMODE *<I>outspeakermode</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_DSP_GetOutputChannelFormat(
+  FMOD_DSP *<I>dsp</I>,
+  FMOD_CHANNELMASK <I>inmask</I>,
+  int <I>inchannels</I>,
+  FMOD_SPEAKERMODE <I>inspeakermode</I>,
+  FMOD_CHANNELMASK *<I>outmask</I>,
+  int *<I>outchannels</I>,
+  FMOD_SPEAKERMODE *<I>outspeakermode</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>inmask</dt>
+<dd>Channel bitmask representing the speakers enabled for the incoming signal.  For example a 5.1 signal could have inchannels 2 that represent <A HREF="FMOD_CHANNELMASK.html">FMOD_CHANNELMASK_SURROUND_LEFT</A> and <A HREF="FMOD_CHANNELMASK.html">FMOD_CHANNELMASK_SURROUND_RIGHT</A>.</dd>
+<dt>inchannels</dt>
+<dd>Number of channels for the incoming signal.</dd>
+<dt>inspeakermode</dt>
+<dd>Speaker mode for the incoming signal.</dd>
+<dt>outmask</dt>
+<dd>Address of a variable to receive the DSP unit's output mask, based on the DSP units preference and settings.</dd>
+<dt>outchannels</dt>
+<dd>Address of a variable to receive the DSP unit's output channel count, based on the DSP units preference and settings.</dd>
+<dt>outspeakermode</dt>
+<dd>Address of a variable to receive the DSP unit's output speaker mode, based on the DSP units preference and settings.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>A DSP unit may be an up mixer or down mixer for example.  In this case if you specified 6 in for a downmixer, it may provide you with 2 out for example.<br>
+Generally the input values will be reproduced for the output values, but some DSP units will want to alter the output format.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_GetChannelFormat.html">DSP::getChannelFormat</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

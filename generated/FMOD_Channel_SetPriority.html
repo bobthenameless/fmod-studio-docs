@@ -1,0 +1,45 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Channel::setPriority</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Channel::setPriority</H1>
+<P>
+<p>Sets the priority for the channel after it has been played.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Channel::setPriority(
+  int <I>priority</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Channel_SetPriority(
+  FMOD_CHANNEL *<I>channel</I>,
+  int <I>priority</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>priority</dt>
+<dd>Priority for the channel, from 0 (most important) to 256 (least important), default = 128.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>When more channels than available are played the virtual channel system will choose existing channels to steal. Lower priority sounds
+will always be stolen before higher priority sounds. For channels of equal priority, that with the quietest <A HREF="FMOD_ChannelControl_GetAudibility.html">ChannelControl::getAudibility</A>
+value will be stolen.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Channel_GetPriority.html">Channel::getPriority</A></LI>
+<LI><A HREF="FMOD_ChannelControl_GetAudibility.html">ChannelControl::getAudibility</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

@@ -1,0 +1,57 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>ChannelControl::setCallback</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>ChannelControl::setCallback</H1>
+<P>
+<p>Sets a callback to perform action for a specific event.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT ChannelControl::setCallback(
+  FMOD_CHANNELCONTROL_CALLBACK <I>callback</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>callback</I></P>
+<P class=indent>Pointer to a callback to receive the event when it happens.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Currently callbacks are driven by <A HREF="FMOD_System_Update.html">System::update</A> and will only occur when this function is called. This has the main advantage of far less complication due to thread issues, and allows all FMOD commands, including loading sounds and playing new sounds from the callback. It also allows any type of sound to have an end callback, no matter what it is. The only disadvantage is that callbacks are not asynchronous and are bound by the latency caused by the rate the user calls the update command.</p>
+
+<p>Callbacks are stdcall. Use F_CALLBACK in between your return type and function name.</p>
+
+<pre><code><A HREF="FMOD_RESULT.html">FMOD_RESULT</A> F_CALLBACK mycallback(FMOD_CHANNELCONTROL *chanControl, <A HREF="FMOD_CHANNELCONTROL_TYPE.html">FMOD_CHANNELCONTROL_TYPE</A> controlType, <A HREF="FMOD_CHANNELCONTROL_CALLBACK_TYPE.html">FMOD_CHANNELCONTROL_CALLBACK_TYPE</A> callbackType, void *commandData1, void *commandData2)
+{
+    if (controlType == FMOD_CHANNELCONTROL_TYPE_CHANNEL)
+    {
+        FMOD::Channel *channel = (FMOD::Channel *)chanControl;
+        // Channel specific functions here...
+    }
+    else
+    {
+        FMOD::ChannelGroup *group = (FMOD::ChannelGroup *)chanControl;
+        // ChannelGroup specific functions here...
+    }
+
+    // ChannelControl generic functions here...
+
+    return <A HREF="FMOD_RESULT.html">FMOD_OK</A>;
+}
+</code></pre>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_Update.html">System::update</A></LI>
+<LI><A HREF="FMOD_CHANNELCONTROL_CALLBACK.html">FMOD_CHANNELCONTROL_CALLBACK</A></LI>
+<LI><A HREF="FMOD_CHANNELCONTROL_CALLBACK_TYPE.html">FMOD_CHANNELCONTROL_CALLBACK_TYPE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

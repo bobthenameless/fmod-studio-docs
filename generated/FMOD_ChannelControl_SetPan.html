@@ -1,0 +1,39 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>ChannelControl::setPan</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>ChannelControl::setPan</H1>
+<P>
+<p>Sets the pan level, this is a helper to avoid calling <A HREF="FMOD_ChannelControl_SetMixMatrix.html">ChannelControl::setMixMatrix</A>.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT ChannelControl::setPan(
+  float <I>pan</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>pan</I></P>
+<P class=indent>Pan level, from -1.0 (left) to 1.0 (right), default = 0 (center).</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Mono sounds are panned from left to right using constant power panning (non linear fade). This means when pan = 0.0, the balance for the sound in each speaker is 71% left and 71% right, not 50% left and 50% right. This gives (audibly) smoother pans.</p>
+
+<p>Stereo sounds heave each left/right value faded up and down according to the specified pan position. This means when pan = 0.0, the balance for the sound in each speaker is 100% left and 100% right. When pan = -1.0, only the left channel of the stereo sound is audible, when pan = 1.0, only the right channel of the stereo sound is audible.</p>
+
+<p>Panning does not work if the speaker mode is <A HREF="FMOD_SPEAKERMODE.html">FMOD_SPEAKERMODE_RAW</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_ChannelControl_SetMixMatrix.html">ChannelControl::setMixMatrix</A></LI>
+<LI><A HREF="FMOD_ChannelControl_GetMixMatrix.html">ChannelControl::getMixMatrix</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

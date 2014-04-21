@@ -1,0 +1,43 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Geometry::setScale</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Geometry::setScale</H1>
+<P>
+<p>Sets the relative scale vector of the geometry object.  An object can be scaled/warped in all 3 dimensions
+separately using the vector without having to modify polygon data.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Geometry::setScale(
+  const FMOD_VECTOR *<I>scale</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Geometry_SetScale(
+  FMOD_GEOMETRY *<I>geometry</I>,
+  const FMOD_VECTOR *<I>scale</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>scale</dt>
+<dd>The scale vector of the object.  Default = 1.0, 1.0, 1.0.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Geometry_GetScale.html">Geometry::getScale</A></LI>
+<LI><A HREF="FMOD_Geometry_SetRotation.html">Geometry::setRotation</A></LI>
+<LI><A HREF="FMOD_Geometry_SetPosition.html">Geometry::setPosition</A></LI>
+<LI><A HREF="FMOD_VECTOR.html">FMOD_VECTOR</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

@@ -1,0 +1,85 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>DSP::getParameterData</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>DSP::getParameterData</H1>
+<P>
+<p>Retrieves a DSP unit's data block parameter by index.
+To find out the parameter names and range, see the see also field.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT DSP::getParameterData(
+  int <I>index</I>,
+  void **<I>data</I>,
+  unsigned int *<I>length</I>,
+  char *<I>valuestr</I>,
+  int <I>valuestrlen</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_DSP_GetParameterData(
+  FMOD_DSP *<I>dsp</I>,
+  int <I>index</I>,
+  void **<I>data</I>,
+  unsigned int *<I>length</I>,
+  char *<I>valuestr</I>,
+  int <I>valuestrlen</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>index</dt>
+<dd>Parameter index for this unit.  Find the number of parameters with <A HREF="FMOD_DSP_GetNumParameters.html">DSP::getNumParameters</A>.</dd>
+<dt>data</dt>
+<dd>Address of a variable that receives binary data for the parameter specified.</dd>
+<dt>length</dt>
+<dd>Address of a variable that receives the length of data block in bytes.</dd>
+<dt>valuestr</dt>
+<dd>Address of a variable that receives the string containing a formatted or more meaningful representation of the DSP parameter's value.   For example if a switch parameter has on and off (0.0 or 1.0) it will display "ON" or "OFF" by using this parameter.</dd>
+<dt>valuestrlen</dt>
+<dd>Length of the user supplied memory in bytes that valuestr will write to. This will not exceed 16 bytes.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>The parameter properties can be retrieved with <A HREF="FMOD_DSP_GetParameterInfo.html">DSP::getParameterInfo</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_GetParameterInfo.html">DSP::getParameterInfo</A></LI>
+<LI><A HREF="FMOD_DSP_GetNumParameters.html">DSP::getNumParameters</A></LI>
+<LI><A HREF="FMOD_DSP_SetParameterData.html">DSP::setParameterData</A></LI>
+<LI><A HREF="FMOD_DSP_OSCILLATOR.html">FMOD_DSP_OSCILLATOR</A></LI>
+<LI><A HREF="FMOD_DSP_LOWPASS.html">FMOD_DSP_LOWPASS</A></LI>
+<LI><A HREF="FMOD_DSP_ITLOWPASS.html">FMOD_DSP_ITLOWPASS</A></LI>
+<LI><A HREF="FMOD_DSP_HIGHPASS.html">FMOD_DSP_HIGHPASS</A></LI>
+<LI><A HREF="FMOD_DSP_ECHO.html">FMOD_DSP_ECHO</A></LI>
+<LI><A HREF="FMOD_DSP_FLANGE.html">FMOD_DSP_FLANGE</A></LI>
+<LI><A HREF="FMOD_DSP_DISTORTION.html">FMOD_DSP_DISTORTION</A></LI>
+<LI><A HREF="FMOD_DSP_NORMALIZE.html">FMOD_DSP_NORMALIZE</A></LI>
+<LI><A HREF="FMOD_DSP_LIMITER.html">FMOD_DSP_LIMITER</A></LI>
+<LI><A HREF="FMOD_DSP_PARAMEQ.html">FMOD_DSP_PARAMEQ</A></LI>
+<LI><A HREF="FMOD_DSP_PITCHSHIFT.html">FMOD_DSP_PITCHSHIFT</A></LI>
+<LI><A HREF="FMOD_DSP_CHORUS.html">FMOD_DSP_CHORUS</A></LI>
+<LI><A HREF="FMOD_DSP_ITECHO.html">FMOD_DSP_ITECHO</A></LI>
+<LI><A HREF="FMOD_DSP_COMPRESSOR.html">FMOD_DSP_COMPRESSOR</A></LI>
+<LI><A HREF="FMOD_DSP_SFXREVERB.html">FMOD_DSP_SFXREVERB</A></LI>
+<LI><A HREF="FMOD_DSP_LOWPASS_SIMPLE.html">FMOD_DSP_LOWPASS_SIMPLE</A></LI>
+<LI><A HREF="FMOD_DSP_DELAY.html">FMOD_DSP_DELAY</A></LI>
+<LI><A HREF="FMOD_DSP_TREMOLO.html">FMOD_DSP_TREMOLO</A></LI>
+<LI><A HREF="FMOD_DSP_SEND.html">FMOD_DSP_SEND</A></LI>
+<LI><A HREF="FMOD_DSP_RETURN.html">FMOD_DSP_RETURN</A></LI>
+<LI><A HREF="FMOD_DSP_HIGHPASS_SIMPLE.html">FMOD_DSP_HIGHPASS_SIMPLE</A></LI>
+<LI><A HREF="FMOD_DSP_PAN.html">FMOD_DSP_PAN</A></LI>
+<LI><A HREF="FMOD_DSP_THREE_EQ.html">FMOD_DSP_THREE_EQ</A></LI>
+<LI><A HREF="FMOD_DSP_FFT.html">FMOD_DSP_FFT</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

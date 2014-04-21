@@ -1,0 +1,73 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_FFT_WINDOW</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_FFT_WINDOW</H1>
+<P>
+<p>List of windowing methods used in spectrum analysis to reduce leakage / transient signals intefering with the analysis.<br>
+This is a problem with analysis of continuous signals that only have a small portion of the signal sample (the fft window size).<br>
+Windowing the signal with a curve or triangle tapers the sides of the fft window to help alleviate this problem.</p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_DSP_FFT_WINDOW_RECT,
+  FMOD_DSP_FFT_WINDOW_TRIANGLE,
+  FMOD_DSP_FFT_WINDOW_HAMMING,
+  FMOD_DSP_FFT_WINDOW_HANNING,
+  FMOD_DSP_FFT_WINDOW_BLACKMAN,
+  FMOD_DSP_FFT_WINDOW_BLACKMANHARRIS,
+  FMOD_DSP_FFT_WINDOW_MAX
+} FMOD_DSP_FFT_WINDOW;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_DSP_FFT_WINDOW_RECT</I></P>
+<P class=indent>w[n] = 1.0                                                                                            </P>
+<P class=dt><I>FMOD_DSP_FFT_WINDOW_TRIANGLE</I></P>
+<P class=indent>w[n] = TRI(2n/N)                                                                                      </P>
+<P class=dt><I>FMOD_DSP_FFT_WINDOW_HAMMING</I></P>
+<P class=indent>w[n] = 0.54 - (0.46 * COS(n/N) )                                                                      </P>
+<P class=dt><I>FMOD_DSP_FFT_WINDOW_HANNING</I></P>
+<P class=indent>w[n] = 0.5 *  (1.0  - COS(n/N) )                                                                      </P>
+<P class=dt><I>FMOD_DSP_FFT_WINDOW_BLACKMAN</I></P>
+<P class=indent>w[n] = 0.42 - (0.5  * COS(n/N) ) + (0.08 * COS(2.0 * n/N) )                                           </P>
+<P class=dt><I>FMOD_DSP_FFT_WINDOW_BLACKMANHARRIS</I></P>
+<P class=indent>w[n] = 0.35875 - (0.48829 * COS(1.0 * n/N)) + (0.14128 * COS(2.0 * n/N)) - (0.01168 * COS(3.0 * n/N)) </P>
+<P class=dt><I>FMOD_DSP_FFT_WINDOW_MAX</I></P>
+<P class=indent>Maximum number of FFT window types supported. </P>
+<h2>Remarks</h2><P>
+<p>Cyclic signals such as a sine wave that repeat their cycle in a multiple of the window size do not need windowing.<br>
+I.e. If the sine wave repeats every 1024, 512, 256 etc samples and the FMOD fft window is 1024, then the signal would not need windowing.<br>
+Not windowing is the same as <A HREF="FMOD_DSP_FFT_WINDOW.html">FMOD_DSP_FFT_WINDOW_RECT</A>, which is the default.<br>
+If the cycle of the signal (ie the sine wave) is not a multiple of the window size, it will cause frequency abnormalities, so a different windowing method is needed.<br>
+<exclude>
+<br>
+<A HREF="FMOD_DSP_FFT_WINDOW.html">FMOD_DSP_FFT_WINDOW_RECT</A>.<br>
+<img src="..\static\rectangle.gif"></img><br>
+<br>
+<A HREF="FMOD_DSP_FFT_WINDOW.html">FMOD_DSP_FFT_WINDOW_TRIANGLE</A>.<br>
+<img src="..\static\triangle.gif"></img><br>
+<br>
+<A HREF="FMOD_DSP_FFT_WINDOW.html">FMOD_DSP_FFT_WINDOW_HAMMING</A>.<br>
+<img src="..\static\hamming.gif"></img><br>
+<br>
+<A HREF="FMOD_DSP_FFT_WINDOW.html">FMOD_DSP_FFT_WINDOW_HANNING</A>.<br>
+<img src="..\static\hanning.gif"></img><br>
+<br>
+<A HREF="FMOD_DSP_FFT_WINDOW.html">FMOD_DSP_FFT_WINDOW_BLACKMAN</A>.<br>
+<img src="..\static\blackman.gif"></img><br>
+<br>
+<A HREF="FMOD_DSP_FFT_WINDOW.html">FMOD_DSP_FFT_WINDOW_BLACKMANHARRIS</A>.<br>
+<img src="..\static\blackmanharris.gif"></img>
+</exclude></p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_FFT.html">FMOD_DSP_FFT</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

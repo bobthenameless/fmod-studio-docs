@@ -1,0 +1,41 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_ITLOWPASS</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_ITLOWPASS</H1>
+<P>
+<p>Parameter types for the <A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE_ITLOWPASS</A> filter.<br>
+This is different to the default <A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE_ITLOWPASS</A> filter in that it uses a different quality algorithm and is
+the filter used to produce the correct sounding playback in .IT files.<br>
+FMOD Studio's .IT playback uses this filter.<br></p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_DSP_ITLOWPASS_CUTOFF,
+  FMOD_DSP_ITLOWPASS_RESONANCE
+} FMOD_DSP_ITLOWPASS;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_DSP_ITLOWPASS_CUTOFF</I></P>
+<P class=indent>(Type:float) - Lowpass cutoff frequency in hz.  1.0 to 22000.0.  Default = 5000.0/ </P>
+<P class=dt><I>FMOD_DSP_ITLOWPASS_RESONANCE</I></P>
+<P class=indent>(Type:float) - Lowpass resonance Q value.  0.0 to 127.0.  Default = 1.0. </P>
+<h2>Remarks</h2><P>
+<p>Note! This filter actually has a limited cutoff frequency below the specified maximum, due to its limited design,
+so for a more  open range filter use <A HREF="FMOD_DSP_LOWPASS.html">FMOD_DSP_LOWPASS</A> or if you don't mind not having resonance,
+<A HREF="FMOD_DSP_LOWPASS_SIMPLE.html">FMOD_DSP_LOWPASS_SIMPLE</A>.<br>
+The effective maximum cutoff is about 8060hz.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_SetParameterFloat.html">DSP::setParameterFloat</A></LI>
+<LI><A HREF="FMOD_DSP_GetParameterFloat.html">DSP::getParameterFloat</A></LI>
+<LI><A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

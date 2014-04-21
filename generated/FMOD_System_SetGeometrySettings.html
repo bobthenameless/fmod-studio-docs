@@ -1,0 +1,47 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::setGeometrySettings</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::setGeometrySettings</H1>
+<P>
+<p>Sets the maximum world size for the geometry engine for performance / precision reasons.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::setGeometrySettings(
+  float <I>maxworldsize</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_SetGeometrySettings(
+  FMOD_SYSTEM *<I>system</I>,
+  float <I>maxworldsize</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>maxworldsize</dt>
+<dd>Maximum size of the world from the centerpoint to the edge using the same units used in other 3D functions.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Setting maxworldsize should be done first before creating any geometry.<br>
+It can be done any time afterwards but may be slow in this case.</p>
+
+<p>Objects or polygons outside the range of maxworldsize will not be handled efficiently.<br>
+Conversely, if maxworldsize is excessively large, the structure may loose precision and efficiency may drop.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_CreateGeometry.html">System::createGeometry</A></LI>
+<LI><A HREF="FMOD_System_GetGeometrySettings.html">System::getGeometrySettings</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

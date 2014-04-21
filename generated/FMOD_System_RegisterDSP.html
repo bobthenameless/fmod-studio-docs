@@ -1,0 +1,48 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::registerDSP</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::registerDSP</H1>
+<P>
+<p>Register a user-defined DSP effect for use with the System. This function allows you to register statically-linked
+DSP effects. Once registered, you can create instances of the DSP effect by using <A HREF="FMOD_System_CreateDSPByPlugin.html">System::createDSPByPlugin</A>.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::registerDSP(
+  const FMOD_DSP_DESCRIPTION *<I>description</I>,
+  unsigned int *<I>handle</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_RegisterDSP(
+  FMOD_SYSTEM *<I>system</I>,
+  const FMOD_DSP_DESCRIPTION *<I>description</I>,
+  unsigned int *<I>handle</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>description</dt>
+<dd>Address of an <A HREF="FMOD_DSP_DESCRIPTION.html">FMOD_DSP_DESCRIPTION</A> structure, containing information about the DSP effect. Some members of <A HREF="FMOD_DSP_DESCRIPTION.html">FMOD_DSP_DESCRIPTION</A> are referenced directly inside FMOD so the structure should be allocated statically or at least remain in memory for the lifetime of the system.</dd>
+<dt>handle</dt>
+<dd>Address of a variable to receive the plugin handle of the newly-registered DSP effect.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_DESCRIPTION.html">FMOD_DSP_DESCRIPTION</A></LI>
+<LI><A HREF="FMOD_System_CreateDSPByPlugin.html">System::createDSPByPlugin</A></LI>
+<LI><A HREF="FMOD_System_GetNumPlugins.html">System::getNumPlugins</A></LI>
+<LI><A HREF="FMOD_System_GetPluginInfo.html">System::getPluginInfo</A></LI>
+<LI><A HREF="FMOD_System_RegisterCodec.html">System::registerCodec</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

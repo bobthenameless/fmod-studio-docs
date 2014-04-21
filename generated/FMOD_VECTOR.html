@@ -1,0 +1,54 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_VECTOR</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_VECTOR</H1>
+<P>
+<p>Structure describing a point in 3D space.</p>
+</P>
+<h3>Structure</h3>
+<PRE class=syntax><CODE>typedef struct {
+  float <I>x</I>;
+  float <I>y</I>;
+  float <I>z</I>;
+} FMOD_VECTOR;
+</CODE></PRE>
+<h2>Members</h2>
+<P class=dt><I>x</I></P>
+<P class=indent>X co-ordinate in 3D space. </P>
+<P class=dt><I>y</I></P>
+<P class=indent>Y co-ordinate in 3D space. </P>
+<P class=dt><I>z</I></P>
+<P class=indent>Z co-ordinate in 3D space. </P>
+<h2>Remarks</h2><P>
+<p>FMOD uses a left handed co-ordinate system by default.<br>
+To use a right handed co-ordinate system specify <A HREF="FMOD_INITFLAGS.html">FMOD_INIT_3D_RIGHTHANDED</A> from <A HREF="FMOD_INITFLAGS.html">FMOD_INITFLAGS</A> in <A HREF="FMOD_System_Init.html">System::init</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_Set3DListenerAttributes.html">System::set3DListenerAttributes</A></LI>
+<LI><A HREF="FMOD_System_Get3DListenerAttributes.html">System::get3DListenerAttributes</A></LI>
+<LI><A HREF="FMOD_Channel_Set3DAttributes.html">Channel::set3DAttributes</A></LI>
+<LI><A HREF="FMOD_Channel_Get3DAttributes.html">Channel::get3DAttributes</A></LI>
+<LI><A HREF="FMOD_Channel_Set3DCustomRolloff.html">Channel::set3DCustomRolloff</A></LI>
+<LI><A HREF="FMOD_Channel_Get3DCustomRolloff.html">Channel::get3DCustomRolloff</A></LI>
+<LI><A HREF="FMOD_Sound_Set3DCustomRolloff.html">Sound::set3DCustomRolloff</A></LI>
+<LI><A HREF="FMOD_Sound_Get3DCustomRolloff.html">Sound::get3DCustomRolloff</A></LI>
+<LI><A HREF="FMOD_Geometry_AddPolygon.html">Geometry::addPolygon</A></LI>
+<LI><A HREF="FMOD_Geometry_SetPolygonVertex.html">Geometry::setPolygonVertex</A></LI>
+<LI><A HREF="FMOD_Geometry_GetPolygonVertex.html">Geometry::getPolygonVertex</A></LI>
+<LI><A HREF="FMOD_Geometry_SetRotation.html">Geometry::setRotation</A></LI>
+<LI><A HREF="FMOD_Geometry_GetRotation.html">Geometry::getRotation</A></LI>
+<LI><A HREF="FMOD_Geometry_SetPosition.html">Geometry::setPosition</A></LI>
+<LI><A HREF="FMOD_Geometry_GetPosition.html">Geometry::getPosition</A></LI>
+<LI><A HREF="FMOD_Geometry_SetScale.html">Geometry::setScale</A></LI>
+<LI><A HREF="FMOD_Geometry_GetScale.html">Geometry::getScale</A></LI>
+<LI><A HREF="FMOD_INITFLAGS.html">FMOD_INITFLAGS</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

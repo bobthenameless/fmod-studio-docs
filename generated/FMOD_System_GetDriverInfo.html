@@ -1,0 +1,68 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::getDriverInfo</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::getDriverInfo</H1>
+<P>
+<p>Retrieves identification information about a sound device specified by its index, and specific to the output mode set with <A HREF="FMOD_System_SetOutput.html">System::setOutput</A>.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::getDriverInfo(
+  int <I>id</I>,
+  char *<I>name</I>,
+  short *<I>nameW</I>,
+  int <I>namelen</I>,
+  FMOD_GUID *<I>guid</I>,
+  int *<I>systemrate</I>,
+  FMOD_SPEAKERMODE *<I>speakermode</I>,
+  int *<I>speakermodechannels</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_GetDriverInfo(
+  FMOD_SYSTEM *<I>system</I>,
+  int <I>id</I>,
+  char *<I>name</I>,
+  short *<I>nameW</I>,
+  int <I>namelen</I>,
+  FMOD_GUID *<I>guid</I>,
+  int *<I>systemrate</I>,
+  FMOD_SPEAKERMODE *<I>speakermode</I>,
+  int *<I>speakermodechannels</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>id</dt>
+<dd>Index of the sound driver device. The total number of devices can be found with <A HREF="FMOD_System_GetNumDrivers.html">System::getNumDrivers</A>.</dd>
+<dt>name</dt>
+<dd>Address of a variable that receives the name of the device. Optional. Specify 0 or NULL to ignore.</dd>
+<dt>nameW</dt>
+<dd>Address of a variable that receives the name of the device in wide char format. Specify 0 or NULL to ignore.</dd>
+<dt>namelen</dt>
+<dd>Length in bytes (shorts for wide char) of the target buffer to receieve the string. Required if name or nameW parameter is not NULL.</dd>
+<dt>guid</dt>
+<dd>Address of a variable that receives the GUID that uniquely identifies the device. Optional. Specify 0 or NULL to ignore.</dd>
+<dt>systemrate</dt>
+<dd>Address of a variable that receives the sample rate this device operates at. Optional. Specify 0 or NULL to ignore.</dd>
+<dt>speakermode</dt>
+<dd>Address of a variable that receives the speaker setup this device is currently using. Optional. Specify 0 or NULL to ignore.</dd>
+<dt>speakermodechannels</dt>
+<dd>Address of a variable that receives the number of channels in the current speaker setup. Optional. Specify 0 or NULL to ignore.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_GetNumDrivers.html">System::getNumDrivers</A></LI>
+<LI><A HREF="FMOD_System_SetOutput.html">System::setOutput</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

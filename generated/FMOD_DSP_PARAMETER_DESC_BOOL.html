@@ -1,0 +1,37 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_PARAMETER_DESC_BOOL</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_PARAMETER_DESC_BOOL</H1>
+<P>
+<p>Structure to define a boolean parameter for a DSP unit.</p>
+</P>
+<h3>Structure</h3>
+<PRE class=syntax><CODE>typedef struct {
+  bool <I>defaultval</I>;
+  const char* const* <I>valuenames</I>;
+} FMOD_DSP_PARAMETER_DESC_BOOL;
+</CODE></PRE>
+<h2>Members</h2>
+<P class=dt><I>defaultval</I></P>
+<P class=indent>[w] Default parameter value. </P>
+<P class=dt><I>valuenames</I></P>
+<P class=indent>[w] Names for false and true, respectively.  There should be two strings.  Optional. </P>
+<h2>Remarks</h2><P>
+<p>Members marked with [r] mean the variable is modified by FMOD and is for reading purposes only.  Do not change this value.<br>
+Members marked with [w] mean the variable can be written to.  The user can set the value.<br></p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_CreateDSP.html">System::createDSP</A></LI>
+<LI><A HREF="FMOD_DSP_SetParameterBool.html">DSP::setParameterBool</A></LI>
+<LI><A HREF="FMOD_DSP_GetParameterBool.html">DSP::getParameterBool</A></LI>
+<LI><A HREF="FMOD_DSP_PARAMETER_DESC.html">FMOD_DSP_PARAMETER_DESC</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

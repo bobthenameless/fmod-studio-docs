@@ -1,0 +1,122 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_ADVANCEDSETTINGS</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_ADVANCEDSETTINGS</H1>
+<P>
+<p>Settings for advanced features like configuring memory and cpu usage for the <A HREF="FMOD_MODE.html">FMOD_CREATECOMPRESSEDSAMPLE</A> feature.</p>
+</P>
+<h3>Structure</h3>
+<PRE class=syntax><CODE>typedef struct {
+  int <I>cbSize</I>;
+  int <I>maxMPEGCodecs</I>;
+  int <I>maxADPCMCodecs</I>;
+  int <I>maxXMACodecs</I>;
+  int <I>maxCELTCodecs</I>;
+  int <I>maxVorbisCodecs</I>;
+  int <I>maxAT9Codecs</I>;
+  int <I>maxPCMCodecs</I>;
+  int <I>ASIONumChannels</I>;
+  char **<I>ASIOChannelList</I>;
+  FMOD_SPEAKER *<I>ASIOSpeakerList</I>;
+  float <I>HRTFMinAngle</I>;
+  float <I>HRTFMaxAngle</I>;
+  float <I>HRTFFreq</I>;
+  float <I>vol0virtualvol</I>;
+  unsigned int <I>defaultDecodeBufferSize</I>;
+  char *<I>debugLogFilename</I>;
+  unsigned short <I>profilePort</I>;
+  unsigned int <I>geometryMaxFadeTime</I>;
+  float <I>distanceFilterCenterFreq</I>;
+  int <I>reverb3Dinstance</I>;
+  int <I>DSPBufferPoolSize</I>;
+  unsigned int <I>stackSizeStream</I>;
+  unsigned int <I>stackSizeNonBlocking</I>;
+  unsigned int <I>stackSizeMixer</I>;
+  FMOD_DSP_RESAMPLER <I>resamplerMethod</I>;
+  unsigned int <I>commandQueueSize</I>;
+} FMOD_ADVANCEDSETTINGS;
+</CODE></PRE>
+<h2>Members</h2>
+<P class=dt><I>cbSize</I></P>
+<P class=indent>[w]   Size of this structure.  Use sizeof(<A HREF="FMOD_ADVANCEDSETTINGS.html">FMOD_ADVANCEDSETTINGS</A>)  NOTE: This must be set before calling <A HREF="FMOD_System_GetAdvancedSettings.html">System::getAdvancedSettings</A>! </P>
+<P class=dt><I>maxMPEGCodecs</I></P>
+<P class=indent>[r/w] Optional. Specify 0 to ignore. For use with <A HREF="FMOD_MODE.html">FMOD_CREATECOMPRESSEDSAMPLE</A> only.  MPEG   codecs consume 30,528 bytes per instance and this number will determine how many MPEG   channels can be played simultaneously. Default = 32. </P>
+<P class=dt><I>maxADPCMCodecs</I></P>
+<P class=indent>[r/w] Optional. Specify 0 to ignore. For use with <A HREF="FMOD_MODE.html">FMOD_CREATECOMPRESSEDSAMPLE</A> only.  ADPCM  codecs consume  3,128 bytes per instance and this number will determine how many ADPCM  channels can be played simultaneously. Default = 32. </P>
+<P class=dt><I>maxXMACodecs</I></P>
+<P class=indent>[r/w] Optional. Specify 0 to ignore. For use with <A HREF="FMOD_MODE.html">FMOD_CREATECOMPRESSEDSAMPLE</A> only.  XMA    codecs consume 14,836 bytes per instance and this number will determine how many XMA    channels can be played simultaneously. Default = 32. </P>
+<P class=dt><I>maxCELTCodecs</I></P>
+<P class=indent>[r/w] Optional. Specify 0 to ignore. For use with <A HREF="FMOD_MODE.html">FMOD_CREATECOMPRESSEDSAMPLE</A> only.  CELT   codecs consume 25,408 bytes per instance and this number will determine how many CELT   channels can be played simultaneously. Default = 32. </P>
+<P class=dt><I>maxVorbisCodecs</I></P>
+<P class=indent>[r/w] Optional. Specify 0 to ignore. For use with <A HREF="FMOD_MODE.html">FMOD_CREATECOMPRESSEDSAMPLE</A> only.  Vorbis codecs consume 23,256 bytes per instance and this number will determine how many Vorbis channels can be played simultaneously. Default = 32. </P>
+<P class=dt><I>maxAT9Codecs</I></P>
+<P class=indent>[r/w] Optional. Specify 0 to ignore. For use with <A HREF="FMOD_MODE.html">FMOD_CREATECOMPRESSEDSAMPLE</A> only.  AT9    codecs consume  8,720 bytes per instance and this number will determine how many AT9    channels can be played simultaneously. Default = 32. </P>
+<P class=dt><I>maxPCMCodecs</I></P>
+<P class=indent>[r/w] Optional. Specify 0 to ignore. For use with PS3 only.                          PCM    codecs consume 12,672 bytes per instance and this number will determine how many streams and PCM voices can be played simultaneously. Default = 16. </P>
+<P class=dt><I>ASIONumChannels</I></P>
+<P class=indent>[r/w] Optional. Specify 0 to ignore. Number of channels available on the ASIO device. </P>
+<P class=dt><I>ASIOChannelList</I></P>
+<P class=indent>[r/w] Optional. Specify 0 to ignore. Pointer to an array of strings (number of entries defined by ASIONumChannels) with ASIO channel names. </P>
+<P class=dt><I>ASIOSpeakerList</I></P>
+<P class=indent>[r/w] Optional. Specify 0 to ignore. Pointer to a list of speakers that the ASIO channels map to.  This can be called after <A HREF="FMOD_System_Init.html">System::init</A> to remap ASIO output. </P>
+<P class=dt><I>HRTFMinAngle</I></P>
+<P class=indent>[r/w] Optional.                      For use with FMOD_INIT_HRTF_LOWPASS.  The angle range (0-360) of a 3D sound in relation to the listener, at which the HRTF function begins to have an effect. 0 = in front of the listener. 180 = from 90 degrees to the left of the listener to 90 degrees to the right. 360 = behind the listener. Default = 180.0. </P>
+<P class=dt><I>HRTFMaxAngle</I></P>
+<P class=indent>[r/w] Optional.                      For use with FMOD_INIT_HRTF_LOWPASS.  The angle range (0-360) of a 3D sound in relation to the listener, at which the HRTF function has maximum effect. 0 = front of the listener. 180 = from 90 degrees to the left of the listener to 90 degrees to the right. 360 = behind the listener. Default = 360.0. </P>
+<P class=dt><I>HRTFFreq</I></P>
+<P class=indent>[r/w] Optional. Specify 0 to ignore. For use with FMOD_INIT_HRTF_LOWPASS.  The cutoff frequency of the HRTF's lowpass filter function when at maximum effect. (i.e. at HRTFMaxAngle).  Default = 4000.0. </P>
+<P class=dt><I>vol0virtualvol</I></P>
+<P class=indent>[r/w] Optional. Specify 0 to ignore. For use with <A HREF="FMOD_INITFLAGS.html">FMOD_INIT_VOL0_BECOMES_VIRTUAL</A>.  If this flag is used, and the volume is below this, then the sound will become virtual.  Use this value to raise the threshold to a different point where a sound goes virtual. </P>
+<P class=dt><I>defaultDecodeBufferSize</I></P>
+<P class=indent>[r/w] Optional. Specify 0 to ignore. For streams. This determines the default size of the double buffer (in milliseconds) that a stream uses.  Default = 400ms </P>
+<P class=dt><I>debugLogFilename</I></P>
+<P class=indent>[r/w] Optional. Specify 0 to ignore. Gives fmod's logging system a path/filename.  Normally the log is placed in the same directory as the executable and called fmod.log. When using <A HREF="FMOD_System_GetAdvancedSettings.html">System::getAdvancedSettings</A>, provide at least 256 bytes of memory to copy into. </P>
+<P class=dt><I>profilePort</I></P>
+<P class=indent>[r/w] Optional. Specify 0 to ignore. For use with <A HREF="FMOD_INITFLAGS.html">FMOD_INIT_PROFILE_ENABLE</A>.  Specify the port to listen on for connections by the profiler application. </P>
+<P class=dt><I>geometryMaxFadeTime</I></P>
+<P class=indent>[r/w] Optional. Specify 0 to ignore. The maximum time in miliseconds it takes for a channel to fade to the new level when its occlusion changes. </P>
+<P class=dt><I>distanceFilterCenterFreq</I></P>
+<P class=indent>[r/w] Optional. Specify 0 to ignore. For use with FMOD_INIT_DISTANCE_FILTERING.  The default center frequency in Hz for the distance filtering effect. Default = 1500.0. </P>
+<P class=dt><I>reverb3Dinstance</I></P>
+<P class=indent>[r/w] Optional. Specify 0 to ignore. Out of 0 to 3, 3d reverb spheres will create a phyical reverb unit on this instance slot.  See <A HREF="FMOD_REVERB_PROPERTIES.html">FMOD_REVERB_PROPERTIES</A>. </P>
+<P class=dt><I>DSPBufferPoolSize</I></P>
+<P class=indent>[r/w] Optional. Specify 0 to ignore. Number of buffers in DSP buffer pool.  Each buffer will be DSPBlockSize * sizeof(float) * SpeakerModeChannelCount.  ie 7.1 @ 1024 DSP block size = 8 * 1024 * 4 = 32kb.  Default = 8. </P>
+<P class=dt><I>stackSizeStream</I></P>
+<P class=indent>[r/w] Optional. Specify 0 to ignore. Specify the stack size for the FMOD Stream thread in bytes.  Useful for custom codecs that use excess stack.  Default 49,152 (48kb) </P>
+<P class=dt><I>stackSizeNonBlocking</I></P>
+<P class=indent>[r/w] Optional. Specify 0 to ignore. Specify the stack size for the <A HREF="FMOD_MODE.html">FMOD_NONBLOCKING</A> loading thread.  Useful for custom codecs that use excess stack.  Default 65,536 (64kb) </P>
+<P class=dt><I>stackSizeMixer</I></P>
+<P class=indent>[r/w] Optional. Specify 0 to ignore. Specify the stack size for the FMOD mixer thread.  Useful for custom dsps that use excess stack.  Default 49,152 (48kb) </P>
+<P class=dt><I>resamplerMethod</I></P>
+<P class=indent>[r/w] Optional. Specify 0 to ignore. Resampling method used with fmod's software mixer.  See <A HREF="FMOD_DSP_RESAMPLER.html">FMOD_DSP_RESAMPLER</A> for details on methods. </P>
+<P class=dt><I>commandQueueSize</I></P>
+<P class=indent>[r/w] Optional. Specify 0 to ignore. Specify the command queue size for thread safe processing.  Default 2048 (2kb) </P>
+<h2>Remarks</h2><P>
+<p>maxMPEGCodecs / maxADPCMCodecs / maxXMACodecs will determine the maximum cpu usage of playing realtime samples.  Use this to lower potential excess cpu usage and also control memory usage.<br>
+<br>
+maxPCMCodecs is for use with PS3 only. It will determine the maximum number of PCM voices that can be played at once. This includes streams of any format and all sounds created
+<em>without</em> the <A HREF="FMOD_MODE.html">FMOD_CREATECOMPRESSEDSAMPLE</A> flag.
+<br>
+Memory will be allocated for codecs 'up front' (during <A HREF="FMOD_System_Init.html">System::init</A>) if these values are specified as non zero.  If any are zero, it allocates memory for the codec whenever a file of the type in question is loaded.  So if maxMPEGCodecs is 0 for example, it will allocate memory for the mpeg codecs the first time an mp3 is loaded or an mp3 based .FSB file is loaded.<br>
+<br>
+Due to inefficient encoding techniques on certain .wav based ADPCM files, FMOD can can need an extra 29720 bytes per codec.  This means for lowest memory consumption.  Use FSB as it uses an optimal/small ADPCM block size.<br>
+<br>
+Members marked with [r] mean the variable is modified by FMOD and is for reading purposes only.  Do not change this value.<br>
+Members marked with [w] mean the variable can be written to.  The user can set the value.<br>
+Members marked with [r/w] are either read or write depending on if you are using <A HREF="FMOD_System_SetAdvancedSettings.html">System::setAdvancedSettings</A> (w) or <A HREF="FMOD_System_GetAdvancedSettings.html">System::getAdvancedSettings</A> (r).</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_SetAdvancedSettings.html">System::setAdvancedSettings</A></LI>
+<LI><A HREF="FMOD_System_GetAdvancedSettings.html">System::getAdvancedSettings</A></LI>
+<LI><A HREF="FMOD_System_Init.html">System::init</A></LI>
+<LI><A HREF="FMOD_MODE.html">FMOD_MODE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

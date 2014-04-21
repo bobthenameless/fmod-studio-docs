@@ -1,0 +1,222 @@
+<LINK REL="stylesheet" HREF="../../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Lossy audio formats: quality, multichannel and looping</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+
+<H1>Lossy audio formats: quality, multichannel and looping</H1>
+<br>
+<h2>Quality and bit rate</h2>
+What is the relationship between bit rate and the 'compression quality' property?<br>
+<br>
+Within FMOD Designer, the compression quality property is found in the wave bank property panel. In FSBankEx the quality property is in the format options.  The relationship between bit rate and the compression quality property (when dealing with constant bit rate compression), is appropriately:<br>
+<br>
+<PRE>
+bit rate = quality * 3.2<br>
+</PRE>
+This is the case for MP2/MP3 but may differ for XMA and other bitrate based formats.<br>
+
+<H2>Bit rates and sample rates for MPEG data</H2>
+The following table shows the available bit rates and sample rates available for MPEG data within FMOD:<br>
+<br>
+<b>Note!</b>  This is the MPEG version, not the 'layer' version.  Layer 2 and 3 are commonly known as MP2/MP3.  MP3 for example could be MPEG 1 or 2, but is still 'layer 3'<br>
+Both MP2 support and MP3 support share the same MPEG versions and bitrate/samplerate capabilities.<br>
+<br>
+<table border="2" cellpadding="0" cellspacing="0" style="width: 40%">
+  <tr>
+	<td width="25%" height="15"><b>MPEG 1 Bitrates (kbps)</b></td>
+    <td width="25%" height="15"><b>MPEG 1 Sample rates (kHz)</b></td>
+	<td width="25%" height="15"><b>MPEG 2 Bitrates (kbps)</b></td>
+    <td width="25%" height="15"><b>MPEG 2 Sample rates (kHz)</b></td>
+  </tr>
+</table>
+
+<table border="2" cellpadding="0" cellspacing="0" style="width: 40%; border-collapse: collapse">
+  <tr>
+    <td width="25%" height="15">32</td>
+    <td width="25%" height="15">32</td>
+    <td width="25%" height="15"><s>8</s>*</td>
+    <td width="25%" height="15"><s>8</s>*</td>
+  </tr>
+  <tr>
+    <td width="25%" height="15">48</td>
+    <td width="25%" height="15">44.1</td>
+    <td width="25%" height="15">16</td>
+    <td width="25%" height="15"><s>11.025</s>*</td>
+  </tr>
+  <tr>
+    <td width="25%" height="15">56</td>
+    <td width="25%" height="15">48</td>
+    <td width="25%" height="15">24</td>
+    <td width="25%" height="15"><s>12</s>*</td>
+  </tr>
+  <tr>
+    <td width="25%" height="15">64</td>
+    <td width="25%" height="15"></td>
+    <td width="25%" height="15">32</td>
+    <td width="25%" height="15">16</td>
+  </tr>
+  <tr>
+    <td width="25%" height="15">80</td>
+    <td width="25%" height="15"></td>
+    <td width="25%" height="15">40</td>
+    <td width="25%" height="15">22.05</td>
+  </tr>
+  <tr>
+    <td width="25%" height="15">96</td>
+    <td width="25%" height="15"></td>
+    <td width="25%" height="15">48</td>
+    <td width="25%" height="15">24</td>
+  </tr>
+  <tr>
+    <td width="25%" height="15">112</td>
+    <td width="25%" height="15"></td>
+    <td width="25%" height="15">56</td>
+    <td width="25%" height="15"></td>
+  </tr>
+  <tr>
+    <td width="25%" height="15">128</td>
+    <td width="25%" height="15"></td>
+    <td width="25%" height="15">64</td>
+    <td width="25%" height="15"></td>
+  </tr>
+  <tr>
+    <td width="25%" height="15">160</td>
+    <td width="25%" height="15"></td>
+    <td width="25%" height="15">80</td>
+    <td width="25%" height="15"></td>
+  </tr>
+  <tr>
+    <td width="25%" height="15">192</td>
+    <td width="25%" height="15"></td>
+    <td width="25%" height="15">96</td>
+    <td width="25%" height="15"></td>
+  </tr>
+  <tr>
+    <td width="25%" height="15">224</td>
+    <td width="25%" height="15"></td>
+    <td width="25%" height="15">112</td>
+    <td width="25%" height="15"></td>
+  </tr>
+  <tr>
+    <td width="25%" height="15">256</td>
+    <td width="25%" height="15"></td>
+    <td width="25%" height="15">128</td>
+    <td width="25%" height="15"></td>
+  </tr>
+  <tr>
+    <td width="25%" height="15">320</td>
+    <td width="25%" height="15"></td>
+    <td width="25%" height="15">144</td>
+    <td width="25%" height="15"></td>
+  </tr>
+  <tr>
+    <td width="25%" height="15">384</td>
+    <td width="25%" height="15"></td>
+    <td width="25%" height="15">160</td>
+    <td width="25%" height="15"></td>
+  </tr>
+</table>
+<br>
+* Note that the crossed out values are not supported by FSBankEx even though they are specified as part of the MPEG format specification.<br>
+<br>
+Should the user attempt to use a sample rate not listed, FMOD will automatically resample the file (upwards) to the next valid sample rate.  For example, a file with a sample rate of 15kHz will be resampled to 16hHz.<br>
+<br>
+<h2>Multi-channel MPEG Encoding</h2>
+FMOD is able to create MPEG files with up to 16 channels (eight stereo pairs).  To do this, the build process:<br>
+<li>Encodes each stereo pair into fixed sized MPEG frames.  The size of the frames is determined by the bit rate.  The size of the frame must be a multiple of 16 bytes.  To insure this, a pad of 0 to 15 bytes is placed at the end of each frame.</li>
+<li>Interleaves a frame from each stereo pair into a multi-channel frame.</li>
+<br>
+<br>
+This process is illustrated in the figure below.<br>
+<img src = "../../static/overview/multichannelmpeg.png"></img><br>
+<b>Figure 1: Encoding a multi-channel MPEG file</b><br>
+<br>
+<br>
+For example, let's consider a six-channel MPEG file using a constant bit rate of 128 kbps.  The six channels are encoded into three stereo pairs.  Each frame of stereo MPEG data is 432 bytes (including a 14 byte buffer).  FMOD interleaves the stereo frames every 432 bytes into a multi-channel MPEG frame.  The size of the multi-channel MPEG frame can be calculated as <i>frame size * Number of stereo pairs</i>.  In this example, the multi-channel MPEG frame is 432 * 3, giving 864 bytes.<br>
+<br>
+<h2>Encoding mp3 files for seamless looping</h2>
+Typically when an mp3 file is looped, an audible gap can be heard when playback loops back to the start.  This gap is obvious when the loop requires a sample accurate stitching from the last sample to the first.  This occurs for a number of reasons, the two major factors being:<br>
+<li>MPEG 1 layer 3 encodes the audio data into frames of 1152 samples.  If the audio data doesn't fill a frame (most importantly the last frame), the encoder will pad the frame with silent samples (some encoder will add an entire silent frame!) </li>
+<li>The decoding of an mp3 frame is dependent on the previous frame. When a loop occurs, the decoder will require data from the last frame to smoothly loop back to the first frame.</li>
+<br>
+<br>
+Without special encoding, it is not possible for mp3 data to loop seamlessly - fortunately FMOD does provide a method to do just that!  The FMOD mp3 encoder can be accessed via FMOD Designer or FSBankEx.  For Designer users, the special encoder is automatically used if the sound definition instance is set to loop and the wave bank compression property to 'MP3'.  <b>Note:</b> if the sound definition instance is set to 'one-shot' the standard mp3 encoding is used.  Users of the lower level API can specify the FSBankEx to encode mp3 data for seamless looping.<br>
+<br>
+So what does FMOD do to provide seamless loop of mp3 data?<br>
+<br>
+Firstly, FMOD's encoder will resample and stretch the last frame to ensure that all 1152 samples of the frame are used.  This will ensure the frame is not padded with silent samples.<br>
+<br>
+When used on some sources, this process may cause a slightly audible pitch change artifact. If this is the case, user are encouraged to repeat the audio within the file to increase the file size, so the time stretch distance becomes less significant.  Users may also resize the length of their audio to a multiple of the frame size.  The table below lists the frame size for various formats.<br>
+<br>
+
+<table border="2" cellpadding="0" cellspacing="0" style="width: 40%">
+  <tr>
+  <tr>
+    <td width="50%" height="15">Format</td>
+    <td width="50%" height="15">Frame size (samples)</td>
+  </tr>
+  </tr>
+</table>
+
+<table border="2" cellpadding="0" cellspacing="0" style="width: 40%; border-collapse: collapse">
+  <tr>
+    <td width="50%" height="15">MPEG 1</td>
+    <td width="50%" height="15">1152</td>
+  </tr>
+  <tr>
+    <td width="50%" height="15">MPEG 2 (2.5)</td>
+    <td width="50%" height="15">576</td>
+  </tr>
+  <tr>
+    <td width="50%" height="15">XMA</td>
+    <td width="50%" height="15">2048</td>
+  </tr>
+  <tr>
+    <td width="50%" height="15">VAG</td>
+    <td width="50%" height="15">28</td>
+  </tr>
+  <tr>
+    <td width="50%" height="15">GCADPCM</td>
+    <td width="50%" height="15">36</td>
+  </tr>
+</table>
+<br>
+With the removal of any padding within the last frame, FMOD's encoder must then prime the first frame with data from the last frame.  The last frame is then removed.  This allows FMOD's decoder to avoid issues of frame dependency between the first and last frame and provide a seamless loop. <br>
+<br>
+In most situations FMOD's encoder and decoder will perform perfect looping of mp3 content. However some audible artifacts can be introduced, this is illustrated below.<br>
+<img src = "../../static/overview/mpegframes.png"></img></br>
+<b>Figure 2: Encoding MPEG frames for seamless looping</b></br>
+<br>
+<br>
+When the first frame contains silence and the last frame contains an audible signal, the interpolation used in priming the first frame will result in an audible 'pop'.  Should users require silence in the first frame of their loop, they should:<br>
+<br>
+<li>make sure the original wave loops properly, or
+<li>pad the end of the file with a frame of silence.
+<br>
+<br>
+<h2>XMA Quality and Compression</h2>
+As specified (in part) in the Xbox SDK documentation:<br>
+<br>
+<li>The XMA encoder allows the Sound Designer to specify a quality setting between 1 and 100, where:
+<ul><ul>
+	<li>1 provides the highest compression level and the lowest quality, and</li>
+	<li>100 provides the lowest compression level and the highest quality. </li>
+</ul></ul>
+<li>XMA's variable bit rate compression is content dependent, meaning compression ratios can vary greatly between pieces of content.</li>
+<li>This means the quality settings do not translate directly to specific compression ratios.</li>
+<li>The Xbox 360 Development Kit suggests a compression rate between 8:1 and 15:1 will provide adequate quality for most game audio assets.</li>
+<br>
+<br>
+
+
+
+
+
+
+<P>
+&nbsp;<P>
+</BODY>
+</HTML>

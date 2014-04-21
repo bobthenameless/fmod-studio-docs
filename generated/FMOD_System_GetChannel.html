@@ -1,0 +1,47 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::getChannel</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::getChannel</H1>
+<P>
+<p>Retrieves a handle to a channel by ID.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::getChannel(
+  int <I>channelid</I>,
+  FMOD::Channel **<I>channel</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_GetChannel(
+  FMOD_SYSTEM *<I>system</I>,
+  int <I>channelid</I>,
+  FMOD_CHANNEL **<I>channel</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>channelid</dt>
+<dd>Index in the FMOD channel pool.  Specify a channel number from 0 to the 'maxchannels' value specified in <A HREF="FMOD_System_Init.html">System::init</A> minus 1.</dd>
+<dt>channel</dt>
+<dd>Address of a variable that receives a pointer to the requested channel.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>This function is mainly for getting handles to existing (playing) channels and setting their attributes.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_PlaySound.html">System::playSound</A></LI>
+<LI><A HREF="FMOD_System_Init.html">System::init</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

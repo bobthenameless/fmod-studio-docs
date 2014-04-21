@@ -1,0 +1,44 @@
+<LINK REL="stylesheet" href="../../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Granular Synthesis Example</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<h1>Granular Synthesis Example</h1>
+
+<p>This example shows how you can play a string of sounds together without gaps,
+using the setDelay command.</p>
+
+<p>The basic operation is:</p>
+
+<ul>
+<li>Play 2 sounds initially at the same time, the first sound immediately, and
+the 2nd sound with a delay calculated by the length of the first sound.</li>
+<li>Call setDelay to initiate the delayed playback. setDelay is sample accurate
+and uses -output- samples as the time frame, not source samples. These
+samples are a fixed amount per second regardless of the source sound format,
+for example, 48000 samples per second if FMOD is initialized to 48khz output.</li>
+<li>Output samples are calculated from source samples with a simple
+source->output sample rate conversion. i.e.
+    sound_length *= output_rate
+    sound_length /= sound_frequency</li>
+<li>When the first sound finishes, the second one should have automatically
+started. This is a good oppurtunity to queue up the next sound. Repeat
+step 2.</li>
+<li>Make sure the framerate is high enough to queue up a new sound before the
+other one finishes otherwise you will get gaps.</li>
+</ul>
+
+<p>These sounds are not limited by format, channel count or bit depth like the 
+realtimestitching example is, and can also be modified to allow for overlap,
+by reducing the delay from the first sound playing to the second by the overlap
+amount.</p>
+
+<pre><code>#define USE_STREAMS = Use 2 stream instances, created while they play.
+#define USE_STREAMS = Use 6 static wavs, all loaded into memory.
+</code></pre>
+
+<h3>Location</h3>
+
+<p>The example is located at api/lowlevel/examples/granular_synth.cpp.</p>

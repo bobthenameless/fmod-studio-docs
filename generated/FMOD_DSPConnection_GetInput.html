@@ -1,0 +1,48 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>DSPConnection::getInput</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>DSPConnection::getInput</H1>
+<P>
+<p>Retrieves the DSP unit that is the input of this connection.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT DSPConnection::getInput(
+  FMOD::DSP **<I>input</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_DSPConnection_GetInput(
+  FMOD_DSPCONNECTION *<I>dspconnection</I>,
+  FMOD_DSP **<I>input</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>input</dt>
+<dd>Address of a pointer that receives the pointer to the DSP unit that is the input of this connection.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>A DSPConnection joins 2 DSP units together (think of it as the line between 2 circles).<br>
+Each DSPConnection has 1 input and 1 output.</p>
+
+<p><strong>Note!</strong> If a <A HREF="FMOD_DSP_AddInput.html">DSP::addInput</A> just occurred, the connection might not be ready because the DSP system is still queued
+to connect in the background.  If so the function will return <A HREF="FMOD_RESULT.html">FMOD_ERR_NOTREADY</A> and the input will be null.  Poll
+until it is ready.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSPConnection_GetOutput.html">DSPConnection::getOutput</A></LI>
+<LI><A HREF="FMOD_DSP_AddInput.html">DSP::addInput</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

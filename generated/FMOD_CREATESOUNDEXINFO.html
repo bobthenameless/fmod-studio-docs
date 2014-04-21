@@ -1,0 +1,211 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_CREATESOUNDEXINFO</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_CREATESOUNDEXINFO</H1>
+<P>
+<p>Use this structure with <A HREF="FMOD_System_CreateSound.html">System::createSound</A> when more control is needed over loading.
+The possible reasons to use this with <A HREF="FMOD_System_CreateSound.html">System::createSound</A> are:</p>
+
+<ul>
+<li>Loading a file from memory.</li>
+<li>Loading a file from within another larger (possibly wad/pak) file, by giving the loader an offset and length.</li>
+<li>To create a user created / non file based sound.</li>
+<li>To specify a starting subsound to seek to within a multi-sample sounds (ie FSB/DLS) when created as a stream.</li>
+<li>To specify which subsounds to load for multi-sample sounds (ie FSB/DLS) so that memory is saved and only a subset is actually loaded/read from disk.</li>
+<li>To specify 'piggyback' read and seek callbacks for capture of sound data as fmod reads and decodes it.  Useful for ripping decoded PCM data from sounds as they are loaded / played.</li>
+<li>To specify a MIDI DLS sample set file to load when opening a MIDI file.</li>
+</ul>
+
+<p>See below on what members to fill for each of the above types of sound you want to create.</p>
+</P>
+<h3>Structure</h3>
+<PRE class=syntax><CODE>typedef struct {
+  int <I>cbsize</I>;
+  unsigned int <I>length</I>;
+  unsigned int <I>fileoffset</I>;
+  int <I>numchannels</I>;
+  int <I>defaultfrequency</I>;
+  FMOD_SOUND_FORMAT <I>format</I>;
+  unsigned int <I>decodebuffersize</I>;
+  int <I>initialsubsound</I>;
+  int <I>numsubsounds</I>;
+  int *<I>inclusionlist</I>;
+  int <I>inclusionlistnum</I>;
+  FMOD_SOUND_PCMREAD_CALLBACK <I>pcmreadcallback</I>;
+  FMOD_SOUND_PCMSETPOS_CALLBACK <I>pcmsetposcallback</I>;
+  FMOD_SOUND_NONBLOCK_CALLBACK <I>nonblockcallback</I>;
+  const char *<I>dlsname</I>;
+  const char *<I>encryptionkey</I>;
+  int <I>maxpolyphony</I>;
+  void *<I>userdata</I>;
+  FMOD_SOUND_TYPE <I>suggestedsoundtype</I>;
+  FMOD_FILE_OPEN_CALLBACK <I>fileuseropen</I>;
+  FMOD_FILE_CLOSE_CALLBACK <I>fileuserclose</I>;
+  FMOD_FILE_READ_CALLBACK <I>fileuserread</I>;
+  FMOD_FILE_SEEK_CALLBACK <I>fileuserseek</I>;
+  FMOD_FILE_ASYNCREAD_CALLBACK <I>fileuserasyncread</I>;
+  FMOD_FILE_ASYNCCANCEL_CALLBACK <I>fileuserasynccancel</I>;
+  void *<I>fileuserdata</I>;
+  FMOD_CHANNELORDER <I>channelorder</I>;
+  FMOD_CHANNELMASK <I>channelmask</I>;
+  FMOD_SOUNDGROUP *<I>initialsoundgroup</I>;
+  unsigned int <I>initialseekposition</I>;
+  FMOD_TIMEUNIT <I>initialseekpostype</I>;
+  int <I>ignoresetfilesystem</I>;
+  unsigned int <I>audioqueuepolicy</I>;
+  unsigned int <I>minmidigranularity</I>;
+  int <I>nonblockthreadid</I>;
+} FMOD_CREATESOUNDEXINFO;
+</CODE></PRE>
+<h2>Members</h2>
+<P class=dt><I>cbsize</I></P>
+<P class=indent>[w] Size of this structure.  This is used so the structure can be expanded in the future and still work on older versions of FMOD Studio. </P>
+<P class=dt><I>length</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. Size in bytes of file to load, or sound to create (in this case only if <A HREF="FMOD_MODE.html">FMOD_OPENUSER</A> is used).  Required if loading from memory.  If 0 is specified, then it will use the size of the file (unless loading from memory then an error will be returned). </P>
+<P class=dt><I>fileoffset</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. Offset from start of the file to start loading from.  This is useful for loading files from inside big data files. </P>
+<P class=dt><I>numchannels</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. Number of channels in a sound mandatory if <A HREF="FMOD_MODE.html">FMOD_OPENUSER</A> or <A HREF="FMOD_MODE.html">FMOD_OPENRAW</A> is used. </P>
+<P class=dt><I>defaultfrequency</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. Default frequency of sound in Hz, mandatory if <A HREF="FMOD_MODE.html">FMOD_OPENUSER</A> or <A HREF="FMOD_MODE.html">FMOD_OPENRAW</A> is used.  Other formats use the frequency determined by the file format. </P>
+<P class=dt><I>format</I></P>
+<P class=indent>[w] Optional. Specify 0 or <A HREF="FMOD_SOUND_FORMAT.html">FMOD_SOUND_FORMAT_NONE</A> to ignore. Format of the sound, mandatory if <A HREF="FMOD_MODE.html">FMOD_OPENUSER</A> or <A HREF="FMOD_MODE.html">FMOD_OPENRAW</A> is used.  Other formats use the format determined by the file format.   </P>
+<P class=dt><I>decodebuffersize</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. For streams.  This determines the size of the double buffer (in PCM samples) that a stream uses.  Use this for user created streams if you want to determine the size of the callback buffer passed to you.  Specify 0 to use FMOD's default size which is currently equivalent to 400ms of the sound format created/loaded. </P>
+<P class=dt><I>initialsubsound</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. In a multi-sample file format such as .FSB/.DLS, specify the initial subsound to seek to, only if <A HREF="FMOD_MODE.html">FMOD_CREATESTREAM</A> is used. </P>
+<P class=dt><I>numsubsounds</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore or have no subsounds.  In a sound created with <A HREF="FMOD_MODE.html">FMOD_OPENUSER</A>, specify the number of subsounds that are accessable with <A HREF="FMOD_Sound_GetSubSound.html">Sound::getSubSound</A>.  If not created with <A HREF="FMOD_MODE.html">FMOD_OPENUSER</A>, this will limit the number of subsounds loaded within a multi-subsound file.  If using FSB, then if FMOD_CREATESOUNDEXINFO::inclusionlist is used, this will shuffle subsounds down so that there are not any gaps.  It will mean that the indices of the sounds will be different. </P>
+<P class=dt><I>inclusionlist</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. In a multi-sample format such as .FSB/.DLS it may be desirable to specify only a subset of sounds to be loaded out of the whole file.  This is an array of subsound indices to load into memory when created. </P>
+<P class=dt><I>inclusionlistnum</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. This is the number of integers contained within the inclusionlist array. </P>
+<P class=dt><I>pcmreadcallback</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. Callback to 'piggyback' on FMOD's read functions and accept or even write PCM data while FMOD is opening the sound.  Used for user sounds created with <A HREF="FMOD_MODE.html">FMOD_OPENUSER</A> or for capturing decoded data as FMOD reads it. </P>
+<P class=dt><I>pcmsetposcallback</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. Callback for when the user calls a seeking function such as Channel::setTime or <A HREF="FMOD_Channel_SetPosition.html">Channel::setPosition</A> within a multi-sample sound, and for when it is opened.</P>
+<P class=dt><I>nonblockcallback</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. Callback for successful completion, or error while loading a sound that used the <A HREF="FMOD_MODE.html">FMOD_NONBLOCKING</A> flag.  Also called duing seeking, when setPosition is called or a stream is restarted. </P>
+<P class=dt><I>dlsname</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. Filename for a DLS sample set when loading a MIDI file. If not specified, on Windows it will attempt to open /windows/system32/drivers/gm.dls or /windows/system32/drivers/etc/gm.dls, on Mac it will attempt to load /System/Library/Components/CoreAudio.component/Contents/Resources/gs_instruments.dls, otherwise the MIDI will fail to open. Current DLS support is for level 1 of the specification. </P>
+<P class=dt><I>encryptionkey</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. Key for encrypted FSB file.  Without this key an encrypted FSB file will not load. </P>
+<P class=dt><I>maxpolyphony</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. For sequenced formats with dynamic channel allocation such as .MID and .IT, this specifies the maximum voice count allowed while playing.  .IT defaults to 64.  .MID defaults to 32. </P>
+<P class=dt><I>userdata</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. This is user data to be attached to the sound during creation.  Access via <A HREF="FMOD_Sound_GetUserData.html">Sound::getUserData</A>.  Note: This is not passed to <A HREF="FMOD_FILE_OPEN_CALLBACK.html">FMOD_FILE_OPEN_CALLBACK</A> - use fileuserdata for that. </P>
+<P class=dt><I>suggestedsoundtype</I></P>
+<P class=indent>[w] Optional. Specify 0 or <A HREF="FMOD_SOUND_TYPE.html">FMOD_SOUND_TYPE_UNKNOWN</A> to ignore.  Instead of scanning all codec types, use this to speed up loading by making it jump straight to this codec. </P>
+<P class=dt><I>fileuseropen</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. Callback for opening this file. </P>
+<P class=dt><I>fileuserclose</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. Callback for closing this file. </P>
+<P class=dt><I>fileuserread</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. Callback for reading from this file. </P>
+<P class=dt><I>fileuserseek</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. Callback for seeking within this file. </P>
+<P class=dt><I>fileuserasyncread</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. Callback for seeking within this file. </P>
+<P class=dt><I>fileuserasynccancel</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. Callback for seeking within this file. </P>
+<P class=dt><I>fileuserdata</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. User data to be passed into the file callbacks. </P>
+<P class=dt><I>channelorder</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. Use this to differ the way fmod maps multichannel sounds to speakers.  See <A HREF="FMOD_CHANNELORDER.html">FMOD_CHANNELORDER</A> for more. </P>
+<P class=dt><I>channelmask</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. Use this to specify which channels map to which speakers.  See <A HREF="FMOD_CHANNELMASK.html">FMOD_CHANNELMASK</A> for more. </P>
+<P class=dt><I>initialsoundgroup</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. Specify a sound group if required, to put sound in as it is created. </P>
+<P class=dt><I>initialseekposition</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. For streams. Specify an initial position to seek the stream to. </P>
+<P class=dt><I>initialseekpostype</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. For streams. Specify the time unit for the position set in initialseekposition. </P>
+<P class=dt><I>ignoresetfilesystem</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. Set to 1 to use fmod's built in file system. Ignores setFileSystem callbacks and also FMOD_CREATESOUNEXINFO file callbacks.  Useful for specific cases where you don't want to use your own file system but want to use fmod's file system (ie net streaming). </P>
+<P class=dt><I>audioqueuepolicy</I></P>
+<P class=indent>[w] Optional. Specify 0 or FMOD_AUDIOQUEUE_CODECPOLICY_DEFAULT to ignore. Policy used to determine whether hardware or software is used for decoding, see FMOD_AUDIOQUEUE_CODECPOLICY for options (iOS >= 3.0 required, otherwise only hardware is available) </P>
+<P class=dt><I>minmidigranularity</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. Allows you to set a minimum desired MIDI mixer granularity. Values smaller than 512 give greater than default accuracy at the cost of more CPU and vice versa. Specify 0 for default (512 samples). </P>
+<P class=dt><I>nonblockthreadid</I></P>
+<P class=indent>[w] Optional. Specify 0 to ignore. Specifies a thread index to execute non blocking load on.  Allows for up to 5 threads to be used for loading at once.  This is to avoid one load blocking another.  Maximum value = 4. </P>
+<h2>Remarks</h2><P>
+<p>This structure is optional!  Specify 0 or NULL in <A HREF="FMOD_System_CreateSound.html">System::createSound</A> if you don't need it!</p>
+
+<p><u>Loading a file from memory.</u></p>
+
+<ul>
+<li>Create the sound using the <A HREF="FMOD_MODE.html">FMOD_OPENMEMORY</A> flag.</li>
+<li>Mandatory.  Specify 'length' for the size of the memory block in bytes.</li>
+<li>Other flags are optional.</li>
+</ul>
+
+<p><u>Loading a file from within another larger (possibly wad/pak) file, by giving the loader an offset and length.</u></p>
+
+<ul>
+<li>Mandatory.  Specify 'fileoffset' and 'length'.</li>
+<li>Other flags are optional.</li>
+</ul>
+
+<p><u>To create a user created / non file based sound.</u></p>
+
+<ul>
+<li>Create the sound using the <A HREF="FMOD_MODE.html">FMOD_OPENUSER</A> flag.</li>
+<li>Mandatory.  Specify 'defaultfrequency, 'numchannels' and 'format'.</li>
+<li>Other flags are optional.</li>
+</ul>
+
+<p><u>To specify a starting subsound to seek to and flush with, within a multi-sample stream (ie FSB/DLS).</u></p>
+
+<ul>
+<li>Mandatory.  Specify 'initialsubsound'.</li>
+</ul>
+
+<p><u>To specify which subsounds to load for multi-sample sounds (ie FSB/DLS) so that memory is saved and only a subset is actually loaded/read from disk.</u></p>
+
+<ul>
+<li>Mandatory.  Specify 'inclusionlist' and 'inclusionlistnum'.</li>
+</ul>
+
+<p><u>To specify 'piggyback' read and seek callbacks for capture of sound data as fmod reads and decodes it.  Useful for ripping decoded PCM data from sounds as they are loaded / played.</u></p>
+
+<ul>
+<li>Mandatory.  Specify 'pcmreadcallback' and 'pcmseekcallback'.</li>
+</ul>
+
+<p><u>To specify a MIDI DLS sample set file to load when opening a MIDI file.</u></p>
+
+<ul>
+<li>Mandatory.  Specify 'dlsname'.</li>
+</ul>
+
+<p>Setting the 'decodebuffersize' is for cpu intensive codecs that may be causing stuttering, not file intensive codecs (ie those from CD or netstreams) which are normally
+altered with <A HREF="FMOD_System_SetStreamBufferSize.html">System::setStreamBufferSize</A>.  As an example of cpu intensive codecs, an mp3 file will take more cpu to decode than a PCM wav file.</p>
+
+<p>If you have a stuttering effect, then it is using more cpu than the decode buffer playback rate can keep up with.  Increasing the decode buffersize will most likely solve this problem.</p>
+
+<p>FSB codec.  If inclusionlist and numsubsounds are used together, this will trigger a special mode where subsounds are shuffled down to save memory.  (useful for large FSB
+files where you only want to load 1 sound).  There will be no gaps, ie no null subsounds.  As an example, if there are 10,000 subsounds and there is an inclusionlist with only 1 entry,
+and numsubsounds = 1, then subsound 0 will be that entry, and there will only be the memory allocated for 1 subsound.  Previously there would still be 10,000 subsound pointers and other
+associated codec entries allocated along with it multiplied by 10,000.</p>
+
+<p>Members marked with [r] mean the variable is modified by FMOD and is for reading purposes only.  Do not change this value.<br>
+Members marked with [w] mean the variable can be written to.  The user can set the value.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_CreateSound.html">System::createSound</A></LI>
+<LI><A HREF="FMOD_System_SetStreamBufferSize.html">System::setStreamBufferSize</A></LI>
+<LI><A HREF="FMOD_MODE.html">FMOD_MODE</A></LI>
+<LI><A HREF="FMOD_SOUND_FORMAT.html">FMOD_SOUND_FORMAT</A></LI>
+<LI><A HREF="FMOD_SOUND_TYPE.html">FMOD_SOUND_TYPE</A></LI>
+<LI><A HREF="FMOD_CHANNELMASK.html">FMOD_CHANNELMASK</A></LI>
+<LI><A HREF="FMOD_CHANNELORDER.html">FMOD_CHANNELORDER</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

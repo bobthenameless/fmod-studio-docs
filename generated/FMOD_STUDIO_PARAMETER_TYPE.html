@@ -1,0 +1,61 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_STUDIO_PARAMETER_TYPE</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_STUDIO_PARAMETER_TYPE</H1>
+<P>
+<p>Describes the type of a parameter.</p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_STUDIO_PARAMETER_GAME_CONTROLLED,
+  FMOD_STUDIO_PARAMETER_AUTOMATIC_DISTANCE,
+  FMOD_STUDIO_PARAMETER_AUTOMATIC_EVENT_CONE_ANGLE,
+  FMOD_STUDIO_PARAMETER_AUTOMATIC_EVENT_ORIENTATION,
+  FMOD_STUDIO_PARAMETER_AUTOMATIC_DIRECTION,
+  FMOD_STUDIO_PARAMETER_AUTOMATIC_ELEVATION,
+  FMOD_STUDIO_PARAMETER_AUTOMATIC_LISTENER_ORIENTATION,
+  FMOD_STUDIO_PARAMETER_MAX
+} FMOD_STUDIO_PARAMETER_TYPE;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_STUDIO_PARAMETER_GAME_CONTROLLED</I></P>
+<P class=indent>Controlled via the API using <A HREF="FMOD_Studio_ParameterInstance_SetValue.html">Studio::ParameterInstance::setValue</A>. </P>
+<P class=dt><I>FMOD_STUDIO_PARAMETER_AUTOMATIC_DISTANCE</I></P>
+<P class=indent>Distance between the event and the listener. </P>
+<P class=dt><I>FMOD_STUDIO_PARAMETER_AUTOMATIC_EVENT_CONE_ANGLE</I></P>
+<P class=indent>Angle between the event's forward vector and the vector pointing from the event to the listener (0 to 180 degrees). </P>
+<P class=dt><I>FMOD_STUDIO_PARAMETER_AUTOMATIC_EVENT_ORIENTATION</I></P>
+<P class=indent>Horizontal angle between the event's forward vector and listener's forward vector (-180 to 180 degrees). </P>
+<P class=dt><I>FMOD_STUDIO_PARAMETER_AUTOMATIC_DIRECTION</I></P>
+<P class=indent>Horizontal angle between the listener's forward vector and the vector pointing from the listener to the event (-180 to 180 degrees). </P>
+<P class=dt><I>FMOD_STUDIO_PARAMETER_AUTOMATIC_ELEVATION</I></P>
+<P class=indent>Angle between the listener's XZ plane and the vector pointing from the listener to the event (-90 to 90 degrees). </P>
+<P class=dt><I>FMOD_STUDIO_PARAMETER_AUTOMATIC_LISTENER_ORIENTATION</I></P>
+<P class=indent>Horizontal angle between the listener's forward vector and the global positive Z axis (-180 to 180 degrees). </P>
+<P class=dt><I>FMOD_STUDIO_PARAMETER_MAX</I></P>
+<P class=indent>Maximum number of parameter types supported. </P>
+<h2>Remarks</h2><P>
+<p>There are two primary types of parameters: game controlled and automatic.
+Game controlled parameters receive their value from the API using
+<A HREF="FMOD_Studio_ParameterInstance_SetValue.html">Studio::ParameterInstance::setValue</A>. Automatic parameters are updated inside
+FMOD based on the positional information of the event and listener.</p>
+
+<p><strong>Horizontal angle</strong> means the angle between vectors projected onto the
+listener's XZ plane (for the EVENT_ORIENTATION and DIRECTION parameters)
+or the global XZ plane (for the LISTENER_ORIENTATION parameter).</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_STUDIO_PARAMETER_DESCRIPTION.html">FMOD_STUDIO_PARAMETER_DESCRIPTION</A></LI>
+<LI><A HREF="FMOD_Studio_ParameterInstance_SetValue.html">Studio::ParameterInstance::setValue</A></LI>
+<LI><A HREF="FMOD_Studio_EventInstance_Set3DAttributes.html">Studio::EventInstance::set3DAttributes</A></LI>
+<LI><A HREF="FMOD_Studio_System_SetListenerAttributes.html">Studio::System::setListenerAttributes</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

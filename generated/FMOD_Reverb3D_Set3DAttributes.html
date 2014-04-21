@@ -1,0 +1,59 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Reverb3D::set3DAttributes</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Reverb3D::set3DAttributes</H1>
+<P>
+<p>Sets the 3d properties of a 'virtual' reverb object.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Reverb3D::set3DAttributes(
+  const FMOD_VECTOR *<I>position</I>,
+  float <I>mindistance</I>,
+  float <I>maxdistance</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Reverb3D_Set3DAttributes(
+  FMOD_REVERB3D *<I>reverb3d</I>,
+  const FMOD_VECTOR *<I>position</I>,
+  float <I>mindistance</I>,
+  float <I>maxdistance</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>position</dt>
+<dd>Pointer to a vector containing the 3d position of the center of the reverb in 3d space. Default = { 0,0,0 }.</dd>
+<dt>mindistance</dt>
+<dd>The distance from the centerpoint that the reverb will have full effect at.  Default = 0.0.</dd>
+<dt>maxdistance</dt>
+<dd>The distance from the centerpoint that the reverb will not have any effect.  Default = 0.0.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>The 3D reverb object is a sphere having 3D attributes (position, minimum distance, maximum distance) and reverb
+properties.</p>
+
+<p>The properties and 3D attributes of all reverb objects collectively determine, along with the listener's position,
+the settings of and input gains into a single 3D reverb DSP.</p>
+
+<p>Please note that this only applies to software channels. When the listener is within the sphere of effect of one
+or more 3d reverbs, the listener's 3D reverb properties are a weighted combination of such 3d reverbs. When the
+listener is outside all of the reverbs, the 3D reverb setting is set to the default ambient reverb setting.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Reverb3D_Get3DAttributes.html">Reverb3D::get3DAttributes</A></LI>
+<LI><A HREF="FMOD_System_CreateReverb3D.html">System::createReverb3D</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

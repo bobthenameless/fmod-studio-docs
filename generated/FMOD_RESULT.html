@@ -1,0 +1,329 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_RESULT</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_RESULT</H1>
+<P>
+<p>error codes.  Returned from every function.</p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_OK,
+  FMOD_ERR_ALREADYLOCKED,
+  FMOD_ERR_BADCOMMAND,
+  FMOD_ERR_CHANNEL_ALLOC,
+  FMOD_ERR_CHANNEL_STOLEN,
+  FMOD_ERR_COM,
+  FMOD_ERR_DMA,
+  FMOD_ERR_DSP_CONNECTION,
+  FMOD_ERR_DSP_DONTPROCESS,
+  FMOD_ERR_DSP_FORMAT,
+  FMOD_ERR_DSP_SILENCE,
+  FMOD_ERR_DSP_INUSE,
+  FMOD_ERR_DSP_NOTFOUND,
+  FMOD_ERR_DSP_RUNNING,
+  FMOD_ERR_DSP_TOOMANYCONNECTIONS,
+  FMOD_ERR_FILE_BAD,
+  FMOD_ERR_FILE_COULDNOTSEEK,
+  FMOD_ERR_FILE_DISKEJECTED,
+  FMOD_ERR_FILE_EOF,
+  FMOD_ERR_FILE_ENDOFDATA,
+  FMOD_ERR_FILE_NOTFOUND,
+  FMOD_ERR_FILE_UNWANTED,
+  FMOD_ERR_FORMAT,
+  FMOD_ERR_HTTP,
+  FMOD_ERR_HTTP_ACCESS,
+  FMOD_ERR_HTTP_PROXY_AUTH,
+  FMOD_ERR_HTTP_SERVER_ERROR,
+  FMOD_ERR_HTTP_TIMEOUT,
+  FMOD_ERR_INITIALIZATION,
+  FMOD_ERR_INITIALIZED,
+  FMOD_ERR_INTERNAL,
+  FMOD_ERR_INVALID_ADDRESS,
+  FMOD_ERR_INVALID_FLOAT,
+  FMOD_ERR_INVALID_HANDLE,
+  FMOD_ERR_INVALID_PARAM,
+  FMOD_ERR_INVALID_POSITION,
+  FMOD_ERR_INVALID_SPEAKER,
+  FMOD_ERR_INVALID_SYNCPOINT,
+  FMOD_ERR_INVALID_THREAD,
+  FMOD_ERR_INVALID_VECTOR,
+  FMOD_ERR_MAXAUDIBLE,
+  FMOD_ERR_MEMORY,
+  FMOD_ERR_MEMORY_CANTPOINT,
+  FMOD_ERR_MEMORY_SRAM,
+  FMOD_ERR_NEEDS2D,
+  FMOD_ERR_NEEDS3D,
+  FMOD_ERR_NEEDSHARDWARE,
+  FMOD_ERR_NEEDSSOFTWARE,
+  FMOD_ERR_NET_CONNECT,
+  FMOD_ERR_NET_SOCKET_ERROR,
+  FMOD_ERR_NET_URL,
+  FMOD_ERR_NET_WOULD_BLOCK,
+  FMOD_ERR_NOTREADY,
+  FMOD_ERR_OUTPUT_ALLOCATED,
+  FMOD_ERR_OUTPUT_CREATEBUFFER,
+  FMOD_ERR_OUTPUT_DRIVERCALL,
+  FMOD_ERR_OUTPUT_FORMAT,
+  FMOD_ERR_OUTPUT_INIT,
+  FMOD_ERR_OUTPUT_NODRIVERS,
+  FMOD_ERR_OUTPUT_NOHARDWARE,
+  FMOD_ERR_OUTPUT_NOSOFTWARE,
+  FMOD_ERR_PLUGIN,
+  FMOD_ERR_PLUGIN_INSTANCES,
+  FMOD_ERR_PLUGIN_MISSING,
+  FMOD_ERR_PLUGIN_RESOURCE,
+  FMOD_ERR_PLUGIN_VERSION,
+  FMOD_ERR_PRELOADED,
+  FMOD_ERR_PROGRAMMERSOUND,
+  FMOD_ERR_RECORD,
+  FMOD_ERR_REVERB_CHANNELGROUP,
+  FMOD_ERR_REVERB_INSTANCE,
+  FMOD_ERR_SUBSOUNDS,
+  FMOD_ERR_SUBSOUND_ALLOCATED,
+  FMOD_ERR_SUBSOUND_CANTMOVE,
+  FMOD_ERR_SUBSOUND_MODE,
+  FMOD_ERR_TAGNOTFOUND,
+  FMOD_ERR_TOOMANYCHANNELS,
+  FMOD_ERR_TRUNCATED,
+  FMOD_ERR_UNIMPLEMENTED,
+  FMOD_ERR_UNINITIALIZED,
+  FMOD_ERR_UNSUPPORTED,
+  FMOD_ERR_UPDATE,
+  FMOD_ERR_VERSION,
+  FMOD_ERR_HEADER_MISMATCH,
+  FMOD_ERR_EVENT_ALREADY_LOADED,
+  FMOD_ERR_EVENT_FAILED,
+  FMOD_ERR_EVENT_GUIDCONFLICT,
+  FMOD_ERR_EVENT_INFOONLY,
+  FMOD_ERR_EVENT_INTERNAL,
+  FMOD_ERR_EVENT_LIVEUPDATE_BUSY,
+  FMOD_ERR_EVENT_LIVEUPDATE_MISMATCH,
+  FMOD_ERR_EVENT_LIVEUPDATE_TIMEOUT,
+  FMOD_ERR_EVENT_MAXSTREAMS,
+  FMOD_ERR_EVENT_MISMATCH,
+  FMOD_ERR_EVENT_NAMECONFLICT,
+  FMOD_ERR_EVENT_NEEDSSIMPLE,
+  FMOD_ERR_EVENT_NOTFOUND,
+  FMOD_ERR_EVENT_WONT_STOP,
+  FMOD_ERR_MUSIC_NOCALLBACK,
+  FMOD_ERR_MUSIC_NOTFOUND,
+  FMOD_ERR_MUSIC_UNINITIALIZED,
+  FMOD_ERR_STUDIO_UNINITIALIZED,
+  FMOD_ERR_STUDIO_NOT_LOADED
+} FMOD_RESULT;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_OK</I></P>
+<P class=indent>No errors. </P>
+<P class=dt><I>FMOD_ERR_ALREADYLOCKED</I></P>
+<P class=indent>Tried to call lock a second time before unlock was called. </P>
+<P class=dt><I>FMOD_ERR_BADCOMMAND</I></P>
+<P class=indent>Tried to call a function on a data type that does not allow this type of functionality (ie calling <A HREF="FMOD_Sound_Lock.html">Sound::lock</A> on a streaming sound). </P>
+<P class=dt><I>FMOD_ERR_CHANNEL_ALLOC</I></P>
+<P class=indent>Error trying to allocate a channel. </P>
+<P class=dt><I>FMOD_ERR_CHANNEL_STOLEN</I></P>
+<P class=indent>The specified channel has been reused to play another sound. </P>
+<P class=dt><I>FMOD_ERR_COM</I></P>
+<P class=indent>A Win32 COM related error occured. COM failed to initialize or a QueryInterface failed meaning a Windows codec or driver was not installed properly. </P>
+<P class=dt><I>FMOD_ERR_DMA</I></P>
+<P class=indent>DMA Failure.  See debug output for more information. </P>
+<P class=dt><I>FMOD_ERR_DSP_CONNECTION</I></P>
+<P class=indent>DSP connection error.  Connection possibly caused a cyclic dependancy or connected dsps with incompatibile buffer counts. </P>
+<P class=dt><I>FMOD_ERR_DSP_DONTPROCESS</I></P>
+<P class=indent>DSP return code from a DSP process query callback.  Tells mixer not to call the process callback and therefore not consume CPU.  Use this to optimize the DSP graph. </P>
+<P class=dt><I>FMOD_ERR_DSP_FORMAT</I></P>
+<P class=indent>DSP Format error.  A DSP unit may have attempted to connect to this network with the wrong format, or a matrix may have been set with the wrong size if the target unit has a specified channel map. </P>
+<P class=dt><I>FMOD_ERR_DSP_SILENCE</I></P>
+<P class=indent>DSP return code from a DSP process query callback.  Tells mixer silence would be produced from read, so go idle and not consume CPU.  Use this to optimize the DSP graph. </P>
+<P class=dt><I>FMOD_ERR_DSP_INUSE</I></P>
+<P class=indent>DSP is already in the mixer's DSP network. It must be removed before being reinserted or released. </P>
+<P class=dt><I>FMOD_ERR_DSP_NOTFOUND</I></P>
+<P class=indent>DSP connection error.  Couldn't find the DSP unit specified. </P>
+<P class=dt><I>FMOD_ERR_DSP_RUNNING</I></P>
+<P class=indent>DSP error.  Cannot perform this operation while the network is in the middle of running.  This will most likely happen if a connection or disconnection is attempted in a DSP callback. </P>
+<P class=dt><I>FMOD_ERR_DSP_TOOMANYCONNECTIONS</I></P>
+<P class=indent>DSP connection error.  The unit being connected to or disconnected should only have 1 input or output. </P>
+<P class=dt><I>FMOD_ERR_FILE_BAD</I></P>
+<P class=indent>Error loading file. </P>
+<P class=dt><I>FMOD_ERR_FILE_COULDNOTSEEK</I></P>
+<P class=indent>Couldn't perform seek operation.  This is a limitation of the medium (ie netstreams) or the file format. </P>
+<P class=dt><I>FMOD_ERR_FILE_DISKEJECTED</I></P>
+<P class=indent>Media was ejected while reading. </P>
+<P class=dt><I>FMOD_ERR_FILE_EOF</I></P>
+<P class=indent>End of file unexpectedly reached while trying to read essential data (truncated?). </P>
+<P class=dt><I>FMOD_ERR_FILE_ENDOFDATA</I></P>
+<P class=indent>End of current chunk reached while trying to read data. </P>
+<P class=dt><I>FMOD_ERR_FILE_NOTFOUND</I></P>
+<P class=indent>File not found. </P>
+<P class=dt><I>FMOD_ERR_FILE_UNWANTED</I></P>
+<P class=indent>Unwanted file access occured. </P>
+<P class=dt><I>FMOD_ERR_FORMAT</I></P>
+<P class=indent>Unsupported file or audio format. </P>
+<P class=dt><I>FMOD_ERR_HTTP</I></P>
+<P class=indent>A HTTP error occurred. This is a catch-all for HTTP errors not listed elsewhere. </P>
+<P class=dt><I>FMOD_ERR_HTTP_ACCESS</I></P>
+<P class=indent>The specified resource requires authentication or is forbidden. </P>
+<P class=dt><I>FMOD_ERR_HTTP_PROXY_AUTH</I></P>
+<P class=indent>Proxy authentication is required to access the specified resource. </P>
+<P class=dt><I>FMOD_ERR_HTTP_SERVER_ERROR</I></P>
+<P class=indent>A HTTP server error occurred. </P>
+<P class=dt><I>FMOD_ERR_HTTP_TIMEOUT</I></P>
+<P class=indent>The HTTP request timed out. </P>
+<P class=dt><I>FMOD_ERR_INITIALIZATION</I></P>
+<P class=indent>FMOD was not initialized correctly to support this function. </P>
+<P class=dt><I>FMOD_ERR_INITIALIZED</I></P>
+<P class=indent>Cannot call this command after <A HREF="FMOD_System_Init.html">System::init</A>. </P>
+<P class=dt><I>FMOD_ERR_INTERNAL</I></P>
+<P class=indent>An error occured that wasn't supposed to.  Contact support. </P>
+<P class=dt><I>FMOD_ERR_INVALID_ADDRESS</I></P>
+<P class=indent>On Xbox 360, this memory address passed to FMOD must be physical, (ie allocated with XPhysicalAlloc.) </P>
+<P class=dt><I>FMOD_ERR_INVALID_FLOAT</I></P>
+<P class=indent>Value passed in was a NaN, Inf or denormalized float. </P>
+<P class=dt><I>FMOD_ERR_INVALID_HANDLE</I></P>
+<P class=indent>An invalid object handle was used. </P>
+<P class=dt><I>FMOD_ERR_INVALID_PARAM</I></P>
+<P class=indent>An invalid parameter was passed to this function. </P>
+<P class=dt><I>FMOD_ERR_INVALID_POSITION</I></P>
+<P class=indent>An invalid seek position was passed to this function. </P>
+<P class=dt><I>FMOD_ERR_INVALID_SPEAKER</I></P>
+<P class=indent>An invalid speaker was passed to this function based on the current speaker mode. </P>
+<P class=dt><I>FMOD_ERR_INVALID_SYNCPOINT</I></P>
+<P class=indent>The syncpoint did not come from this sound handle. </P>
+<P class=dt><I>FMOD_ERR_INVALID_THREAD</I></P>
+<P class=indent>Tried to call a function on a thread that is not supported. </P>
+<P class=dt><I>FMOD_ERR_INVALID_VECTOR</I></P>
+<P class=indent>The vectors passed in are not unit length, or perpendicular. </P>
+<P class=dt><I>FMOD_ERR_MAXAUDIBLE</I></P>
+<P class=indent>Reached maximum audible playback count for this sound's soundgroup. </P>
+<P class=dt><I>FMOD_ERR_MEMORY</I></P>
+<P class=indent>Not enough memory or resources. </P>
+<P class=dt><I>FMOD_ERR_MEMORY_CANTPOINT</I></P>
+<P class=indent>Can't use <A HREF="FMOD_MODE.html">FMOD_OPENMEMORY_POINT</A> on non PCM source data, or non mp3/xma/adpcm data if <A HREF="FMOD_MODE.html">FMOD_CREATECOMPRESSEDSAMPLE</A> was used. </P>
+<P class=dt><I>FMOD_ERR_MEMORY_SRAM</I></P>
+<P class=indent>Not enough memory or resources on console sound ram. </P>
+<P class=dt><I>FMOD_ERR_NEEDS2D</I></P>
+<P class=indent>Tried to call a command on a 3d sound when the command was meant for 2d sound. </P>
+<P class=dt><I>FMOD_ERR_NEEDS3D</I></P>
+<P class=indent>Tried to call a command on a 2d sound when the command was meant for 3d sound. </P>
+<P class=dt><I>FMOD_ERR_NEEDSHARDWARE</I></P>
+<P class=indent>Tried to use a feature that requires hardware support.  (ie trying to play a GCADPCM compressed sound in software on Wii). </P>
+<P class=dt><I>FMOD_ERR_NEEDSSOFTWARE</I></P>
+<P class=indent>Tried to use a feature that requires the software engine.  Software engine has either been turned off, or command was executed on a hardware channel which does not support this feature. </P>
+<P class=dt><I>FMOD_ERR_NET_CONNECT</I></P>
+<P class=indent>Couldn't connect to the specified host. </P>
+<P class=dt><I>FMOD_ERR_NET_SOCKET_ERROR</I></P>
+<P class=indent>A socket error occurred.  This is a catch-all for socket-related errors not listed elsewhere. </P>
+<P class=dt><I>FMOD_ERR_NET_URL</I></P>
+<P class=indent>The specified URL couldn't be resolved. </P>
+<P class=dt><I>FMOD_ERR_NET_WOULD_BLOCK</I></P>
+<P class=indent>Operation on a non-blocking socket could not complete immediately. </P>
+<P class=dt><I>FMOD_ERR_NOTREADY</I></P>
+<P class=indent>Operation could not be performed because specified sound/DSP connection is not ready. </P>
+<P class=dt><I>FMOD_ERR_OUTPUT_ALLOCATED</I></P>
+<P class=indent>Error initializing output device, but more specifically, the output device is already in use and cannot be reused. </P>
+<P class=dt><I>FMOD_ERR_OUTPUT_CREATEBUFFER</I></P>
+<P class=indent>Error creating hardware sound buffer. </P>
+<P class=dt><I>FMOD_ERR_OUTPUT_DRIVERCALL</I></P>
+<P class=indent>A call to a standard soundcard driver failed, which could possibly mean a bug in the driver or resources were missing or exhausted. </P>
+<P class=dt><I>FMOD_ERR_OUTPUT_FORMAT</I></P>
+<P class=indent>Soundcard does not support the minimum features needed for this soundsystem (16bit stereo output). </P>
+<P class=dt><I>FMOD_ERR_OUTPUT_INIT</I></P>
+<P class=indent>Error initializing output device. </P>
+<P class=dt><I>FMOD_ERR_OUTPUT_NODRIVERS</I></P>
+<P class=indent>The output device has no drivers installed, so FMOD_OUTPUT_NOSOUND is selected as the output mode. </P>
+<P class=dt><I>FMOD_ERR_OUTPUT_NOHARDWARE</I></P>
+<P class=indent><A HREF="FMOD_MODE.html">FMOD_HARDWARE</A> was specified but the sound card does not have the resources necessary to play it. </P>
+<P class=dt><I>FMOD_ERR_OUTPUT_NOSOFTWARE</I></P>
+<P class=indent>Attempted to create a software sound but no software channels were specified in <A HREF="FMOD_System_Init.html">System::init</A>. </P>
+<P class=dt><I>FMOD_ERR_PLUGIN</I></P>
+<P class=indent>An unspecified error has been returned from a plugin. </P>
+<P class=dt><I>FMOD_ERR_PLUGIN_INSTANCES</I></P>
+<P class=indent>The number of allowed instances of a plugin has been exceeded. </P>
+<P class=dt><I>FMOD_ERR_PLUGIN_MISSING</I></P>
+<P class=indent>A requested output, dsp unit type or codec was not available. </P>
+<P class=dt><I>FMOD_ERR_PLUGIN_RESOURCE</I></P>
+<P class=indent>A resource that the plugin requires cannot be found. (ie the DLS file for MIDI playback) </P>
+<P class=dt><I>FMOD_ERR_PLUGIN_VERSION</I></P>
+<P class=indent>A plugin was built with an unsupported SDK version. </P>
+<P class=dt><I>FMOD_ERR_PRELOADED</I></P>
+<P class=indent>The specified sound is still in use by the event system, call EventSystem::unloadFSB before trying to release it. </P>
+<P class=dt><I>FMOD_ERR_PROGRAMMERSOUND</I></P>
+<P class=indent>The specified sound is still in use by the event system, wait for the event which is using it finish with it. </P>
+<P class=dt><I>FMOD_ERR_RECORD</I></P>
+<P class=indent>An error occured trying to initialize the recording device. </P>
+<P class=dt><I>FMOD_ERR_REVERB_CHANNELGROUP</I></P>
+<P class=indent>Reverb properties cannot be set on this channel because a parent channelgroup owns the reverb connection. </P>
+<P class=dt><I>FMOD_ERR_REVERB_INSTANCE</I></P>
+<P class=indent>Specified instance in <A HREF="FMOD_REVERB_PROPERTIES.html">FMOD_REVERB_PROPERTIES</A> couldn't be set. Most likely because it is an invalid instance number or the reverb doesnt exist. </P>
+<P class=dt><I>FMOD_ERR_SUBSOUNDS</I></P>
+<P class=indent>The error occured because the sound referenced contains subsounds when it shouldn't have, or it doesn't contain subsounds when it should have.  The operation may also not be able to be performed on a parent sound. </P>
+<P class=dt><I>FMOD_ERR_SUBSOUND_ALLOCATED</I></P>
+<P class=indent>This subsound is already being used by another sound, you cannot have more than one parent to a sound.  Null out the other parent's entry first. </P>
+<P class=dt><I>FMOD_ERR_SUBSOUND_CANTMOVE</I></P>
+<P class=indent>Shared subsounds cannot be replaced or moved from their parent stream, such as when the parent stream is an FSB file. </P>
+<P class=dt><I>FMOD_ERR_SUBSOUND_MODE</I></P>
+<P class=indent>The subsound's mode bits do not match with the parent sound's mode bits.  See documentation for function that it was called with. </P>
+<P class=dt><I>FMOD_ERR_TAGNOTFOUND</I></P>
+<P class=indent>The specified tag could not be found or there are no tags. </P>
+<P class=dt><I>FMOD_ERR_TOOMANYCHANNELS</I></P>
+<P class=indent>The sound created exceeds the allowable input channel count.  This can be increased using the 'maxinputchannels' parameter in <A HREF="FMOD_System_SetSoftwareFormat.html">System::setSoftwareFormat</A>. </P>
+<P class=dt><I>FMOD_ERR_TRUNCATED</I></P>
+<P class=indent>The retrieved string is too long to fit in the supplied buffer and has been truncated. </P>
+<P class=dt><I>FMOD_ERR_UNIMPLEMENTED</I></P>
+<P class=indent>Something in FMOD hasn't been implemented when it should be! contact support! </P>
+<P class=dt><I>FMOD_ERR_UNINITIALIZED</I></P>
+<P class=indent>This command failed because <A HREF="FMOD_System_Init.html">System::init</A> or <A HREF="FMOD_System_SetDriver.html">System::setDriver</A> was not called. </P>
+<P class=dt><I>FMOD_ERR_UNSUPPORTED</I></P>
+<P class=indent>A command issued was not supported by this object.  Possibly a plugin without certain callbacks specified. </P>
+<P class=dt><I>FMOD_ERR_UPDATE</I></P>
+<P class=indent>An error caused by <A HREF="FMOD_System_Update.html">System::update</A> occured. </P>
+<P class=dt><I>FMOD_ERR_VERSION</I></P>
+<P class=indent>The version number of this file format is not supported. </P>
+<P class=dt><I>FMOD_ERR_HEADER_MISMATCH</I></P>
+<P class=indent>There is a version mismatch between the FMOD header and either the FMOD Studio library or the FMOD Low Level library. </P>
+<P class=dt><I>FMOD_ERR_EVENT_ALREADY_LOADED</I></P>
+<P class=indent>The specified project or bank has already been loaded. Having multiple copies of the same project loaded simultaneously is forbidden. </P>
+<P class=dt><I>FMOD_ERR_EVENT_FAILED</I></P>
+<P class=indent>An Event failed to be retrieved, most likely due to 'just fail' being specified as the max playbacks behavior. </P>
+<P class=dt><I>FMOD_ERR_EVENT_GUIDCONFLICT</I></P>
+<P class=indent>An event with the same GUID already exists. </P>
+<P class=dt><I>FMOD_ERR_EVENT_INFOONLY</I></P>
+<P class=indent>Can't execute this command on an EVENT_INFOONLY event. </P>
+<P class=dt><I>FMOD_ERR_EVENT_INTERNAL</I></P>
+<P class=indent>An error occured that wasn't supposed to.  See debug log for reason. </P>
+<P class=dt><I>FMOD_ERR_EVENT_LIVEUPDATE_BUSY</I></P>
+<P class=indent>The live update connection failed due to the game already being connected. </P>
+<P class=dt><I>FMOD_ERR_EVENT_LIVEUPDATE_MISMATCH</I></P>
+<P class=indent>The live update connection failed due to the game data being out of sync with the tool. </P>
+<P class=dt><I>FMOD_ERR_EVENT_LIVEUPDATE_TIMEOUT</I></P>
+<P class=indent>The live update connection timed out. </P>
+<P class=dt><I>FMOD_ERR_EVENT_MAXSTREAMS</I></P>
+<P class=indent>Event failed because 'Max streams' was hit when FMOD_EVENT_INIT_FAIL_ON_MAXSTREAMS was specified. </P>
+<P class=dt><I>FMOD_ERR_EVENT_MISMATCH</I></P>
+<P class=indent>FSB mismatches the FEV it was compiled with, the stream/sample mode it was meant to be created with was different, or the FEV was built for a different platform. </P>
+<P class=dt><I>FMOD_ERR_EVENT_NAMECONFLICT</I></P>
+<P class=indent>A category with the same name already exists. </P>
+<P class=dt><I>FMOD_ERR_EVENT_NEEDSSIMPLE</I></P>
+<P class=indent>Tried to call a function on a complex event that's only supported by simple events. </P>
+<P class=dt><I>FMOD_ERR_EVENT_NOTFOUND</I></P>
+<P class=indent>The requested event, bus or vca could not be found. </P>
+<P class=dt><I>FMOD_ERR_EVENT_WONT_STOP</I></P>
+<P class=indent>The event cannot be released because it will not terminate, call stop to allow releasing of this event. </P>
+<P class=dt><I>FMOD_ERR_MUSIC_NOCALLBACK</I></P>
+<P class=indent>The music callback is required, but it has not been set. </P>
+<P class=dt><I>FMOD_ERR_MUSIC_NOTFOUND</I></P>
+<P class=indent>The requested music entity could not be found. </P>
+<P class=dt><I>FMOD_ERR_MUSIC_UNINITIALIZED</I></P>
+<P class=indent>Music system is not initialized probably because no music data is loaded. </P>
+<P class=dt><I>FMOD_ERR_STUDIO_UNINITIALIZED</I></P>
+<P class=indent>The Studio::System object is not yet initialized. </P>
+<P class=dt><I>FMOD_ERR_STUDIO_NOT_LOADED</I></P>
+<P class=indent>The specified resource is not loaded, so it can't be unloaded. </P>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

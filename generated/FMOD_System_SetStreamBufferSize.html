@@ -1,0 +1,70 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::setStreamBufferSize</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::setStreamBufferSize</H1>
+<P>
+<p>Sets the internal buffersize for streams opened after this call.<br>
+Larger values will consume more memory (see remarks), whereas smaller values may cause buffer
+under-run/starvation/stuttering caused by large delays in disk access (ie netstream),
+or cpu usage in slow machines, or by trying to play too many streams at once.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::setStreamBufferSize(
+  unsigned int <I>filebuffersize</I>,
+  FMOD_TIMEUNIT <I>filebuffersizetype</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_SetStreamBufferSize(
+  FMOD_SYSTEM *<I>system</I>,
+  unsigned int <I>filebuffersize</I>,
+  FMOD_TIMEUNIT <I>filebuffersizetype</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>filebuffersize</dt>
+<dd>Size of stream file buffer.   Default is 16384 (<A HREF="FMOD_TIMEUNIT.html">FMOD_TIMEUNIT_RAWBYTES</A>).</dd>
+<dt>filebuffersizetype</dt>
+<dd>Type of unit for stream file buffer size.  Must be <A HREF="FMOD_TIMEUNIT.html">FMOD_TIMEUNIT_MS</A>, <A HREF="FMOD_TIMEUNIT.html">FMOD_TIMEUNIT_PCM</A>, <A HREF="FMOD_TIMEUNIT.html">FMOD_TIMEUNIT_PCMBYTES</A> or <A HREF="FMOD_TIMEUNIT.html">FMOD_TIMEUNIT_RAWBYTES</A>.  Default is <A HREF="FMOD_TIMEUNIT.html">FMOD_TIMEUNIT_RAWBYTES</A>.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Note this function does not affect streams created with <A HREF="FMOD_MODE.html">FMOD_OPENUSER</A>, as the buffer size is specified in <A HREF="FMOD_System_CreateSound.html">System::createSound</A>.<br>
+This function does not affect latency of playback.  All streams are pre-buffered (unless opened with <A HREF="FMOD_MODE.html">FMOD_OPENONLY</A>), so they will always start immediately.<br>
+Seek and Play operations can sometimes cause a reflush of this buffer.</p>
+
+<p>If <A HREF="FMOD_TIMEUNIT.html">FMOD_TIMEUNIT_RAWBYTES</A> is used, the memory allocated is 2 * the size passed in, because fmod allocates a double buffer.<br>
+If <A HREF="FMOD_TIMEUNIT.html">FMOD_TIMEUNIT_MS</A>, <A HREF="FMOD_TIMEUNIT.html">FMOD_TIMEUNIT_PCM</A> or <A HREF="FMOD_TIMEUNIT.html">FMOD_TIMEUNIT_PCMBYTES</A> is used, and the stream is infinite (such as a
+shoutcast netstream), or VBR, then FMOD cannot calculate an accurate compression ratio to work with when the file is
+opened.  This means it will then base the buffersize on <A HREF="FMOD_TIMEUNIT.html">FMOD_TIMEUNIT_PCMBYTES</A>, or in other words the number of PCM
+bytes, but this will be incorrect for some compressed formats.<br>
+Use <A HREF="FMOD_TIMEUNIT.html">FMOD_TIMEUNIT_RAWBYTES</A> for these type (infinite / undetermined length) of streams for more accurate read sizes.</p>
+
+<p>Note to determine the actual memory usage of a stream, including sound buffer and other overhead, use
+<A HREF="FMOD_Memory_GetStats.html">Memory_GetStats</A> before and after creating a sound.</p>
+
+<p>Note that the stream may still stutter if the codec uses a large amount of cpu time, which impacts the smaller, internal 'decode' buffer.<br>
+The decode buffer size is changeable via <A HREF="FMOD_CREATESOUNDEXINFO.html">FMOD_CREATESOUNDEXINFO</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_TIMEUNIT.html">FMOD_TIMEUNIT</A></LI>
+<LI><A HREF="FMOD_System_CreateSound.html">System::createSound</A></LI>
+<LI><A HREF="FMOD_System_GetStreamBufferSize.html">System::getStreamBufferSize</A></LI>
+<LI><A HREF="FMOD_Sound_GetOpenState.html">Sound::getOpenState</A></LI>
+<LI><A HREF="FMOD_Channel_SetMute.html">Channel::setMute</A></LI>
+<LI><A HREF="FMOD_Memory_GetStats.html">Memory_GetStats</A></LI>
+<LI><A HREF="FMOD_CREATESOUNDEXINFO.html">FMOD_CREATESOUNDEXINFO</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

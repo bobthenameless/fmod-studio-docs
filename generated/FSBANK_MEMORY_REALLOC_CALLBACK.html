@@ -1,0 +1,43 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FSBANK_MEMORY_REALLOC_CALLBACK</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FSBANK_MEMORY_REALLOC_CALLBACK</H1>
+<P>
+<p>Callback to re-allocate a block of memory to a different size.</p>
+</P>
+<h3>C/C++ Syntax</h3>
+<PRE class=syntax><CODE>void * FSBANK_CALLBACK FSBANK_MEMORY_REALLOC_CALLBACK(
+  void *<I>ptr</I>,
+  unsigned int <I>size</I>,
+  char *<I>sourceStr</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>ptr</I></P>
+<P class=indent>Pointer to a block of memory to be resized.  If this is NULL then a new block of memory is simply allocated.</P>
+<P class=dt><I>size</I></P>
+<P class=indent>Size of the memory to be reallocated.  The original memory must be preserved.</P>
+<P class=dt><I>sourceStr</I></P>
+<P class=indent>Only valid (not null) in logging versions of FMOD. Gives a string with the fmod source code filename and line number in it, for better resource tracking.</P>
+<h2>Return Values</h2><P>
+On success, a pointer to the newly re-allocated block of memory is returned.<BR>
+On failure, NULL is returned.<BR>
+<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Returning an aligned pointer, of 16 byte alignment is recommended for speed purposes.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FSBank_MemoryInit.html">FSBank_MemoryInit</A></LI>
+<LI><A HREF="FSBANK_MEMORY_ALLOC_CALLBACK.html">FSBANK_MEMORY_ALLOC_CALLBACK</A></LI>
+<LI><A HREF="FSBANK_MEMORY_FREE_CALLBACK.html">FSBANK_MEMORY_FREE_CALLBACK</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

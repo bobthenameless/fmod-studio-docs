@@ -1,0 +1,51 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>ChannelGroup::getFadePoints</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>ChannelGroup::getFadePoints</H1>
+<P>
+<p>Retrieve information about fade points stored within a Channel or ChannelGroup.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT ChannelGroup::getFadePoints(
+  unsigned int *<I>numpoints</I>,
+  unsigned long long *<I>point_dspclock</I>,
+  float *<I>point_volume</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_ChannelGroup_GetFadePoints(
+  FMOD_CHANNELGROUP *<I>channelgroup</I>,
+  unsigned int *<I>numpoints</I>,
+  unsigned long long *<I>point_dspclock</I>,
+  float *<I>point_volume</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>numpoints</dt>
+<dd>Address of a variable to receive the number of fade points stored within the Channel or ChannelGroup.</dd>
+<dt>point_dspclock</dt>
+<dd>Address of a variable to receive an array of 64bit clock values.   Can be 0 or NULL.</dd>
+<dt>point_volume</dt>
+<dd>Address of a variable to receive an array of floating point volume values.  Can be 0 or NULL.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>To first get the number of points for memory purposes, and not store any data, call this function with point_dpsclock and point_volume parameters being 0 or NULL.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_ChannelControl_AddFadePoint.html">ChannelControl::addFadePoint</A></LI>
+<LI><A HREF="FMOD_ChannelControl_RemoveFadePoints.html">ChannelControl::removeFadePoints</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

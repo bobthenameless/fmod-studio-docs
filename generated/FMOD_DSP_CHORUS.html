@@ -1,0 +1,38 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_CHORUS</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_CHORUS</H1>
+<P>
+<p>Parameter types for the <A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE_CHORUS</A> filter.</p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_DSP_CHORUS_MIX,
+  FMOD_DSP_CHORUS_RATE,
+  FMOD_DSP_CHORUS_DEPTH
+} FMOD_DSP_CHORUS;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_DSP_CHORUS_MIX</I></P>
+<P class=indent>(Type:float) - Volume of original signal to pass to output.  0.0 to 100.0. Default = 50.0. </P>
+<P class=dt><I>FMOD_DSP_CHORUS_RATE</I></P>
+<P class=indent>(Type:float) - Chorus modulation rate in Hz.  0.0 to 20.0.  Default = 0.8 Hz. </P>
+<P class=dt><I>FMOD_DSP_CHORUS_DEPTH</I></P>
+<P class=indent>(Type:float) - Chorus modulation depth.  0.0 to 100.0.  Default = 3.0. </P>
+<h2>Remarks</h2><P>
+<p>Chorous is an effect where the sound is more 'spacious' due to 1 to 3 versions of the sound being played along side the original signal but with the pitch of each copy modulating on a sine wave.<br></p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_SetParameterFloat.html">DSP::setParameterFloat</A></LI>
+<LI><A HREF="FMOD_DSP_GetParameterFloat.html">DSP::getParameterFloat</A></LI>
+<LI><A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

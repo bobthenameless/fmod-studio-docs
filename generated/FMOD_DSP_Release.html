@@ -1,0 +1,41 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>DSP::release</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>DSP::release</H1>
+<P>
+<p>Frees a DSP object.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT DSP::release();</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_DSP_Release(FMOD_DSP *<I>dsp</I>);</CODE></PRE>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>This will free the DSP object.</p>
+
+<p>NOTE: If DSP is not removed from the Channel, ChannelGroup or System object with <A HREF="FMOD_Channel_RemoveDSP.html">Channel::removeDSP</A>
+or <A HREF="FMOD_ChannelGroup_RemoveDSP.html">ChannelGroup::removeDSP</A>, after being added with <A HREF="FMOD_Channel_AddDSP.html">Channel::addDSP</A> or <A HREF="FMOD_ChannelGroup_AddDSP.html">ChannelGroup::addDSP</A>, it will
+not release and will instead return <A HREF="FMOD_RESULT.html">FMOD_ERR_DSP_INUSE</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_CreateDSP.html">System::createDSP</A></LI>
+<LI><A HREF="FMOD_System_CreateDSPByType.html">System::createDSPByType</A></LI>
+<LI><A HREF="FMOD_Channel_GetDSP.html">Channel::getDSP</A></LI>
+<LI><A HREF="FMOD_ChannelGroup_GetDSP.html">ChannelGroup::getDSP</A></LI>
+<LI><A HREF="FMOD_Channel_AddDSP.html">Channel::addDSP</A></LI>
+<LI><A HREF="FMOD_ChannelGroup_AddDSP.html">ChannelGroup::addDSP</A></LI>
+<LI><A HREF="FMOD_Channel_RemoveDSP.html">Channel::removeDSP</A></LI>
+<LI><A HREF="FMOD_ChannelGroup_RemoveDSP.html">ChannelGroup::removeDSP</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

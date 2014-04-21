@@ -1,0 +1,63 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_INITFLAGS</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_INITFLAGS</H1>
+<P>
+<p>Initialization flags.  Use them with <A HREF="FMOD_System_Init.html">System::init</A> in the <em>flags</em> parameter to change various behavior.</p>
+
+<p>Use <A HREF="FMOD_System_SetAdvancedSettings.html">System::setAdvancedSettings</A> to adjust settings for some of the features that are enabled by these flags.</p>
+</P>
+<h3>Definition</h3>
+<PRE class=syntax><CODE>#define FMOD_INIT_NORMAL 0x00000000
+#define FMOD_INIT_STREAM_FROM_UPDATE 0x00000001
+#define FMOD_INIT_MIX_FROM_UPDATE 0x00000002
+#define FMOD_INIT_3D_RIGHTHANDED 0x00000004
+#define FMOD_INIT_SOFTWARE_DISABLE 0x00000100
+#define FMOD_INIT_CHANNEL_LOWPASS 0x00000200
+#define FMOD_INIT_CHANNEL_DISTANCEFILTER 0x00000400
+#define FMOD_INIT_PROFILE_ENABLE 0x00010000
+#define FMOD_INIT_VOL0_BECOMES_VIRTUAL 0x00020000
+#define FMOD_INIT_GEOMETRY_USECLOSEST 0x00040000
+#define FMOD_INIT_PREFER_DOLBY_DOWNMIX 0x00080000
+#define FMOD_INIT_THREAD_UNSAFE 0x00100000
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_INIT_NORMAL</I></P>
+<P class=indent>Initialize normally </P>
+<P class=dt><I>FMOD_INIT_STREAM_FROM_UPDATE</I></P>
+<P class=indent>No stream thread is created internally.  Streams are driven from <A HREF="FMOD_System_Update.html">System::update</A>.  Mainly used with non-realtime outputs. </P>
+<P class=dt><I>FMOD_INIT_MIX_FROM_UPDATE</I></P>
+<P class=indent>Win32/Wii/PS3/Xbox/Xbox 360 Only - FMOD Mixer thread is woken up to do a mix when <A HREF="FMOD_System_Update.html">System::update</A> is called rather than waking periodically on its own timer. </P>
+<P class=dt><I>FMOD_INIT_3D_RIGHTHANDED</I></P>
+<P class=indent>FMOD will treat +X as right, +Y as up and +Z as backwards (towards you). </P>
+<P class=dt><I>FMOD_INIT_SOFTWARE_DISABLE</I></P>
+<P class=indent>Disable software mixer to save memory.  Anything created with <A HREF="FMOD_MODE.html">FMOD_SOFTWARE</A> will fail and DSP will not work. </P>
+<P class=dt><I>FMOD_INIT_CHANNEL_LOWPASS</I></P>
+<P class=indent>All <A HREF="FMOD_MODE.html">FMOD_3D</A> based voices will add a software lowpass filter effect into the DSP chain which is automatically used when <A HREF="FMOD_Channel_Set3DOcclusion.html">Channel::set3DOcclusion</A> is used or the geometry API.   This also causes sounds to sound duller when the sound goes behind the listener, as a fake HRTF style effect.  Use <A HREF="FMOD_System_SetAdvancedSettings.html">System::setAdvancedSettings</A> to disable or adjust cutoff frequency for this feature. </P>
+<P class=dt><I>FMOD_INIT_CHANNEL_DISTANCEFILTER</I></P>
+<P class=indent>All <A HREF="FMOD_MODE.html">FMOD_3D</A> based voices will add a software lowpass and highpass filter effect into the DSP chain which will act as a distance-automated bandpass filter. Use <A HREF="FMOD_System_SetAdvancedSettings.html">System::setAdvancedSettings</A> to adjust the center frequency. </P>
+<P class=dt><I>FMOD_INIT_PROFILE_ENABLE</I></P>
+<P class=indent>Enable TCP/IP based host which allows FMOD Designer or FMOD Profiler to connect to it, and view memory, CPU and the DSP network graph in real-time. </P>
+<P class=dt><I>FMOD_INIT_VOL0_BECOMES_VIRTUAL</I></P>
+<P class=indent>Any sounds that are 0 volume will go virtual and not be processed except for having their positions updated virtually.  Use <A HREF="FMOD_System_SetAdvancedSettings.html">System::setAdvancedSettings</A> to adjust what volume besides zero to switch to virtual at. </P>
+<P class=dt><I>FMOD_INIT_GEOMETRY_USECLOSEST</I></P>
+<P class=indent>With the geometry engine, only process the closest polygon rather than accumulating all polygons the sound to listener line intersects. </P>
+<P class=dt><I>FMOD_INIT_PREFER_DOLBY_DOWNMIX</I></P>
+<P class=indent>When using <A HREF="FMOD_SPEAKERMODE.html">FMOD_SPEAKERMODE_5POINT1</A> with a stereo output device, use the Dolby Pro Logic II downmix algorithm instead of the SRS Circle Surround algorithm. </P>
+<P class=dt><I>FMOD_INIT_THREAD_UNSAFE</I></P>
+<P class=indent>Disables thread safety for API calls. Only use this if FMOD low level is being called from a single thread, and if Studio API is not being used! </P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_Init.html">System::init</A></LI>
+<LI><A HREF="FMOD_System_Update.html">System::update</A></LI>
+<LI><A HREF="FMOD_System_SetAdvancedSettings.html">System::setAdvancedSettings</A></LI>
+<LI><A HREF="FMOD_Channel_Set3DOcclusion.html">Channel::set3DOcclusion</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

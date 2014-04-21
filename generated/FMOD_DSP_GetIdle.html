@@ -1,0 +1,41 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>DSP::getIdle</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>DSP::getIdle</H1>
+<P>
+<p>Retrieves the idle state of a DSP.  A DSP is idle when no signal is coming into it.  This can be a useful method of
+determining if a DSP sub branch is finished processing, so it can be disconnected for example.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT DSP::getIdle(
+  bool *<I>idle</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_DSP_GetIdle(
+  FMOD_DSP *<I>dsp</I>,
+  FMOD_BOOL *<I>idle</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>idle</dt>
+<dd>Address of a variable to receive the idle state for the DSP.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>The idle state takes into account things like tails of echo filters, even if a wavetable or dsp has finished
+generating sound.  When all nodes in a graph have finished processing, only then will it set the top level DSP
+state to idle.</p>
+</P>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

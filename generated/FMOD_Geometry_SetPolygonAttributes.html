@@ -1,0 +1,52 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Geometry::setPolygonAttributes</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Geometry::setPolygonAttributes</H1>
+<P>
+<p>Sets individual attributes for each polygon inside a geometry object.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Geometry::setPolygonAttributes(
+  int <I>index</I>,
+  float <I>directocclusion</I>,
+  float <I>reverbocclusion</I>,
+  bool <I>doublesided</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Geometry_SetPolygonAttributes(
+  FMOD_GEOMETRY *<I>geometry</I>,
+  int <I>index</I>,
+  float <I>directocclusion</I>,
+  float <I>reverbocclusion</I>,
+  FMOD_BOOL <I>doublesided</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>index</dt>
+<dd>Polygon index inside the object.</dd>
+<dt>directocclusion</dt>
+<dd>Occlusion value from 0.0 to 1.0 which affects volume or audible frequencies. 0.0 = The polygon does not occlude volume or audible frequencies (sound will be fully audible), 1.0 = The polygon fully occludes (sound will be silent).</dd>
+<dt>reverbocclusion</dt>
+<dd>Occlusion value from 0.0 to 1.0 which affects the reverb mix. 0.0 = The polygon does not occlude reverb (reverb reflections still travel through this polygon), 1.0 = The polyfully fully occludes reverb (reverb reflections will be silent through this polygon).</dd>
+<dt>doublesided</dt>
+<dd>Description of polygon if it is double sided or single sided. true = polygon is double sided, false = polygon is single sided, and the winding of the polygon (which determines the polygon's normal) determines which side of the polygon will cause occlusion.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Geometry_GetPolygonAttributes.html">Geometry::getPolygonAttributes</A></LI>
+<LI><A HREF="FMOD_Geometry_GetNumPolygons.html">Geometry::getNumPolygons</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

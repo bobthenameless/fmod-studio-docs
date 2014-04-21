@@ -1,0 +1,42 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Reverb3D::setProperties</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Reverb3D::setProperties</H1>
+<P>
+<p>Sets reverb parameters for the current reverb object.<br>
+Reverb parameters can be set manually, or automatically using the pre-defined presets given in the fmod.h header.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Reverb3D::setProperties(
+  const FMOD_REVERB_PROPERTIES *<I>properties</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Reverb3D_SetProperties(
+  FMOD_REVERB3D *<I>reverb3d</I>,
+  const FMOD_REVERB_PROPERTIES *<I>properties</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>properties</dt>
+<dd>Address of an <A HREF="FMOD_REVERB_PROPERTIES.html">FMOD_REVERB_PROPERTIES</A> structure which defines the attributes for the reverb.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_REVERB_PROPERTIES.html">FMOD_REVERB_PROPERTIES</A></LI>
+<LI><A HREF="FMOD_Reverb3D_GetProperties.html">Reverb3D::getProperties</A></LI>
+<LI><A HREF="FMOD_System_CreateReverb3D.html">System::createReverb3D</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

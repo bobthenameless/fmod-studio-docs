@@ -1,0 +1,49 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Geometry::save</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Geometry::save</H1>
+<P>
+<p>Saves the geometry object as a serialized binary block, to a user memory buffer.
+This can then be saved to a file if required and loaded later with <A HREF="FMOD_System_LoadGeometry.html">System::loadGeometry</A>.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Geometry::save(
+  void *<I>data</I>,
+  int *<I>datasize</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Geometry_Save(
+  FMOD_GEOMETRY *<I>geometry</I>,
+  void *<I>data</I>,
+  int *<I>datasize</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>data</dt>
+<dd>Address of a variable to receive the serialized geometry object.  Specify 0 or NULL to have the datasize parameter return the size of the memory required for this saved object.</dd>
+<dt>datasize</dt>
+<dd>Address of a variable to receive the size in bytes required to save this object when 'data' parameter is 0 or NULL.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>To use this function you will normally need to call it twice.  Once to get the size of the data, then again to write
+the data to your pointer.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_LoadGeometry.html">System::loadGeometry</A></LI>
+<LI><A HREF="FMOD_System_CreateGeometry.html">System::createGeometry</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

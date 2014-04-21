@@ -1,0 +1,56 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::update</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::update</H1>
+<P>
+<p>Updates the FMOD system.  This should be called once per 'game' tick, or once per frame in your application.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::update();</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_Update(FMOD_SYSTEM *<I>system</I>);</CODE></PRE>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>This updates the following things.</p>
+
+<ul>
+<li>3D Sound.  <A HREF="FMOD_System_Update.html">System::update</A> must be called to get 3D positioning.</li>
+<li>Virtual voices.  If more voices are played than there are real voices, <A HREF="FMOD_System_Update.html">System::update</A> must be
+called to handle the virtualization.</li>
+<li>*_NRT output modes.  <A HREF="FMOD_System_Update.html">System::update</A> must be called to drive the output for these output modes.</li>
+<li><A HREF="FMOD_INITFLAGS.html">FMOD_INIT_STREAM_FROM_UPDATE</A>.  <A HREF="FMOD_System_Update.html">System::update</A> must be called to update the streamer if this flag has been used.</li>
+<li>Callbacks.  <A HREF="FMOD_System_Update.html">System::update</A> must be called to fire callbacks if they are specified.</li>
+<li><A HREF="FMOD_MODE.html">FMOD_NONBLOCKING</A>.  <A HREF="FMOD_System_Update.html">System::update</A> must be called to make sounds opened with <A HREF="FMOD_MODE.html">FMOD_NONBLOCKING</A> flag to work properly.</li>
+</ul>
+
+<p>If <A HREF="FMOD_OUTPUTTYPE.html">FMOD_OUTPUTTYPE_NOSOUND_NRT</A> or <A HREF="FMOD_OUTPUTTYPE.html">FMOD_OUTPUTTYPE_WAVWRITER_NRT</A> output modes are used, this function also drives
+the software / DSP engine, instead of it running asynchronously in a thread as is the default behaviour.</p>
+
+<p>This can be used for faster than realtime updates to the decoding or DSP engine which might be useful if the output
+is the wav writer for example.</p>
+
+<p>If <A HREF="FMOD_INITFLAGS.html">FMOD_INIT_STREAM_FROM_UPDATE</A> is used, this function will update the stream engine.  Combining this with the non
+realtime output will mean smoother captured output.</p>
+
+<p><strong>Warning!</strong>  Do not be tempted to call this function from a different thread to other FMOD commands!  This is
+dangerous and will cause corruption/crashes.  This function is not thread safe, and should be called from the same
+thread as the rest of the FMOD commands.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_Init.html">System::init</A></LI>
+<LI><A HREF="FMOD_INITFLAGS.html">FMOD_INITFLAGS</A></LI>
+<LI><A HREF="FMOD_OUTPUTTYPE.html">FMOD_OUTPUTTYPE</A></LI>
+<LI><A HREF="FMOD_MODE.html">FMOD_MODE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

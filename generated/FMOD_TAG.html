@@ -1,0 +1,48 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_TAG</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_TAG</H1>
+<P>
+<p>Structure describing a piece of tag data.</p>
+</P>
+<h3>Structure</h3>
+<PRE class=syntax><CODE>typedef struct {
+  FMOD_TAGTYPE <I>type</I>;
+  FMOD_TAGDATATYPE <I>datatype</I>;
+  char *<I>name</I>;
+  void *<I>data</I>;
+  unsigned int <I>datalen</I>;
+  FMOD_BOOL <I>updated</I>;
+} FMOD_TAG;
+</CODE></PRE>
+<h2>Members</h2>
+<P class=dt><I>type</I></P>
+<P class=indent>[r] The type of this tag. </P>
+<P class=dt><I>datatype</I></P>
+<P class=indent>[r] The type of data that this tag contains </P>
+<P class=dt><I>name</I></P>
+<P class=indent>[r] The name of this tag i.e. "TITLE", "ARTIST" etc. </P>
+<P class=dt><I>data</I></P>
+<P class=indent>[r] Pointer to the tag data - its format is determined by the datatype member </P>
+<P class=dt><I>datalen</I></P>
+<P class=indent>[r] Length of the data contained in this tag </P>
+<P class=dt><I>updated</I></P>
+<P class=indent>[r] True if this tag has been updated since last being accessed with <A HREF="FMOD_Sound_GetTag.html">Sound::getTag</A> </P>
+<h2>Remarks</h2><P>
+<p>Members marked with [r] mean the variable is modified by FMOD and is for reading purposes only.  Do not change this value.<br>
+Members marked with [w] mean the variable can be written to.  The user can set the value.<br></p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Sound_GetTag.html">Sound::getTag</A></LI>
+<LI><A HREF="FMOD_TAGTYPE.html">FMOD_TAGTYPE</A></LI>
+<LI><A HREF="FMOD_TAGDATATYPE.html">FMOD_TAGDATATYPE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

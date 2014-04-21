@@ -1,0 +1,42 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>ChannelControl::set3DConeSettings</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>ChannelControl::set3DConeSettings</H1>
+<P>
+<p>Sets the angles that define the sound projection cone including the volume when outside the cone.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT ChannelControl::set3DConeSettings(
+  float <I>insideconeangle</I>,
+  float <I>outsideconeangle</I>,
+  float <I>outsidevolume</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>insideconeangle</I></P>
+<P class=indent>Inside cone angle, in degrees. This is the angle within which the sound is at its normal volume. Must not be greater than 'outsideconeangle'. Default = 360.</P>
+<P class=dt><I>outsideconeangle</I></P>
+<P class=indent>Outside cone angle, in degrees. This is the angle outside of which the sound is at its outside volume. Must not be less than 'insideconeangle'. Default = 360.</P>
+<P class=dt><I>outsidevolume</I></P>
+<P class=indent>Cone outside volume, from 0.0 to 1.0, default = 1.0.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>To define the parameters per sound use <A HREF="FMOD_Sound_Set3DConeSettings.html">Sound::set3DConeSettings</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_ChannelControl_Get3DConeSettings.html">ChannelControl::get3DConeSettings</A></LI>
+<LI><A HREF="FMOD_ChannelControl_Set3DConeOrientation.html">ChannelControl::set3DConeOrientation</A></LI>
+<LI><A HREF="FMOD_Sound_Set3DConeSettings.html">Sound::set3DConeSettings</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

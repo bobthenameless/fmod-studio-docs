@@ -1,0 +1,49 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_OUTPUT_UNLOCK_CALLBACK</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_OUTPUT_UNLOCK_CALLBACK</H1>
+<P>
+<p>Called from the mixer thread, only when the 'polling' member of <A HREF="FMOD_OUTPUT_DESCRIPTION.html">FMOD_OUTPUT_DESCRIPTION</A> is set to true.</p>
+</P>
+<h3>C/C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT F_CALLBACK FMOD_OUTPUT_UNLOCK_CALLBACK(
+  FMOD_OUTPUT_STATE *<I>output_state</I>,
+  void *<I>ptr1</I>,
+  void *<I>ptr2</I>,
+  unsigned int <I>len1</I>,
+  unsigned int <I>len2</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>output_state</I></P>
+<P class=indent>Pointer to the plugin state.  The user can use this variable to access runtime plugin specific variables and plugin writer user data.</P>
+<P class=dt><I>ptr1</I></P>
+<P class=indent>Pointer to the 1st locked portion of sample data, from <A HREF="FMOD_Sound_Lock.html">Sound::lock</A>.</P>
+<P class=dt><I>ptr2</I></P>
+<P class=indent>Pointer to the 2nd locked portion of sample data, from <A HREF="FMOD_Sound_Lock.html">Sound::lock</A>.</P>
+<P class=dt><I>len1</I></P>
+<P class=indent>Length of data in <em>bytes</em> that was locked for ptr1.</P>
+<P class=dt><I>len2</I></P>
+<P class=indent>Length of data in <em>bytes</em> that was locked for ptr2. This will be 0 if the data locked hasn't wrapped at the end of the buffer.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>This function is normally called after data has been read/written to from <A HREF="FMOD_Sound_Lock.html">Sound::lock</A>.
+This function will do any post processing nescessary and if needed, send it to sound ram.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_OUTPUT_DESCRIPTION.html">FMOD_OUTPUT_DESCRIPTION</A></LI>
+<LI><A HREF="FMOD_OUTPUT_LOCK_CALLBACK.html">FMOD_OUTPUT_LOCK_CALLBACK</A></LI>
+<LI><A HREF="FMOD_OUTPUT_GETPOSITION_CALLBACK.html">FMOD_OUTPUT_GETPOSITION_CALLBACK</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

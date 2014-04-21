@@ -1,0 +1,62 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_CODEC_READ_CALLBACK</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_CODEC_READ_CALLBACK</H1>
+<P>
+<p>Read callback for the codec for when FMOD tries to read some data from the file to the destination format (format
+specified in the open callback).</p>
+</P>
+<h3>C/C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT F_CALLBACK FMOD_CODEC_READ_CALLBACK(
+  FMOD_CODEC_STATE *<I>codec_state</I>,
+  void *<I>buffer</I>,
+  unsigned int <I>sizebytes</I>,
+  unsigned int *<I>bytesread</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>codec_state</I></P>
+<P class=indent>Pointer to the codec state.  The user can use this variable to access runtime plugin specific variables and plugin writer user data.</P>
+<P class=dt><I>buffer</I></P>
+<P class=indent>Buffer to read PCM data to.  Note that the format of this data is the format described in <A HREF="FMOD_CODEC_WAVEFORMAT.html">FMOD_CODEC_WAVEFORMAT</A>.</P>
+<P class=dt><I>sizebytes</I></P>
+<P class=indent>Number of bytes to read</P>
+<P class=dt><I>bytesread</I></P>
+<P class=indent>Number of bytes actually read</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>If you cannot read number of bytes requested, simply return <A HREF="FMOD_RESULT.html">FMOD_OK</A> and give bytesread the number of bytes you read.</p>
+
+<p>Read and seek within the file using the 'fileread' and 'fileseek' members of the FMOD_CODEC codec that is passed in.<br>
+Note: <strong>DO NOT USE YOUR OWN FILESYSTEM.</strong><br>
+The reasons for this are:</p>
+
+<ul>
+<li>The user may have set their own file system via user filesystem callbacks.</li>
+<li>FMOD allows file reading via disk, memory and TCP/IP.  If you use your own file routines you will lose this ability.</li>
+</ul>
+
+<p>Remember to return <A HREF="FMOD_RESULT.html">FMOD_OK</A> at the bottom of the function, or an appropriate error code from <A HREF="FMOD_RESULT.html">FMOD_RESULT</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_CODEC_STATE.html">FMOD_CODEC_STATE</A></LI>
+<LI><A HREF="FMOD_CODEC_DESCRIPTION.html">FMOD_CODEC_DESCRIPTION</A></LI>
+<LI><A HREF="FMOD_CODEC_OPEN_CALLBACK.html">FMOD_CODEC_OPEN_CALLBACK</A></LI>
+<LI><A HREF="FMOD_CODEC_CLOSE_CALLBACK.html">FMOD_CODEC_CLOSE_CALLBACK</A></LI>
+<LI><A HREF="FMOD_CODEC_GETLENGTH_CALLBACK.html">FMOD_CODEC_GETLENGTH_CALLBACK</A></LI>
+<LI><A HREF="FMOD_CODEC_SETPOSITION_CALLBACK.html">FMOD_CODEC_SETPOSITION_CALLBACK</A></LI>
+<LI><A HREF="FMOD_CODEC_GETPOSITION_CALLBACK.html">FMOD_CODEC_GETPOSITION_CALLBACK</A></LI>
+<LI><A HREF="FMOD_CODEC_SOUNDCREATE_CALLBACK.html">FMOD_CODEC_SOUNDCREATE_CALLBACK</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

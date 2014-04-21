@@ -1,0 +1,48 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Sound::setLoopCount</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Sound::setLoopCount</H1>
+<P>
+<p>Sets a sound, by default, to loop a specified number of times before stopping if its mode is set to <A HREF="FMOD_MODE.html">FMOD_LOOP_NORMAL</A> or <A HREF="FMOD_MODE.html">FMOD_LOOP_BIDI</A>.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Sound::setLoopCount(
+  int <I>loopcount</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Sound_SetLoopCount(
+  FMOD_SOUND *<I>sound</I>,
+  int <I>loopcount</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>loopcount</dt>
+<dd>Number of times to loop before stopping.  0 = oneshot.  1 = loop once then stop.  -1 = loop forever.  Default = -1</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p><u>Issues with streamed audio.  (Sounds created with with <A HREF="FMOD_System_CreateStream.html">System::createStream</A> or <A HREF="FMOD_MODE.html">FMOD_CREATESTREAM</A>). </u><br>
+When changing the loop count, sounds created with <A HREF="FMOD_System_CreateStream.html">System::createStream</A> or <A HREF="FMOD_MODE.html">FMOD_CREATESTREAM</A> may already have been pre-buffered and executed their loop logic ahead of time, before this call was even made.<br>
+This is dependant on the size of the sound versus the size of the stream <em>decode</em> buffer.  See <A HREF="FMOD_CREATESOUNDEXINFO.html">FMOD_CREATESOUNDEXINFO</A>.<br>
+If this happens, you may need to reflush the stream buffer.  To do this, you can call <A HREF="FMOD_Channel_SetPosition.html">Channel::setPosition</A> which forces a reflush of the stream buffer.<br>
+Note this will usually only happen if you have sounds or looppoints that are smaller than the stream decode buffer size.  Otherwise you will not normally encounter any problems.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Sound_GetLoopCount.html">Sound::getLoopCount</A></LI>
+<LI><A HREF="FMOD_System_SetStreamBufferSize.html">System::setStreamBufferSize</A></LI>
+<LI><A HREF="FMOD_CREATESOUNDEXINFO.html">FMOD_CREATESOUNDEXINFO</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

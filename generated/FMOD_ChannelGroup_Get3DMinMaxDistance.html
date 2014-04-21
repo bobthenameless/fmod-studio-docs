@@ -1,0 +1,47 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>ChannelGroup::get3DMinMaxDistance</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>ChannelGroup::get3DMinMaxDistance</H1>
+<P>
+<p>Retrieves the minimum and maximum audible distance.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT ChannelGroup::get3DMinMaxDistance(
+  float *<I>mindistance</I>,
+  float *<I>maxdistance</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_ChannelGroup_Get3DMinMaxDistance(
+  FMOD_CHANNELGROUP *<I>channelgroup</I>,
+  float *<I>mindistance</I>,
+  float *<I>maxdistance</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>mindistance</dt>
+<dd>Address of a variable that receives the minimum volume distance in 'units' (see remarks). Optional, specify 0 or NULL to ignore.</dd>
+<dt>maxdistance</dt>
+<dd>Address of a variable that receives the maximum volume distance in 'units' (see remarks). Optional, specify 0 or NULL to ignore.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>A 'distance unit' is specified by <A HREF="FMOD_System_Set3DSettings.html">System::set3DSettings</A>. By default this is set to meters which is a distance scale of 1.0.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_ChannelControl_Set3DMinMaxDistance.html">ChannelControl::set3DMinMaxDistance</A></LI>
+<LI><A HREF="FMOD_System_Set3DSettings.html">System::set3DSettings</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

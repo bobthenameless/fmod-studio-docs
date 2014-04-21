@@ -1,0 +1,77 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FSBank_Build</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FSBank_Build</H1>
+<P>
+<p>Begin the building process for the provided subsound descriptions, function will block until
+complete.</p>
+</P>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FSBANK_RESULT FSBank_Build(
+  const FSBANK_SUBSOUND *<I>subSounds</I>,
+  unsigned int <I>numSubSounds</I>,
+  FSBANK_FORMAT <I>encodeFormat</I>,
+  FSBANK_BUILDFLAGS <I>buildFlags</I>,
+  unsigned int <I>quality</I>,
+  const char *<I>encryptKey</I>,
+  const char *<I>outputFileName</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>subSounds</I></P>
+<P class=indent>An array of subsound descriptions each defining one subsound for the final FSB.</P>
+<P class=dt><I>numSubSounds</I></P>
+<P class=indent>The number of elements in the 'subSounds' array.</P>
+<P class=dt><I>encodeFormat</I></P>
+<P class=indent>The format to be used for encoding the FSB.</P>
+<P class=dt><I>buildFlags</I></P>
+<P class=indent>Building flags which control how the sample data is encoded.</P>
+<P class=dt><I>quality</I></P>
+<P class=indent>Controls the quality level after compression. From 1 (high compression / low quality) to 100 (high quality / low compression), use 0 for default quality. See remarks for format specific usage.</P>
+<P class=dt><I>encryptKey</I></P>
+<P class=indent>Optional string 'key' used to encrypt the FSB, same key is required at runtime for decryption.</P>
+<P class=dt><I>outputFileName</I></P>
+<P class=indent>Name (and path) of the FSB to produce.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fsbank_result.html">FSBANK_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fsbank_result.html">FSBANK_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<ul>
+<li><strong>AT9</strong>    - Bitrate (Kbps) depends on channel count, quality [1 to 100] maps linearly to the available options
+<ul>
+<li>1ch = [36, 48, 60, 72, 84, 96]</li>
+<li>2ch = [72, 96, 120, 144, 168, 192]</li>
+</ul></li>
+<li><strong>CELT</strong>   - Bitrate (Kbps) = FMOD quality * 3.2</li>
+<li><strong>MPEG</strong>   - Bitrate (Kbps) = FMOD quality * 3.2</li>
+<li><strong>Vorbis</strong> - Vorbis quality [-0.1 to 1.0] maps linearly to FMOD quality [1 to 100]</li>
+<li><strong>XMA</strong>    - XMA quality = FMOD quality</li>
+<li><strong>xWMA</strong>   - Bitrate (Kbps) depends on sample rate and channel count, quality [1 to 100] maps linearly to the available options
+<ul>
+<li>1ch 22KHz = [20]</li>
+<li>1ch 32KHz = [20]</li>
+<li>1ch 44KHz = [32, 48]</li>
+<li>2ch 22Khz = [32]</li>
+<li>2ch 32Khz = [32, 48]</li>
+<li>2ch 44KHz = [32, 48, 96, 192]</li>
+<li>2ch 48KHz = [48, 64, 96, 160, 192]</li>
+<li>6ch 44KHz = [96, 192]</li>
+<li>6ch 48KHz = [48, 192]</li>
+</ul></li>
+</ul>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FSBANK_SUBSOUND.html">FSBANK_SUBSOUND</A></LI>
+<LI><A HREF="FSBANK_FORMAT.html">FSBANK_FORMAT</A></LI>
+<LI><A HREF="FSBANK_BUILDFLAGS.html">FSBANK_BUILDFLAGS</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

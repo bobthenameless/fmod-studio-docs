@@ -1,0 +1,41 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>piecewiselinearmapping</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>piecewiselinearmapping</H1>
+<P>
+<p>Structure to define a mapping for a DSP unit's float parameter.</p>
+</P>
+<h3>Structure</h3>
+<PRE class=syntax><CODE>typedef struct {
+  FMOD_DSP_PARAMETER_FLOAT_MAPPING_TYPE <I>type</I>;
+  int <I>numpoints</I>;
+  float* <I>pointparamvalues</I>;
+  float* <I>pointpositions</I>;
+} piecewiselinearmapping;
+</CODE></PRE>
+<h2>Members</h2>
+<P class=dt><I>type</I></P>
+<P class=indent></P>
+<P class=dt><I>numpoints</I></P>
+<P class=indent>[w] The number of <position, value> pairs in the piecewise mapping (at least 2). </P>
+<P class=dt><I>pointparamvalues</I></P>
+<P class=indent>[w] The values in the parameter's units for each point </P>
+<P class=dt><I>pointpositions</I></P>
+<P class=indent>[w] The positions along the control's scale (e.g. dial angle) corresponding to each parameter value.  The range of this scale is arbitrary and all positions will be relative to the minimum and maximum values (e.g. [0,1,3] is equivalent to [1,2,4] and [2,4,8]).  If this array is zero, pointparamvalues will be distributed with equal spacing. </P>
+<h2>Remarks</h2><P>
+<p>Members marked with [r] mean the variable is modified by FMOD and is for reading purposes only.  Do not change this value.<br>
+Members marked with [w] mean the variable can be written to.  The user can set the value.<br></p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_PARAMETER_FLOAT_MAPPING_TYPE.html">FMOD_DSP_PARAMETER_FLOAT_MAPPING_TYPE</A></LI>
+<LI><A HREF="FMOD_DSP_PARAMETER_DESC_FLOAT.html">FMOD_DSP_PARAMETER_DESC_FLOAT</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

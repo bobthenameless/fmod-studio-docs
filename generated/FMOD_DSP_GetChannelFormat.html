@@ -1,0 +1,53 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>DSP::getChannelFormat</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>DSP::getChannelFormat</H1>
+<P>
+<p>Gets the input signal format for a dsp units read/process callback, to determine which speakers the signal will be processed on and how many channels will be processed.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT DSP::getChannelFormat(
+  FMOD_CHANNELMASK *<I>channelmask</I>,
+  int *<I>numchannels</I>,
+  FMOD_SPEAKERMODE *<I>source_speakermode</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_DSP_GetChannelFormat(
+  FMOD_DSP *<I>dsp</I>,
+  FMOD_CHANNELMASK *<I>channelmask</I>,
+  int *<I>numchannels</I>,
+  FMOD_SPEAKERMODE *<I>source_speakermode</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>channelmask</dt>
+<dd>Address of a variable that receives the <A HREF="FMOD_CHANNELMASK.html">FMOD_CHANNELMASK</A> which determines which speakers are represented by the channels in the input signal.</dd>
+<dt>numchannels</dt>
+<dd>Address of a variable that receives the number of channels to be processed on this unit.</dd>
+<dt>source_speakermode</dt>
+<dd>Address of a variable that receives the source speaker mode where the signal came from.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>source_speakermode is informational, when channelmask describes what bits are active, and numchannels describes how many channels are in a buffer,
+source_speakermode describes where the channels originated from.  For example if numchannels = 2 then this could describe for the DSP if the original signal started
+from a stereo signal or a 5.1 signal.  In the 5.1 signal the channels described might only represent 2 surround speakers for example.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_CHANNELMASK.html">FMOD_CHANNELMASK</A></LI>
+<LI><A HREF="FMOD_DSP_SetChannelFormat.html">DSP::setChannelFormat</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

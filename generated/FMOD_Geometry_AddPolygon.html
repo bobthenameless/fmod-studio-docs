@@ -1,0 +1,73 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Geometry::addPolygon</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Geometry::addPolygon</H1>
+<P>
+<p>Adds a polygon to an existing geometry object.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Geometry::addPolygon(
+  float <I>directocclusion</I>,
+  float <I>reverbocclusion</I>,
+  bool <I>doublesided</I>,
+  int <I>numvertices</I>,
+  const FMOD_VECTOR *<I>vertices</I>,
+  int *<I>polygonindex</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Geometry_AddPolygon(
+  FMOD_GEOMETRY *<I>geometry</I>,
+  float <I>directocclusion</I>,
+  float <I>reverbocclusion</I>,
+  FMOD_BOOL <I>doublesided</I>,
+  int <I>numvertices</I>,
+  const FMOD_VECTOR *<I>vertices</I>,
+  int *<I>polygonindex</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>directocclusion</dt>
+<dd>Occlusion value from 0.0 to 1.0 which affects volume or audible frequencies. 0.0 = The polygon does not occlude volume or audible frequencies (sound will be fully audible), 1.0 = The polygon fully occludes (sound will be silent).</dd>
+<dt>reverbocclusion</dt>
+<dd>Occlusion value from 0.0 to 1.0 which affects the reverb mix. 0.0 = The polygon does not occlude reverb (reverb reflections still travel through this polygon), 1.0 = The polyfully fully occludes reverb (reverb reflections will be silent through this polygon).</dd>
+<dt>doublesided</dt>
+<dd>Description of polygon if it is double sided or single sided.  true = polygon is double sided, false = polygon is single sided, and the winding of the polygon (which determines the polygon's normal) determines which side of the polygon will cause occlusion.</dd>
+<dt>numvertices</dt>
+<dd>Number of vertices in this polygon.  This must be at least 3.  Polygons (more than 3 sides) are supported.</dd>
+<dt>vertices</dt>
+<dd>A pointer to an array of vertices located in object space, with the count being the number of vertices described using the numvertices parameter.</dd>
+<dt>polygonindex</dt>
+<dd>Address of a variable to receieve the polygon index for this object.  This index can be used later with other per polygon based geometry functions.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p><strong>Note!</strong></p>
+
+<ul>
+<li>All vertices must lay in the same plane otherwise behaviour may be unpredictable.</li>
+<li>The polygon is assumed to be convex. A non convex polygon will produce unpredictable behaviour.</li>
+<li>Polygons with zero area will be ignored.</li>
+</ul>
+
+<p>Vertices of an object are in object space, not world space, and so are relative to the position, or center of the
+object.  See <A HREF="FMOD_Geometry_SetPosition.html">Geometry::setPosition</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Geometry_GetNumPolygons.html">Geometry::getNumPolygons</A></LI>
+<LI><A HREF="FMOD_Geometry_SetPosition.html">Geometry::setPosition</A></LI>
+<LI><A HREF="FMOD_VECTOR.html">FMOD_VECTOR</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

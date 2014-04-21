@@ -1,0 +1,42 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>ChannelGroup::setLowPassGain</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>ChannelGroup::setLowPassGain</H1>
+<P>
+<p>Sets the gain of the dry signal when lowpass filtering is applied.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT ChannelGroup::setLowPassGain(
+  float <I>gain</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_ChannelGroup_SetLowPassGain(
+  FMOD_CHANNELGROUP *<I>channelgroup</I>,
+  float <I>gain</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>gain</dt>
+<dd>Linear gain level, from 0 (silent, full filtering) to 1.0 (full volume, no filtering), default = 1.0.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Requires the built in lowpass to be created with <A HREF="FMOD_INITFLAGS.html">FMOD_INIT_CHANNEL_LOWPASS</A> or <A HREF="FMOD_INITFLAGS.html">FMOD_INIT_CHANNEL_DISTANCEFILTER</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_ChannelControl_GetLowPassGain.html">ChannelControl::getLowPassGain</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

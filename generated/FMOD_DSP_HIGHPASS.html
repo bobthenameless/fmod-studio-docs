@@ -1,0 +1,32 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_HIGHPASS</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_HIGHPASS</H1>
+<P>
+<p>Parameter types for the <A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE_HIGHPASS</A> filter.</p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_DSP_HIGHPASS_CUTOFF,
+  FMOD_DSP_HIGHPASS_RESONANCE
+} FMOD_DSP_HIGHPASS;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_DSP_HIGHPASS_CUTOFF</I></P>
+<P class=indent>(Type:float) - Highpass cutoff frequency in hz.  1.0 to output 22000.0.  Default = 5000.0. </P>
+<P class=dt><I>FMOD_DSP_HIGHPASS_RESONANCE</I></P>
+<P class=indent>(Type:float) - Highpass resonance Q value.  1.0 to 10.0.  Default = 1.0. </P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_SetParameterFloat.html">DSP::setParameterFloat</A></LI>
+<LI><A HREF="FMOD_DSP_GetParameterFloat.html">DSP::getParameterFloat</A></LI>
+<LI><A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

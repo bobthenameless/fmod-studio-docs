@@ -1,0 +1,39 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FSBANK_SPEAKERMAP</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FSBANK_SPEAKERMAP</H1>
+<P>
+<p>Speaker maps to define the layout of multichannel subsounds.</p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FSBANK_SPEAKERMAP_DEFAULT,
+  FSBANK_SPEAKERMAP_ALLMONO,
+  FSBANK_SPEAKERMAP_ALLSTEREO,
+  FSBANK_SPEAKERMAP_PROTOOLS,
+  FSBANK_SPEAKERMAP_MAX
+} FSBANK_SPEAKERMAP;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FSBANK_SPEAKERMAP_DEFAULT</I></P>
+<P class=indent>Sample uses default FMOD speaker mapping. </P>
+<P class=dt><I>FSBANK_SPEAKERMAP_ALLMONO</I></P>
+<P class=indent>Sample is a collection of mono channels. </P>
+<P class=dt><I>FSBANK_SPEAKERMAP_ALLSTEREO</I></P>
+<P class=indent>Sample is a collection of stereo channel pairs. </P>
+<P class=dt><I>FSBANK_SPEAKERMAP_PROTOOLS</I></P>
+<P class=indent>Sample is 6ch and uses L C R LS RS LFE standard. </P>
+<P class=dt><I>FSBANK_SPEAKERMAP_MAX</I></P>
+<P class=indent>Upper bound for this enumeration, for use with validation. </P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FSBANK_SUBSOUND.html">FSBANK_SUBSOUND</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

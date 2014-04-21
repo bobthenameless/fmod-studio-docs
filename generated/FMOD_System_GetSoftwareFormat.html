@@ -1,0 +1,53 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::getSoftwareFormat</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::getSoftwareFormat</H1>
+<P>
+<p>Retrieves the output format for the software mixer.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::getSoftwareFormat(
+  int *<I>samplerate</I>,
+  FMOD_SPEAKERMODE *<I>speakermode</I>,
+  int *<I>numrawspeakers</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_GetSoftwareFormat(
+  FMOD_SYSTEM *<I>system</I>,
+  int *<I>samplerate</I>,
+  FMOD_SPEAKERMODE *<I>speakermode</I>,
+  int *<I>numrawspeakers</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>samplerate</dt>
+<dd>Address of a variable that receives the sample rate of the mixer. Optional. Specify 0 or NULL to ignore.</dd>
+<dt>speakermode</dt>
+<dd>Address of a variable that receives the speaker setup of the mixer. Optional. Specify 0 or NULL to ignore.</dd>
+<dt>numrawspeakers</dt>
+<dd>Address of a variable that receives the number of speakers for <A HREF="FMOD_SPEAKERMODE.html">FMOD_SPEAKERMODE_RAW</A> mode. Optional. Specify 0 or NULL to ignore.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Note that the settings returned here may differ from the settings provided by the user with
+<A HREF="FMOD_System_SetSoftwareFormat.html">System::setSoftwareFormat</A>. This is because the driver may require certain settings to initialize.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_SetSoftwareFormat.html">System::setSoftwareFormat</A></LI>
+<LI><A HREF="FMOD_SOUND_FORMAT.html">FMOD_SOUND_FORMAT</A></LI>
+<LI><A HREF="FMOD_DSP_RESAMPLER.html">FMOD_DSP_RESAMPLER</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

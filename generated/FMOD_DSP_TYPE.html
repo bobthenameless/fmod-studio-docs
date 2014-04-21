@@ -1,0 +1,128 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_TYPE</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_TYPE</H1>
+<P>
+<p>These definitions can be used for creating FMOD defined special effects or DSP units.</p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_DSP_TYPE_UNKNOWN,
+  FMOD_DSP_TYPE_MIXER,
+  FMOD_DSP_TYPE_OSCILLATOR,
+  FMOD_DSP_TYPE_LOWPASS,
+  FMOD_DSP_TYPE_ITLOWPASS,
+  FMOD_DSP_TYPE_HIGHPASS,
+  FMOD_DSP_TYPE_ECHO,
+  FMOD_DSP_TYPE_FADER,
+  FMOD_DSP_TYPE_FLANGE,
+  FMOD_DSP_TYPE_DISTORTION,
+  FMOD_DSP_TYPE_NORMALIZE,
+  FMOD_DSP_TYPE_LIMITER,
+  FMOD_DSP_TYPE_PARAMEQ,
+  FMOD_DSP_TYPE_PITCHSHIFT,
+  FMOD_DSP_TYPE_CHORUS,
+  FMOD_DSP_TYPE_VSTPLUGIN,
+  FMOD_DSP_TYPE_WINAMPPLUGIN,
+  FMOD_DSP_TYPE_ITECHO,
+  FMOD_DSP_TYPE_COMPRESSOR,
+  FMOD_DSP_TYPE_SFXREVERB,
+  FMOD_DSP_TYPE_LOWPASS_SIMPLE,
+  FMOD_DSP_TYPE_DELAY,
+  FMOD_DSP_TYPE_TREMOLO,
+  FMOD_DSP_TYPE_LADSPAPLUGIN,
+  FMOD_DSP_TYPE_SEND,
+  FMOD_DSP_TYPE_RETURN,
+  FMOD_DSP_TYPE_HIGHPASS_SIMPLE,
+  FMOD_DSP_TYPE_PAN,
+  FMOD_DSP_TYPE_THREE_EQ,
+  FMOD_DSP_TYPE_FFT,
+  FMOD_DSP_TYPE_LOUDNESS_METER,
+  FMOD_DSP_TYPE_ENVELOPEFOLLOWER,
+  FMOD_DSP_TYPE_MAX
+} FMOD_DSP_TYPE;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_DSP_TYPE_UNKNOWN</I></P>
+<P class=indent>This unit was created via a non FMOD plugin so has an unknown purpose. </P>
+<P class=dt><I>FMOD_DSP_TYPE_MIXER</I></P>
+<P class=indent>This unit does nothing but take inputs and mix them together then feed the result to the soundcard unit. </P>
+<P class=dt><I>FMOD_DSP_TYPE_OSCILLATOR</I></P>
+<P class=indent>This unit generates sine/square/saw/triangle or noise tones. </P>
+<P class=dt><I>FMOD_DSP_TYPE_LOWPASS</I></P>
+<P class=indent>This unit filters sound using a high quality, resonant lowpass filter algorithm but consumes more CPU time. </P>
+<P class=dt><I>FMOD_DSP_TYPE_ITLOWPASS</I></P>
+<P class=indent>This unit filters sound using a resonant lowpass filter algorithm that is used in Impulse Tracker, but with limited cutoff range (0 to 8060hz). </P>
+<P class=dt><I>FMOD_DSP_TYPE_HIGHPASS</I></P>
+<P class=indent>This unit filters sound using a resonant highpass filter algorithm. </P>
+<P class=dt><I>FMOD_DSP_TYPE_ECHO</I></P>
+<P class=indent>This unit produces an echo on the sound and fades out at the desired rate. </P>
+<P class=dt><I>FMOD_DSP_TYPE_FADER</I></P>
+<P class=indent>This unit pans and scales the volume of a unit. </P>
+<P class=dt><I>FMOD_DSP_TYPE_FLANGE</I></P>
+<P class=indent>This unit produces a flange effect on the sound. </P>
+<P class=dt><I>FMOD_DSP_TYPE_DISTORTION</I></P>
+<P class=indent>This unit distorts the sound. </P>
+<P class=dt><I>FMOD_DSP_TYPE_NORMALIZE</I></P>
+<P class=indent>This unit normalizes or amplifies the sound to a certain level. </P>
+<P class=dt><I>FMOD_DSP_TYPE_LIMITER</I></P>
+<P class=indent>This unit limits the sound to a certain level.</P>
+<P class=dt><I>FMOD_DSP_TYPE_PARAMEQ</I></P>
+<P class=indent>This unit attenuates or amplifies a selected frequency range. </P>
+<P class=dt><I>FMOD_DSP_TYPE_PITCHSHIFT</I></P>
+<P class=indent>This unit bends the pitch of a sound without changing the speed of playback. </P>
+<P class=dt><I>FMOD_DSP_TYPE_CHORUS</I></P>
+<P class=indent>This unit produces a chorus effect on the sound. </P>
+<P class=dt><I>FMOD_DSP_TYPE_VSTPLUGIN</I></P>
+<P class=indent>This unit allows the use of Steinberg VST plugins </P>
+<P class=dt><I>FMOD_DSP_TYPE_WINAMPPLUGIN</I></P>
+<P class=indent>This unit allows the use of Nullsoft Winamp plugins </P>
+<P class=dt><I>FMOD_DSP_TYPE_ITECHO</I></P>
+<P class=indent>This unit produces an echo on the sound and fades out at the desired rate as is used in Impulse Tracker. </P>
+<P class=dt><I>FMOD_DSP_TYPE_COMPRESSOR</I></P>
+<P class=indent>This unit implements dynamic compression (linked multichannel, wideband) </P>
+<P class=dt><I>FMOD_DSP_TYPE_SFXREVERB</I></P>
+<P class=indent>This unit implements SFX reverb </P>
+<P class=dt><I>FMOD_DSP_TYPE_LOWPASS_SIMPLE</I></P>
+<P class=indent>This unit filters sound using a simple lowpass with no resonance, but has flexible cutoff and is fast. </P>
+<P class=dt><I>FMOD_DSP_TYPE_DELAY</I></P>
+<P class=indent>This unit produces different delays on individual channels of the sound. </P>
+<P class=dt><I>FMOD_DSP_TYPE_TREMOLO</I></P>
+<P class=indent>This unit produces a tremolo / chopper effect on the sound. </P>
+<P class=dt><I>FMOD_DSP_TYPE_LADSPAPLUGIN</I></P>
+<P class=indent>This unit allows the use of LADSPA standard plugins. </P>
+<P class=dt><I>FMOD_DSP_TYPE_SEND</I></P>
+<P class=indent>This unit sends a copy of the signal to a return DSP anywhere in the DSP tree. </P>
+<P class=dt><I>FMOD_DSP_TYPE_RETURN</I></P>
+<P class=indent>This unit receives signals from a number of send DSPs. </P>
+<P class=dt><I>FMOD_DSP_TYPE_HIGHPASS_SIMPLE</I></P>
+<P class=indent>This unit filters sound using a simple highpass with no resonance, but has flexible cutoff and is fast. </P>
+<P class=dt><I>FMOD_DSP_TYPE_PAN</I></P>
+<P class=indent>This unit pans the signal, possibly upmixing or downmixing as well. </P>
+<P class=dt><I>FMOD_DSP_TYPE_THREE_EQ</I></P>
+<P class=indent>This unit is a three-band equalizer. </P>
+<P class=dt><I>FMOD_DSP_TYPE_FFT</I></P>
+<P class=indent>This unit simply analyzes the signal and provides spectrum information back through getParameter. </P>
+<P class=dt><I>FMOD_DSP_TYPE_LOUDNESS_METER</I></P>
+<P class=indent>This unit analyzes the loudness and true peak of the signal. </P>
+<P class=dt><I>FMOD_DSP_TYPE_ENVELOPEFOLLOWER</I></P>
+<P class=indent>This unit tracks the envelope of the input/sidechain signal </P>
+<P class=dt><I>FMOD_DSP_TYPE_MAX</I></P>
+<P class=indent>Maximum number of pre-defined DSP types. </P>
+<h2>Remarks</h2><P>
+<p>To get them to be active, first create the unit, then add it somewhere into the DSP network,
+either at the front of the network near the soundcard unit to affect the global output
+(by using System::getDSPHead), or on a single channel (using Channel::getDSPHead).</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_CreateDSPByType.html">System::createDSPByType</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

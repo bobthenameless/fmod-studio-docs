@@ -1,0 +1,50 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>File_SetDiskBusy</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>File_SetDiskBusy</H1>
+<P>
+<p>Mutex function to synchronize user file reads with FMOD's file reads.
+This function tells fmod that you are using the disk so that it will block until you are finished with it.<br>
+This function also blocks if FMOD is already using the disk, so that you cannot do a read at the same time FMOD is reading.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT File_SetDiskBusy(
+  int <I>busy</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_File_SetDiskBusy(
+  int <I>busy</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>busy</I></P>
+<P class=indent>1 = you are about to perform a disk access.  0 = you are finished with the disk.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Use this function as a wrapper around your own file reading functions if you want to do simulatenous file reading while FMOD is also reading.
+ie</p>
+
+<pre><code><A HREF="FMOD_File_SetDiskBusy.html">FMOD_File_SetDiskBusy</A>(1);
+myfread(...);
+<A HREF="FMOD_File_SetDiskBusy.html">FMOD_File_SetDiskBusy</A>(0);
+</code></pre>
+
+<p>Warning! This is a critical section internally.  If you do not match your busy = true with a busy = false your program may hang!<br>
+If you forget to set diskbusy to false it will stop FMOD from reading from the disk.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_File_GetDiskBusy.html">File_GetDiskBusy</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

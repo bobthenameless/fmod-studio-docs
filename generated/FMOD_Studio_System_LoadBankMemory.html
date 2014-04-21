@@ -1,0 +1,63 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Studio::System::loadBankMemory</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Studio::System::loadBankMemory</H1>
+<P>
+<p>Loads a Studio event bank from memory.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Studio::System::loadBankMemory(
+  const char *<I>buffer</I>,
+  int <I>length</I>,
+  FMOD_STUDIO_LOAD_MEMORY_MODE <I>mode</I>,
+  FMOD_STUDIO_LOAD_BANK_FLAGS <I>flags</I>,
+  Studio::Bank **<I>bank</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Studio_System_LoadBankMemory(
+  FMOD_STUDIO_SYSTEM *<I>system</I>,
+  const char *<I>buffer</I>,
+  int <I>length</I>,
+  FMOD_STUDIO_LOAD_MEMORY_MODE <I>mode</I>,
+  FMOD_STUDIO_LOAD_BANK_FLAGS <I>flags</I>,
+  FMOD_STUDIO_BANK **<I>bank</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>buffer</dt>
+<dd>Memory buffer to load from. This should be 32-byte aligned if mode is <A HREF="FMOD_STUDIO_LOAD_MEMORY_MODE.html">FMOD_STUDIO_LOAD_MEMORY_POINT</A>.</dd>
+<dt>length</dt>
+<dd>Length of the memory buffer.</dd>
+<dt>mode</dt>
+<dd>Loading mode to use.</dd>
+<dt>flags</dt>
+<dd>Flags to control bank loading.</dd>
+<dt>bank</dt>
+<dd>Address of a variable to receive the Bank object.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Specifying mode <A HREF="FMOD_STUDIO_LOAD_MEMORY_MODE.html">FMOD_STUDIO_LOAD_MEMORY_POINT</A> will POINT to your memory rather than FMOD allocating its own buffers and duplicating it internally.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_STUDIO_LOAD_MEMORY_MODE.html">FMOD_STUDIO_LOAD_MEMORY_MODE</A></LI>
+<LI><A HREF="FMOD_STUDIO_LOAD_BANK_FLAGS.html">FMOD_STUDIO_LOAD_BANK_FLAGS</A></LI>
+<LI><A HREF="FMOD_Studio_System_LoadBankFile.html">Studio::System::loadBankFile</A></LI>
+<LI><A HREF="FMOD_Studio_System_LoadBankCustom.html">Studio::System::loadBankCustom</A></LI>
+<LI><A HREF="FMOD_Studio_Bank_GetLoadingState.html">Studio::Bank::getLoadingState</A></LI>
+<LI><A HREF="FMOD_Studio_Bank_Unload.html">Studio::Bank::unload</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

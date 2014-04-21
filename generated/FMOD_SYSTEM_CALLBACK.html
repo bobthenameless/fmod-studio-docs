@@ -1,0 +1,161 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_SYSTEM_CALLBACK</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_SYSTEM_CALLBACK</H1>
+<P>
+<p>Callback for system events.</p>
+</P>
+<h3>C/C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT F_CALLBACK FMOD_SYSTEM_CALLBACK(
+  FMOD_SYSTEM *<I>system</I>,
+  FMOD_SYSTEM_CALLBACK_TYPE <I>type</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>system</I></P>
+<P class=indent>Pointer to a system handle.</P>
+<P class=dt><I>type</I></P>
+<P class=indent>The type of callback.  Refer to <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_TYPE</A>.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p><u>C++ Users</u>.  Cast <code>FMOD_SYSTEM *</code> to <code>FMOD::System *</code> inside the callback and use as normal.</p>
+
+<p>'userdata' is the userdata assigned to the system from <A HREF="FMOD_System_SetUserData.html">System::setUserData</A> function.  In the case of multiple FMOD systems
+being created, some callbacks may not have the system context in which case this variable will be last userdata set into any
+system.</p>
+
+<p><u>'commanddata1' and 'commanddata2' meanings.</u><br>
+These 2 values are set by the callback depending on what is happening in the callback and the type of callback.</p>
+
+<ul>
+<li><A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_DEVICELISTCHANGED</A><br>
+<em>commanddata1</em>: Always 0.<br>
+<em>commanddata2</em>: Always 0.<br></li>
+<li><A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_MEMORYALLOCATIONFAILED</A><br>
+<em>commanddata1</em>: A string (char*) which represents the file and line number of the allocation inside FMOD.<br>
+<em>commanddata2</em>: The size (int) of the requested allocation.<br></li>
+<li><A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_THREADCREATED</A><br>
+<em>commanddata1</em>: The handle of the created thread.  See notes below for thread handle types<br>
+<em>commanddata2</em>: A string (char*) which represents the name of the thread.<br></li>
+<li><A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_BADDSPCONNECTION</A><br>
+<em>commanddata1</em>: Pointer to a FMOD::DSP object that was the target of the DSP connection.<br>
+<em>commanddata2</em>: Pointer to a FMOD::DSP object that was the source of the DSP connection.<br></li>
+<li><A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_PREMIX</A><br>
+<em>commanddata1</em>: 0.<br>
+<em>commanddata2</em>: 0.<br></li>
+<li><A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_POSTMIX</A><br>
+<em>commanddata1</em>: 0.<br>
+<em>commanddata2</em>: 0.<br></li>
+<li><A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_ERROR</A><br>
+<em>commanddata1</em>: Pointer to a <A HREF="FMOD_ERRORCALLBACK_INFO.html">FMOD_ERRORCALLBACK_INFO</A> structure with extra information about the error.<br>
+<em>commanddata2</em>: 0.<br></li>
+</ul>
+
+<p><strong>Note!</strong>  For <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_DEVICELISTCHANGED</A>, the user must call <A HREF="FMOD_System_Update.html">System::update</A> for the callback to trigger!
+See <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_TYPE</A> for details.</p>
+
+<p><strong>Note!</strong>  For <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_THREADCREATED</A>, the handle that is returned (via commanddata1) is different on
+each platform.  The types to cast to are as follows.</p>
+
+<ul>
+<li>iPhone, Linux, Mac : <code>pthread_t</code></li>
+<li>PS3 : <code>sys_ppu_thread_t</code></li>
+<li>PSP : <code>PSPThreadWrapper</code><br>
+This is a custom struct you can define as <code>typedef struct PSPThreadWrapper { SceUID id; int (*func)(void *param); void *param; };</code></li>
+<li>Wii : <code>OSThread</code></li>
+<li>Win32, Win64, Xbox360 : <code>HANDLE</code></li>
+</ul>
+
+<p>Here is an example of a system callback.</p>
+
+<pre><code><A HREF="FMOD_RESULT.html">FMOD_RESULT</A> F_CALLBACK systemcallback(FMOD_SYSTEM *system, <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_TYPE</A> type, void *commanddata1, void *commanddata2, void* userdata)
+{
+    FMOD::System *sys = (FMOD::System *)system;
+
+    switch (type)
+    {
+        case <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_DEVICELISTCHANGED</A>:
+        {
+            int numdrivers;
+
+            printf("NOTE : <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_DEVICELISTCHANGED</A> occurred.\n");
+
+            sys-&gt;getNumDrivers(&amp;numdrivers);
+
+            printf("Numdevices = %d\n", numdrivers);
+            break;
+        }
+        case <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_MEMORYALLOCATIONFAILED</A>:
+        {
+            printf("ERROR : <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_MEMORYALLOCATIONFAILED</A> occurred.\n");
+            printf("%s.\n", commanddata1);
+            printf("%d bytes.\n", commanddata2);
+            break;
+        }
+        case <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_THREADCREATED</A>:
+        {
+            printf("NOTE : <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_THREADCREATED</A> occurred.\n");
+            printf("Thread ID = %d\n", (int)commanddata1);
+            printf("Thread Name = %s\n", (char *)commanddata2);
+            break;
+        }
+        case <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_BADDSPCONNECTION</A>:
+        {
+            FMOD::DSP *source = (FMOD::DSP *)commanddata1;
+            FMOD::DSP *dest = (FMOD::DSP *)commanddata2;
+
+            printf("ERROR : <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_BADDSPCONNECTION</A> occurred.\n");
+            if (source)
+            {
+                char name[256];
+                source-&gt;getInfo(name, 0,0,0,0);
+                printf("SOURCE = %s\n", name);
+            }
+            if (dest)
+            {
+                char name[256];
+                dest-&gt;getInfo(name, 0,0,0,0);
+                printf("DEST = %s\n", name);
+            }
+            break;
+        }
+        case <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_PREMIX</A>:
+        {
+            printf("NOTE : <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_PREMIX</A> occurred.\n");
+            break;
+        }
+        case <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_POSTMIX</A>:
+        {
+            printf("NOTE : <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_POSTMIX</A> occurred.\n");
+            break;
+        }
+        case <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_ERROR</A>:
+        {
+            <A HREF="FMOD_ERRORCALLBACK_INFO.html">FMOD_ERRORCALLBACK_INFO</A>* info = (<A HREF="FMOD_ERRORCALLBACK_INFO.html">FMOD_ERRORCALLBACK_INFO</A>*)commanddata1;
+            printf("NOTE : <A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_ERROR</A> occurred.\n");
+            printf("  ERROR (%d) from %s(%s) with instance %p (type %d)\n", info-&gt;result, info-&gt;functionname, info-&gt;functionparams, info-&gt;instance, info-&gt;instancetype);
+            break;
+        }
+    }
+
+    return <A HREF="FMOD_RESULT.html">FMOD_OK</A>;
+}
+</code></pre>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_SetCallback.html">System::setCallback</A></LI>
+<LI><A HREF="FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_TYPE</A></LI>
+<LI><A HREF="FMOD_System_Update.html">System::update</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

@@ -1,0 +1,48 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_SOUND_NONBLOCK_CALLBACK</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_SOUND_NONBLOCK_CALLBACK</H1>
+<P>
+<p>Callback to be called when a sound has finished loading, or a non blocking seek is occuring.</p>
+</P>
+<h3>C/C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT F_CALLBACK FMOD_SOUND_NONBLOCK_CALLBACK(
+  FMOD_SOUND *<I>sound</I>,
+  FMOD_RESULT <I>result</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>sound</I></P>
+<P class=indent>Pointer to the sound.  C++ users see remarks.</P>
+<P class=dt><I>result</I></P>
+<P class=indent>Error code. <A HREF="FMOD_RESULT.html">FMOD_OK</A> if sound was created successfully, or an error code otherwise.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p><u>C++ Users</u>.  Cast <code>FMOD_SOUND *</code> to <code>FMOD::Sound *</code> inside the callback and use as normal.</p>
+
+<p>Return code currently ignored.</p>
+
+<p>Note that for non blocking streams a seek could occur when restarting the sound after the first playthrough.
+This will result in a callback being triggered again.</p>
+
+<p>Since this callback can occur from the async thread, there are restrictions about what functions
+can be called during the callback.  All Sound functions are safe to call, except for <A HREF="FMOD_Sound_SetSoundGroup.html">Sound::setSoundGroup</A> and
+<A HREF="FMOD_Sound_Release.html">Sound::release</A>.  It is also safe to call <A HREF="FMOD_System_GetUserData.html">System::getUserData</A>.  The rest of the Low Level API and the Studio API
+is not allowed.  Calling a non-allowed function will return <A HREF="FMOD_RESULT.html">FMOD_ERR_INVALID_THREAD</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_CreateSound.html">System::createSound</A></LI>
+<LI><A HREF="FMOD_CREATESOUNDEXINFO.html">FMOD_CREATESOUNDEXINFO</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

@@ -1,0 +1,53 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_GETPARAM_INT_CALLBACK</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_GETPARAM_INT_CALLBACK</H1>
+<P>
+<p>This callback is called when the user wants to get an indexed int parameter from a DSP unit.</p>
+</P>
+<h3>C/C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT F_CALLBACK FMOD_DSP_GETPARAM_INT_CALLBACK(
+  FMOD_DSP_STATE *<I>dsp_state</I>,
+  int <I>index</I>,
+  int *<I>value</I>,
+  char *<I>valuestr</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>dsp_state</I></P>
+<P class=indent>Pointer to the plugin state.  The user can use this variable to access runtime plugin specific variables and plugin writer user data.  Do not cast this to FMOD_DSP!  The handle to the user created DSP handle is stored within the <A HREF="FMOD_DSP_STATE.html">FMOD_DSP_STATE</A> structure.</P>
+<P class=dt><I>index</I></P>
+<P class=indent>The index into the parameter list for the parameter the user wants to get.</P>
+<P class=dt><I>value</I></P>
+<P class=indent>Pointer to a int variable to receive the selected parameter value.</P>
+<P class=dt><I>valuestr</I></P>
+<P class=indent>A pointer to a string to receive the value of the selected parameter, but in text form.  This might be useful to display words instead of numbers.  For example "ON" or "OFF" instead of 1.0 and 0.0. The length of the buffer being passed in is always 16 bytes, so do not exceed this.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Functions that the user would have to call for this callback to be called.</p>
+
+<ul>
+<li><A HREF="FMOD_DSP_GetParameterInt.html">DSP::getParameterInt</A>.</li>
+<li><A HREF="FMOD_DSP_GETPARAM_INT_CALLBACK.html">FMOD_DSP_GETPARAM_INT_CALLBACK</A>.</li>
+</ul>
+
+<p>Remember to return <A HREF="FMOD_RESULT.html">FMOD_OK</A> at the bottom of the function, or an appropriate error code from <A HREF="FMOD_RESULT.html">FMOD_RESULT</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_STATE.html">FMOD_DSP_STATE</A></LI>
+<LI><A HREF="FMOD_DSP_GetParameterInt.html">DSP::getParameterInt</A></LI>
+<LI><A HREF="FMOD_DSP_DESCRIPTION.html">FMOD_DSP_DESCRIPTION</A></LI>
+<LI><A HREF="FMOD_DSP_SETPARAM_INT_CALLBACK.html">FMOD_DSP_SETPARAM_INT_CALLBACK</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

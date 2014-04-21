@@ -1,0 +1,51 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Studio::Bank::getMixerStripList</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Studio::Bank::getMixerStripList</H1>
+<P>
+<p>Retrieves the Mixer Strips in the bank.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Studio::Bank::getMixerStripList(
+  Studio::MixerStrip **<I>array</I>,
+  int <I>capacity</I>,
+  int *<I>count</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Studio_Bank_GetMixerStripList(
+  FMOD_STUDIO_BANK *<I>bank</I>,
+  FMOD_STUDIO_MIXERSTRIP **<I>array</I>,
+  int <I>capacity</I>,
+  int *<I>count</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>array</dt>
+<dd>An array of memory allocated by the user.</dd>
+<dt>capacity</dt>
+<dd>The capacity of the array passed in as the first parameter</dd>
+<dt>count</dt>
+<dd>Address of a variable to receive the number of Mixer Strips written to the array</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Used in conjunction with <A HREF="FMOD_Studio_Bank_GetMixerStripCount.html">Studio::Bank::getMixerStripCount</A> to enumerate the Mixer Strips.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Studio_Bank_GetMixerStripCount.html">Studio::Bank::getMixerStripCount</A></LI>
+<LI><A HREF="FMOD_Studio_System_GetBankList.html">Studio::System::getBankList</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

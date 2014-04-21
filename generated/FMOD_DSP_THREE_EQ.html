@@ -1,0 +1,47 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_THREE_EQ</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_THREE_EQ</H1>
+<P>
+<p>Parameter types for the <A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE_THREE_EQ</A> filter.</p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_DSP_THREE_EQ_LOWGAIN,
+  FMOD_DSP_THREE_EQ_MIDGAIN,
+  FMOD_DSP_THREE_EQ_HIGHGAIN,
+  FMOD_DSP_THREE_EQ_LOWCROSSOVER,
+  FMOD_DSP_THREE_EQ_HIGHCROSSOVER,
+  FMOD_DSP_THREE_EQ_CROSSOVERSLOPE
+} FMOD_DSP_THREE_EQ;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_DSP_THREE_EQ_LOWGAIN</I></P>
+<P class=indent>(Type:float) - Low frequency gain in dB.  -80.0 to 10.0.  Default = 0. </P>
+<P class=dt><I>FMOD_DSP_THREE_EQ_MIDGAIN</I></P>
+<P class=indent>(Type:float) - Mid frequency gain in dB.  -80.0 to 10.0.  Default = 0. </P>
+<P class=dt><I>FMOD_DSP_THREE_EQ_HIGHGAIN</I></P>
+<P class=indent>(Type:float) - High frequency gain in dB.  -80.0 to 10.0.  Default = 0. </P>
+<P class=dt><I>FMOD_DSP_THREE_EQ_LOWCROSSOVER</I></P>
+<P class=indent>(Type:float) - Low-to-mid crossover frequency in Hz.  10.0 to 22000.0.  Default = 400.0. </P>
+<P class=dt><I>FMOD_DSP_THREE_EQ_HIGHCROSSOVER</I></P>
+<P class=indent>(Type:float) - Mid-to-high crossover frequency in Hz.  10.0 to 22000.0.  Default = 4000.0. </P>
+<P class=dt><I>FMOD_DSP_THREE_EQ_CROSSOVERSLOPE</I></P>
+<P class=indent>(Type:int)   - Crossover Slope.  0 = 12dB/Octave, 1 = 24dB/Octave, 2 = 48dB/Octave.  Default = 1 (24dB/Octave). </P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI>DSP::SetParameterFloat</LI>
+<LI>DSP::GetParameterFloat</LI>
+<LI>DSP::SetParameterInt</LI>
+<LI>DSP::GetParameterInt</LI>
+<LI><A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE</A></LI>
+<LI><A HREF="FMOD_DSP_THREE_EQ_CROSSOVERSLOPE_TYPE.html">FMOD_DSP_THREE_EQ_CROSSOVERSLOPE_TYPE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

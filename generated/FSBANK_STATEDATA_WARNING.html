@@ -1,0 +1,34 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FSBANK_STATEDATA_WARNING</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FSBANK_STATEDATA_WARNING</H1>
+<P>
+<p>Extra state data for <A HREF="FSBANK_STATEDATA_WARNING.html">FSBANK_STATEDATA_WARNING</A></p>
+</P>
+<h3>Structure</h3>
+<PRE class=syntax><CODE>typedef struct {
+  FSBANK_RESULT <I>warnCode</I>;
+  char <I>warningString</I>[256];
+} FSBANK_STATEDATA_WARNING;
+</CODE></PRE>
+<h2>Members</h2>
+<P class=dt><I>warnCode</I></P>
+<P class=indent>Warning result code. </P>
+<P class=dt><I>warningString</I></P>
+<P class=indent>Description for warning code. </P>
+<h2>Remarks</h2><P>
+<p>Cast stateData in <A HREF="FSBANK_PROGRESSITEM.html">FSBANK_PROGRESSITEM</A> to this struct if the state is <A HREF="FSBANK_STATE.html">FSBANK_STATE_WARNING</A></p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FSBANK_STATE.html">FSBANK_STATE_WARNING</A></LI>
+<LI><A HREF="FSBANK_PROGRESSITEM.html">FSBANK_PROGRESSITEM</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

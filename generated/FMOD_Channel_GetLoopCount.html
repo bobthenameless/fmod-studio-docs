@@ -1,0 +1,43 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Channel::getLoopCount</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Channel::getLoopCount</H1>
+<P>
+<p>Retrieves the current loop count for the specified channel.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Channel::getLoopCount(
+  int *<I>loopcount</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Channel_GetLoopCount(
+  FMOD_CHANNEL *<I>channel</I>,
+  int *<I>loopcount</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>loopcount</dt>
+<dd>Address of a variable that receives the number of times to loop before stopping. 0 = oneshot, 1 = loop once then stop, -1 = loop forever.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>This function retrieves the <em>current</em> loop countdown value for the channel being played. This means it will
+decrement until reaching 0, as it plays. To reset the value, use <A HREF="FMOD_Channel_SetLoopCount.html">Channel::setLoopCount</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Channel_SetLoopCount.html">Channel::setLoopCount</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

@@ -1,0 +1,72 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_SFXREVERB</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_SFXREVERB</H1>
+<P>
+<p>Parameter types for the <A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE_SFXREVERB</A> unit.<br></p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_DSP_SFXREVERB_DECAYTIME,
+  FMOD_DSP_SFXREVERB_EARLYDELAY,
+  FMOD_DSP_SFXREVERB_LATEDELAY,
+  FMOD_DSP_SFXREVERB_HFREFERENCE,
+  FMOD_DSP_SFXREVERB_HFDECAYRATIO,
+  FMOD_DSP_SFXREVERB_DIFFUSION,
+  FMOD_DSP_SFXREVERB_DENSITY,
+  FMOD_DSP_SFXREVERB_LOWSHELFFREQUENCY,
+  FMOD_DSP_SFXREVERB_LOWSHELFGAIN,
+  FMOD_DSP_SFXREVERB_HIGHCUT,
+  FMOD_DSP_SFXREVERB_EARLYLATEMIX,
+  FMOD_DSP_SFXREVERB_WETLEVEL,
+  FMOD_DSP_SFXREVERB_DRYLEVEL
+} FMOD_DSP_SFXREVERB;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_DSP_SFXREVERB_DECAYTIME</I></P>
+<P class=indent>(Type:float) - Decay Time       : Reverberation decay time at low-frequencies in milliseconds.  Ranges from 100.0 to 20000.0. Default is 1500. </P>
+<P class=dt><I>FMOD_DSP_SFXREVERB_EARLYDELAY</I></P>
+<P class=indent>(Type:float) - Early Delay      : Delay time of first reflection in milliseconds.  Ranges from 0.0 to 300.0.  Default is 20. </P>
+<P class=dt><I>FMOD_DSP_SFXREVERB_LATEDELAY</I></P>
+<P class=indent>(Type:float) - Reverb Delay     : Late reverberation delay time relative to first reflection in milliseconds.  Ranges from 0.0 to 100.0.  Default is 40. </P>
+<P class=dt><I>FMOD_DSP_SFXREVERB_HFREFERENCE</I></P>
+<P class=indent>(Type:float) - HF Reference     : Reference frequency for high-frequency decay in Hz.  Ranges from 20.0 to 20000.0. Default is 5000. </P>
+<P class=dt><I>FMOD_DSP_SFXREVERB_HFDECAYRATIO</I></P>
+<P class=indent>(Type:float) - Decay HF Ratio   : High-frequency decay time relative to decay time in percent.  Ranges from 10.0 to 100.0. Default is 50. </P>
+<P class=dt><I>FMOD_DSP_SFXREVERB_DIFFUSION</I></P>
+<P class=indent>(Type:float) - Diffusion        : Reverberation diffusion (echo density) in percent.  Ranges from 0.0 to 100.0.  Default is 100. </P>
+<P class=dt><I>FMOD_DSP_SFXREVERB_DENSITY</I></P>
+<P class=indent>(Type:float) - Density          : Reverberation density (modal density) in percent.  Ranges from 0.0 to 100.0.  Default is 100. </P>
+<P class=dt><I>FMOD_DSP_SFXREVERB_LOWSHELFFREQUENCY</I></P>
+<P class=indent>(Type:float) - Low Shelf Frequency : Transition frequency of low-shelf filter in Hz.  Ranges from 20.0 to 1000.0. Default is 250. </P>
+<P class=dt><I>FMOD_DSP_SFXREVERB_LOWSHELFGAIN</I></P>
+<P class=indent>(Type:float) - Low Shelf Gain   : Gain of low-shelf filter in dB.  Ranges from -36.0 to 12.0.  Default is 0. </P>
+<P class=dt><I>FMOD_DSP_SFXREVERB_HIGHCUT</I></P>
+<P class=indent>(Type:float) - High Cut         : Cutoff frequency of low-pass filter in Hz.  Ranges from 20.0 to 20000.0. Default is 20000. </P>
+<P class=dt><I>FMOD_DSP_SFXREVERB_EARLYLATEMIX</I></P>
+<P class=indent>(Type:float) - Early/Late Mix   : Blend ratio of late reverb to early reflections in percent.  Ranges from 0.0 to 100.0.  Default is 50. </P>
+<P class=dt><I>FMOD_DSP_SFXREVERB_WETLEVEL</I></P>
+<P class=indent>(Type:float) - Wet Level        : Reverb signal level in dB.  Ranges from -80.0 to 20.0.  Default is -6. </P>
+<P class=dt><I>FMOD_DSP_SFXREVERB_DRYLEVEL</I></P>
+<P class=indent>(Type:float) - Dry Level        : Dry signal level in dB.  Ranges from -80.0 to 20.0.  Default is 0. </P>
+<h2>Remarks</h2><P>
+<p>This is a high quality I3DL2 based reverb.<br>
+On top of the I3DL2 property set, "Dry Level" is also included to allow the dry mix to be changed.<br>
+<br>
+These properties can be set with presets in <A HREF="FMOD_REVERB_PRESETS.html">FMOD_REVERB_PRESETS</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI>DSP::SetParameterFloat</LI>
+<LI>DSP::GetParameterFloat</LI>
+<LI><A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE</A></LI>
+<LI><A HREF="FMOD_REVERB_PRESETS.html">FMOD_REVERB_PRESETS</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

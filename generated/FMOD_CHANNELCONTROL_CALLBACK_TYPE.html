@@ -1,0 +1,48 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_CHANNELCONTROL_CALLBACK_TYPE</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_CHANNELCONTROL_CALLBACK_TYPE</H1>
+<P>
+<p>These callback types are used with <A HREF="FMOD_Channel_SetCallback.html">Channel::setCallback</A>.</p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_CHANNELCONTROL_CALLBACK_END,
+  FMOD_CHANNELCONTROL_CALLBACK_VIRTUALVOICE,
+  FMOD_CHANNELCONTROL_CALLBACK_SYNCPOINT,
+  FMOD_CHANNELCONTROL_CALLBACK_OCCLUSION,
+  FMOD_CHANNELCONTROL_CALLBACK_MAX
+} FMOD_CHANNELCONTROL_CALLBACK_TYPE;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_CHANNELCONTROL_CALLBACK_END</I></P>
+<P class=indent>Called when a sound ends. </P>
+<P class=dt><I>FMOD_CHANNELCONTROL_CALLBACK_VIRTUALVOICE</I></P>
+<P class=indent>Called when a voice is swapped out or swapped in. </P>
+<P class=dt><I>FMOD_CHANNELCONTROL_CALLBACK_SYNCPOINT</I></P>
+<P class=indent>Called when a syncpoint is encountered.  Can be from wav file markers. </P>
+<P class=dt><I>FMOD_CHANNELCONTROL_CALLBACK_OCCLUSION</I></P>
+<P class=indent>Called when the channel has its geometry occlusion value calculated.  Can be used to clamp or change the value. </P>
+<P class=dt><I>FMOD_CHANNELCONTROL_CALLBACK_MAX</I></P>
+<P class=indent>Maximum number of callback types supported. </P>
+<h2>Remarks</h2><P>
+<p>Each callback has commanddata parameters passed as int unique to the type of callback.<br>
+See reference to <A HREF="FMOD_CHANNELCONTROL_CALLBACK.html">FMOD_CHANNELCONTROL_CALLBACK</A> to determine what they might mean for each type of callback.<br>
+<br>
+<b>Note!</b>  Currently the user must call <A HREF="FMOD_System_Update.html">System::update</A> for these callbacks to trigger!</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Channel_SetCallback.html">Channel::setCallback</A></LI>
+<LI><A HREF="FMOD_ChannelGroup_SetCallback.html">ChannelGroup::setCallback</A></LI>
+<LI><A HREF="FMOD_CHANNELCONTROL_CALLBACK.html">FMOD_CHANNELCONTROL_CALLBACK</A></LI>
+<LI><A HREF="FMOD_System_Update.html">System::update</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

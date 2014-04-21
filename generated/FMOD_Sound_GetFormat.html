@@ -1,0 +1,52 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Sound::getFormat</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Sound::getFormat</H1>
+<P>
+<p>Returns format information about the sound.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Sound::getFormat(
+  FMOD_SOUND_TYPE *<I>type</I>,
+  FMOD_SOUND_FORMAT *<I>format</I>,
+  int *<I>channels</I>,
+  int *<I>bits</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Sound_GetFormat(
+  FMOD_SOUND *<I>sound</I>,
+  FMOD_SOUND_TYPE *<I>type</I>,
+  FMOD_SOUND_FORMAT *<I>format</I>,
+  int *<I>channels</I>,
+  int *<I>bits</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>type</dt>
+<dd>Address of a variable that receives the type of sound.  Optional.  Specify 0 or NULL to ignore.</dd>
+<dt>format</dt>
+<dd>Address of a variable that receives the format of the sound.  Optional.  Specify 0 or NULL to ignore.</dd>
+<dt>channels</dt>
+<dd>Address of a variable that receives the number of channels for the sound.  Optional.  Specify 0 or NULL to ignore.</dd>
+<dt>bits</dt>
+<dd>Address of a variable that receives the number of bits per sample for the sound.  This corresponds to <A HREF="FMOD_SOUND_FORMAT.html">FMOD_SOUND_FORMAT</A> but is provided as an integer format for convenience.  Hardware compressed formats such as VAG, XADPCM, GCADPCM that stay compressed in memory will return 0.  Optional.  Specify 0 or NULL to ignore.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_SOUND_TYPE.html">FMOD_SOUND_TYPE</A></LI>
+<LI><A HREF="FMOD_SOUND_FORMAT.html">FMOD_SOUND_FORMAT</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

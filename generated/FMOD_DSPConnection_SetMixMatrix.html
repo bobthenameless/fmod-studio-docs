@@ -1,0 +1,51 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>DSPConnection::setMixMatrix</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>DSPConnection::setMixMatrix</H1>
+<P>
+<p>Sets a NxN panning matrix on a DSP connection.  Skipping/hop is supported, so memory for the matrix can be wider than the width of the inchannels parameter.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT DSPConnection::setMixMatrix(
+  float *<I>matrix</I>,
+  int <I>outchannels</I>,
+  int <I>inchannels</I>,
+  int <I>inchannel_hop</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_DSPConnection_SetMixMatrix(
+  FMOD_DSPCONNECTION *<I>dspconnection</I>,
+  float *<I>matrix</I>,
+  int <I>outchannels</I>,
+  int <I>inchannels</I>,
+  int <I>inchannel_hop</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>matrix</dt>
+<dd>Pointer to an array of floating point matrix data, where rows represent output speakers, and columns represent input channels.</dd>
+<dt>outchannels</dt>
+<dd>Number of output channels in the matrix being specified.</dd>
+<dt>inchannels</dt>
+<dd>Number of input channels in the matrix being specified.</dd>
+<dt>inchannel_hop</dt>
+<dd>Number of floating point values stored in memory for a row, so that the memory can be skipped through correctly to read the right values, if the intended matrix memory to be read from is wider than the matrix stored in the DSPConnection.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSPConnection_GetMixMatrix.html">DSPConnection::getMixMatrix</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

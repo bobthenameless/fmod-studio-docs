@@ -1,0 +1,56 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>DSP::getInfo</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>DSP::getInfo</H1>
+<P>
+<p>Retrieves information about the current DSP unit, including name, version, default channels and width and height
+of configuration dialog box if it exists.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT DSP::getInfo(
+  char *<I>name</I>,
+  unsigned int *<I>version</I>,
+  int *<I>channels</I>,
+  int *<I>configwidth</I>,
+  int *<I>configheight</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_DSP_GetInfo(
+  FMOD_DSP *<I>dsp</I>,
+  char *<I>name</I>,
+  unsigned int *<I>version</I>,
+  int *<I>channels</I>,
+  int *<I>configwidth</I>,
+  int *<I>configheight</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>name</dt>
+<dd>Address of a variable that receives the name of the unit.  This will be a maximum of 32bytes. If the DSP unit has filled all 32 bytes with the name with no terminating \0 null character it is up to the caller to append a null character.  Optional.  Specify 0 or NULL to ignore.</dd>
+<dt>version</dt>
+<dd>Address of a variable that receives the version number of the DSP unit.  Version number is usually formated as hex AAAABBBB where the AAAA is the major version number and the BBBB is the minor version number.  Optional.  Specify 0 or NULL to ignore.</dd>
+<dt>channels</dt>
+<dd>Address of a variable that receives the number of channels the unit was initialized with. 0 means the plugin will process whatever number of channels is currently in the network. >0 would be mostly used if the unit is a unit that only generates sound, or is not flexible enough to take any number of input channels.  Optional.  Specify 0 or NULL to ignore.</dd>
+<dt>configwidth</dt>
+<dd>Address of a variable that receives the width of an optional configuration dialog box that can be displayed with <A HREF="FMOD_DSP_ShowConfigDialog.html">DSP::showConfigDialog</A>.  0 means the dialog is not present.  Optional.  Specify 0 or NULL to ignore.</dd>
+<dt>configheight</dt>
+<dd>Address of a variable that receives the height of an optional configuration dialog box that can be displayed with <A HREF="FMOD_DSP_ShowConfigDialog.html">DSP::showConfigDialog</A>.  0 means the dialog is not present.  Optional.  Specify 0 or NULL to ignore.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_ShowConfigDialog.html">DSP::showConfigDialog</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

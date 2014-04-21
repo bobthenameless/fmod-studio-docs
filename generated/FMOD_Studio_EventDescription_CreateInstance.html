@@ -1,0 +1,49 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Studio::EventDescription::createInstance</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Studio::EventDescription::createInstance</H1>
+<P>
+<p>Creates a playable instance of the event.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Studio::EventDescription::createInstance(
+  Studio::EventInstance **<I>instance</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Studio_EventDescription_CreateInstance(
+  FMOD_STUDIO_EVENTDESCRIPTION *<I>eventdescription</I>,
+  FMOD_STUDIO_EVENTINSTANCE **<I>instance</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>instance</dt>
+<dd>Address of a variable to receive the EventInstance object.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>This function creates playable instances of the EventDescription.
+Many instances can be created from a single EventDescription. When an event
+instance is created, it begins loading the required sample data
+asynchronously; use <A HREF="FMOD_Studio_EventDescription_GetSampleLoadingState.html">Studio::EventDescription::getSampleLoadingState</A> to check the loading status.</p>
+
+<p>Sample data can be loaded ahead of time with <A HREF="FMOD_Studio_EventDescription_LoadSampleData.html">Studio::EventDescription::loadSampleData</A>
+or <A HREF="FMOD_Studio_Bank_LoadSampleData.html">Studio::Bank::loadSampleData</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Studio_EventDescription_GetSampleLoadingState.html">Studio::EventDescription::getSampleLoadingState</A></LI>
+<LI><A HREF="FMOD_Studio_EventInstance_Release.html">Studio::EventInstance::release</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

@@ -1,0 +1,50 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>DSP::disconnectAll</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>DSP::disconnectAll</H1>
+<P>
+<p>Helper function to disconnect either all inputs or all outputs of a dsp unit.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT DSP::disconnectAll(
+  bool <I>inputs</I>,
+  bool <I>outputs</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_DSP_DisconnectAll(
+  FMOD_DSP *<I>dsp</I>,
+  FMOD_BOOL <I>inputs</I>,
+  FMOD_BOOL <I>outputs</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>inputs</dt>
+<dd>true = disconnect all inputs to this DSP unit.  false = leave input connections alone.</dd>
+<dt>outputs</dt>
+<dd>true = disconnect all outputs to this DSP unit.  false = leave output connections alone.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>This function is optimized to be faster than disconnecting inputs and outputs manually one by one.</p>
+
+<p><strong>Important note:</strong> If you have a handle to DSPConnection pointers that bind any of the inputs or outputs to this
+DSP unit, then they will become invalid.  The connections are sent back to a freelist to be re-used again by a
+later addInput command.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_DisconnectFrom.html">DSP::disconnectFrom</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

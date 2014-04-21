@@ -1,0 +1,62 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::attachFileSystem</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::attachFileSystem</H1>
+<P>
+<p>Function to allow a user to 'piggyback' on FMOD's file reading routines.  This allows users to capture data as FMOD
+reads it, which may be useful for ripping the raw data that FMOD reads for hard to support sources (for example
+internet streams).</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::attachFileSystem(
+  FMOD_FILE_OPEN_CALLBACK <I>useropen</I>,
+  FMOD_FILE_CLOSE_CALLBACK <I>userclose</I>,
+  FMOD_FILE_READ_CALLBACK <I>userread</I>,
+  FMOD_FILE_SEEK_CALLBACK <I>userseek</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_AttachFileSystem(
+  FMOD_SYSTEM *<I>system</I>,
+  FMOD_FILE_OPEN_CALLBACK <I>useropen</I>,
+  FMOD_FILE_CLOSE_CALLBACK <I>userclose</I>,
+  FMOD_FILE_READ_CALLBACK <I>userread</I>,
+  FMOD_FILE_SEEK_CALLBACK <I>userseek</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>useropen</dt>
+<dd>Pointer to an open callback which is called after a file is opened by FMOD.</dd>
+<dt>userclose</dt>
+<dd>Pointer to a close callback which is called after a file is closed by FMOD.</dd>
+<dt>userread</dt>
+<dd>Pointer to a read callback which is called after a file is read by FMOD.</dd>
+<dt>userseek</dt>
+<dd>Pointer to a seek callback which is called after a file is seeked into by FMOD.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p><strong>NOTE!</strong> Do not use this to 'override' FMOD's file system!  That is what setFileSystem is for.  This function is
+purely for 'snooping' and letting FMOD do its own file access, but if you want to capture what FMOD is reading you
+can do it with this function.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_SetFileSystem.html">System::setFileSystem</A></LI>
+<LI><A HREF="FMOD_FILE_OPEN_CALLBACK.html">FMOD_FILE_OPEN_CALLBACK</A></LI>
+<LI><A HREF="FMOD_FILE_CLOSE_CALLBACK.html">FMOD_FILE_CLOSE_CALLBACK</A></LI>
+<LI><A HREF="FMOD_FILE_READ_CALLBACK.html">FMOD_FILE_READ_CALLBACK</A></LI>
+<LI><A HREF="FMOD_FILE_SEEK_CALLBACK.html">FMOD_FILE_SEEK_CALLBACK</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

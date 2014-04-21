@@ -1,0 +1,43 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_FILE_ASYNCCANCEL_CALLBACK</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_FILE_ASYNCCANCEL_CALLBACK</H1>
+<P>
+<p>Callback to notify user that the resources associated with the file are about to be freed.  Any asynchronous operations must be cancelled at this point before returning from the callback.</p>
+</P>
+<h3>C/C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT F_CALLBACK FMOD_FILE_ASYNCCANCEL_CALLBACK(
+  void *<I>handle</I>,
+  void *<I>userdata</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<P class=dt><I>handle</I></P>
+<P class=indent>This is the handle returned from the open callback to use for your own file routines.</P>
+<P class=dt><I>userdata</I></P>
+<P class=indent>Userdata from <A HREF="FMOD_CREATESOUNDEXINFO.html">FMOD_CREATESOUNDEXINFO.fileuserdata</A>.</P>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>If asynchronous operations on this file are not cancelled before returning fom this callback, then FMOD will free the memory associated with the file and the user routine may read to an invalid/freed pointer - causing a crash.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_SetFileSystem.html">System::setFileSystem</A></LI>
+<LI><A HREF="FMOD_FILE_OPEN_CALLBACK.html">FMOD_FILE_OPEN_CALLBACK</A></LI>
+<LI><A HREF="FMOD_FILE_CLOSE_CALLBACK.html">FMOD_FILE_CLOSE_CALLBACK</A></LI>
+<LI><A HREF="FMOD_FILE_READ_CALLBACK.html">FMOD_FILE_READ_CALLBACK</A></LI>
+<LI><A HREF="FMOD_FILE_SEEK_CALLBACK.html">FMOD_FILE_SEEK_CALLBACK</A></LI>
+<LI><A HREF="FMOD_FILE_ASYNCREAD_CALLBACK.html">FMOD_FILE_ASYNCREAD_CALLBACK</A></LI>
+<LI><A HREF="FMOD_ASYNCREADINFO.html">FMOD_ASYNCREADINFO</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

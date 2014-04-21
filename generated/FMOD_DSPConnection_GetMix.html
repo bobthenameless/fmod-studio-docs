@@ -1,0 +1,41 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>DSPConnection::getMix</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>DSPConnection::getMix</H1>
+<P>
+<p>Retrieves the volume of the connection - the scale level of the input before being passed to the output.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT DSPConnection::getMix(
+  float *<I>volume</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_DSPConnection_GetMix(
+  FMOD_DSPCONNECTION *<I>dspconnection</I>,
+  float *<I>volume</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>volume</dt>
+<dd>Address of a variable to receive the volume or mix level of the specified input. 0.0 = silent, 1.0 = full volume.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSPConnection_SetMix.html">DSPConnection::setMix</A></LI>
+<LI><A HREF="FMOD_DSP_GetInput.html">DSP::getInput</A></LI>
+<LI><A HREF="FMOD_DSP_GetOutput.html">DSP::getOutput</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

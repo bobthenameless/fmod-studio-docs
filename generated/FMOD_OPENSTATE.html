@@ -1,0 +1,56 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_OPENSTATE</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_OPENSTATE</H1>
+<P>
+<p>These values describe what state a sound is in after <A HREF="FMOD_MODE.html">FMOD_NONBLOCKING</A> has been used to open it.</p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_OPENSTATE_READY,
+  FMOD_OPENSTATE_LOADING,
+  FMOD_OPENSTATE_ERROR,
+  FMOD_OPENSTATE_CONNECTING,
+  FMOD_OPENSTATE_BUFFERING,
+  FMOD_OPENSTATE_SEEKING,
+  FMOD_OPENSTATE_PLAYING,
+  FMOD_OPENSTATE_SETPOSITION,
+  FMOD_OPENSTATE_MAX
+} FMOD_OPENSTATE;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_OPENSTATE_READY</I></P>
+<P class=indent>Opened and ready to play. </P>
+<P class=dt><I>FMOD_OPENSTATE_LOADING</I></P>
+<P class=indent>Initial load in progress. </P>
+<P class=dt><I>FMOD_OPENSTATE_ERROR</I></P>
+<P class=indent>Failed to open - file not found, out of memory etc.  See return value of <A HREF="FMOD_Sound_GetOpenState.html">Sound::getOpenState</A> for what happened. </P>
+<P class=dt><I>FMOD_OPENSTATE_CONNECTING</I></P>
+<P class=indent>Connecting to remote host (internet sounds only). </P>
+<P class=dt><I>FMOD_OPENSTATE_BUFFERING</I></P>
+<P class=indent>Buffering data. </P>
+<P class=dt><I>FMOD_OPENSTATE_SEEKING</I></P>
+<P class=indent>Seeking to subsound and re-flushing stream buffer. </P>
+<P class=dt><I>FMOD_OPENSTATE_PLAYING</I></P>
+<P class=indent>Ready and playing, but not possible to release at this time without stalling the main thread. </P>
+<P class=dt><I>FMOD_OPENSTATE_SETPOSITION</I></P>
+<P class=indent>Seeking within a stream to a different position. </P>
+<P class=dt><I>FMOD_OPENSTATE_MAX</I></P>
+<P class=indent>Maximum number of open state types. </P>
+<h2>Remarks</h2><P>
+<p>With streams, if you are using <A HREF="FMOD_MODE.html">FMOD_NONBLOCKING</A>, note that if the user calls <A HREF="FMOD_Sound_GetSubSound.html">Sound::getSubSound</A>, a stream will go into <A HREF="FMOD_OPENSTATE.html">FMOD_OPENSTATE_SEEKING</A> state and sound related commands will return <A HREF="FMOD_RESULT.html">FMOD_ERR_NOTREADY</A>.<br>
+With streams, if you are using <A HREF="FMOD_MODE.html">FMOD_NONBLOCKING</A>, note that if the user calls <A HREF="FMOD_Channel_GetPosition.html">Channel::getPosition</A>, a stream will go into <A HREF="FMOD_OPENSTATE.html">FMOD_OPENSTATE_SETPOSITION</A> state and sound related commands will return <A HREF="FMOD_RESULT.html">FMOD_ERR_NOTREADY</A>.<br></p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Sound_GetOpenState.html">Sound::getOpenState</A></LI>
+<LI><A HREF="FMOD_MODE.html">FMOD_MODE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

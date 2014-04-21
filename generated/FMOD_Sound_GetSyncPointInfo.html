@@ -1,0 +1,62 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Sound::getSyncPointInfo</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Sound::getSyncPointInfo</H1>
+<P>
+<p>Retrieves information on an embedded sync point.  These points can be user generated or can come from a wav file with embedded markers.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Sound::getSyncPointInfo(
+  FMOD_SYNCPOINT *<I>point</I>,
+  char *<I>name</I>,
+  int <I>namelen</I>,
+  unsigned int *<I>offset</I>,
+  FMOD_TIMEUNIT <I>offsettype</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Sound_GetSyncPointInfo(
+  FMOD_SOUND *<I>sound</I>,
+  FMOD_SYNCPOINT *<I>point</I>,
+  char *<I>name</I>,
+  int <I>namelen</I>,
+  unsigned int *<I>offset</I>,
+  FMOD_TIMEUNIT <I>offsettype</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>point</dt>
+<dd>Pointer to a sync point.  Use <A HREF="FMOD_Sound_GetSyncPoint.html">Sound::getSyncPoint</A> to retrieve a syncpoint or <A HREF="FMOD_Sound_AddSyncPoint.html">Sound::addSyncPoint</A> to create one.</dd>
+<dt>name</dt>
+<dd>Address of a variable to receive the name of the syncpoint.  Optional.  Specify 0 or NULL to ignore.</dd>
+<dt>namelen</dt>
+<dd>Size of buffer in bytes for name parameter.  FMOD will only copy to this point if the string is bigger than the buffer passed in.  Specify 0 to ignore name parameter.</dd>
+<dt>offset</dt>
+<dd>Address of a variable to receieve the offset of the syncpoint in a format determined by the offsettype parameter.  Optional.  Specify 0 or NULL to ignore.</dd>
+<dt>offsettype</dt>
+<dd>A timeunit parameter to determine a desired format for the offset parameter.  For example the offset can be specified as pcm samples, or milliseconds.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>In sound forge, a marker can be added a wave file by clicking on the timeline / ruler, and right clicking then selecting 'Insert Marker/Region'.<br>
+Riff wrapped mp3 files are also supported.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Sound_GetNumSyncPoints.html">Sound::getNumSyncPoints</A></LI>
+<LI><A HREF="FMOD_Sound_GetSyncPoint.html">Sound::getSyncPoint</A></LI>
+<LI><A HREF="FMOD_Sound_AddSyncPoint.html">Sound::addSyncPoint</A></LI>
+<LI><A HREF="FMOD_Sound_DeleteSyncPoint.html">Sound::deleteSyncPoint</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

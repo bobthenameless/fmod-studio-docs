@@ -1,0 +1,50 @@
+<LINK REL="stylesheet" href="../../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>What's New in 1.03</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<h1>What's New in 1.03</h1>
+
+<p>This section describes the major features introduced in the 1.03 release.  See the <a href="revision.html">Detailed Revision History</a> for information regarding each patch release.</p>
+
+<h2>Threading Changes</h2>
+
+<p>FMOD Studio has support for multi-threading in both low-level and Studio API.  The Studio API supports issuing commands from any number of threads, and by default now does all execution in its own thread.  The Low Level API now supports thread safety by default.  FMOD Studio and Low Level threading and thread safety can be disabled with new initialization flags.  See the <a href="../overview/threads.html">Threads and Thread Safety</a> section for more information.</p>
+
+<h2>Handle and Studio API Changes</h2>
+
+<p>As part of the threading changes, the Studio API handle system has been changed.  The Studio C++ API now matches the Low level C++ API which has a pointer-based system.  This means existing code will have to change from directly using Studio types to retrieving and calling API with a pointer style.  The underlying handle system has been rewritten to be thread-safe and more efficient.  This change also means that the C API now properly deals with invalid handles safely, and that the C API and C++ API types are equivalent and can be cast between each other.  See the <a href="../overview/handles.html">Handle System</a> for more information.</p>
+
+<h2>Recording and Playback</h2>
+
+<p>All Studio API calls can be recorded to a file and played back at a later time.  This is intended for debug functionality. See <A HREF="../FMOD_Studio_System_StartRecordCommands.html">Studio::System::startRecordCommands</A>, <A HREF="../FMOD_Studio_System_StopRecordCommands.html">Studio::System::stopRecordCommands</A> and <A HREF="../FMOD_Studio_System_PlaybackCommands.html">Studio::System::playbackCommands</A> for more details.</p>
+
+<h2>Studio Enumeration Functions</h2>
+
+<p>FMOD Studio enumeration functions have been changed to a getCount/getList style which is thread-safe and accessible by the C interface.  More functions have been added to enumerate banks, events, and mixer strips.  See <A HREF="../FMOD_Studio_System_GetBankCount.html">Studio::System::getBankCount</A>, <A HREF="../FMOD_Studio_System_GetBankList.html">Studio::System::getBankList</A>, <A HREF="../FMOD_Studio_Bank_GetEventCount.html">Studio::Bank::getEventCount</A>, <A HREF="../FMOD_Studio_Bank_GetEventList.html">Studio::Bank::getEventList</A>, <A HREF="../FMOD_Studio_Bank_GetMixerStripCount.html">Studio::Bank::getMixerStripCount</A>, <A HREF="../FMOD_Studio_Bank_GetMixerStripList.html">Studio::Bank::getMixerStripList</A>, <A HREF="../FMOD_Studio_EventDescription_GetInstanceCount.html">Studio::EventDescription::getInstanceCount</A>, and <A HREF="../FMOD_Studio_EventDescription_GetInstanceList.html">Studio::EventDescription::getInstanceList</A>.</p>
+
+<h2>Events in multiple banks</h2>
+
+<p>FMOD Studio now supports duplicate events in multiple banks.  Studio resources are reference counted and loading will skip the event data that has already been loaded in an existing bank.</p>
+
+<h2>Error Callback</h2>
+
+<p>All Low Level API and Studio API errors can now be intercepted by registering a user callback.  The callback includes the function that generated the error, the instance data, and the optional function parameter arguments.  This is particularly useful for Studio API commands which have been deferred to run on the Studio asynchronous thread.  See <A HREF="../FMOD_System_SetCallback.html">System::setCallback</A> for more information.</p>
+
+<h2>PS Vita support</h2>
+
+<p>FMOD Studio now officially supports PS Vita.</p>
+
+<h2>Windows Store Applications support</h2>
+
+<p>FMOD Studio now officially supports Windows Store Applications for both x86 and ARM devices.</p>
+
+<h2>Additional Studio features</h2>
+
+<p>FMOD Studio now supports sounds placed on transition timelines, transition marker probability, and loop region probability.</p>
+
+<h2>Documentation</h2>
+
+<p>The Studio API documentation has now improved and extended.</p>

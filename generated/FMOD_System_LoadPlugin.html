@@ -1,0 +1,71 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::loadPlugin</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::loadPlugin</H1>
+<P>
+<p>Loads an FMOD plugin.  This could be a DSP, file format or output plugin.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::loadPlugin(
+  const char *<I>filename</I>,
+  unsigned int *<I>handle</I>,
+  unsigned int <I>priority</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_LoadPlugin(
+  FMOD_SYSTEM *<I>system</I>,
+  const char *<I>filename</I>,
+  unsigned int *<I>handle</I>,
+  unsigned int <I>priority</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>filename</dt>
+<dd>Filename of the plugin to be loaded.</dd>
+<dt>handle</dt>
+<dd>Pointer to an unsigned int to receive the plugin handle, for later use.</dd>
+<dt>priority</dt>
+<dd><A HREF="FMOD_PLUGINTYPE.html">FMOD_PLUGINTYPE_CODEC</A> only, priority of the codec compared to other codecs. 0 = most important, higher numbers = less importance.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Plugins can be created for FMOD by the user, see the relevant section in the documentation on creating plugins.</p>
+
+<p>Once the plugin is loaded, it can be enumerated and used. For file format plugins, FMOD will automatically try to
+use them during <A HREF="FMOD_System_CreateSound.html">System::createSound</A>. For DSP plugins, you can enumerate them with <A HREF="FMOD_System_GetNumPlugins.html">System::getNumPlugins</A>,
+<A HREF="FMOD_System_GetPluginHandle.html">System::getPluginHandle</A> and <A HREF="FMOD_System_GetPluginInfo.html">System::getPluginInfo</A>.</p>
+
+<p>The format of the plugin is dependant on the operating system:</p>
+
+<ul>
+<li>Windows uses .dll</li>
+<li>Linux uses .so</li>
+<li>Macintosh uses .dylib</li>
+</ul>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_SetPluginPath.html">System::setPluginPath</A></LI>
+<LI><A HREF="FMOD_System_UnloadPlugin.html">System::unloadPlugin</A></LI>
+<LI><A HREF="FMOD_System_GetNumPlugins.html">System::getNumPlugins</A></LI>
+<LI><A HREF="FMOD_System_GetPluginHandle.html">System::getPluginHandle</A></LI>
+<LI><A HREF="FMOD_System_GetPluginInfo.html">System::getPluginInfo</A></LI>
+<LI><A HREF="FMOD_System_SetOutputByPlugin.html">System::setOutputByPlugin</A></LI>
+<LI><A HREF="FMOD_System_GetOutputByPlugin.html">System::getOutputByPlugin</A></LI>
+<LI><A HREF="FMOD_System_CreateDSPByPlugin.html">System::createDSPByPlugin</A></LI>
+<LI><A HREF="FMOD_System_CreateSound.html">System::createSound</A></LI>
+<LI><A HREF="FMOD_PLUGINTYPE.html">FMOD_PLUGINTYPE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

@@ -1,0 +1,62 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FSBANK_BUILDFLAGS</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FSBANK_BUILDFLAGS</H1>
+<P>
+<p>Bit fields to use with <A HREF="FSBank_Build.html">FSBank_Build</A> and in <A HREF="FSBANK_SUBSOUND.html">FSBANK_SUBSOUND</A> to control how subsounds are encoded.</p>
+</P>
+<h3>Definition</h3>
+<PRE class=syntax><CODE>#define FSBANK_BUILD_DEFAULT 0x00000000
+#define FSBANK_BUILD_DISABLESYNCPOINTS 0x00000001
+#define FSBANK_BUILD_DONTLOOP 0x00000002
+#define FSBANK_BUILD_FILTERHIGHFREQ 0x00000004
+#define FSBANK_BUILD_DISABLESEEKING 0x00000008
+#define FSBANK_BUILD_OPTIMIZESAMPLERATE 0x00000010
+#define FSBANK_BUILD_DONTINTERLEAVE 0x00000020
+#define FSBANK_BUILD_FSB4_USEBASICHEADERS 0x00000040
+#define FSBANK_BUILD_FSB5_DONTWRITENAMES 0x00000080
+#define FSBANK_BUILD_NOGUID 0x00000100
+#define FSBANK_BUILD_WRITEPEAKVOLUME 0x00000200
+#define FSBANK_BUILD_OVERRIDE_MASK (FSBANK_BUILD_DISABLESYNCPOINTS | FSBANK_BUILD_DONTLOOP | FSBANK_BUILD_FILTERHIGHFREQ | FSBANK_BUILD_DISABLESEEKING | FSBANK_BUILD_OPTIMIZESAMPLERATE | FSBANK_BUILD_DONTINTERLEAVE | FSBANK_BUILD_WRITEPEAKVOLUME)
+#define FSBANK_BUILD_CACHE_VALIDATION_MASK (FSBANK_BUILD_DONTLOOP | FSBANK_BUILD_FILTERHIGHFREQ | FSBANK_BUILD_OPTIMIZESAMPLERATE | FSBANK_BUILD_DONTINTERLEAVE)
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FSBANK_BUILD_DEFAULT</I></P>
+<P class=indent>Build with default settings. </P>
+<P class=dt><I>FSBANK_BUILD_DISABLESYNCPOINTS</I></P>
+<P class=indent>Disable the storing of syncpoints in the output </P>
+<P class=dt><I>FSBANK_BUILD_DONTLOOP</I></P>
+<P class=indent>Disable perfect loop encoding and sound stretching. Removes chirps from the start of oneshot MP2, MP3 and IMAADPCM sounds. </P>
+<P class=dt><I>FSBANK_BUILD_FILTERHIGHFREQ</I></P>
+<P class=indent>XMA only. Enable high frequency filtering. </P>
+<P class=dt><I>FSBANK_BUILD_DISABLESEEKING</I></P>
+<P class=indent>XMA only. Disable seek tables to save memory. </P>
+<P class=dt><I>FSBANK_BUILD_OPTIMIZESAMPLERATE</I></P>
+<P class=indent>Attempt to optimize the sample rate down. Ignored if format is MP2, MP3 or CELT or if FSB4 basic headers flag is used. </P>
+<P class=dt><I>FSBANK_BUILD_DONTINTERLEAVE</I></P>
+<P class=indent>VAG and GCADPCM only. Don't interleave the data as LRLRLRLR... instead use LLLLRRRR type encoding. Speeds up loading for samples (not streams, streams must remained interleaved), allows <A HREF="FMOD_MODE.html">FMOD_OPENMEMORY_POINT</A>. </P>
+<P class=dt><I>FSBANK_BUILD_FSB4_USEBASICHEADERS</I></P>
+<P class=indent>FSB4 format only. Generate FSBs with small sample header data. They only contain basic information such as sample length, and everything else has its attributes inherited from the first sample (for example the default frequency). </P>
+<P class=dt><I>FSBANK_BUILD_FSB5_DONTWRITENAMES</I></P>
+<P class=indent>FSB5 format only. Do not write out a names chunk to the FSB to reduce file size. </P>
+<P class=dt><I>FSBANK_BUILD_NOGUID</I></P>
+<P class=indent>FSB5 format only. Write out a null GUID for the FSB header.  The runtime will not use header caching for these FSB files. </P>
+<P class=dt><I>FSBANK_BUILD_WRITEPEAKVOLUME</I></P>
+<P class=indent>FSB5 format only. Write peak volume for all subsounds. </P>
+<P class=dt><I>FSBANK_BUILD_OVERRIDE_MASK</I></P>
+<P class=indent>Build flag mask that specifies which settings can be overridden per subsound. </P>
+<P class=dt><I>FSBANK_BUILD_CACHE_VALIDATION_MASK</I></P>
+<P class=indent>Build flag mask that specifies which settings (when changed) invalidate a cache file. </P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FSBank_Init.html">FSBank_Init</A></LI>
+<LI><A HREF="FSBANK_SUBSOUND.html">FSBANK_SUBSOUND</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

@@ -1,0 +1,76 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::set3DSettings</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::set3DSettings</H1>
+<P>
+<p>Sets the global doppler scale, distance factor and log rolloff scale for all 3D sound in FMOD.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::set3DSettings(
+  float <I>dopplerscale</I>,
+  float <I>distancefactor</I>,
+  float <I>rolloffscale</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_Set3DSettings(
+  FMOD_SYSTEM *<I>system</I>,
+  float <I>dopplerscale</I>,
+  float <I>distancefactor</I>,
+  float <I>rolloffscale</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>dopplerscale</dt>
+<dd>Scaling factor for doppler shift.  Default = 1.0.</dd>
+<dt>distancefactor</dt>
+<dd>Relative distance factor to FMOD's units.  Default = 1.0. (1.0 = 1 metre).</dd>
+<dt>rolloffscale</dt>
+<dd>Scaling factor for 3D sound rolloff or attenuation for <A HREF="FMOD_MODE.html">FMOD_3D_INVERSEROLLOFF</A> based sounds only (which is the default type).  Default = 1.0.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>The <strong>doppler scale</strong> is a general scaling factor for how much the pitch varies due to doppler shifting in 3D sound.
+Doppler is the pitch bending effect when a sound comes towards the listener or moves away from it, much like the
+effect you hear when a train goes past you with its horn sounding. With "dopplerscale" you can exaggerate or
+diminish the effect. FMOD's effective speed of sound at a doppler factor of 1.0 is 340 m/s.</p>
+
+<p>The <strong>distance factor</strong> is the FMOD 3D engine relative distance factor, compared to 1.0 meters. Another way to put
+it is that it equates to "how many units per meter does your engine have". For example, if you are using feet then
+"scale" would equal 3.28.</p>
+
+<p><strong>Note!</strong> This only affects doppler! If you keep your min/max distance, custom rolloff curves and positions in
+scale relative to each other the volume rolloff will not change.  If you set this, the mindistance of a sound will
+automatically set itself to this value when it is created in case the user forgets to set the mindistance to match
+the new distancefactor.</p>
+
+<p>The <strong>rolloff scale</strong> sets the global attenuation rolloff factor for <A HREF="FMOD_MODE.html">FMOD_3D_INVERSEROLLOFF</A> based sounds only
+(which is the default).  Volume for a sound set to <A HREF="FMOD_MODE.html">FMOD_3D_INVERSEROLLOFF</A> will scale at mindistance / distance.
+This gives an inverse attenuation of volume as the source gets further away (or closer).  Setting this value makes
+the sound drop off faster or slower.  The higher the value, the faster volume will attenuate, and conversely the
+lower the value, the slower it will attenuate. For example a rolloff factor of 1 will simulate the real world,
+where as a value of 2 will make sounds attenuate 2 times quicker.</p>
+
+<p><strong>Note!</strong> "rolloffscale" has no effect when using <A HREF="FMOD_MODE.html">FMOD_3D_LINEARROLLOFF</A>, <A HREF="FMOD_MODE.html">FMOD_3D_LINEARSQUAREROLLOFF</A>
+or <A HREF="FMOD_MODE.html">FMOD_3D_CUSTOMROLLOFF</A>.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_System_Get3DSettings.html">System::get3DSettings</A></LI>
+<LI><A HREF="FMOD_Sound_Set3DMinMaxDistance.html">Sound::set3DMinMaxDistance</A></LI>
+<LI><A HREF="FMOD_Sound_Get3DMinMaxDistance.html">Sound::get3DMinMaxDistance</A></LI>
+<LI><A HREF="FMOD_Channel_Set3DAttributes.html">Channel::set3DAttributes</A></LI>
+<LI><A HREF="FMOD_Channel_Get3DAttributes.html">Channel::get3DAttributes</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

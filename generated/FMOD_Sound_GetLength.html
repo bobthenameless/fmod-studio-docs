@@ -1,0 +1,50 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Sound::getLength</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Sound::getLength</H1>
+<P>
+<p>Retrieves the length of the sound using the specified time unit.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Sound::getLength(
+  unsigned int *<I>length</I>,
+  FMOD_TIMEUNIT <I>lengthtype</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Sound_GetLength(
+  FMOD_SOUND *<I>sound</I>,
+  unsigned int *<I>length</I>,
+  FMOD_TIMEUNIT <I>lengthtype</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>length</dt>
+<dd>Address of a variable that receives the length of the sound.</dd>
+<dt>lengthtype</dt>
+<dd>Time unit retrieve into the length parameter.  See <A HREF="FMOD_TIMEUNIT.html">FMOD_TIMEUNIT</A>.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Certain timeunits do not work depending on the file format.  For example <A HREF="FMOD_TIMEUNIT.html">FMOD_TIMEUNIT_MODORDER</A> will not work with an mp3 file.<br>
+A length of 0xFFFFFFFF usually means it is of unlimited length, such as an internet radio stream or MOD/S3M/XM/IT file which may loop forever.</p>
+
+<p><strong>Warning!</strong>  Using a VBR source that does not have an associated length information in milliseconds or pcm samples (such as MP3 or MOD/S3M/XM/IT) may return inaccurate lengths specify <A HREF="FMOD_TIMEUNIT.html">FMOD_TIMEUNIT_MS</A> or <A HREF="FMOD_TIMEUNIT.html">FMOD_TIMEUNIT_PCM</A>.<br>
+If you want FMOD to retrieve an accurate length it will have to pre-scan the file first in this case.  You will have to specify <A HREF="FMOD_MODE.html">FMOD_ACCURATETIME</A> when loading or opening the sound.  This means there is a slight delay as FMOD scans the whole file when loading the sound to find the right length in millseconds or pcm samples, and this also creates a seek table as it does this for seeking purposes.</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_TIMEUNIT.html">FMOD_TIMEUNIT</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

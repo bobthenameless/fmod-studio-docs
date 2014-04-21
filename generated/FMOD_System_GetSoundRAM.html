@@ -1,0 +1,48 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>System::getSoundRAM</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>System::getSoundRAM</H1>
+<P>
+<p>Retrieves the amount of dedicated sound ram available if the platform supports it.<br>
+Most platforms use main ram to store audio data, so this function usually isn't necessary.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT System::getSoundRAM(
+  int *<I>currentalloced</I>,
+  int *<I>maxalloced</I>,
+  int *<I>total</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_System_GetSoundRAM(
+  FMOD_SYSTEM *<I>system</I>,
+  int *<I>currentalloced</I>,
+  int *<I>maxalloced</I>,
+  int *<I>total</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>currentalloced</dt>
+<dd>Address of a variable that receives the currently allocated sound ram memory at time of call. Optional.  Specify 0 or NULL to ignore.</dd>
+<dt>maxalloced</dt>
+<dd>Address of a variable that receives the maximum allocated sound ram memory since <A HREF="FMOD_System_Init.html">System::init</A>. Optional.  Specify 0 or NULL to ignore.</dd>
+<dt>total</dt>
+<dd>Address of a variable that receives the total amount of sound ram available on this device.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Memory_GetStats.html">Memory_GetStats</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

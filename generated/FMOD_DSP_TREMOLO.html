@@ -1,0 +1,58 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_DSP_TREMOLO</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_DSP_TREMOLO</H1>
+<P>
+<p>Parameter types for the <A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE_TREMOLO</A> filter.</p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FMOD_DSP_TREMOLO_FREQUENCY,
+  FMOD_DSP_TREMOLO_DEPTH,
+  FMOD_DSP_TREMOLO_SHAPE,
+  FMOD_DSP_TREMOLO_SKEW,
+  FMOD_DSP_TREMOLO_DUTY,
+  FMOD_DSP_TREMOLO_SQUARE,
+  FMOD_DSP_TREMOLO_PHASE,
+  FMOD_DSP_TREMOLO_SPREAD
+} FMOD_DSP_TREMOLO;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_DSP_TREMOLO_FREQUENCY</I></P>
+<P class=indent>(Type:float) - LFO frequency in Hz.  0.1 to 20.  Default = 4. </P>
+<P class=dt><I>FMOD_DSP_TREMOLO_DEPTH</I></P>
+<P class=indent>(Type:float) - Tremolo depth.  0 to 1.  Default = 0. </P>
+<P class=dt><I>FMOD_DSP_TREMOLO_SHAPE</I></P>
+<P class=indent>(Type:float) - LFO shape morph between triangle and sine.  0 to 1.  Default = 0. </P>
+<P class=dt><I>FMOD_DSP_TREMOLO_SKEW</I></P>
+<P class=indent>(Type:float) - Time-skewing of LFO cycle.  -1 to 1.  Default = 0. </P>
+<P class=dt><I>FMOD_DSP_TREMOLO_DUTY</I></P>
+<P class=indent>(Type:float) - LFO on-time.  0 to 1.  Default = 0.5. </P>
+<P class=dt><I>FMOD_DSP_TREMOLO_SQUARE</I></P>
+<P class=indent>(Type:float) - Flatness of the LFO shape.  0 to 1.  Default = 0. </P>
+<P class=dt><I>FMOD_DSP_TREMOLO_PHASE</I></P>
+<P class=indent>(Type:float) - Instantaneous LFO phase.  0 to 1.  Default = 0. </P>
+<P class=dt><I>FMOD_DSP_TREMOLO_SPREAD</I></P>
+<P class=indent>(Type:float) - Rotation / auto-pan effect.  -1 to 1.  Default = 0. </P>
+<h2>Remarks</h2><P>
+<p>The tremolo effect varies the amplitude of a sound. Depending on the settings, this unit can produce a tremolo, chopper or auto-pan effect.<br>
+<br>
+The shape of the LFO (low freq. oscillator) can morphed between sine, triangle and sawtooth waves using the <A HREF="FMOD_DSP_TREMOLO.html">FMOD_DSP_TREMOLO_SHAPE</A> and <A HREF="FMOD_DSP_TREMOLO.html">FMOD_DSP_TREMOLO_SKEW</A> parameters.<br>
+<A HREF="FMOD_DSP_TREMOLO.html">FMOD_DSP_TREMOLO_DUTY</A> and <A HREF="FMOD_DSP_TREMOLO.html">FMOD_DSP_TREMOLO_SQUARE</A> are useful for a chopper-type effect where the first controls the on-time duration and second controls the flatness of the envelope.<br>
+<A HREF="FMOD_DSP_TREMOLO.html">FMOD_DSP_TREMOLO_SPREAD</A> varies the LFO phase between channels to get an auto-pan effect. This works best with a sine shape LFO.<br>
+The LFO can be synchronized using the <A HREF="FMOD_DSP_TREMOLO.html">FMOD_DSP_TREMOLO_PHASE</A> parameter which sets its instantaneous phase.<br></p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_DSP_SetParameterFloat.html">DSP::setParameterFloat</A></LI>
+<LI><A HREF="FMOD_DSP_GetParameterFloat.html">DSP::getParameterFloat</A></LI>
+<LI><A HREF="FMOD_DSP_TYPE.html">FMOD_DSP_TYPE</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

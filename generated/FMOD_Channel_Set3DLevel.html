@@ -1,0 +1,51 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>Channel::set3DLevel</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>Channel::set3DLevel</H1>
+<P>
+<p>Sets how much the 3D engine has an effect on the channel, versus that set by 2D panning functions.</p>
+</P>
+<h3>C++ Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT Channel::set3DLevel(
+  float <I>level</I>
+);
+</CODE></PRE>
+<h3>C Syntax</h3>
+<PRE class=syntax><CODE>FMOD_RESULT FMOD_Channel_Set3DLevel(
+  FMOD_CHANNEL *<I>channel</I>,
+  float <I>level</I>
+);
+</CODE></PRE>
+<h2>Parameters</h2>
+<dl>
+<dt>level</dt>
+<dd>3D pan level from 0.0 (attenuation is ignored and panning as set by 2D panning functions) to 1.0 (pan and attenuate according to 3D position), default = 1.0.</dd>
+</dl>
+<h2>Return Values</h2><P>
+If the function succeeds then the return value is <A HREF="fmod_result.html">FMOD_OK</A>.<BR>
+If the function fails then the return value will be one of the values defined in the <A HREF="fmod_result.html">FMOD_RESULT</A> enumeration.<BR>
+</P>
+<h2>Remarks</h2><P>
+<p>Only affects sounds created <A HREF="FMOD_MODE.html">FMOD_3D</A>.</p>
+
+<p>2D panning functions include <A HREF="FMOD_ChannelControl_SetPan.html">ChannelControl::setPan</A>, <A HREF="FMOD_ChannelControl_SetMixLevelsOutput.html">ChannelControl::setMixLevelsOutput</A>, <A HREF="FMOD_ChannelControl_SetMixLevelsInput.html">ChannelControl::setMixLevelsInput</A>, <A HREF="FMOD_ChannelControl_SetMixMatrix.html">ChannelControl::setMixMatrix</A>, etc</p>
+
+<p>Useful for morhping a sound between 3D and 2D. This is most common in volumetric sound, when the sound goes from directional, to 'all around you' (and doesn't
+pan according to listener position / direction).</p>
+</P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_ChannelControl_Get3DLevel.html">ChannelControl::get3DLevel</A></LI>
+<LI><A HREF="FMOD_ChannelControl_SetPan.html">ChannelControl::setPan</A></LI>
+<LI><A HREF="FMOD_ChannelControl_SetMixLevelsOutput.html">ChannelControl::setMixLevelsOutput</A></LI>
+<LI><A HREF="FMOD_ChannelControl_SetMixLevelsInput.html">ChannelControl::setMixLevelsInput</A></LI>
+<LI><A HREF="FMOD_ChannelControl_SetMixMatrix.html">ChannelControl::setMixMatrix</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

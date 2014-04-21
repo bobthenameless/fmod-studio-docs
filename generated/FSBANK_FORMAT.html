@@ -1,0 +1,60 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FSBANK_FORMAT</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FSBANK_FORMAT</H1>
+<P>
+<p>Compression formats available for encoding</p>
+</P>
+<h3>Enumeration</h3>
+<PRE class=syntax><CODE>typedef enum {
+  FSBANK_FORMAT_PCM,
+  FSBANK_FORMAT_PCM_BIGENDIAN,
+  FSBANK_FORMAT_IMAADPCM,
+  FSBANK_FORMAT_MP2,
+  FSBANK_FORMAT_MP3,
+  FSBANK_FORMAT_XMA,
+  FSBANK_FORMAT_CELT,
+  FSBANK_FORMAT_AT9_PSVITA,
+  FSBANK_FORMAT_AT9_PS4,
+  FSBANK_FORMAT_XWMA,
+  FSBANK_FORMAT_VORBIS,
+  FSBANK_FORMAT_MAX
+} FSBANK_FORMAT;
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FSBANK_FORMAT_PCM</I></P>
+<P class=indent>PCM                                 (1:1)   All platforms. </P>
+<P class=dt><I>FSBANK_FORMAT_PCM_BIGENDIAN</I></P>
+<P class=indent>PCM Big Endian                      (1:1)   Xbox360 and PS3 only. </P>
+<P class=dt><I>FSBANK_FORMAT_IMAADPCM</I></P>
+<P class=indent>IMA ADPCM                           (3.5:1) All platforms. </P>
+<P class=dt><I>FSBANK_FORMAT_MP2</I></P>
+<P class=indent>MPEG Layer 2                        (CBR)   All platforms except PS3.    Depends on toolame. </P>
+<P class=dt><I>FSBANK_FORMAT_MP3</I></P>
+<P class=indent>MPEG Layer 3                        (CBR)   All platforms.               Depends on libmp3lame. </P>
+<P class=dt><I>FSBANK_FORMAT_XMA</I></P>
+<P class=indent>XMA                                 (VBR)   Xbox360 only (hardware).     Depends on xmaencoder. </P>
+<P class=dt><I>FSBANK_FORMAT_CELT</I></P>
+<P class=indent>Constrained Energy Lapped Transform (CBR)   All platforms.               Depends on celt_encoder. </P>
+<P class=dt><I>FSBANK_FORMAT_AT9_PSVITA</I></P>
+<P class=indent>ATRAC9                              (CBR)   PSVita only (hardware).      Depends on libatrac9. </P>
+<P class=dt><I>FSBANK_FORMAT_AT9_PS4</I></P>
+<P class=indent>ATRAC9                              (CBR)   PS4 only (hardware).         Depends on libatrac9. </P>
+<P class=dt><I>FSBANK_FORMAT_XWMA</I></P>
+<P class=indent>XWMA                                (VBR)   Xbox360 only.                Depends on xwmaencoder. </P>
+<P class=dt><I>FSBANK_FORMAT_VORBIS</I></P>
+<P class=indent>Vorbis                              (VBR)   All platforms.               Depends on libvorbis. </P>
+<P class=dt><I>FSBANK_FORMAT_MAX</I></P>
+<P class=indent>Upper bound for this enumeration, for use with validation. </P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FSBank_Build.html">FSBank_Build</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>

@@ -1,0 +1,53 @@
+<LINK REL="stylesheet" HREF="../static/styles.css">
+<HTML>
+<HEAD>
+<TITLE>FMOD_TIMEUNIT</TITLE>
+</HEAD>
+<BODY TOPMARGIN="0" class="api_reference">
+<p class="header">Firelight Technologies FMOD Studio API</p>
+<H1>FMOD_TIMEUNIT</H1>
+<P>
+<p>List of time types that can be returned by <A HREF="FMOD_Sound_GetLength.html">Sound::getLength</A> and used with <A HREF="FMOD_Channel_SetPosition.html">Channel::setPosition</A> or <A HREF="FMOD_Channel_GetPosition.html">Channel::getPosition</A>.</p>
+
+<p>Do not combine flags except <A HREF="FMOD_TIMEUNIT.html">FMOD_TIMEUNIT_BUFFERED</A>.</p>
+</P>
+<h3>Definition</h3>
+<PRE class=syntax><CODE>#define FMOD_TIMEUNIT_MS 0x00000001
+#define FMOD_TIMEUNIT_PCM 0x00000002
+#define FMOD_TIMEUNIT_PCMBYTES 0x00000004
+#define FMOD_TIMEUNIT_RAWBYTES 0x00000008
+#define FMOD_TIMEUNIT_PCMFRACTION 0x00000010
+#define FMOD_TIMEUNIT_MODORDER 0x00000100
+#define FMOD_TIMEUNIT_MODROW 0x00000200
+#define FMOD_TIMEUNIT_MODPATTERN 0x00000400
+#define FMOD_TIMEUNIT_BUFFERED 0x10000000
+</CODE></PRE>
+<h2>Values</h2>
+<P class=dt><I>FMOD_TIMEUNIT_MS</I></P>
+<P class=indent>Milliseconds. </P>
+<P class=dt><I>FMOD_TIMEUNIT_PCM</I></P>
+<P class=indent>PCM samples, related to milliseconds * samplerate / 1000. </P>
+<P class=dt><I>FMOD_TIMEUNIT_PCMBYTES</I></P>
+<P class=indent>Bytes, related to PCM samples * channels * datawidth (ie 16bit = 2 bytes). </P>
+<P class=dt><I>FMOD_TIMEUNIT_RAWBYTES</I></P>
+<P class=indent>Raw file bytes of (compressed) sound data (does not include headers).  Only used by <A HREF="FMOD_Sound_GetLength.html">Sound::getLength</A> and <A HREF="FMOD_Channel_GetPosition.html">Channel::getPosition</A>. </P>
+<P class=dt><I>FMOD_TIMEUNIT_PCMFRACTION</I></P>
+<P class=indent>Fractions of 1 PCM sample.  Unsigned int range 0 to 0xFFFFFFFF.  Used for sub-sample granularity for DSP purposes. </P>
+<P class=dt><I>FMOD_TIMEUNIT_MODORDER</I></P>
+<P class=indent>MOD/S3M/XM/IT.  Order in a sequenced module format.  Use <A HREF="FMOD_Sound_GetFormat.html">Sound::getFormat</A> to determine the PCM format being decoded to. </P>
+<P class=dt><I>FMOD_TIMEUNIT_MODROW</I></P>
+<P class=indent>MOD/S3M/XM/IT.  Current row in a sequenced module format.  <A HREF="FMOD_Sound_GetLength.html">Sound::getLength</A> will return the number of rows in the currently playing or seeked to pattern. </P>
+<P class=dt><I>FMOD_TIMEUNIT_MODPATTERN</I></P>
+<P class=indent>MOD/S3M/XM/IT.  Current pattern in a sequenced module format.  <A HREF="FMOD_Sound_GetLength.html">Sound::getLength</A> will return the number of patterns in the song and <A HREF="FMOD_Channel_GetPosition.html">Channel::getPosition</A> will return the currently playing pattern. </P>
+<P class=dt><I>FMOD_TIMEUNIT_BUFFERED</I></P>
+<P class=indent>Time value as seen by buffered stream.  This is always ahead of audible time, and is only used for processing. </P>
+<h2>See Also</h2>
+<UL type=disc>
+<LI><A HREF="FMOD_Sound_GetLength.html">Sound::getLength</A></LI>
+<LI><A HREF="FMOD_Channel_SetPosition.html">Channel::setPosition</A></LI>
+<LI><A HREF="FMOD_Channel_GetPosition.html">Channel::getPosition</A></LI>
+</UL>
+<BR><BR><BR>
+<P align=center><font size=-2>Version 1.03.06 Built on Apr 17, 2014</font></P>
+<BR>
+</HTML>
