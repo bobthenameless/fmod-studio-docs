@@ -1,0 +1,1071 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <title>Fmod-studio-docs by bobthenameless</title>
+    <link rel="stylesheet" href="stylesheets/styles.css">
+    <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+    <script src="javascripts/respond.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <!--[if lt IE 8]>
+    <link rel="stylesheet" href="stylesheets/ie.css">
+    <![endif]-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+
+  </head>
+  <body>
+      <div id="header">
+        <nav>
+          <li class="fork"><a href="https://github.com/bobthenameless/fmod-studio-docs">View On GitHub</a></li>
+          <li class="downloads"><a href="https://github.com/bobthenameless/fmod-studio-docs/zipball/master">ZIP</a></li>
+          <li class="downloads"><a href="https://github.com/bobthenameless/fmod-studio-docs/tarball/master">TAR</a></li>
+          <li class="title">DOWNLOADS</li>
+        </nav>
+      </div><!-- end header -->
+
+    <div class="wrapper">
+
+      <section>
+        <div id="title">
+          <h1>Fmod-studio-docs</h1>
+          <p>fmod-studio-docs</p>
+          <hr>
+          <span class="credits left">Project maintained by <a href="https://github.com/bobthenameless">bobthenameless</a></span>
+          <span class="credits right">Hosted on GitHub Pages &mdash; Theme by <a href="https://twitter.com/michigangraham">mattgraham</a></span>
+        </div>
+
+        <p>This is a project to strip the FMOD Studio API out of the .chm file and into md files. Currently very messy. FMOD can be downloaded/purchased at <a href="http://www.fmod.org/">http://www.fmod.org/</a> and the .chm file can be found in API_INSTALL_DIRECTORY/docs.</p>
+
+<h1>
+<a name="fsbank-api" class="anchor" href="#fsbank-api"><span class="octicon octicon-link"></span></a>FSBank API</h1>
+
+<ul>
+<li><a href="generated/fsbank_api_functions.html">Functions</a></li>
+<li><a href="generated/fsbank_api_callbacks.html">Callbacks</a></li>
+<li><a href="generated/fsbank_api_structures.html">Structures</a></li>
+<li><a href="generated/fsbank_api_defines.html">Defines</a></li>
+<li><a href="generated/fsbank_api_enumerations.html">Enumerations</a></li>
+</ul><h1>
+<a name="studio-api" class="anchor" href="#studio-api"><span class="octicon octicon-link"></span></a>Studio API</h1>
+
+<ul>
+<li><a href="generated/studio_api_interfaces.html">C++ interfaces</a></li>
+<li><a href="generated/studio_api_functions.html">Functions</a></li>
+<li><a href="generated/studio_api_structures.html">Structures</a></li>
+<li><a href="generated/studio_api_defines.html">Defines</a></li>
+<li><a href="generated/studio_api_enumerations.html">Enumerations</a></li>
+</ul><h1>
+<a name="low-level-api" class="anchor" href="#low-level-api"><span class="octicon octicon-link"></span></a>Low Level API</h1>
+
+<ul>
+<li><a href="generated/lowlevel_api_interfaces.html">C++ interfaces</a></li>
+<li><a href="generated/lowlevel_api_functions.html">Functions</a></li>
+<li><a href="generated/lowlevel_api_callbacks.html">Callbacks</a></li>
+<li><a href="generated/lowlevel_api_structures.html">Structures</a></li>
+<li><a href="generated/lowlevel_api_defines.html">Defines</a></li>
+<li><a href="generated/lowlevel_api_enumerations.html">Enumerations</a></li>
+</ul><h2>
+<a name="fsbank-api-1" class="anchor" href="#fsbank-api-1"><span class="octicon octicon-link"></span></a>FSBank API</h2>
+
+<h3>
+<a name="callbacks" class="anchor" href="#callbacks"><span class="octicon octicon-link"></span></a>Callbacks</h3>
+
+<ul>
+<li><a href="generated/FSBANK_MEMORY_ALLOC_CALLBACK.html">FSBANK_MEMORY_ALLOC_CALLBACK</a></li>
+<li><a href="generated/FSBANK_MEMORY_FREE_CALLBACK.html">FSBANK_MEMORY_FREE_CALLBACK</a></li>
+<li><a href="generated/FSBANK_MEMORY_REALLOC_CALLBACK.html">FSBANK_MEMORY_REALLOC_CALLBACK</a></li>
+</ul><h3>
+<a name="defines" class="anchor" href="#defines"><span class="octicon octicon-link"></span></a>Defines</h3>
+
+<ul>
+<li><a href="generated/FSBANK_BUILDFLAGS.html">FSBANK_BUILDFLAGS</a></li>
+<li><a href="generated/FSBANK_INITFLAGS.html">FSBANK_INITFLAGS</a></li>
+</ul><h3>
+<a name="enumerations" class="anchor" href="#enumerations"><span class="octicon octicon-link"></span></a>Enumerations</h3>
+
+<ul>
+<li><a href="generated/FSBANK_FORMAT.html">FSBANK_FORMAT</a></li>
+<li><a href="generated/FSBANK_FSBVERSION.html">FSBANK_FSBVERSION</a></li>
+<li><a href="generated/FSBANK_RESULT.html">FSBANK_RESULT</a></li>
+<li><a href="generated/FSBANK_SPEAKERMAP.html">FSBANK_SPEAKERMAP</a></li>
+<li><a href="generated/FSBANK_STATE.html">FSBANK_STATE</a></li>
+</ul><h3>
+<a name="functions" class="anchor" href="#functions"><span class="octicon octicon-link"></span></a>Functions</h3>
+
+<ul>
+<li><a href="generated/FSBank_Build.html">FSBank_Build</a></li>
+<li><a href="generated/FSBank_BuildCancel.html">FSBank_BuildCancel</a></li>
+<li><a href="generated/FSBank_FetchNextProgressItem.html">FSBank_FetchNextProgressItem</a></li>
+<li><a href="generated/FSBank_Init.html">FSBank_Init</a></li>
+<li><a href="generated/FSBank_MemoryGetStats.html">FSBank_MemoryGetStats</a></li>
+<li><a href="generated/FSBank_MemoryInit.html">FSBank_MemoryInit</a></li>
+<li><a href="generated/FSBank_Release.html">FSBank_Release</a></li>
+<li><a href="generated/FSBank_ReleaseProgressItem.html">FSBank_ReleaseProgressItem</a></li>
+</ul><h3>
+<a name="structures" class="anchor" href="#structures"><span class="octicon octicon-link"></span></a>Structures</h3>
+
+<ul>
+<li><a href="generated/FSBANK_PROGRESSITEM.html">FSBANK_PROGRESSITEM</a></li>
+<li><a href="generated/FSBANK_STATEDATA_FAILED.html">FSBANK_STATEDATA_FAILED</a></li>
+<li><a href="generated/FSBANK_STATEDATA_WARNING.html">FSBANK_STATEDATA_WARNING</a></li>
+<li><a href="generated/FSBANK_SUBSOUND.html">FSBANK_SUBSOUND</a></li>
+</ul><h2>
+<a name="low-level-api-1" class="anchor" href="#low-level-api-1"><span class="octicon octicon-link"></span></a>Low Level API</h2>
+
+<h3>
+<a name="c-interfaces" class="anchor" href="#c-interfaces"><span class="octicon octicon-link"></span></a>C++ interfaces</h3>
+
+<ul>
+<li><a href="generated/lowlevel_api_System.html">System</a></li>
+<li><a href="generated/lowlevel_api_Sound.html">Sound</a></li>
+<li><a href="generated/lowlevel_api_ChannelControl.html">ChannelControl</a></li>
+<li><a href="generated/lowlevel_api_Channel.html">Channel</a></li>
+<li><a href="generated/lowlevel_api_ChannelGroup.html">ChannelGroup</a></li>
+<li><a href="generated/lowlevel_api_SoundGroup.html">SoundGroup</a></li>
+<li><a href="generated/lowlevel_api_DSP.html">DSP</a></li>
+<li><a href="generated/lowlevel_api_DSPConnection.html">DSPConnection</a></li>
+<li><a href="generated/lowlevel_api_Geometry.html">Geometry</a></li>
+<li><a href="lowlevel_api_Reverb3D.html">Reverb3D</a></li>
+</ul><h3>
+<a name="structures-1" class="anchor" href="#structures-1"><span class="octicon octicon-link"></span></a>Structures</h3>
+
+<ul>
+<li><a href="FMOD_3D_ATTRIBUTES.html">FMOD_3D_ATTRIBUTES</a></li>
+<li><a href="generated/FMOD_ADVANCEDSETTINGS.html">FMOD_ADVANCEDSETTINGS</a></li>
+<li><a href="generated/FMOD_ASYNCREADINFO.html">FMOD_ASYNCREADINFO</a></li>
+<li><a href="generated/FMOD_CODEC_DESCRIPTION.html">FMOD_CODEC_DESCRIPTION</a></li>
+<li><a href="generated/FMOD_CODEC_STATE.html">FMOD_CODEC_STATE</a></li>
+<li><a href="generated/FMOD_CODEC_WAVEFORMAT.html">FMOD_CODEC_WAVEFORMAT</a></li>
+<li><a href="generated/FMOD_CREATESOUNDEXINFO.html">FMOD_CREATESOUNDEXINFO</a></li>
+<li><a href="generated/FMOD_DSP_BUFFER_ARRAY.html">FMOD_DSP_BUFFER_ARRAY</a></li>
+<li><a href="generated/FMOD_DSP_DESCRIPTION.html">FMOD_DSP_DESCRIPTION</a></li>
+<li><a href="generated/FMOD_DSP_METERING_INFO.html">FMOD_DSP_METERING_INFO</a></li>
+<li><a href="FMOD_DSP_PARAMETER_3DATTRIBUTES.html">FMOD_DSP_PARAMETER_3DATTRIBUTES</a></li>
+<li><a href="generated/FMOD_DSP_PARAMETER_DESC.html">FMOD_DSP_PARAMETER_DESC</a></li>
+<li><a href="generated/FMOD_DSP_PARAMETER_DESC_BOOL.html">FMOD_DSP_PARAMETER_DESC_BOOL</a></li>
+<li><a href="generated/FMOD_DSP_PARAMETER_DESC_DATA.html">FMOD_DSP_PARAMETER_DESC_DATA</a></li>
+<li><a href="generated/FMOD_DSP_PARAMETER_DESC_FLOAT.html">FMOD_DSP_PARAMETER_DESC_FLOAT</a></li>
+<li><a href="generated/FMOD_DSP_PARAMETER_DESC_INT.html">FMOD_DSP_PARAMETER_DESC_INT</a></li>
+<li><a href="generated/FMOD_DSP_PARAMETER_OVERALLGAIN.html">FMOD_DSP_PARAMETER_OVERALLGAIN</a></li>
+<li><a href="generated/FMOD_DSP_PARAMETER_SIDECHAIN.html">FMOD_DSP_PARAMETER_SIDECHAIN</a></li>
+<li><a href="generated/FMOD_DSP_STATE.html">FMOD_DSP_STATE</a></li>
+<li><a href="generated/FMOD_DSP_STATE_SYSTEMCALLBACKS.html">FMOD_DSP_STATE_SYSTEMCALLBACKS</a></li>
+<li><a href="generated/FMOD_ERRORCALLBACK_INFO.html">FMOD_ERRORCALLBACK_INFO</a></li>
+<li><a href="generated/FMOD_GUID.html">FMOD_GUID</a></li>
+<li><a href="generated/FMOD_OUTPUT_DESCRIPTION.html">FMOD_OUTPUT_DESCRIPTION</a></li>
+<li><a href="generated/FMOD_OUTPUT_STATE.html">FMOD_OUTPUT_STATE</a></li>
+<li><a href="generated/FMOD_REVERB_PROPERTIES.html">FMOD_REVERB_PROPERTIES</a></li>
+<li><a href="generated/FMOD_TAG.html">FMOD_TAG</a></li>
+<li><a href="generated/FMOD_VECTOR.html">FMOD_VECTOR</a></li>
+<li><a href="generated/piecewiselinearmapping.html">piecewiselinearmapping</a></li>
+</ul><h3>
+<a name="callbacks-1" class="anchor" href="#callbacks-1"><span class="octicon octicon-link"></span></a>Callbacks</h3>
+
+<ul>
+<li><a href="FMOD_3D_ROLLOFF_CALLBACK.html">FMOD_3D_ROLLOFF_CALLBACK</a></li>
+<li><a href="generated/FMOD_CHANNELCONTROL_CALLBACK.html">FMOD_CHANNELCONTROL_CALLBACK</a></li>
+<li><a href="generated/FMOD_DSP_SETPARAM_INT_CALLBACK.html">FMOD_DSP_SETPARAM_INT_CALLBACK</a></li>
+<li><a href="generated/FMOD_DSP_SETPOSITION_CALLBACK.html">FMOD_DSP_SETPOSITION_CALLBACK</a></li>
+<li><a href="generated/FMOD_DSP_SHOULDIPROCESS_CALLBACK.html">FMOD_DSP_SHOULDIPROCESS_CALLBACK</a></li>
+<li><a href="generated/FMOD_FILE_ASYNCCANCEL_CALLBACK.html">FMOD_FILE_ASYNCCANCEL_CALLBACK</a></li>
+<li><a href="generated/FMOD_FILE_ASYNCREAD_CALLBACK.html">FMOD_FILE_ASYNCREAD_CALLBACK</a></li>
+<li><a href="generated/FMOD_FILE_CLOSE_CALLBACK.html">FMOD_FILE_CLOSE_CALLBACK</a></li>
+<li><a href="generated/FMOD_FILE_OPEN_CALLBACK.html">FMOD_FILE_OPEN_CALLBACK</a></li>
+<li><a href="generated/FMOD_FILE_READ_CALLBACK.html">FMOD_FILE_READ_CALLBACK</a></li>
+<li><a href="generated/FMOD_FILE_SEEK_CALLBACK.html">FMOD_FILE_SEEK_CALLBACK</a></li>
+<li><a href="generated/FMOD_MEMORY_ALLOC_CALLBACK.html">FMOD_MEMORY_ALLOC_CALLBACK</a></li>
+<li><a href="generated/FMOD_MEMORY_FREE_CALLBACK.html">FMOD_MEMORY_FREE_CALLBACK</a></li>
+<li><a href="generated/FMOD_MEMORY_REALLOC_CALLBACK.html">FMOD_MEMORY_REALLOC_CALLBACK</a></li>
+<li><a href="generated/FMOD_OUTPUT_CLOSE_CALLBACK.html">FMOD_OUTPUT_CLOSE_CALLBACK</a></li>
+<li><a href="generated/FMOD_OUTPUT_GETDRIVERINFO_CALLBACK.html">FMOD_OUTPUT_GETDRIVERINFO_CALLBACK</a></li>
+<li><a href="generated/FMOD_OUTPUT_GETHANDLE_CALLBACK.html">FMOD_OUTPUT_GETHANDLE_CALLBACK</a></li>
+<li><a href="generated/FMOD_OUTPUT_GETNUMDRIVERS_CALLBACK.html">FMOD_OUTPUT_GETNUMDRIVERS_CALLBACK</a></li>
+<li><a href="generated/FMOD_OUTPUT_GETPOSITION_CALLBACK.html">FMOD_OUTPUT_GETPOSITION_CALLBACK</a></li>
+<li><a href="generated/FMOD_OUTPUT_INIT_CALLBACK.html">FMOD_OUTPUT_INIT_CALLBACK</a></li>
+<li><a href="generated/FMOD_OUTPUT_LOCK_CALLBACK.html">FMOD_OUTPUT_LOCK_CALLBACK</a></li>
+<li><a href="generated/FMOD_OUTPUT_READFROMMIXER.html">FMOD_OUTPUT_READFROMMIXER</a></li>
+<li><a href="generated/FMOD_OUTPUT_UNLOCK_CALLBACK.html">FMOD_OUTPUT_UNLOCK_CALLBACK</a></li>
+<li><a href="generated/FMOD_OUTPUT_UPDATE_CALLBACK.html">FMOD_OUTPUT_UPDATE_CALLBACK</a></li>
+<li><a href="generated/FMOD_SOUND_NONBLOCK_CALLBACK.html">FMOD_SOUND_NONBLOCK_CALLBACK</a></li>
+<li><a href="generated/FMOD_SOUND_PCMREAD_CALLBACK.html">FMOD_SOUND_PCMREAD_CALLBACK</a></li>
+<li><a href="generated/FMOD_SOUND_PCMSETPOS_CALLBACK.html">FMOD_SOUND_PCMSETPOS_CALLBACK</a></li>
+<li><a href="generated/FMOD_SYSTEM_CALLBACK.html">FMOD_SYSTEM_CALLBACK</a></li>
+</ul><h3>
+<a name="channel" class="anchor" href="#channel"><span class="octicon octicon-link"></span></a>Channel</h3>
+
+<h4>
+<a name="functions-1" class="anchor" href="#functions-1"><span class="octicon octicon-link"></span></a>Functions</h4>
+
+<ul>
+<li><a href="generated/FMOD_Channel_AddDSP.html">Channel::addDSP</a></li>
+<li><a href="generated/FMOD_Channel_AddFadePoint.html">Channel::addFadePoint</a></li>
+<li><a href="FMOD_Channel_Get3DAttributes.html">Channel::get3DAttributes</a></li>
+<li><a href="FMOD_Channel_Get3DConeOrientation.html">Channel::get3DConeOrientation</a></li>
+<li><a href="FMOD_Channel_Get3DConeSettings.html">Channel::get3DConeSettings</a></li>
+<li><a href="FMOD_Channel_Get3DCustomRolloff.html">Channel::get3DCustomRolloff</a></li>
+<li><a href="FMOD_Channel_Get3DDistanceFilter.html">Channel::get3DDistanceFilter</a></li>
+<li><a href="FMOD_Channel_Get3DDopplerLevel.html">Channel::get3DDopplerLevel</a></li>
+<li><a href="FMOD_Channel_Get3DLevel.html">Channel::get3DLevel</a></li>
+<li><a href="FMOD_Channel_Get3DMinMaxDistance.html">Channel::get3DMinMaxDistance</a></li>
+<li><a href="FMOD_Channel_Get3DOcclusion.html">Channel::get3DOcclusion</a></li>
+<li><a href="FMOD_Channel_Get3DSpread.html">Channel::get3DSpread</a></li>
+<li><a href="generated/FMOD_Channel_GetAudibility.html">Channel::getAudibility</a></li>
+<li><a href="generated/FMOD_Channel_GetChannelGroup.html">Channel::getChannelGroup</a></li>
+<li><a href="generated/FMOD_Channel_GetCurrentSound.html">Channel::getCurrentSound</a></li>
+<li><a href="generated/FMOD_Channel_GetDSP.html">Channel::getDSP</a></li>
+<li><a href="generated/FMOD_Channel_GetDSPClock.html">Channel::getDSPClock</a></li>
+<li><a href="generated/FMOD_Channel_GetDelay.html">Channel::getDelay</a></li>
+<li><a href="generated/FMOD_Channel_GetFadePoints.html">Channel::getFadePoints</a></li>
+<li><a href="generated/FMOD_Channel_GetFrequency.html">Channel::getFrequency</a></li>
+<li><a href="generated/FMOD_Channel_GetIndex.html">Channel::getIndex</a></li>
+<li><a href="generated/FMOD_Channel_GetLoopCount.html">Channel::getLoopCount</a></li>
+<li><a href="generated/FMOD_Channel_GetLoopPoints.html">Channel::getLoopPoints</a></li>
+<li><a href="generated/FMOD_Channel_GetLowPassGain.html">Channel::getLowPassGain</a></li>
+<li><a href="generated/FMOD_Channel_GetMixMatrix.html">Channel::getMixMatrix</a></li>
+<li><a href="generated/FMOD_Channel_GetMode.html">Channel::getMode</a></li>
+<li><a href="generated/FMOD_Channel_GetMute.html">Channel::getMute</a></li>
+<li><a href="generated/FMOD_Channel_GetNumDSPs.html">Channel::getNumDSPs</a></li>
+<li><a href="generated/FMOD_Channel_GetPaused.html">Channel::getPaused</a></li>
+<li><a href="generated/FMOD_Channel_GetPitch.html">Channel::getPitch</a></li>
+<li><a href="generated/FMOD_Channel_GetPosition.html">Channel::getPosition</a></li>
+<li><a href="generated/FMOD_Channel_GetPriority.html">Channel::getPriority</a></li>
+<li><a href="generated/FMOD_Channel_GetReverbProperties.html">Channel::getReverbProperties</a></li>
+<li><a href="generated/FMOD_Channel_GetSystemObject.html">Channel::getSystemObject</a></li>
+<li><a href="generated/FMOD_Channel_GetUserData.html">Channel::getUserData</a></li>
+<li><a href="generated/FMOD_Channel_GetVolume.html">Channel::getVolume</a></li>
+<li><a href="generated/FMOD_Channel_GetVolumeRamp.html">Channel::getVolumeRamp</a></li>
+<li><a href="generated/FMOD_Channel_IsPlaying.html">Channel::isPlaying</a></li>
+<li><a href="generated/FMOD_Channel_IsVirtual.html">Channel::isVirtual</a></li>
+<li><a href="generated/FMOD_Channel_RemoveDSP.html">Channel::removeDSP</a></li>
+<li><a href="generated/FMOD_Channel_RemoveFadePoints.html">Channel::removeFadePoints</a></li>
+<li><a href="FMOD_Channel_Set3DAttributes.html">Channel::set3DAttributes</a></li>
+<li><a href="FMOD_Channel_Set3DConeOrientation.html">Channel::set3DConeOrientation</a></li>
+<li><a href="FMOD_Channel_Set3DConeSettings.html">Channel::set3DConeSettings</a></li>
+<li><a href="FMOD_Channel_Set3DCustomRolloff.html">Channel::set3DCustomRolloff</a></li>
+<li><a href="FMOD_Channel_Set3DDistanceFilter.html">Channel::set3DDistanceFilter</a></li>
+<li><a href="FMOD_Channel_Set3DDopplerLevel.html">Channel::set3DDopplerLevel</a></li>
+<li><a href="FMOD_Channel_Set3DLevel.html">Channel::set3DLevel</a></li>
+<li><a href="FMOD_Channel_Set3DMinMaxDistance.html">Channel::set3DMinMaxDistance</a></li>
+<li><a href="FMOD_Channel_Set3DOcclusion.html">Channel::set3DOcclusion</a></li>
+<li><a href="FMOD_Channel_Set3DSpread.html">Channel::set3DSpread</a></li>
+<li><a href="generated/FMOD_Channel_SetCallback.html">Channel::setCallback</a></li>
+<li><a href="generated/FMOD_Channel_SetChannelGroup.html">Channel::setChannelGroup</a></li>
+<li><a href="generated/FMOD_Channel_SetDelay.html">Channel::setDelay</a></li>
+<li><a href="generated/FMOD_Channel_SetFrequency.html">Channel::setFrequency</a></li>
+<li><a href="generated/FMOD_Channel_SetLoopCount.html">Channel::setLoopCount</a></li>
+<li><a href="generated/FMOD_Channel_SetLoopPoints.html">Channel::setLoopPoints</a></li>
+<li><a href="generated/FMOD_Channel_SetLowPassGain.html">Channel::setLowPassGain</a></li>
+<li><a href="generated/FMOD_Channel_SetMixLevelsInput.html">Channel::setMixLevelsInput</a></li>
+<li><a href="generated/FMOD_Channel_SetMixLevelsOutput.html">Channel::setMixLevelsOutput</a></li>
+<li><a href="generated/FMOD_Channel_SetMixMatrix.html">Channel::setMixMatrix</a></li>
+<li><a href="generated/FMOD_Channel_SetMode.html">Channel::setMode</a></li>
+<li><a href="generated/FMOD_Channel_SetMute.html">Channel::setMute</a></li>
+<li><a href="generated/FMOD_Channel_SetPan.html">Channel::setPan</a></li>
+<li><a href="generated/FMOD_Channel_SetPaused.html">Channel::setPaused</a></li>
+<li><a href="generated/FMOD_Channel_SetPitch.html">Channel::setPitch</a></li>
+<li><a href="generated/FMOD_Channel_SetPosition.html">Channel::setPosition</a></li>
+<li><a href="generated/FMOD_Channel_SetPriority.html">Channel::setPriority</a></li>
+<li><a href="generated/FMOD_Channel_SetReverbProperties.html">Channel::setReverbProperties</a></li>
+<li><a href="generated/FMOD_Channel_SetUserData.html">Channel::setUserData</a></li>
+<li><a href="generated/FMOD_Channel_SetVolume.html">Channel::setVolume</a></li>
+<li><a href="generated/FMOD_Channel_SetVolumeRamp.html">Channel::setVolumeRamp</a></li>
+<li><a href="generated/FMOD_Channel_Stop.html">Channel::stop</a></li>
+</ul><h3>
+<a name="channelcontrol" class="anchor" href="#channelcontrol"><span class="octicon octicon-link"></span></a>ChannelControl</h3>
+
+<p>The base class for both Channels and Channel Groups.</p>
+
+<h4>
+<a name="functions-2" class="anchor" href="#functions-2"><span class="octicon octicon-link"></span></a>Functions</h4>
+
+<ul>
+<li><a href="generated/FMOD_ChannelControl_AddDSP.html">ChannelControl::addDSP</a></li>
+<li><a href="generated/FMOD_ChannelControl_AddFadePoint.html">ChannelControl::addFadePoint</a></li>
+<li><a href="FMOD_ChannelControl_Get3DAttributes.html">ChannelControl::get3DAttributes</a></li>
+<li><a href="FMOD_ChannelControl_Get3DConeOrientation.html">ChannelControl::get3DConeOrientation</a></li>
+<li><a href="FMOD_ChannelControl_Get3DConeSettings.html">ChannelControl::get3DConeSettings</a></li>
+<li><a href="FMOD_ChannelControl_Get3DCustomRolloff.html">ChannelControl::get3DCustomRolloff</a></li>
+<li><a href="FMOD_ChannelControl_Get3DDistanceFilter.html">ChannelControl::get3DDistanceFilter</a></li>
+<li><a href="FMOD_ChannelControl_Get3DDopplerLevel.html">ChannelControl::get3DDopplerLevel</a></li>
+<li><a href="FMOD_ChannelControl_Get3DLevel.html">ChannelControl::get3DLevel</a></li>
+<li><a href="FMOD_ChannelControl_Get3DMinMaxDistance.html">ChannelControl::get3DMinMaxDistance</a></li>
+<li><a href="FMOD_ChannelControl_Get3DOcclusion.html">ChannelControl::get3DOcclusion</a></li>
+<li><a href="FMOD_ChannelControl_Get3DSpread.html">ChannelControl::get3DSpread</a></li>
+<li><a href="generated/FMOD_ChannelControl_GetAudibility.html">ChannelControl::getAudibility</a></li>
+<li><a href="generated/FMOD_ChannelControl_GetDSP.html">ChannelControl::getDSP</a></li>
+<li><a href="generated/FMOD_ChannelControl_GetDSPClock.html">ChannelControl::getDSPClock</a></li>
+<li><a href="generated/FMOD_ChannelControl_GetDelay.html">ChannelControl::getDelay</a></li>
+<li><a href="generated/FMOD_ChannelControl_GetFadePoints.html">ChannelControl::getFadePoints</a></li>
+<li><a href="generated/FMOD_ChannelControl_GetLowPassGain.html">ChannelControl::getLowPassGain</a></li>
+<li><a href="generated/FMOD_ChannelControl_GetMixMatrix.html">ChannelControl::getMixMatrix</a></li>
+<li><a href="generated/FMOD_ChannelControl_GetMute.html">ChannelControl::getMute</a></li>
+<li><a href="generated/FMOD_ChannelControl_GetNumDSPs.html">ChannelControl::getNumDSPs</a></li>
+<li><a href="generated/FMOD_ChannelControl_GetPaused.html">ChannelControl::getPaused</a></li>
+<li><a href="generated/FMOD_ChannelControl_GetPitch.html">ChannelControl::getPitch</a></li>
+<li><a href="generated/FMOD_ChannelControl_GetReverbProperties.html">ChannelControl::getReverbProperties</a></li>
+<li><a href="generated/FMOD_ChannelControl_GetSystemObject.html">ChannelControl::getSystemObject</a></li>
+<li><a href="generated/FMOD_ChannelControl_GetUserData.html">ChannelControl::getUserData</a></li>
+<li><a href="generated/FMOD_ChannelControl_GetVolume.html">ChannelControl::getVolume</a></li>
+<li><a href="generated/FMOD_ChannelControl_GetVolumeRamp.html">ChannelControl::getVolumeRamp</a></li>
+<li><a href="generated/FMOD_ChannelControl_IsPlaying.html">ChannelControl::isPlaying</a></li>
+<li><a href="generated/FMOD_ChannelControl_RemoveDSP.html">ChannelControl::removeDSP</a></li>
+<li><a href="generated/FMOD_ChannelControl_RemoveFadePoints.html">ChannelControl::removeFadePoints</a></li>
+<li><a href="FMOD_ChannelControl_Set3DAttributes.html">ChannelControl::set3DAttributes</a></li>
+<li><a href="FMOD_ChannelControl_Set3DConeOrientation.html">ChannelControl::set3DConeOrientation</a></li>
+<li><a href="FMOD_ChannelControl_Set3DConeSettings.html">ChannelControl::set3DConeSettings</a></li>
+<li><a href="FMOD_ChannelControl_Set3DCustomRolloff.html">ChannelControl::set3DCustomRolloff</a></li>
+<li><a href="FMOD_ChannelControl_Set3DDistanceFilter.html">ChannelControl::set3DDistanceFilter</a></li>
+<li><a href="FMOD_ChannelControl_Set3DDopplerLevel.html">ChannelControl::set3DDopplerLevel</a></li>
+<li><a href="FMOD_ChannelControl_Set3DLevel.html">ChannelControl::set3DLevel</a></li>
+<li><a href="FMOD_ChannelControl_Set3DMinMaxDistance.html">ChannelControl::set3DMinMaxDistance</a></li>
+<li><a href="FMOD_ChannelControl_Set3DOcclusion.html">ChannelControl::set3DOcclusion</a></li>
+<li><a href="FMOD_ChannelControl_Set3DSpread.html">ChannelControl::set3DSpread</a></li>
+<li><a href="generated/FMOD_ChannelControl_SetCallback.html">ChannelControl::setCallback</a></li>
+<li><a href="generated/FMOD_ChannelControl_SetDelay.html">ChannelControl::setDelay</a></li>
+<li><a href="generated/FMOD_ChannelControl_SetLowPassGain.html">ChannelControl::setLowPassGain</a></li>
+<li><a href="generated/FMOD_ChannelControl_SetMixLevelsInput.html">ChannelControl::setMixLevelsInput</a></li>
+<li><a href="generated/FMOD_ChannelControl_SetMixLevelsOutput.html">ChannelControl::setMixLevelsOutput</a></li>
+<li><a href="generated/FMOD_ChannelControl_SetMixMatrix.html">ChannelControl::setMixMatrix</a></li>
+<li><a href="generated/FMOD_ChannelControl_SetMute.html">ChannelControl::setMute</a></li>
+<li><a href="generated/FMOD_ChannelControl_SetPan.html">ChannelControl::setPan</a></li>
+<li><a href="generated/FMOD_ChannelControl_SetPaused.html">ChannelControl::setPaused</a></li>
+<li><a href="generated/FMOD_ChannelControl_SetPitch.html">ChannelControl::setPitch</a></li>
+<li><a href="generated/FMOD_ChannelControl_SetReverbProperties.html">ChannelControl::setReverbProperties</a></li>
+<li><a href="generated/FMOD_ChannelControl_SetUserData.html">ChannelControl::setUserData</a></li>
+<li><a href="generated/FMOD_ChannelControl_SetVolume.html">ChannelControl::setVolume</a></li>
+<li><a href="generated/FMOD_ChannelControl_SetVolumeRamp.html">ChannelControl::setVolumeRamp</a></li>
+<li><a href="generated/FMOD_ChannelControl_Stop.html">ChannelControl::stop</a></li>
+</ul><h3>
+<a name="channelgroup" class="anchor" href="#channelgroup"><span class="octicon octicon-link"></span></a>ChannelGroup</h3>
+
+<h4>
+<a name="functions-3" class="anchor" href="#functions-3"><span class="octicon octicon-link"></span></a>Functions</h4>
+
+<ul>
+<li><a href="generated/FMOD_ChannelGroup_AddDSP.html">ChannelGroup::addDSP</a></li>
+<li><a href="generated/FMOD_ChannelGroup_AddFadePoint.html">ChannelGroup::addFadePoint</a></li>
+<li><a href="generated/FMOD_ChannelGroup_AddGroup.html">ChannelGroup::addGroup</a></li>
+<li><a href="FMOD_ChannelGroup_Get3DAttributes.html">ChannelGroup::get3DAttributes</a></li>
+<li><a href="FMOD_ChannelGroup_Get3DConeOrientation.html">ChannelGroup::get3DConeOrientation</a></li>
+<li><a href="FMOD_ChannelGroup_Get3DConeSettings.html">ChannelGroup::get3DConeSettings</a></li>
+<li><a href="FMOD_ChannelGroup_Get3DCustomRolloff.html">ChannelGroup::get3DCustomRolloff</a></li>
+<li><a href="FMOD_ChannelGroup_Get3DDistanceFilter.html">ChannelGroup::get3DDistanceFilter</a></li>
+<li><a href="FMOD_ChannelGroup_Get3DDopplerLevel.html">ChannelGroup::get3DDopplerLevel</a></li>
+<li><a href="FMOD_ChannelGroup_Get3DLevel.html">ChannelGroup::get3DLevel</a></li>
+<li><a href="FMOD_ChannelGroup_Get3DMinMaxDistance.html">ChannelGroup::get3DMinMaxDistance</a></li>
+<li><a href="FMOD_ChannelGroup_Get3DOcclusion.html">ChannelGroup::get3DOcclusion</a></li>
+<li><a href="FMOD_ChannelGroup_Get3DSpread.html">ChannelGroup::get3DSpread</a></li>
+<li><a href="generated/FMOD_ChannelGroup_GetAudibility.html">ChannelGroup::getAudibility</a></li>
+<li><a href="generated/FMOD_ChannelGroup_GetChannel.html">ChannelGroup::getChannel</a></li>
+<li><a href="generated/FMOD_ChannelGroup_GetDSP.html">ChannelGroup::getDSP</a></li>
+<li><a href="generated/FMOD_ChannelGroup_GetDSPClock.html">ChannelGroup::getDSPClock</a></li>
+<li><a href="generated/FMOD_ChannelGroup_GetDSPIndex.html">ChannelGroup::getDSPIndex</a></li>
+<li><a href="generated/FMOD_ChannelGroup_GetDelay.html">ChannelGroup::getDelay</a></li>
+<li><a href="generated/FMOD_ChannelGroup_GetFadePoints.html">ChannelGroup::getFadePoints</a></li>
+<li><a href="generated/FMOD_ChannelGroup_GetGroup.html">ChannelGroup::getGroup</a></li>
+<li><a href="generated/FMOD_ChannelGroup_GetLowPassGain.html">ChannelGroup::getLowPassGain</a></li>
+<li><a href="generated/FMOD_ChannelGroup_GetMixMatrix.html">ChannelGroup::getMixMatrix</a></li>
+<li><a href="generated/FMOD_ChannelGroup_GetMute.html">ChannelGroup::getMute</a></li>
+<li><a href="generated/FMOD_ChannelGroup_GetName.html">ChannelGroup::getName</a></li>
+<li><a href="generated/FMOD_ChannelGroup_GetNumChannels.html">ChannelGroup::getNumChannels</a></li>
+<li><a href="generated/FMOD_ChannelGroup_GetNumDSPs.html">ChannelGroup::getNumDSPs</a></li>
+<li><a href="generated/FMOD_ChannelGroup_GetNumGroups.html">ChannelGroup::getNumGroups</a></li>
+<li><a href="generated/FMOD_ChannelGroup_GetParentGroup.html">ChannelGroup::getParentGroup</a></li>
+<li><a href="generated/FMOD_ChannelGroup_GetPaused.html">ChannelGroup::getPaused</a></li>
+<li><a href="generated/FMOD_ChannelGroup_GetPitch.html">ChannelGroup::getPitch</a></li>
+<li><a href="generated/FMOD_ChannelGroup_GetReverbProperties.html">ChannelGroup::getReverbProperties</a></li>
+<li><a href="generated/FMOD_ChannelGroup_GetSystemObject.html">ChannelGroup::getSystemObject</a></li>
+<li><a href="generated/FMOD_ChannelGroup_GetUserData.html">ChannelGroup::getUserData</a></li>
+<li><a href="generated/FMOD_ChannelGroup_GetVolume.html">ChannelGroup::getVolume</a></li>
+<li><a href="generated/FMOD_ChannelGroup_GetVolumeRamp.html">ChannelGroup::getVolumeRamp</a></li>
+<li><a href="generated/FMOD_ChannelGroup_IsPlaying.html">ChannelGroup::isPlaying</a></li>
+<li><a href="generated/FMOD_ChannelGroup_Release.html">ChannelGroup::release</a></li>
+<li><a href="generated/FMOD_ChannelGroup_RemoveDSP.html">ChannelGroup::removeDSP</a></li>
+<li><a href="generated/FMOD_ChannelGroup_RemoveFadePoints.html">ChannelGroup::removeFadePoints</a></li>
+<li><a href="FMOD_ChannelGroup_Set3DAttributes.html">ChannelGroup::set3DAttributes</a></li>
+<li><a href="FMOD_ChannelGroup_Set3DConeOrientation.html">ChannelGroup::set3DConeOrientation</a></li>
+<li><a href="FMOD_ChannelGroup_Set3DConeSettings.html">ChannelGroup::set3DConeSettings</a></li>
+<li><a href="FMOD_ChannelGroup_Set3DCustomRolloff.html">ChannelGroup::set3DCustomRolloff</a></li>
+<li><a href="FMOD_ChannelGroup_Set3DDistanceFilter.html">ChannelGroup::set3DDistanceFilter</a></li>
+<li><a href="FMOD_ChannelGroup_Set3DDopplerLevel.html">ChannelGroup::set3DDopplerLevel</a></li>
+<li><a href="FMOD_ChannelGroup_Set3DLevel.html">ChannelGroup::set3DLevel</a></li>
+<li><a href="FMOD_ChannelGroup_Set3DMinMaxDistance.html">ChannelGroup::set3DMinMaxDistance</a></li>
+<li><a href="FMOD_ChannelGroup_Set3DOcclusion.html">ChannelGroup::set3DOcclusion</a></li>
+<li><a href="FMOD_ChannelGroup_Set3DSpread.html">ChannelGroup::set3DSpread</a></li>
+<li><a href="generated/FMOD_ChannelGroup_SetCallback.html">ChannelGroup::setCallback</a></li>
+<li><a href="generated/FMOD_ChannelGroup_SetDSPIndex.html">ChannelGroup::setDSPIndex</a></li>
+<li><a href="generated/FMOD_ChannelGroup_SetDelay.html">ChannelGroup::setDelay</a></li>
+<li><a href="generated/FMOD_ChannelGroup_SetLowPassGain.html">ChannelGroup::setLowPassGain</a></li>
+<li><a href="generated/FMOD_ChannelGroup_SetMixLevelsInput.html">ChannelGroup::setMixLevelsInput</a></li>
+<li><a href="generated/FMOD_ChannelGroup_SetMixLevelsOutput.html">ChannelGroup::setMixLevelsOutput</a></li>
+<li><a href="generated/FMOD_ChannelGroup_SetMixMatrix.html">ChannelGroup::setMixMatrix</a></li>
+<li><a href="generated/FMOD_ChannelGroup_SetMute.html">ChannelGroup::setMute</a></li>
+<li><a href="generated/FMOD_ChannelGroup_SetPan.html">ChannelGroup::setPan</a></li>
+<li><a href="generated/FMOD_ChannelGroup_SetPaused.html">ChannelGroup::setPaused</a></li>
+<li><a href="generated/FMOD_ChannelGroup_SetPitch.html">ChannelGroup::setPitch</a></li>
+<li><a href="generated/FMOD_ChannelGroup_SetReverbProperties.html">ChannelGroup::setReverbProperties</a></li>
+<li><a href="generated/FMOD_ChannelGroup_SetUserData.html">ChannelGroup::setUserData</a></li>
+<li><a href="generated/FMOD_ChannelGroup_SetVolume.html">ChannelGroup::setVolume</a></li>
+<li><a href="generated/FMOD_ChannelGroup_SetVolumeRamp.html">ChannelGroup::setVolumeRamp</a></li>
+<li><a href="generated/FMOD_ChannelGroup_Stop.html">ChannelGroup::stop</a></li>
+</ul><h3>
+<a name="defines-1" class="anchor" href="#defines-1"><span class="octicon octicon-link"></span></a>Defines</h3>
+
+<ul>
+<li><a href="generated/FMOD_CHANNELMASK.html">FMOD_CHANNELMASK</a></li>
+<li><a href="generated/FMOD_CODEC_WAVEFORMAT_VERSION.html">FMOD_CODEC_WAVEFORMAT_VERSION</a></li>
+<li><a href="generated/FMOD_DEBUGLEVEL.html">FMOD_DEBUGLEVEL</a></li>
+<li><a href="generated/FMOD_INITFLAGS.html">FMOD_INITFLAGS</a></li>
+<li><a href="generated/FMOD_MEMORY_TYPE.html">FMOD_MEMORY_TYPE</a></li>
+<li>[FMOD_MODE][] //TODO: make sure reference is right</li>
+<li>
+<a href="generated/FMOD_MODE.html">FMOD_OPENMEMORY_POINT</a> //TODO: make sure reference is right</li>
+<li><a href="generated/FMOD_PORT_INDEX.html">FMOD_PORT_INDEX</a></li>
+<li><a href="generated/FMOD_REVERB_PRESETS.html">FMOD_REVERB_PRESETS</a></li>
+<li><a href="generated/FMOD_SYSTEM_CALLBACK_TYPE.html">FMOD_SYSTEM_CALLBACK_TYPE</a></li>
+<li><a href="generated/FMOD_TIMEUNIT.html">FMOD_TIMEUNIT</a></li>
+</ul><h3>
+<a name="dsp" class="anchor" href="#dsp"><span class="octicon octicon-link"></span></a>DSP</h3>
+
+<h4>
+<a name="functions-4" class="anchor" href="#functions-4"><span class="octicon octicon-link"></span></a>Functions</h4>
+
+<ul>
+<li><a href="generated/FMOD_DSP_AddInput.html">DSP::addInput</a></li>
+<li><a href="generated/FMOD_DSP_DisconnectAll.html">DSP::disconnectAll</a></li>
+<li><a href="generated/FMOD_DSP_DisconnectFrom.html">DSP::disconnectFrom</a></li>
+<li><a href="generated/FMOD_DSP_GetActive.html">DSP::getActive</a></li>
+<li><a href="generated/FMOD_DSP_GetBypass.html">DSP::getBypass</a></li>
+<li><a href="generated/FMOD_DSP_GetChannelFormat.html">DSP::getChannelFormat</a></li>
+<li><a href="generated/FMOD_DSP_GetDataParameterIndex.html">DSP::getDataParameterIndex</a></li>
+<li><a href="generated/FMOD_DSP_GetIdle.html">DSP::getIdle</a></li>
+<li><a href="generated/FMOD_DSP_GetInfo.html">DSP::getInfo</a></li>
+<li><a href="generated/FMOD_DSP_GetInput.html">DSP::getInput</a></li>
+<li><a href="generated/FMOD_DSP_GetMeteringEnabled.html">DSP::getMeteringEnabled</a></li>
+<li><a href="generated/FMOD_DSP_GetMeteringInfo.html">DSP::getMeteringInfo</a></li>
+<li><a href="generated/FMOD_DSP_GetNumInputs.html">DSP::getNumInputs</a></li>
+<li><a href="generated/FMOD_DSP_GetNumOutputs.html">DSP::getNumOutputs</a></li>
+<li><a href="generated/FMOD_DSP_GetNumParameters.html">DSP::getNumParameters</a></li>
+<li><a href="generated/FMOD_DSP_GetOutput.html">DSP::getOutput</a></li>
+<li><a href="generated/FMOD_DSP_GetOutputChannelFormat.html">DSP::getOutputChannelFormat</a></li>
+<li><a href="generated/FMOD_DSP_GetParameterBool.html">DSP::getParameterBool</a></li>
+<li><a href="generated/FMOD_DSP_GetParameterData.html">DSP::getParameterData</a></li>
+<li><a href="generated/FMOD_DSP_GetParameterFloat.html">DSP::getParameterFloat</a></li>
+<li><a href="generated/FMOD_DSP_GetParameterInfo.html">DSP::getParameterInfo</a></li>
+<li><a href="generated/FMOD_DSP_GetParameterInt.html">DSP::getParameterInt</a></li>
+<li><a href="generated/FMOD_DSP_GetSystemObject.html">DSP::getSystemObject</a></li>
+<li><a href="generated/FMOD_DSP_GetType.html">DSP::getType</a></li>
+<li><a href="generated/FMOD_DSP_GetUserData.html">DSP::getUserData</a></li>
+<li><a href="generated/FMOD_DSP_Release.html">DSP::release</a></li>
+<li><a href="generated/FMOD_DSP_Reset.html">DSP::reset</a></li>
+<li><a href="generated/FMOD_DSP_SetActive.html">DSP::setActive</a></li>
+<li><a href="generated/FMOD_DSP_SetBypass.html">DSP::setBypass</a></li>
+<li><a href="generated/FMOD_DSP_SetChannelFormat.html">DSP::setChannelFormat</a></li>
+<li><a href="generated/FMOD_DSP_SetMeteringEnabled.html">DSP::setMeteringEnabled</a></li>
+<li><a href="generated/FMOD_DSP_SetParameterBool.html">DSP::setParameterBool</a></li>
+<li><a href="generated/FMOD_DSP_SetParameterData.html">DSP::setParameterData</a></li>
+<li><a href="generated/FMOD_DSP_SetParameterFloat.html">DSP::setParameterFloat</a></li>
+<li><a href="generated/FMOD_DSP_SetParameterInt.html">DSP::setParameterInt</a></li>
+<li><a href="generated/FMOD_DSP_SetUserData.html">DSP::setUserData</a></li>
+<li><a href="generated/FMOD_DSP_ShowConfigDialog.html">DSP::showConfigDialog</a></li>
+</ul><h3>
+<a name="dspconnection" class="anchor" href="#dspconnection"><span class="octicon octicon-link"></span></a>DSPConnection</h3>
+
+<h4>
+<a name="functions-5" class="anchor" href="#functions-5"><span class="octicon octicon-link"></span></a>Functions</h4>
+
+<ul>
+<li><a href="generated/FMOD_DSPConnection_GetInput.html">DSPConnection::getInput</a></li>
+<li><a href="generated/FMOD_DSPConnection_GetMix.html">DSPConnection::getMix</a></li>
+<li><a href="generated/FMOD_DSPConnection_GetMixMatrix.html">DSPConnection::getMixMatrix</a></li>
+<li><a href="generated/FMOD_DSPConnection_GetOutput.html">DSPConnection::getOutput</a></li>
+<li><a href="generated/FMOD_DSPConnection_GetType.html">DSPConnection::getType</a></li>
+<li><a href="generated/FMOD_DSPConnection_GetUserData.html">DSPConnection::getUserData</a></li>
+<li><a href="generated/FMOD_DSPConnection_SetMix.html">DSPConnection::setMix</a></li>
+<li><a href="generated/FMOD_DSPConnection_SetMixMatrix.html">DSPConnection::setMixMatrix</a></li>
+<li><a href="generated/FMOD_DSPConnection_SetUserData.html">DSPConnection::setUserData</a></li>
+</ul><h4>
+<a name="enumerations-1" class="anchor" href="#enumerations-1"><span class="octicon octicon-link"></span></a>Enumerations</h4>
+
+<ul>
+<li><a href="generated/FMOD_CHANNELCONTROL_CALLBACK_TYPE.html">FMOD_CHANNELCONTROL_CALLBACK_TYPE</a></li>
+<li><a href="generated/FMOD_CHANNELCONTROL_DSP_INDEX.html">FMOD_CHANNELCONTROL_DSP_INDEX</a></li>
+<li><a href="generated/FMOD_CHANNELCONTROL_TYPE.html">FMOD_CHANNELCONTROL_TYPE</a></li>
+<li><a href="generated/FMOD_CHANNELORDER.html">FMOD_CHANNELORDER</a></li>
+<li><a href="generated/FMOD_DSPCONNECTION_TYPE.html">FMOD_DSPCONNECTION_TYPE</a></li>
+<li><a href="generated/FMOD_DSP_CHORUS.html">FMOD_DSP_CHORUS</a></li>
+<li><a href="generated/FMOD_DSP_COMPRESSOR.html">FMOD_DSP_COMPRESSOR</a></li>
+<li><a href="generated/FMOD_DSP_DELAY.html">FMOD_DSP_DELAY</a></li>
+<li><a href="generated/FMOD_DSP_DISTORTION.html">FMOD_DSP_DISTORTION</a></li>
+<li><a href="generated/FMOD_DSP_ECHO.html">FMOD_DSP_ECHO</a></li>
+<li><a href="generated/FMOD_DSP_ENVELOPEFOLLOWER.html">FMOD_DSP_ENVELOPEFOLLOWER</a></li>
+<li><a href="generated/FMOD_DSP_FFT.html">FMOD_DSP_FFT</a></li>
+<li><a href="generated/FMOD_DSP_FFT_WINDOW.html">FMOD_DSP_FFT_WINDOW</a></li>
+<li><a href="generated/FMOD_DSP_FLANGE.html">FMOD_DSP_FLANGE</a></li>
+<li><a href="generated/FMOD_DSP_HIGHPASS.html">FMOD_DSP_HIGHPASS</a></li>
+<li><a href="generated/FMOD_DSP_HIGHPASS_SIMPLE.html">FMOD_DSP_HIGHPASS_SIMPLE</a></li>
+<li><a href="generated/FMOD_DSP_ITECHO.html">FMOD_DSP_ITECHO</a></li>
+<li><a href="generated/FMOD_DSP_ITLOWPASS.html">FMOD_DSP_ITLOWPASS</a></li>
+<li><a href="generated/FMOD_DSP_LIMITER.html">FMOD_DSP_LIMITER</a></li>
+<li><a href="generated/FMOD_DSP_LOWPASS.html">FMOD_DSP_LOWPASS</a></li>
+<li><a href="generated/FMOD_DSP_LOWPASS_SIMPLE.html">FMOD_DSP_LOWPASS_SIMPLE</a></li>
+<li><a href="generated/FMOD_DSP_NORMALIZE.html">FMOD_DSP_NORMALIZE</a></li>
+<li><a href="generated/FMOD_DSP_OSCILLATOR.html">FMOD_DSP_OSCILLATOR</a></li>
+<li><a href="generated/FMOD_DSP_PAN.html">FMOD_DSP_PAN</a></li>
+<li><a href="FMOD_DSP_PAN_3D_EXTENT_MODE_TYPE.html">FMOD_DSP_PAN_3D_EXTENT_MODE_TYPE</a></li>
+<li><a href="FMOD_DSP_PAN_3D_ROLLOFF_TYPE.html">FMOD_DSP_PAN_3D_ROLLOFF_TYPE</a></li>
+<li><a href="generated/FMOD_DSP_PAN_SURROUND_FROM_STEREO_MODE_TYPE.html">FMOD_DSP_PAN_SURROUND_FROM_STEREO_MODE_TYPE</a></li>
+<li><a href="generated/FMOD_DSP_PARAMEQ.html">FMOD_DSP_PARAMEQ</a></li>
+<li><a href="generated/FMOD_DSP_PARAMETER_DATA_TYPE.html">FMOD_DSP_PARAMETER_DATA_TYPE</a></li>
+<li><a href="generated/FMOD_DSP_PARAMETER_FLOAT_MAPPING_TYPE.html">FMOD_DSP_PARAMETER_FLOAT_MAPPING_TYPE</a></li>
+<li><a href="generated/FMOD_DSP_PARAMETER_TYPE.html">FMOD_DSP_PARAMETER_TYPE</a></li>
+<li><a href="generated/FMOD_DSP_PITCHSHIFT.html">FMOD_DSP_PITCHSHIFT</a></li>
+<li><a href="generated/FMOD_DSP_PROCESS_OPERATION.html">FMOD_DSP_PROCESS_OPERATION</a></li>
+<li><a href="generated/FMOD_DSP_RESAMPLER.html">FMOD_DSP_RESAMPLER</a></li>
+<li><a href="generated/FMOD_DSP_RETURN.html">FMOD_DSP_RETURN</a></li>
+<li><a href="generated/FMOD_DSP_SEND.html">FMOD_DSP_SEND</a></li>
+<li><a href="generated/FMOD_DSP_SFXREVERB.html">FMOD_DSP_SFXREVERB</a></li>
+<li><a href="generated/FMOD_DSP_THREE_EQ.html">FMOD_DSP_THREE_EQ</a></li>
+<li><a href="generated/FMOD_DSP_THREE_EQ_CROSSOVERSLOPE_TYPE.html">FMOD_DSP_THREE_EQ_CROSSOVERSLOPE_TYPE</a></li>
+<li><a href="generated/FMOD_DSP_TREMOLO.html">FMOD_DSP_TREMOLO</a></li>
+<li><a href="generated/FMOD_DSP_TYPE.html">FMOD_DSP_TYPE</a></li>
+<li><a href="generated/FMOD_ERRORCALLBACK_INSTANCETYPE.html">FMOD_ERRORCALLBACK_INSTANCETYPE</a></li>
+<li><a href="generated/FMOD_OPENSTATE.html">FMOD_OPENSTATE</a></li>
+<li><a href="generated/FMOD_OUTPUTTYPE.html">FMOD_OUTPUTTYPE</a></li>
+<li><a href="generated/FMOD_PLUGINTYPE.html">FMOD_PLUGINTYPE</a></li>
+<li><a href="generated/FMOD_RESULT.html">FMOD_RESULT</a></li>
+<li><a href="generated/FMOD_SOUNDGROUP_BEHAVIOR.html">FMOD_SOUNDGROUP_BEHAVIOR</a></li>
+<li><a href="generated/FMOD_SOUND_FORMAT.html">FMOD_SOUND_FORMAT</a></li>
+<li><a href="generated/FMOD_SOUND_TYPE.html">FMOD_SOUND_TYPE</a></li>
+<li><a href="generated/FMOD_SPEAKER.html">FMOD_SPEAKER</a></li>
+<li><a href="generated/FMOD_SPEAKERMODE.html">FMOD_SPEAKERMODE</a></li>
+<li><a href="generated/FMOD_TAGDATATYPE.html">FMOD_TAGDATATYPE</a></li>
+<li><a href="generated/FMOD_TAGTYPE.html">FMOD_TAGTYPE</a></li>
+</ul><h3>
+<a name="functions-6" class="anchor" href="#functions-6"><span class="octicon octicon-link"></span></a>Functions</h3>
+
+<ul>
+<li><a href="generated/FMOD_Debug_GetLevel.html">Debug_GetLevel</a></li>
+<li><a href="generated/FMOD_Debug_SetLevel.html">Debug_SetLevel</a></li>
+<li><a href="generated/FMOD_File_GetDiskBusy.html">File_GetDiskBusy</a></li>
+<li><a href="generated/FMOD_File_SetDiskBusy.html">File_SetDiskBusy</a></li>
+<li><a href="generated/FMOD_Memory_GetStats.html">Memory_GetStats</a></li>
+<li><a href="generated/FMOD_Memory_Initialize.html">Memory_Initialize</a></li>
+<li><a href="generated/FMOD_System_Create.html">System_Create</a></li>
+</ul><h3>
+<a name="geometry" class="anchor" href="#geometry"><span class="octicon octicon-link"></span></a>Geometry</h3>
+
+<h4>
+<a name="functions-7" class="anchor" href="#functions-7"><span class="octicon octicon-link"></span></a>Functions</h4>
+
+<ul>
+<li><a href="generated/FMOD_Geometry_AddPolygon.html">Geometry::addPolygon</a></li>
+<li><a href="generated/FMOD_Geometry_GetActive.html">Geometry::getActive</a></li>
+<li><a href="generated/FMOD_Geometry_GetMaxPolygons.html">Geometry::getMaxPolygons</a></li>
+<li><a href="generated/FMOD_Geometry_GetNumPolygons.html">Geometry::getNumPolygons</a></li>
+<li><a href="generated/FMOD_Geometry_GetPolygonAttributes.html">Geometry::getPolygonAttributes</a></li>
+<li><a href="generated/FMOD_Geometry_GetPolygonNumVertices.html">Geometry::getPolygonNumVertices</a></li>
+<li><a href="generated/FMOD_Geometry_GetPolygonVertex.html">Geometry::getPolygonVertex</a></li>
+<li><a href="generated/FMOD_Geometry_GetPosition.html">Geometry::getPosition</a></li>
+<li><a href="generated/FMOD_Geometry_GetRotation.html">Geometry::getRotation</a></li>
+<li><a href="generated/FMOD_Geometry_GetScale.html">Geometry::getScale</a></li>
+<li><a href="generated/FMOD_Geometry_GetUserData.html">Geometry::getUserData</a></li>
+<li><a href="generated/FMOD_Geometry_Release.html">Geometry::release</a></li>
+<li><a href="generated/FMOD_Geometry_Save.html">Geometry::save</a></li>
+<li><a href="generated/FMOD_Geometry_SetActive.html">Geometry::setActive</a></li>
+<li><a href="generated/FMOD_Geometry_SetPolygonAttributes.html">Geometry::setPolygonAttributes</a></li>
+<li><a href="generated/FMOD_Geometry_SetPolygonVertex.html">Geometry::setPolygonVertex</a></li>
+<li><a href="generated/FMOD_Geometry_SetPosition.html">Geometry::setPosition</a></li>
+<li><a href="generated/FMOD_Geometry_SetRotation.html">Geometry::setRotation</a></li>
+<li><a href="generated/FMOD_Geometry_SetScale.html">Geometry::setScale</a></li>
+<li><a href="generated/FMOD_Geometry_SetUserData.html">Geometry::setUserData</a></li>
+</ul><h3>
+<a name="reverb3d" class="anchor" href="#reverb3d"><span class="octicon octicon-link"></span></a>Reverb3D</h3>
+
+<h4>
+<a name="functions-8" class="anchor" href="#functions-8"><span class="octicon octicon-link"></span></a>Functions</h4>
+
+<ul>
+<li><a href="FMOD_Reverb3D_Get3DAttributes.html">Reverb3D::get3DAttributes</a></li>
+<li><a href="FMOD_Reverb3D_GetActive.html">Reverb3D::getActive</a></li>
+<li><a href="FMOD_Reverb3D_GetProperties.html">Reverb3D::getProperties</a></li>
+<li><a href="FMOD_Reverb3D_GetUserData.html">Reverb3D::getUserData</a></li>
+<li><a href="FMOD_Reverb3D_Release.html">Reverb3D::release</a></li>
+<li><a href="FMOD_Reverb3D_Set3DAttributes.html">Reverb3D::set3DAttributes</a></li>
+<li><a href="FMOD_Reverb3D_SetActive.html">Reverb3D::setActive</a></li>
+<li><a href="FMOD_Reverb3D_SetProperties.html">Reverb3D::setProperties</a></li>
+<li><a href="FMOD_Reverb3D_SetUserData.html">Reverb3D::setUserData</a></li>
+</ul><h3>
+<a name="sound" class="anchor" href="#sound"><span class="octicon octicon-link"></span></a>Sound</h3>
+
+<h4>
+<a name="functions-9" class="anchor" href="#functions-9"><span class="octicon octicon-link"></span></a>Functions</h4>
+
+<ul>
+<li><a href="generated/FMOD_Sound_AddSyncPoint.html">Sound::addSyncPoint</a></li>
+<li><a href="generated/FMOD_Sound_DeleteSyncPoint.html">Sound::deleteSyncPoint</a></li>
+<li><a href="FMOD_Sound_Get3DConeSettings.html">Sound::get3DConeSettings</a></li>
+<li><a href="FMOD_Sound_Get3DCustomRolloff.html">Sound::get3DCustomRolloff</a></li>
+<li><a href="FMOD_Sound_Get3DMinMaxDistance.html">Sound::get3DMinMaxDistance</a></li>
+<li><a href="generated/FMOD_Sound_GetDefaults.html">Sound::getDefaults</a></li>
+<li><a href="generated/FMOD_Sound_GetFormat.html">Sound::getFormat</a></li>
+<li><a href="generated/FMOD_Sound_GetLength.html">Sound::getLength</a></li>
+<li><a href="generated/FMOD_Sound_GetLoopCount.html">Sound::getLoopCount</a></li>
+<li><a href="generated/FMOD_Sound_GetLoopPoints.html">Sound::getLoopPoints</a></li>
+<li><a href="generated/FMOD_Sound_GetMode.html">Sound::getMode</a></li>
+<li><a href="generated/FMOD_Sound_GetMusicChannelVolume.html">Sound::getMusicChannelVolume</a></li>
+<li><a href="generated/FMOD_Sound_GetMusicNumChannels.html">Sound::getMusicNumChannels</a></li>
+<li><a href="generated/FMOD_Sound_GetMusicSpeed.html">Sound::getMusicSpeed</a></li>
+<li><a href="generated/FMOD_Sound_GetName.html">Sound::getName</a></li>
+<li><a href="generated/FMOD_Sound_GetNumSubSounds.html">Sound::getNumSubSounds</a></li>
+<li><a href="generated/FMOD_Sound_GetNumSyncPoints.html">Sound::getNumSyncPoints</a></li>
+<li><a href="generated/FMOD_Sound_GetNumTags.html">Sound::getNumTags</a></li>
+<li><a href="generated/FMOD_Sound_GetOpenState.html">Sound::getOpenState</a></li>
+<li><a href="generated/FMOD_Sound_GetSoundGroup.html">Sound::getSoundGroup</a></li>
+<li><a href="generated/FMOD_Sound_GetSubSound.html">Sound::getSubSound</a></li>
+<li><a href="generated/FMOD_Sound_GetSubSoundParent.html">Sound::getSubSoundParent</a></li>
+<li><a href="generated/FMOD_Sound_GetSyncPoint.html">Sound::getSyncPoint</a></li>
+<li><a href="generated/FMOD_Sound_GetSyncPointInfo.html">Sound::getSyncPointInfo</a></li>
+<li><a href="generated/FMOD_Sound_GetSystemObject.html">Sound::getSystemObject</a></li>
+<li><a href="generated/FMOD_Sound_GetTag.html">Sound::getTag</a></li>
+<li><a href="generated/FMOD_Sound_GetUserData.html">Sound::getUserData</a></li>
+<li><a href="generated/FMOD_Sound_Lock.html">Sound::lock</a></li>
+<li><a href="generated/FMOD_Sound_ReadData.html">Sound::readData</a></li>
+<li><a href="generated/FMOD_Sound_Release.html">Sound::release</a></li>
+<li><a href="generated/FMOD_Sound_SeekData.html">Sound::seekData</a></li>
+<li><a href="FMOD_Sound_Set3DConeSettings.html">Sound::set3DConeSettings</a></li>
+<li><a href="FMOD_Sound_Set3DCustomRolloff.html">Sound::set3DCustomRolloff</a></li>
+<li><a href="FMOD_Sound_Set3DMinMaxDistance.html">Sound::set3DMinMaxDistance</a></li>
+<li><a href="generated/FMOD_Sound_SetDefaults.html">Sound::setDefaults</a></li>
+<li><a href="generated/FMOD_Sound_SetLoopCount.html">Sound::setLoopCount</a></li>
+<li><a href="generated/FMOD_Sound_SetLoopPoints.html">Sound::setLoopPoints</a></li>
+<li><a href="generated/FMOD_Sound_SetMode.html">Sound::setMode</a></li>
+<li><a href="generated/FMOD_Sound_SetMusicChannelVolume.html">Sound::setMusicChannelVolume</a></li>
+<li><a href="generated/FMOD_Sound_SetMusicSpeed.html">Sound::setMusicSpeed</a></li>
+<li><a href="generated/FMOD_Sound_SetSoundGroup.html">Sound::setSoundGroup</a></li>
+<li><a href="generated/FMOD_Sound_SetSubSound.html">Sound::setSubSound</a></li>
+<li><a href="generated/FMOD_Sound_SetUserData.html">Sound::setUserData</a></li>
+<li><a href="generated/FMOD_Sound_Unlock.html">Sound::unlock</a></li>
+</ul><h3>
+<a name="soundgroup" class="anchor" href="#soundgroup"><span class="octicon octicon-link"></span></a>SoundGroup</h3>
+
+<h4>
+<a name="functions-10" class="anchor" href="#functions-10"><span class="octicon octicon-link"></span></a>Functions</h4>
+
+<ul>
+<li><a href="generated/FMOD_SoundGroup_GetMaxAudible.html">SoundGroup::getMaxAudible</a></li>
+<li><a href="generated/FMOD_SoundGroup_GetMaxAudibleBehavior.html">SoundGroup::getMaxAudibleBehavior</a></li>
+<li><a href="generated/FMOD_SoundGroup_GetMuteFadeSpeed.html">SoundGroup::getMuteFadeSpeed</a></li>
+<li><a href="generated/FMOD_SoundGroup_GetName.html">SoundGroup::getName</a></li>
+<li><a href="generated/FMOD_SoundGroup_GetNumPlaying.html">SoundGroup::getNumPlaying</a></li>
+<li><a href="generated/FMOD_SoundGroup_GetNumSounds.html">SoundGroup::getNumSounds</a></li>
+<li><a href="generated/FMOD_SoundGroup_GetSound.html">SoundGroup::getSound</a></li>
+<li><a href="generated/FMOD_SoundGroup_GetSystemObject.html">SoundGroup::getSystemObject</a></li>
+<li><a href="generated/FMOD_SoundGroup_GetUserData.html">SoundGroup::getUserData</a></li>
+<li><a href="generated/FMOD_SoundGroup_GetVolume.html">SoundGroup::getVolume</a></li>
+<li><a href="generated/FMOD_SoundGroup_Release.html">SoundGroup::release</a></li>
+<li><a href="generated/FMOD_SoundGroup_SetMaxAudible.html">SoundGroup::setMaxAudible</a></li>
+<li><a href="generated/FMOD_SoundGroup_SetMaxAudibleBehavior.html">SoundGroup::setMaxAudibleBehavior</a></li>
+<li><a href="generated/FMOD_SoundGroup_SetMuteFadeSpeed.html">SoundGroup::setMuteFadeSpeed</a></li>
+<li><a href="generated/FMOD_SoundGroup_SetUserData.html">SoundGroup::setUserData</a></li>
+<li><a href="generated/FMOD_SoundGroup_SetVolume.html">SoundGroup::setVolume</a></li>
+<li><a href="generated/FMOD_SoundGroup_Stop.html">SoundGroup::stop</a></li>
+</ul><h3>
+<a name="system" class="anchor" href="#system"><span class="octicon octicon-link"></span></a>System</h3>
+
+<p>The main object for the FMOD Low Level System.</p>
+
+<h4>
+<a name="functions-11" class="anchor" href="#functions-11"><span class="octicon octicon-link"></span></a>Functions</h4>
+
+<ul>
+<li><a href="generated/FMOD_System_AttachChannelGroupToPort.html">System::attachChannelGroupToPort</a></li>
+<li><a href="generated/FMOD_System_AttachFileSystem.html">System::attachFileSystem</a></li>
+<li><a href="generated/FMOD_System_Close.html">System::close</a></li>
+<li><a href="generated/FMOD_System_CreateChannelGroup.html">System::createChannelGroup</a></li>
+<li><a href="generated/FMOD_System_CreateDSP.html">System::createDSP</a></li>
+<li><a href="generated/FMOD_System_CreateDSPByPlugin.html">System::createDSPByPlugin</a></li>
+<li><a href="generated/FMOD_System_CreateDSPByType.html">System::createDSPByType</a></li>
+<li><a href="generated/FMOD_System_CreateGeometry.html">System::createGeometry</a></li>
+<li><a href="FMOD_System_CreateReverb3D.html">System::createReverb3D</a></li>
+<li><a href="generated/FMOD_System_CreateSound.html">System::createSound</a></li>
+<li><a href="generated/FMOD_System_CreateSoundGroup.html">System::createSoundGroup</a></li>
+<li><a href="generated/FMOD_System_CreateStream.html">System::createStream</a></li>
+<li><a href="generated/FMOD_System_DetachChannelGroupFromPort.html">System::detachChannelGroupFromPort</a></li>
+<li><a href="FMOD_System_Get3DListenerAttributes.html">System::get3DListenerAttributes</a></li>
+<li><a href="FMOD_System_Get3DNumListeners.html">System::get3DNumListeners</a></li>
+<li><a href="FMOD_System_Get3DSettings.html">System::get3DSettings</a></li>
+<li><a href="generated/FMOD_System_GetAdvancedSettings.html">System::getAdvancedSettings</a></li>
+<li><a href="generated/FMOD_System_GetCPUUsage.html">System::getCPUUsage</a></li>
+<li><a href="generated/FMOD_System_GetChannel.html">System::getChannel</a></li>
+<li><a href="generated/FMOD_System_GetChannelsPlaying.html">System::getChannelsPlaying</a></li>
+<li><a href="generated/FMOD_System_GetDSPBufferSize.html">System::getDSPBufferSize</a></li>
+<li><a href="generated/FMOD_System_GetDSPInfoByPlugin.html">System::getDSPInfoByPlugin</a></li>
+<li><a href="generated/FMOD_System_GetDriver.html">System::getDriver</a></li>
+<li><a href="generated/FMOD_System_GetDriverInfo.html">System::getDriverInfo</a></li>
+<li><a href="generated/FMOD_System_GetGeometryOcclusion.html">System::getGeometryOcclusion</a></li>
+<li><a href="generated/FMOD_System_GetGeometrySettings.html">System::getGeometrySettings</a></li>
+<li><a href="generated/FMOD_System_GetMasterChannelGroup.html">System::getMasterChannelGroup</a></li>
+<li><a href="generated/FMOD_System_GetMasterSoundGroup.html">System::getMasterSoundGroup</a></li>
+<li><a href="generated/FMOD_System_GetNetworkProxy.html">System::getNetworkProxy</a></li>
+<li><a href="generated/FMOD_System_GetNetworkTimeout.html">System::getNetworkTimeout</a></li>
+<li><a href="generated/FMOD_System_GetNumDrivers.html">System::getNumDrivers</a></li>
+<li><a href="generated/FMOD_System_GetNumPlugins.html">System::getNumPlugins</a></li>
+<li><a href="generated/FMOD_System_GetOutput.html">System::getOutput</a></li>
+<li><a href="generated/FMOD_System_GetOutputByPlugin.html">System::getOutputByPlugin</a></li>
+<li><a href="generated/FMOD_System_GetOutputHandle.html">System::getOutputHandle</a></li>
+<li><a href="generated/FMOD_System_GetPluginHandle.html">System::getPluginHandle</a></li>
+<li><a href="generated/FMOD_System_GetPluginInfo.html">System::getPluginInfo</a></li>
+<li><a href="generated/FMOD_System_GetRecordDriverInfo.html">System::getRecordDriverInfo</a></li>
+<li><a href="generated/FMOD_System_GetRecordNumDrivers.html">System::getRecordNumDrivers</a></li>
+<li><a href="generated/FMOD_System_GetRecordPosition.html">System::getRecordPosition</a></li>
+<li><a href="generated/FMOD_System_GetReverbProperties.html">System::getReverbProperties</a></li>
+<li><a href="generated/FMOD_System_GetSoftwareChannels.html">System::getSoftwareChannels</a></li>
+<li><a href="generated/FMOD_System_GetSoftwareFormat.html">System::getSoftwareFormat</a></li>
+<li><a href="generated/FMOD_System_GetSoundRAM.html">System::getSoundRAM</a></li>
+<li><a href="generated/FMOD_System_GetSpeakerPosition.html">System::getSpeakerPosition</a></li>
+<li><a href="generated/FMOD_System_GetStreamBufferSize.html">System::getStreamBufferSize</a></li>
+<li><a href="generated/FMOD_System_GetUserData.html">System::getUserData</a></li>
+<li><a href="generated/FMOD_System_GetVersion.html">System::getVersion</a></li>
+<li><a href="generated/FMOD_System_Init.html">System::init</a></li>
+<li><a href="generated/FMOD_System_IsRecording.html">System::isRecording</a></li>
+<li><a href="generated/FMOD_System_LoadGeometry.html">System::loadGeometry</a></li>
+<li><a href="generated/FMOD_System_LoadPlugin.html">System::loadPlugin</a></li>
+<li><a href="generated/FMOD_System_LockDSP.html">System::lockDSP</a></li>
+<li><a href="generated/FMOD_System_MixerResume.html">System::mixerResume</a></li>
+<li><a href="generated/FMOD_System_MixerSuspend.html">System::mixerSuspend</a></li>
+<li><a href="generated/FMOD_System_PlayDSP.html">System::playDSP</a></li>
+<li><a href="generated/FMOD_System_PlaySound.html">System::playSound</a></li>
+<li><a href="generated/FMOD_System_RecordStart.html">System::recordStart</a></li>
+<li><a href="generated/FMOD_System_RecordStop.html">System::recordStop</a></li>
+<li><a href="generated/FMOD_System_RegisterCodec.html">System::registerCodec</a></li>
+<li><a href="generated/FMOD_System_RegisterDSP.html">System::registerDSP</a></li>
+<li><a href="generated/FMOD_System_Release.html">System::release</a></li>
+<li><a href="FMOD_System_Set3DListenerAttributes.html">System::set3DListenerAttributes</a></li>
+<li><a href="FMOD_System_Set3DNumListeners.html">System::set3DNumListeners</a></li>
+<li><a href="FMOD_System_Set3DRolloffCallback.html">System::set3DRolloffCallback</a></li>
+<li><a href="FMOD_System_Set3DSettings.html">System::set3DSettings</a></li>
+<li><a href="generated/FMOD_System_SetAdvancedSettings.html">System::setAdvancedSettings</a></li>
+<li><a href="generated/FMOD_System_SetCallback.html">System::setCallback</a></li>
+<li><a href="generated/FMOD_System_SetDSPBufferSize.html">System::setDSPBufferSize</a></li>
+<li><a href="generated/FMOD_System_SetDriver.html">System::setDriver</a></li>
+<li><a href="generated/FMOD_System_SetFileSystem.html">System::setFileSystem</a></li>
+<li><a href="generated/FMOD_System_SetGeometrySettings.html">System::setGeometrySettings</a></li>
+<li><a href="generated/FMOD_System_SetNetworkProxy.html">System::setNetworkProxy</a></li>
+<li><a href="generated/FMOD_System_SetNetworkTimeout.html">System::setNetworkTimeout</a></li>
+<li><a href="generated/FMOD_System_SetOutput.html">System::setOutput</a></li>
+<li><a href="generated/FMOD_System_SetOutputByPlugin.html">System::setOutputByPlugin</a></li>
+<li><a href="generated/FMOD_System_SetPluginPath.html">System::setPluginPath</a></li>
+<li><a href="generated/FMOD_System_SetReverbProperties.html">System::setReverbProperties</a></li>
+<li><a href="generated/FMOD_System_SetSoftwareChannels.html">System::setSoftwareChannels</a></li>
+<li><a href="generated/FMOD_System_SetSoftwareFormat.html">System::setSoftwareFormat</a></li>
+<li><a href="generated/FMOD_System_SetSpeakerPosition.html">System::setSpeakerPosition</a></li>
+<li><a href="generated/FMOD_System_SetStreamBufferSize.html">System::setStreamBufferSize</a></li>
+<li><a href="generated/FMOD_System_SetUserData.html">System::setUserData</a></li>
+<li><a href="generated/FMOD_System_UnloadPlugin.html">System::unloadPlugin</a></li>
+<li><a href="generated/FMOD_System_UnlockDSP.html">System::unlockDSP</a></li>
+<li><a href="generated/FMOD_System_Update.html">System::update</a></li>
+</ul><p>Remarks ------ </p>
+
+<p>When using FMOD Studio, this system object will be automatically
+instantiated as part of <a href="generated/FMOD_Studio_System_Initialize.html">Studio::System::initialize</a>.</p>
+
+<p>See Also -------</p>
+
+<ul>
+<li><a href="generated/FMOD_Studio_System_GetLowLevelSystem.html">Studio::System::getLowLevelSystem</a></li>
+</ul><h2>
+<a name="studio-api-1" class="anchor" href="#studio-api-1"><span class="octicon octicon-link"></span></a>Studio API</h2>
+
+<h3>
+<a name="c-interfaces-1" class="anchor" href="#c-interfaces-1"><span class="octicon octicon-link"></span></a>C++ interfaces</h3>
+
+<ul>
+<li><a href="generated/studio_api_System.html">System</a></li>
+<li><a href="generated/studio_api_EventDescription.html">EventDescription</a></li>
+<li><a href="generated/studio_api_EventInstance.html">EventInstance</a></li>
+<li><a href="generated/studio_api_CueInstance.html">CueInstance</a></li>
+<li><a href="generated/studio_api_ParameterInstance.html">ParameterInstance</a></li>
+<li><a href="generated/studio_api_MixerStrip.html">MixerStrip</a></li>
+<li><a href="generated/studio_api_Bank.html">Bank</a></li>
+</ul><h3>
+<a name="functions-12" class="anchor" href="#functions-12"><span class="octicon octicon-link"></span></a>Functions</h3>
+
+<ul>
+<li><a href="generated/FMOD_Studio_ParseID.html">ParseID</a></li>
+</ul><h3>
+<a name="structures-2" class="anchor" href="#structures-2"><span class="octicon octicon-link"></span></a>Structures</h3>
+
+<ul>
+<li><a href="generated/FMOD_STUDIO_ADVANCEDSETTINGS.html">FMOD_STUDIO_ADVANCEDSETTINGS</a></li>
+<li><a href="generated/FMOD_STUDIO_BANK_INFO.html">FMOD_STUDIO_BANK_INFO</a></li>
+<li><a href="generated/FMOD_STUDIO_BUFFER_INFO.html">FMOD_STUDIO_BUFFER_INFO</a></li>
+<li><a href="generated/FMOD_STUDIO_BUFFER_USAGE.html">FMOD_STUDIO_BUFFER_USAGE</a></li>
+<li><a href="generated/FMOD_STUDIO_CPU_USAGE.html">FMOD_STUDIO_CPU_USAGE</a></li>
+<li><a href="generated/FMOD_STUDIO_PARAMETER_DESCRIPTION.html">FMOD_STUDIO_PARAMETER_DESCRIPTION</a></li>
+<li><a href="generated/FMOD_STUDIO_PROGRAMMER_SOUND_PROPERTIES.html">FMOD_STUDIO_PROGRAMMER_SOUND_PROPERTIES</a></li>
+<li><a href="generated/FMOD_STUDIO_USER_PROPERTY.html">FMOD_STUDIO_USER_PROPERTY</a></li>
+<li>
+</ul><h3>
+<a name="defines-2" class="anchor" href="#defines-2"><span class="octicon octicon-link"></span></a>Defines</h3>
+
+<ul>
+<li><a href="generated/FMOD_STUDIO_INITFLAGS.html">FMOD_STUDIO_INITFLAGS</a></li>
+<li><a href="generated/FMOD_STUDIO_LOAD_BANK_FLAGS.html">FMOD_STUDIO_LOAD_BANK_FLAGS</a></li>
+<li><a href="generated/FMOD_STUDIO_RECORD_COMMANDS_FLAGS.html">FMOD_STUDIO_RECORD_COMMANDS_FLAGS</a></li>
+</ul><h3>
+<a name="enumerations-2" class="anchor" href="#enumerations-2"><span class="octicon octicon-link"></span></a>Enumerations</h3>
+
+<ul>
+<li><a href="generated/FMOD_STUDIO_EVENT_CALLBACK_TYPE.html">FMOD_STUDIO_EVENT_CALLBACK_TYPE</a></li>
+<li><a href="generated/FMOD_STUDIO_LOADING_MODE.html">FMOD_STUDIO_LOADING_MODE</a></li>
+<li><a href="generated/FMOD_STUDIO_LOADING_STATE.html">FMOD_STUDIO_LOADING_STATE</a></li>
+<li><a href="generated/FMOD_STUDIO_LOAD_MEMORY_MODE.html">FMOD_STUDIO_LOAD_MEMORY_MODE</a></li>
+<li><a href="generated/FMOD_STUDIO_PARAMETER_TYPE.html">FMOD_STUDIO_PARAMETER_TYPE</a></li>
+<li><a href="generated/FMOD_STUDIO_PLAYBACK_STATE.html">FMOD_STUDIO_PLAYBACK_STATE</a></li>
+<li><a href="generated/FMOD_STUDIO_STOP_MODE.html">FMOD_STUDIO_STOP_MODE</a></li>
+<li><a href="generated/FMOD_STUDIO_USER_PROPERTY_TYPE.html">FMOD_STUDIO_USER_PROPERTY_TYPE</a></li>
+</ul><h3>
+<a name="callbacks-2" class="anchor" href="#callbacks-2"><span class="octicon octicon-link"></span></a>Callbacks</h3>
+
+<ul>
+<li><a href="generated/FMOD_STUDIO_EVENT_CALLBACK.html">FMOD_STUDIO_EVENT_CALLBACK</a></li>
+</ul><h3>
+<a name="studiobank" class="anchor" href="#studiobank"><span class="octicon octicon-link"></span></a>Studio::Bank</h3>
+
+<p>A bank contains FMOD Studio Event data as well as the actual sound data
+for all events in that bank.</p>
+
+<h4>
+<a name="functions-13" class="anchor" href="#functions-13"><span class="octicon octicon-link"></span></a>Functions</h4>
+
+<ul>
+<li><a href="generated/FMOD_Studio_Bank_GetEventCount.html">Studio::Bank::getEventCount</a></li>
+<li><a href="generated/FMOD_Studio_Bank_GetEventList.html">Studio::Bank::getEventList</a></li>
+<li><a href="generated/FMOD_Studio_Bank_GetID.html">Studio::Bank::getID</a></li>
+<li><a href="generated/FMOD_Studio_Bank_GetLoadingState.html">Studio::Bank::getLoadingState</a></li>
+<li><a href="generated/FMOD_Studio_Bank_GetMixerStripCount.html">Studio::Bank::getMixerStripCount</a></li>
+<li><a href="generated/FMOD_Studio_Bank_GetMixerStripList.html">Studio::Bank::getMixerStripList</a></li>
+<li><a href="generated/FMOD_Studio_Bank_GetPath.html">Studio::Bank::getPath</a></li>
+<li><a href="generated/FMOD_Studio_Bank_GetSampleLoadingState.html">Studio::Bank::getSampleLoadingState</a></li>
+<li><a href="generated/FMOD_Studio_Bank_LoadSampleData.html">Studio::Bank::loadSampleData</a></li>
+<li><a href="generated/FMOD_Studio_Bank_Unload.html">Studio::Bank::unload</a></li>
+<li><a href="generated/FMOD_Studio_Bank_UnloadSampleData.html">Studio::Bank::unloadSampleData</a></li>
+</ul><p>See Also --------</p>
+
+<ul>
+<li><a href="generated/FMOD_Studio_System_LoadBankFile.html">Studio::System::loadBankFile</a></li>
+<li><a href="generated/FMOD_Studio_System_LoadBankMemory.html">Studio::System::loadBankMemory</a></li>
+<li><a href="generated/FMOD_Studio_System_LoadBankCustom.html">Studio::System::loadBankCustom</a></li>
+</ul><h3>
+<a name="studiocueinstance" class="anchor" href="#studiocueinstance"><span class="octicon octicon-link"></span></a>Studio::CueInstance</h3>
+
+<p>A trigger for an FMOD Studio Event.</p>
+
+<h4>
+<a name="functions-14" class="anchor" href="#functions-14"><span class="octicon octicon-link"></span></a>Functions</h4>
+
+<p><a href="generated/FMOD_Studio_CueInstance_Trigger.html">Studio::CueInstance::trigger</a>
+ Remarks -------</p>
+
+<p>Cues can be set into events to pause the timeline at a certain point
+until the game activates the cue. Currently there is only a single cue
+type supported, with a name "keyOff".</p>
+
+<p>See Also --------</p>
+
+<ul>
+<li><a href="generated/FMOD_Studio_EventInstance_GetCue.html">Studio::EventInstance::getCue</a></li>
+<li><a href="generated/FMOD_Studio_EventInstance_GetCueByIndex.html">Studio::EventInstance::getCueByIndex</a></li>
+<li><a href="generated/FMOD_Studio_EventInstance_GetCueCount.html">Studio::EventInstance::getCueCount</a></li>
+</ul><h3>
+<a name="studioeventdescription" class="anchor" href="#studioeventdescription"><span class="octicon octicon-link"></span></a>Studio::EventDescription</h3>
+
+<p>The description for a FMOD Studio Event.</p>
+
+<h4>
+<a name="functions-15" class="anchor" href="#functions-15"><span class="octicon octicon-link"></span></a>Functions</h4>
+
+<ul>
+<li><a href="generated/FMOD_Studio_EventDescription_CreateInstance.html">Studio::EventDescription::createInstance</a></li>
+<li><a href="generated/FMOD_Studio_EventDescription_GetID.html">Studio::EventDescription::getID</a></li>
+<li><a href="generated/FMOD_Studio_EventDescription_GetInstanceCount.html">Studio::EventDescription::getInstanceCount</a></li>
+<li><a href="generated/FMOD_Studio_EventDescription_GetInstanceList.html">Studio::EventDescription::getInstanceList</a></li>
+<li><a href="generated/FMOD_Studio_EventDescription_GetLength.html">Studio::EventDescription::getLength</a></li>
+<li><a href="generated/FMOD_Studio_EventDescription_GetMaximumDistance.html">Studio::EventDescription::getMaximumDistance</a></li>
+<li><a href="generated/FMOD_Studio_EventDescription_GetMinimumDistance.html">Studio::EventDescription::getMinimumDistance</a></li>
+<li><a href="generated/FMOD_Studio_EventDescription_GetParameter.html">Studio::EventDescription::getParameter</a></li>
+<li><a href="generated/FMOD_Studio_EventDescription_GetParameterByIndex.html">Studio::EventDescription::getParameterByIndex</a></li>
+<li><a href="generated/FMOD_Studio_EventDescription_GetParameterCount.html">Studio::EventDescription::getParameterCount</a></li>
+<li><a href="generated/FMOD_Studio_EventDescription_GetPath.html">Studio::EventDescription::getPath</a></li>
+<li><a href="generated/FMOD_Studio_EventDescription_GetSampleLoadingState.html">Studio::EventDescription::getSampleLoadingState</a></li>
+<li><a href="generated/FMOD_Studio_EventDescription_GetUserData.html">Studio::EventDescription::getUserData</a></li>
+<li><a href="generated/FMOD_Studio_EventDescription_GetUserProperty.html">Studio::EventDescription::getUserProperty</a></li>
+<li><a href="generated/FMOD_Studio_EventDescription_GetUserPropertyByIndex.html">Studio::EventDescription::getUserPropertyByIndex</a></li>
+<li><a href="generated/FMOD_Studio_EventDescription_GetUserPropertyCount.html">Studio::EventDescription::getUserPropertyCount</a></li>
+<li><a href="FMOD_Studio_EventDescription_Is3D.html">Studio::EventDescription::is3D</a></li>
+<li><a href="generated/FMOD_Studio_EventDescription_IsOneshot.html">Studio::EventDescription::isOneshot</a></li>
+<li><a href="generated/FMOD_Studio_EventDescription_IsStream.html">Studio::EventDescription::isStream</a></li>
+<li><a href="generated/FMOD_Studio_EventDescription_LoadSampleData.html">Studio::EventDescription::loadSampleData</a></li>
+<li><a href="generated/FMOD_Studio_EventDescription_ReleaseAllInstances.html">Studio::EventDescription::releaseAllInstances</a></li>
+<li><a href="generated/FMOD_Studio_EventDescription_SetCallback.html">Studio::EventDescription::setCallback</a></li>
+<li><a href="generated/FMOD_Studio_EventDescription_SetUserData.html">Studio::EventDescription::setUserData</a></li>
+<li>
+<a href="generated/FMOD_Studio_EventDescription_UnloadSampleData.html">Studio::EventDescription::unloadSampleData</a>
+Remarks -------</li>
+</ul><p>Event Descriptions belong to banks and can be queried after the relevant
+bank has been loaded. Event Descriptions can be found either by looking
+up by GUID or by querying all descriptions as part of a bank.</p>
+
+<p>See Also --------</p>
+
+<ul>
+<li><a href="generated/FMOD_Studio_System_LoadBankFile.html">Studio::System::loadBankFile</a></li>
+<li><a href="generated/FMOD_Studio_System_LoadBankMemory.html">Studio::System::loadBankMemory</a></li>
+<li><a href="generated/FMOD_Studio_System_LoadBankCustom.html">Studio::System::loadBankCustom</a></li>
+<li><a href="generated/FMOD_Studio_System_GetEvent.html">Studio::System::getEvent</a></li>
+<li><a href="generated/FMOD_Studio_Bank_GetEventCount.html">Studio::Bank::getEventCount</a></li>
+<li><a href="generated/FMOD_Studio_Bank_GetEventList.html">Studio::Bank::getEventList</a></li>
+</ul><h3>
+<a name="studioeventinstance" class="anchor" href="#studioeventinstance"><span class="octicon octicon-link"></span></a>Studio::EventInstance</h3>
+
+<p>An instance of an FMOD Studio Event.</p>
+
+<h4>
+<a name="functions-16" class="anchor" href="#functions-16"><span class="octicon octicon-link"></span></a>Functions</h4>
+
+<ul>
+<li><a href="generated/FMOD_Studio_EventInstance_CreateSubEvent.html">Studio::EventInstance::createSubEvent</a></li>
+<li><a href="FMOD_Studio_EventInstance_Get3DAttributes.html">Studio::EventInstance::get3DAttributes</a></li>
+<li><a href="generated/FMOD_Studio_EventInstance_GetChannelGroup.html">Studio::EventInstance::getChannelGroup</a></li>
+<li><a href="generated/FMOD_Studio_EventInstance_GetCue.html">Studio::EventInstance::getCue</a></li>
+<li><a href="generated/FMOD_Studio_EventInstance_GetCueByIndex.html">Studio::EventInstance::getCueByIndex</a></li>
+<li><a href="generated/FMOD_Studio_EventInstance_GetCueCount.html">Studio::EventInstance::getCueCount</a></li>
+<li><a href="generated/FMOD_Studio_EventInstance_GetDescription.html">Studio::EventInstance::getDescription</a></li>
+<li><a href="generated/FMOD_Studio_EventInstance_GetLoadingState.html">Studio::EventInstance::getLoadingState</a></li>
+<li><a href="generated/FMOD_Studio_EventInstance_GetParameter.html">Studio::EventInstance::getParameter</a></li>
+<li><a href="generated/FMOD_Studio_EventInstance_GetParameterByIndex.html">Studio::EventInstance::getParameterByIndex</a></li>
+<li><a href="generated/FMOD_Studio_EventInstance_GetParameterCount.html">Studio::EventInstance::getParameterCount</a></li>
+<li><a href="generated/FMOD_Studio_EventInstance_GetPaused.html">Studio::EventInstance::getPaused</a></li>
+<li><a href="generated/FMOD_Studio_EventInstance_GetPitch.html">Studio::EventInstance::getPitch</a></li>
+<li><a href="generated/FMOD_Studio_EventInstance_GetPlaybackState.html">Studio::EventInstance::getPlaybackState</a></li>
+<li><a href="generated/FMOD_Studio_EventInstance_GetTimelinePosition.html">Studio::EventInstance::getTimelinePosition</a></li>
+<li><a href="generated/FMOD_Studio_EventInstance_GetUserData.html">Studio::EventInstance::getUserData</a></li>
+<li><a href="generated/FMOD_Studio_EventInstance_GetVolume.html">Studio::EventInstance::getVolume</a></li>
+<li><a href="generated/FMOD_Studio_EventInstance_IsVirtual.html">Studio::EventInstance::isVirtual</a></li>
+<li><a href="generated/FMOD_Studio_EventInstance_Release.html">Studio::EventInstance::release</a></li>
+<li><a href="FMOD_Studio_EventInstance_Set3DAttributes.html">Studio::EventInstance::set3DAttributes</a></li>
+<li><a href="generated/FMOD_Studio_EventInstance_SetCallback.html">Studio::EventInstance::setCallback</a></li>
+<li><a href="generated/FMOD_Studio_EventInstance_SetParameterValue.html">Studio::EventInstance::setParameterValue</a></li>
+<li><a href="generated/FMOD_Studio_EventInstance_SetParameterValueByIndex.html">Studio::EventInstance::setParameterValueByIndex</a></li>
+<li><a href="generated/FMOD_Studio_EventInstance_SetPaused.html">Studio::EventInstance::setPaused</a></li>
+<li><a href="generated/FMOD_Studio_EventInstance_SetPitch.html">Studio::EventInstance::setPitch</a></li>
+<li><a href="generated/FMOD_Studio_EventInstance_SetTimelinePosition.html">Studio::EventInstance::setTimelinePosition</a></li>
+<li><a href="generated/FMOD_Studio_EventInstance_SetUserData.html">Studio::EventInstance::setUserData</a></li>
+<li><a href="generated/FMOD_Studio_EventInstance_SetVolume.html">Studio::EventInstance::setVolume</a></li>
+<li><a href="generated/FMOD_Studio_EventInstance_Start.html">Studio::EventInstance::start</a></li>
+<li><p><a href="generated/FMOD_Studio_EventInstance_Stop.html">Studio::EventInstance::stop</a>
+See Also --------</p></li>
+<li><p><a href="generated/FMOD_Studio_EventDescription_CreateInstance.html">Studio::EventDescription::createInstance</a></p></li>
+</ul><h3>
+<a name="studiomixerstrip" class="anchor" href="#studiomixerstrip"><span class="octicon octicon-link"></span></a>Studio::MixerStrip</h3>
+
+<p>Represents either a VCA or a bus.</p>
+
+<h4>
+<a name="functions-17" class="anchor" href="#functions-17"><span class="octicon octicon-link"></span></a>Functions</h4>
+
+<ul>
+<li><a href="generated/FMOD_Studio_MixerStrip_GetChannelGroup.html">Studio::MixerStrip::getChannelGroup</a></li>
+<li><a href="generated/FMOD_Studio_MixerStrip_GetFaderLevel.html">Studio::MixerStrip::getFaderLevel</a></li>
+<li><a href="generated/FMOD_Studio_MixerStrip_GetID.html">Studio::MixerStrip::getID</a></li>
+<li><a href="generated/FMOD_Studio_MixerStrip_GetLoadingState.html">Studio::MixerStrip::getLoadingState</a></li>
+<li><a href="generated/FMOD_Studio_MixerStrip_GetMute.html">Studio::MixerStrip::getMute</a></li>
+<li><a href="generated/FMOD_Studio_MixerStrip_GetPath.html">Studio::MixerStrip::getPath</a></li>
+<li><a href="generated/FMOD_Studio_MixerStrip_GetPaused.html">Studio::MixerStrip::getPaused</a></li>
+<li><a href="generated/FMOD_Studio_MixerStrip_Release.html">Studio::MixerStrip::release</a></li>
+<li><a href="generated/FMOD_Studio_MixerStrip_SetFaderLevel.html">Studio::MixerStrip::setFaderLevel</a></li>
+<li><a href="generated/FMOD_Studio_MixerStrip_SetMute.html">Studio::MixerStrip::setMute</a></li>
+<li><a href="generated/FMOD_Studio_MixerStrip_SetPaused.html">Studio::MixerStrip::setPaused</a></li>
+<li><p><a href="generated/FMOD_Studio_MixerStrip_StopAllEvents.html">Studio::MixerStrip::stopAllEvents</a>
+See Also --------</p></li>
+<li><p><a href="generated/FMOD_Studio_System_GetMixerStrip.html">Studio::System::getMixerStrip</a></p></li>
+</ul><p>Firelight Technologies FMOD Studio API</p>
+
+<h3>
+<a name="studioparameterinstance" class="anchor" href="#studioparameterinstance"><span class="octicon octicon-link"></span></a>Studio::ParameterInstance</h3>
+
+<p>A parameter instance for an FMOD Studio Event.</p>
+
+<h4>
+<a name="functions-18" class="anchor" href="#functions-18"><span class="octicon octicon-link"></span></a>Functions</h4>
+
+<ul>
+<li><a href="generated/FMOD_Studio_ParameterInstance_GetDescription.html">Studio::ParameterInstance::getDescription</a></li>
+<li><a href="generated/FMOD_Studio_ParameterInstance_GetValue.html">Studio::ParameterInstance::getValue</a></li>
+<li><p><a href="generated/FMOD_Studio_ParameterInstance_SetValue.html">Studio::ParameterInstance::setValue</a>
+See Also --------</p></li>
+<li><p><a href="generated/FMOD_Studio_EventInstance_GetParameter.html">Studio::EventInstance::getParameter</a></p></li>
+<li><a href="generated/FMOD_Studio_EventInstance_GetParameterByIndex.html">Studio::EventInstance::getParameterByIndex</a></li>
+<li><a href="generated/FMOD_Studio_EventInstance_GetParameterCount.html">Studio::EventInstance::getParameterCount</a></li>
+</ul><h3>
+<a name="studiosystem" class="anchor" href="#studiosystem"><span class="octicon octicon-link"></span></a>Studio::System</h3>
+
+<p>The main system object for FMOD Studio.</p>
+
+<h4>
+<a name="functions-19" class="anchor" href="#functions-19"><span class="octicon octicon-link"></span></a>Functions</h4>
+
+<ul>
+<li><a href="generated/FMOD_Studio_System_Create.html">Studio::System::create</a></li>
+<li><a href="generated/FMOD_Studio_System_FlushCommands.html">Studio::System::flushCommands</a></li>
+<li><a href="generated/FMOD_Studio_System_GetAdvancedSettings.html">Studio::System::getAdvancedSettings</a></li>
+<li><a href="generated/FMOD_Studio_System_GetBank.html">Studio::System::getBank</a></li>
+<li><a href="generated/FMOD_Studio_System_GetBankCount.html">Studio::System::getBankCount</a></li>
+<li><a href="generated/FMOD_Studio_System_GetBankList.html">Studio::System::getBankList</a></li>
+<li><a href="generated/FMOD_Studio_System_GetBufferUsage.html">Studio::System::getBufferUsage</a></li>
+<li><a href="generated/FMOD_Studio_System_GetCPUUsage.html">Studio::System::getCPUUsage</a></li>
+<li><a href="generated/FMOD_Studio_System_GetEvent.html">Studio::System::getEvent</a></li>
+<li><a href="generated/FMOD_Studio_System_GetListenerAttributes.html">Studio::System::getListenerAttributes</a></li>
+<li><a href="generated/FMOD_Studio_System_GetLowLevelSystem.html">Studio::System::getLowLevelSystem</a></li>
+<li><a href="generated/FMOD_Studio_System_GetMixerStrip.html">Studio::System::getMixerStrip</a></li>
+<li><a href="generated/FMOD_Studio_System_Initialize.html">Studio::System::initialize</a></li>
+<li><a href="generated/FMOD_Studio_System_LoadBankCustom.html">Studio::System::loadBankCustom</a></li>
+<li><a href="generated/FMOD_Studio_System_LoadBankFile.html">Studio::System::loadBankFile</a></li>
+<li><a href="generated/FMOD_Studio_System_LoadBankMemory.html">Studio::System::loadBankMemory</a></li>
+<li><a href="generated/FMOD_Studio_System_LookupID.html">Studio::System::lookupID</a></li>
+<li><a href="generated/FMOD_Studio_System_LookupPath.html">Studio::System::lookupPath</a></li>
+<li><a href="generated/FMOD_Studio_System_PlaybackCommands.html">Studio::System::playbackCommands</a></li>
+<li><a href="generated/FMOD_Studio_System_RegisterPlugin.html">Studio::System::registerPlugin</a></li>
+<li><a href="generated/FMOD_Studio_System_Release.html">Studio::System::release</a></li>
+<li><a href="generated/FMOD_Studio_System_ResetBufferUsage.html">Studio::System::resetBufferUsage</a></li>
+<li><a href="generated/FMOD_Studio_System_SetAdvancedSettings.html">Studio::System::setAdvancedSettings</a></li>
+<li><a href="generated/FMOD_Studio_System_SetListenerAttributes.html">Studio::System::setListenerAttributes</a></li>
+<li><a href="generated/FMOD_Studio_System_StartRecordCommands.html">Studio::System::startRecordCommands</a></li>
+<li><a href="generated/FMOD_Studio_System_StopRecordCommands.html">Studio::System::stopRecordCommands</a></li>
+<li><a href="generated/FMOD_Studio_System_UnloadAll.html">Studio::System::unloadAll</a></li>
+<li><a href="generated/FMOD_Studio_System_UnregisterPlugin.html">Studio::System::unregisterPlugin</a></li>
+<li>
+<a href="generated/FMOD_Studio_System_Update.html">Studio::System::update</a>
+Remarks -------</li>
+</ul><p>Initializing the FMOD Studio System object will also initialise the low
+level System object.</p>
+
+<h2>
+<a name="see-also" class="anchor" href="#see-also"><span class="octicon octicon-link"></span></a>See Also</h2>
+
+<ul>
+<li><a href="generated/FMOD_Studio_System_Create.html">Studio::System::create</a></li>
+<li><a href="generated/FMOD_Studio_System_Initialize.html">Studio::System::initialize</a></li>
+</ul>
+      </section>
+
+    </div>
+    <!--[if !IE]><script>fixScale(document);</script><![endif]-->
+    
+  </body>
+</html>
