@@ -728,12 +728,12 @@ See Also -------
 
 
 
-####Studio::Bank
+###Studio::Bank
 
 A bank contains FMOD Studio Event data as well as the actual sound data
 for all events in that bank.
 
-#####Functions
+####Functions
 
 
 * [Studio::Bank::getEventCount][]
@@ -754,13 +754,13 @@ See Also --------
 * [Studio::System::loadBankMemory][]
 * [Studio::System::loadBankCustom][]
 
-//TODO: REST OF README FROM HERE ON
 
-Callbacks
-=========
+####Callbacks
 
 [FMOD\_STUDIO\_EVENT\_CALLBACK][]
  Firelight Technologies FMOD Studio API
+
+//TODO: REST OF README FROM HERE ON
 
 Studio::CueInstance
 ===================
